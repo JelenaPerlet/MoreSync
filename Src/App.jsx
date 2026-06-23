@@ -3871,8 +3871,9 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
 }
 
 
-function FastenTab({ phase, zyklusTag, aktivFasten, fastenStart, fastenEnde, now, fastenLogs, onStart, onBeenden }) {
+function FastenTab({ phase, zyklusTag, aktivFasten, fastenStart, fastenEnde, now, fastenLogs, onStart, onBeenden, onStartAnpassen }) {
   const [offenerTyp, setOffenerTyp] = useState(null);
+  const [startBearbeiten, setStartBearbeiten] = useState(false);
 
   const fortschritt = aktivFasten && fastenStart ? Math.min(100, ((now - fastenStart) / (aktivFasten.stunden * 3600000)) * 100) : 0;
   const verstrichenH = aktivFasten && fastenStart ? (now - fastenStart) / 3600000 : 0;
@@ -3921,7 +3922,36 @@ function FastenTab({ phase, zyklusTag, aktivFasten, fastenStart, fastenEnde, now
             )}
           </div>
 
-          <button onClick={onBeenden} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "12px", cursor: "pointer", fontSize: 14, fontWeight: 700 }}>✅ Fasten beenden & speichern</button>
+          {/* Startzeit anpassen */}
+          {!startBearbeiten ? (
+            <button onClick={() => setStartBearbeiten(true)}
+              style={{ width: "100%", background: "#f7f4fa", color: phase.farbe, border: `1px solid ${phase.farbe}33`, borderRadius: 10, padding: "9px", cursor: "pointer", fontSize: 12.5, fontWeight: 600, marginBottom: 10 }}>
+              🕐 Startzeit anpassen (seit {fastenStart.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })} Uhr)
+            </button>
+          ) : (
+            <div style={{ background: "#f7f4fa", borderRadius: 10, padding: 12, marginBottom: 10 }}>
+              <p style={{ margin: "0 0 6px", fontSize: 12.5, color: "#555", lineHeight: 1.5 }}>Wann hast du zuletzt gegessen?</p>
+              <input
+                type="time"
+                defaultValue={fastenStart.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })}
+                onChange={(e) => {
+                  if (!e.target.value || !onStartAnpassen) return;
+                  const [h, m] = e.target.value.split(":").map(Number);
+                  const neu = new Date();
+                  neu.setHours(h, m, 0, 0);
+                  if (neu > new Date()) neu.setDate(neu.getDate() - 1);
+                  onStartAnpassen(neu.toISOString());
+                }}
+                style={{ width: "100%", border: "1px solid #ddd", borderRadius: 8, padding: "10px", fontSize: 15, marginBottom: 8, boxSizing: "border-box" }}
+              />
+              <button onClick={() => setStartBearbeiten(false)}
+                style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 8, padding: "9px", cursor: "pointer", fontSize: 13, fontWeight: 600 }}>
+                Fertig
+              </button>
+            </div>
+          )}
+
+          <button onClick={() => { setStartBearbeiten(false); onBeenden(); }} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "12px", cursor: "pointer", fontSize: 14, fontWeight: 700 }}>✅ Fasten beenden & speichern</button>
         </div>
       ) : (
         <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
@@ -5176,7 +5206,8 @@ export default function App() {
           <FastenTab phase={phase} zyklusTag={zyklusTag}
             aktivFasten={aktivFasten} fastenStart={fastenStart} fastenEnde={fastenEnde}
             now={now} fastenLogs={fastenLogs}
-            onStart={fastenStarten} onBeenden={fastenBeenden} />
+            onStart={fastenStarten} onBeenden={fastenBeenden}
+            onStartAnpassen={fastenStartAnpassen} />
         )}
 
         {/* ──────────── TRAINING ──────────── */}
