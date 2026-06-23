@@ -1,0 +1,13 @@
+{
+  "name": "MoreSync",
+  "short_name": "MoreSync",
+  "description": "Mehr im Einklang mit deinem Körper — Zyklus, Fasten, Ernährung, Training & Menopause nach Dr. Mindy Pelz",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F6F2",
+  "theme_color": "#9B7BAD",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
