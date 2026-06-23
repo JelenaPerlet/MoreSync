@@ -4411,6 +4411,7 @@ export default function App() {
   const [filter, setFilter] = useState({ phase: "alle", stil: "alle", diät: "alle", suche: "" });
   const [aktivFasten, setAktivFasten] = useState(null);
   const [fastenStart, setFastenStart] = useState(null);
+  const [startBearbeiten, setStartBearbeiten] = useState(false);
   const [fastenEnde, setFastenEnde] = useState(null);
   const [now, setNow] = useState(new Date());
   const [einkaufsliste, setEinkaufsliste] = useState([]);
@@ -4656,6 +4657,18 @@ export default function App() {
     setAktivFasten(typ);
     setFastenStart(start);
     setFastenEnde(ende);
+  }
+
+  // Startzeit nachträglich anpassen (z.B. wenn man vergessen hat, gleich zu starten)
+  function fastenStartAnpassen(neueStartISO) {
+    if (!aktivFasten) return;
+    const neuerStart = new Date(neueStartISO);
+    const jetzt = new Date();
+    // Sicherheit: Startzeit darf nicht in der Zukunft liegen
+    if (neuerStart > jetzt) return;
+    const neuesEnde = new Date(neuerStart.getTime() + aktivFasten.stunden * 3600000);
+    setFastenStart(neuerStart);
+    setFastenEnde(neuesEnde);
   }
 
   function fastenBeenden() {
@@ -4994,7 +5007,38 @@ export default function App() {
                   <span>Verstrichen: {((now - fastenStart) / 3600000).toFixed(1)}h</span>
                   <span>Noch: {fastenRestH}h {fastenRestM}min</span>
                 </div>
-                <button onClick={fastenBeenden} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 14, fontWeight: 700 }}>✅ Fasten beenden & speichern</button>
+
+                {/* Startzeit anpassen */}
+                {!startBearbeiten ? (
+                  <button onClick={() => setStartBearbeiten(true)}
+                    style={{ width: "100%", background: "#f7f4fa", color: phase.farbe, border: `1px solid ${phase.farbe}33`, borderRadius: 10, padding: "8px", cursor: "pointer", fontSize: 12, fontWeight: 600, marginBottom: 8 }}>
+                    🕐 Startzeit anpassen (seit {fastenStart.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })} Uhr)
+                  </button>
+                ) : (
+                  <div style={{ background: "#f7f4fa", borderRadius: 10, padding: 12, marginBottom: 8 }}>
+                    <p style={{ margin: "0 0 6px", fontSize: 12, color: "#555", lineHeight: 1.5 }}>Wann hast du zuletzt gegessen?</p>
+                    <input
+                      type="time"
+                      defaultValue={fastenStart.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })}
+                      onChange={(e) => {
+                        if (!e.target.value) return;
+                        const [h, m] = e.target.value.split(":").map(Number);
+                        const neu = new Date();
+                        neu.setHours(h, m, 0, 0);
+                        // Wenn die gewählte Uhrzeit in der Zukunft liegt, ist sie wohl von gestern
+                        if (neu > new Date()) neu.setDate(neu.getDate() - 1);
+                        fastenStartAnpassen(neu.toISOString());
+                      }}
+                      style={{ width: "100%", border: "1px solid #ddd", borderRadius: 8, padding: "10px", fontSize: 15, marginBottom: 8, boxSizing: "border-box" }}
+                    />
+                    <button onClick={() => setStartBearbeiten(false)}
+                      style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 8, padding: "9px", cursor: "pointer", fontSize: 13, fontWeight: 600 }}>
+                      Fertig
+                    </button>
+                  </div>
+                )}
+
+                <button onClick={() => { setStartBearbeiten(false); fastenBeenden(); }} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 14, fontWeight: 700 }}>✅ Fasten beenden & speichern</button>
               </div>
             )}
           </div>
