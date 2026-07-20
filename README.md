@@ -1,71 +1,80 @@
-# 🌸 MoreSync
+# MoreSync 🌸
 
-**Eine Frauengesundheits-App, die dich durch jede Lebensphase begleitet.**
+**MoreSync** ist eine Progressive Web App (PWA) für Frauengesundheit, die Ernährung, Fasten, Training und Lifestyle an die weiblichen Hormone in jeder Lebensphase anpasst.
 
-MoreSync hilft dir, dein Essen, Fasten, Training und deinen ganzen Lifestyle an deine weiblichen Hormone anzupassen — mit fundiertem Wissen aus führenden Büchern der Frauengesundheit. Die App ist für Frauen gedacht, die mehr wollen als an der Oberfläche zu kratzen.
-
-🔗 **Live:** [moresync.netlify.app](https://moresync.netlify.app)
+Live: [moresync.netlify.app](https://moresync.netlify.app)
 
 ---
 
-## ✨ Was MoreSync kann
+## Was ist MoreSync?
 
-MoreSync passt sich automatisch an deine Lebensphase an — abhängig von deinem Geburtsdatum und dem gewählten Modus:
+MoreSync begleitet Frauen mit auf ihre jeweilige Lebensphase zugeschnittenen Inhalten — vom Zyklus über die Schwangerschaft bis zu den Wechseljahren, und mit einer eigenen Variante für junge Frauen in der Pubertät. Die App ist ein Handlungs-Dashboard: Sie zeigt jeden Tag, was gerade guttut, ohne zu bewerten.
 
-- **🩸 Zyklus-Modus** — Tracking nach deiner Periode, mit den vier Zyklusphasen (Power Phase 1, Manifestation, Power Phase 2, Nurture). Enthält auch eigenes Wissen zur **Perimenopause**, solange noch ein (unregelmäßiger) Zyklus da ist.
-- **🌙 Menopause-Modus** — Orientierung am Mondzyklus, mit menopausenspezifischem Wissen und primal-orientierten Rezepten
-- **🤰 Schwangerschafts-Modus** — Begleitung durch alle Trimester mit Ernährung, Bewegung und schwangerschaftssicheren Rezepten
-- **🌷 Teenager-Version (11–19 Jahre)** — automatisch altersgerecht, mit Fokus auf Pubertät, Aufklärung und gesunde Ernährung statt Fasten (kein Fasten-Framing, keine Diät- oder Kaloriensprache)
+Das gesammelte Wissen stammt aus mehreren Fachbüchern und wird in der App verständlich, buchtreu und über die Quellen hinweg konsistent aufbereitet (Widersprüche zwischen Autorinnen werden erklärt, nicht versteckt).
 
 ---
 
-## 📱 Die Bereiche der App
+## Modi
 
-- **🏠 Heute** — Tagesüberblick mit aktueller Phase und **automatischen Rezeptvorschlägen** pro Mahlzeit (Frühstück, Mittag, Abend, Fasted Snack) — mit „Übernehmen" und „Anderes vorschlagen"
-- **📅 Zyklus** — Kalender mit Phasen, Periode und Vorhersage
-- **⏰ Fasten / 🍎 Ernährung** — Fastenfenster & -protokolle, passend zur Phase (bei jungen Frauen als Ernährungs-Bereich ohne Fasten)
-- **🏋️ Training** — phasengerechtes Training mit Krafttraining als Basis; eigener Bewegungs-Bereich für Teenager
-- **💡 Verstehen** — das Wissens-Herzstück: Hormone, Ernährung, Zyklus, Aufklärung, urogenitale Gesundheit & mehr
-- **🥗 Rezepte** — über **240 Rezepte**, filterbar nach Phase, Kategorie & Ernährungsstil, mit **Suche nach Rezept oder Zutat**
-- **📔 Tagebuch** — Stimmung, Symptome & Notizen
-- **🛒 Einkaufsliste** — Zutaten planen, Portionen anpassen und einkaufen
-- **🍼 Schwangerschaft** — Trimester-Infos, Ernährung, Bewegung & eigene Rezeptvorschläge (im Schwangerschaftsmodus)
+Die App passt sich dem Lebensabschnitt der Nutzerin an:
+
+- **Zyklus** — Tracking nach der Periode, mit den vier Phasen (Power 1, Manifestation, Power 2, Nurture) und passender Ernährung, Fasten und Training. Enthält eine eigene **Teenager-Variante** (11–19 Jahre) ohne Fasten-, Supplement- oder Fettabbau-Inhalte.
+- **Schwangerschaft** — Begleitung durch alle Trimester (plus Stillzeit), mit Trimester-gerechter Ernährung (Blutzucker, Cholin, Protein, DHA, Jod), Bewegung und Rezepten.
+- **Menopause** — sanfte Struktur nach dem Mondrhythmus (Neumond = Tag 1), mit der Primal Menopausal Diet, Menopause-Fasten, Adaptogenen und Inhalten zu Knochen, Gehirn, Schlaf und sexueller Gesundheit.
 
 ---
 
-## 🥗 Die Rezepte
+## Funktionen
 
-- **160 Rezepte** für den Zyklus- und Menopause-Modus, eingeordnet in die Ernährungsstile *Ketobiotic* und *Hormone Feasting* sowie Kategorien wie Frühstück, Smoothies, Desserts, Saucen, Brühen und Fermentiertes
-- **14 Fasted Snacks** nach den Regeln von Dr. Mindy Pelz (fettbasiert, wenig Protein & Kohlenhydrate — brechen das Fasten nicht), mit eigenem Filter
-- **84 kuratierte Schwangerschafts-Rezepte** mit Angaben zu Protein, Cholin & DHA — bewusst ohne rohen Fisch, quecksilberreiche Fische oder Alkohol, mit Hinweisen zu sicherer Zubereitung
-- Filterbar nach Ernährungsstil, Diät-Art (vegan 🌱, vegetarisch 🥚, omnivor 🥩, glutenfrei) und durchsuchbar nach Zutaten
-- Für Teenager werden Kategorien altersgerecht benannt (z.B. „Gemüse & gute Fette" statt „Ketobiotic")
+- **Startseite (Heute):** aktuelle Phase, sanfte Erinnerungen (inkl. Wasser mit „+1 Glas"), Tagesplan mit Rezept-Vorschlägen, 5×5×5-Tool und Fasten
+- **Ernährung:** phasengerechte Empfehlungen, Blutzucker- & Glukose-Hacks, Nährstoffe & Supplemente, „besser weglassen"-Liste
+- **Wissensbereich (Dein Körper / Wechseljahre):** Hormone, Zyklus, Aufklärung, urogenitale & sexuelle Gesundheit
+- **Fasten:** Fastenfenster & -protokolle passend zur Phase (bei jungen Frauen ausgeblendet)
+- **Training:** phasengerechtes Training mit Krafttraining als Basis
+- **5×5×5-Tool** (nach Dr. William Li): täglich ein Lebensmittel für jedes der fünf Verteidigungssysteme (Angiogenese, Regeneration, Mikrobiom, DNA-Schutz, Immunsystem) — inklusive der markierten **Grand Slammers**, die alle fünf Systeme auf einmal aktivieren
+- **Tipp des Tages:** täglich ein wechselnder Tipp aus über 40 Wissensquellen, modus- und altersgerecht
+- **Tagesplan, Tagebuch, Rezepte, Einkaufsliste** und Einstellungen (über das „Mehr"-Menü)
+- Zentraler **Zurück-Button** auf allen Unterseiten
 
 ---
 
-## 📚 Wissensquellen
+## Wissensquellen
 
-Die Inhalte stammen aus fundierten Büchern und von Expertinnen und Experten der Frauengesundheit:
+Die Inhalte basieren buchtreu auf:
 
-- **Dr. Mindy Pelz** — *Fast Like a Girl*, *Eat Like a Girl*, *Age Like a Girl* (Fasten, Ernährung, Menopause)
-- **Dr. Stacy Sims** — *ROAR*, *Next Level* (Training, Zyklus, Menopause)
-- **Jessie Inchauspé** — *Glucose Revolution*, *9 Months That Count Forever* (Blutzucker, Schwangerschaft)
-- **Dr. William Li** — *Eat to Beat Disease*, *Eat to Beat Your Diet* (Ernährung, die die körpereigenen Abwehrsysteme stärkt)
+- **Dr. Mindy Pelz** — *Fast Like a Girl*, *Eat Like a Girl*, *Age Like a Girl*
+- **Dr. Stacy Sims** — *Roar*, *Next Level*
+- **Jessie Inchauspé** — *Glucose Revolution*, *9 Months That Count Forever*
+- **Dr. William Li** — *Eat to Beat Disease*, *Eat to Beat Your Diet*
 - **Dr. Rachel Rubin** — sexuelle & urogenitale Gesundheit
-- **Dr. Rhonda Patrick** — Supplemente, Langlebigkeit & Hormone
+- **Dr. Rhonda Patrick** — Supplemente & Nährstoffe
+- **Dr. Lucia Aronica** — Ernährungs-Epigenetik
 
-*MoreSync bündelt dieses Wissen an einem Ort. Es ersetzt keine ärztliche Beratung — bei Beschwerden wende dich an dein Behandlungsteam.*
-
----
-
-## 🛠️ Technik
-
-- **React** (Progressive Web App)
-- **Hosting:** Netlify
-- **Sprache:** Deutsch (österreichische Anlaufstellen & Maßeinheiten)
-- Alle Daten werden **lokal auf dem Gerät** gespeichert (Privatsphäre) — mit Export-/Import-Funktion für Backups
-- **Barrierefreiheit:** Icon-Schaltflächen mit Beschriftungen für Screenreader
+Bei Themen, wo sich Quellen scheinbar widersprechen (z.B. Protein-Mengen bei Pelz vs. Sims, oder Milchprodukte in der Primal-Diät), erklärt die App beide Perspektiven mit Kontext, statt eine zu verschweigen.
 
 ---
 
-*MoreSync — deine Hormone verstehen, statt gegen sie zu leben.* 🌸
+## Technik
+
+- **Framework:** React (Single-Page-App als PWA)
+- **Hosting:** [Netlify](https://www.netlify.com/) — automatischer Build aus `Src/App.jsx`
+- **Speicherung:** lokal im Browser (localStorage) — keine Server, keine Konten, keine Weitergabe von Daten
+- **Sprache:** Deutsch (österreichische Lebensmittelbegriffe außerhalb der Rezepte, z.B. Marille, Karfiol, Melanzani)
+
+> ⚠️ **Wichtig fürs Deployment:** Netlify baut aus dem Ordner `Src/` (großes **S**). Die Hauptdatei ist `Src/App.jsx`.
+
+---
+
+## Projektstruktur
+
+Die gesamte App liegt in einer einzelnen großen Datei: **`Src/App.jsx`**. Sie enthält alle Modi, Wissensinhalte, Rezepte und UI-Komponenten. Änderungen werden über GitHub hochgeladen.
+
+---
+
+## Hinweis
+
+MoreSync ersetzt keine ärztliche Beratung. Die Inhalte dienen der Information und Selbstfürsorge. Bei gesundheitlichen Fragen, in der Schwangerschaft oder bei Beschwerden sollte immer eine Ärztin oder ein Arzt hinzugezogen werden.
+
+---
+
+*Mit Liebe entwickelt für Frauen, die mehr über ihren Körper wissen wollen. 🌸*
