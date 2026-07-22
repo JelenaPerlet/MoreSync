@@ -1,5 +1,49 @@
 import { useState, useEffect } from "react";
 
+// ══════════════════════════════════════════════════════════════════
+// MORESYNC DESIGN-SYSTEM — "Modern Editorial Health"
+// weiblich aber nicht kitschig · wissenschaftlich aber nicht klinisch
+// warm aber nicht verspielt · tiefgründig aber nicht überladen
+// ══════════════════════════════════════════════════════════════════
+const DS = {
+  // Grundfarben
+  offwhite: "#F6F3EE",     // warmer Seitenhintergrund
+  karte: "#FFFFFF",         // Kartenflächen
+  aubergine: "#2A1F2D",     // tiefe Marke / dunkle Flächen
+  tinte: "#242124",         // Fast-Schwarz für Text
+  text: "#242124",
+  textLeise: "#7A7278",     // gedämpfter Sekundärtext
+  textZart: "#A8A2A6",      // Captions, Eyebrows
+  linie: "#E9E3DB",         // dezente Trennlinien
+  // Markenakzente (gedämpft, erwachsen)
+  salbei: "#788477",
+  terrakotta: "#C4775D",
+  sand: "#D8C8B5",
+  mauve: "#8B6B84",
+  // Zyklusphasen — gedämpfte Nuancen derselben Markenwelt
+  phase: {
+    power1: { farbe: "#5B7355", hell: "#ECF0EA" },   // Follikel · Salbeigrün
+    manifestation: { farbe: "#C39A3A", hell: "#F6F0E1" }, // Ovulation · warmes Gold
+    power2: { farbe: "#A85440", hell: "#F4E8E3" },    // früh-luteal · Terrakotta
+    nurture: { farbe: "#7B5A86", hell: "#EFE9F1" },   // luteal · Mauve
+    menstruation: { farbe: "#7D3B42", hell: "#F1E6E6" }, // dunkles Weinrot
+  },
+  // Radien & Schatten — weniger verspielt, ruhiger
+  r: { s: 10, m: 14, l: 18 },
+  schatten: "0 2px 14px rgba(42,31,45,0.06)",
+  schattenHeld: (farbe) => `0 8px 24px ${farbe}26`,
+  // Typo-Skala
+  t: {
+    eyebrow: { fontSize: 11, fontWeight: 600, letterSpacing: 0.8, textTransform: "uppercase" },
+    h1: { fontSize: 25, fontWeight: 800, letterSpacing: -0.4 },
+    h2: { fontSize: 18, fontWeight: 800, letterSpacing: -0.2 },
+    h3: { fontSize: 15, fontWeight: 700 },
+    body: { fontSize: 14, lineHeight: 1.6 },
+    klein: { fontSize: 12.5, lineHeight: 1.5 },
+  },
+};
+
+
 // ═══════════════════════════════════════════════════════════════════
 // DATENBASIS — buchkonform nach Fast Like a Girl & Eat Like a Girl
 // ═══════════════════════════════════════════════════════════════════
@@ -23,7 +67,7 @@ const EQOLOGY_PRODUKTE = {
 const PHASEN = {
   power1: {
     id: "power1", name: "Power Phase 1", subtitle: "Östrogen aufbauen",
-    tage: "Tag 1–10", farbe: "#5B9E6F", hellFarbe: "#EBF2ED",
+    tage: "Tag 1–10", farbe: "#5B7355", hellFarbe: "#ECF0EA",
     beschreibung: "Östrogen steigt langsam an. Ketobiotic-Ernährung ist ideal: wenig Kohlenhydrate, hochwertiges Fett und Protein unterstützen die Östrogenproduktion. Längere Fastenzeiten sind jetzt gut verträglich.",
     hormoneLevel: { Östrogen: 45, Progesteron: 10, Testosteron: 30 },
     ernährungsstil: ["ketobiotic"],
@@ -37,7 +81,7 @@ const PHASEN = {
   },
   manifestation: {
     id: "manifestation", name: "Manifestations-Phase", subtitle: "Ovulation & maximale Energie",
-    tage: "Tag 11–15", farbe: "#E08A3C", hellFarbe: "#FAF0E8",
+    tage: "Tag 11–15", farbe: "#C39A3A", hellFarbe: "#F6F0E1",
     beschreibung: "Rund um den Eisprung: Östrogen und Testosteron sind auf dem Höhepunkt — maximale Energie, Fokus und Libido. Pelz empfiehlt hier kurz auf Hormone Feasting umzusteigen: mehr komplexe Kohlenhydrate und Protein. Dies ist die kürzeste, aber kraftvollste Phase.",
     hormoneLevel: { Östrogen: 100, Progesteron: 25, Testosteron: 100 },
     ernährungsstil: ["hormone_feasting"],
@@ -51,7 +95,7 @@ const PHASEN = {
   },
   power2: {
     id: "power2", name: "Power Phase 2", subtitle: "Östrogen entgiften",
-    tage: "Tag 16–19", farbe: "#5B8FC9", hellFarbe: "#E9F0F8",
+    tage: "Tag 16–19", farbe: "#A85440", hellFarbe: "#F4E8E3",
     beschreibung: "Kurz nach dem Eisprung. Östrogen ist noch erhöht, Progesteron beginnt zu steigen. Pelz empfiehlt zurück zu Ketobiotic für einige Tage: Kreuzblütler und Ballaststoffe helfen der Leber beim Östrogen-Abbau, bevor die Nurture-Phase beginnt. Kurzes Fasten wieder möglich.",
     hormoneLevel: { Östrogen: 75, Progesteron: 45, Testosteron: 55 },
     ernährungsstil: ["ketobiotic","hormone_feasting"],
@@ -65,7 +109,7 @@ const PHASEN = {
   },
   nurture: {
     id: "nurture", name: "Nurture-Phase", subtitle: "Progesteron & Selbstfürsorge",
-    tage: "Tag 20–28", farbe: "#9B7BAD", hellFarbe: "#F3EEF7",
+    tage: "Tag 20–28", farbe: "#7B5A86", hellFarbe: "#EFE9F1",
     beschreibung: "Progesteron dominiert und braucht Unterstützung durch Magnesium und Vitamin B6. Komplexe Kohlenhydrate stabilisieren den Blutzucker und reduzieren PMS. Kürzere Fastenzeiten sind jetzt wichtig — Progesteron ist sensibel gegenüber zu viel Stress.",
     hormoneLevel: { Östrogen: 50, Progesteron: 100, Testosteron: 20 },
     ernährungsstil: ["hormone_feasting"],
@@ -448,11 +492,11 @@ const ETBD_SYSTEME = [
 
 // 5×5×5-Lebensmittel-Datenbank: pro System eine Auswahl gängiger Lebensmittel (buchkonform)
 const ETBD_5X5X5 = {
-  angiogenese: { name: "Angiogenese", icon: "🩸", farbe: "#C2185B", lebensmittel: ["Tomaten (San Marzano, Cherry)", "Soja / Edamame / Tofu", "Grüner Tee", "Schwarzer Tee", "Kamillentee", "Brombeeren", "Himbeeren", "Erdbeeren", "Blaubeeren", "Kirschen", "Granatapfel", "Dunkle Schokolade", "Olivenöl (nativ extra)", "Lachs / fetter Fisch", "Makrele", "Sardinen", "Thunfisch", "Austern", "Kurkuma", "Zimt", "Rosmarin", "Oregano", "Walnüsse", "Mandeln", "Pistazien", "Cashews", "Pekannüsse", "Macadamia", "Esskastanien", "Pinienkerne", "Grünkohl", "Brokkoli", "Karfiol", "Pak Choi", "Rucola", "Radicchio", "Chicorée", "Marillen", "Pfirsiche", "Nektarinen", "Zwetschken", "Mango", "Kiwi", "Litschi", "Guave", "Wassermelone", "Äpfel (Granny Smith, Red Delicious)", "Cranberrys", "Schwarze Bohnen", "Gouda / Edamer / Emmentaler", "Camembert", "Rotwein (in Maßen)", "Süßholzwurzel", "Kapern", "Melanzani", "Bambussprossen", "Karotten", "Rote Rübe"] },
-  regeneration: { name: "Regeneration", icon: "🌱", farbe: "#5B9E6F", lebensmittel: ["Dunkle Schokolade", "Blaubeeren", "Grüner Tee", "Schwarzer Tee", "Kamillentee", "Kaffee", "Spinat", "Grünkohl", "Mango", "Pistazien", "Walnüsse", "Leinsamen", "Kürbiskerne", "Sesam", "Sonnenblumenkerne", "Lila Kartoffeln", "Fetter Fisch (Lachs, Makrele)", "Olivenöl (nativ extra)", "Sojabohnen / Tofu", "Vollkorn / Weizenvollkorn", "Chinesischer Sellerie", "Karotten", "Marillen", "Kirschen", "Nektarinen", "Pfirsiche", "Zwetschken", "Kiwi", "Litschi", "Bambussprossen", "Melanzani", "Farnspitzen (Fiddleheads)", "Tintenfischtinte", "Austern", "Bier (in Maßen)"] },
-  mikrobiom: { name: "Mikrobiom", icon: "🦠", farbe: "#8D6E63", lebensmittel: ["Sauerkraut", "Kimchi", "Naturjoghurt", "Kefir", "Sauerteigbrot", "Parmesan / Gouda / Cheddar", "Hülsenfrüchte (Bohnen, Linsen)", "Kichererbsen", "Spargel", "Zwiebeln", "Knoblauch", "Lauch", "Granatapfelsaft", "Vollkorn / Weizenvollkorn", "Gerste", "Brokkoli (Stiele)", "Pilze (Shiitake, Champignons)", "Grüner Tee", "Dunkle Schokolade", "Blaubeeren", "Kiwi", "Bambussprossen", "Chicorée / Topinambur", "Walnüsse", "Karotten", "Kürbiskerne", "Leinsamen", "Rotwein (in Maßen)", "Concord-Traubensaft", "Pu-Erh-Tee"] },
-  dna: { name: "DNA-Schutz", icon: "🧬", farbe: "#5C6BC0", lebensmittel: ["Kiwi", "Karotten", "Brokkoli", "Brokkolisprossen", "Beeren (alle)", "Blaubeeren", "Kirschen", "Orangen", "Zitrusfrüchte", "Mandeln", "Walnüsse", "Leinsamen", "Kürbiskerne", "Sesam", "Sonnenblumenkerne", "Kaffee", "Grüner Tee", "Schwarzer Tee", "Oolong-Tee", "Kamillentee", "Tomaten", "Mango", "Marillen", "Pfirsiche", "Nektarinen", "Zwetschken", "Litschi", "Grünkohl", "Melanzani", "Bambussprossen", "Farnspitzen (Fiddleheads)", "Olivenöl (nativ extra)", "Dunkle Schokolade", "Lachs / fetter Fisch", "Tintenfischtinte", "Kohlsprossen", "Rotkohl"] },
-  immun: { name: "Immunsystem", icon: "🛡️", farbe: "#F9A825", lebensmittel: ["Gealterter Knoblauch", "Shiitake / Pilze", "Champignons", "Brokkolisprossen", "Blaubeeren", "Brombeeren", "Granatapfel", "Walnüsse", "Zitrusfrüchte", "Orangen", "Grüner Tee", "Schwarzer Tee", "Kamillentee", "Kaffee", "Erdbeeren", "Kirschen", "Marillen", "Pfirsiche", "Nektarinen", "Zwetschken", "Kiwi", "Mango", "Litschi", "Grünkohl", "Karotten", "Melanzani", "Bambussprossen", "Farnspitzen (Fiddleheads)", "Chilischoten", "Dunkle Schokolade", "Olivenöl (nativ extra)", "Leinsamen", "Kürbiskerne", "Sesam", "Sonnenblumenkerne", "Tintenfischtinte", "Heidelbeeren", "Tomaten"] },
+  angiogenese: { name: "Angiogenese", icon: "🩸", farbe: "#8B4A5C", lebensmittel: ["Tomaten (San Marzano, Cherry)", "Soja / Edamame / Tofu", "Grüner Tee", "Schwarzer Tee", "Kamillentee", "Brombeeren", "Himbeeren", "Erdbeeren", "Blaubeeren", "Kirschen", "Granatapfel", "Dunkle Schokolade", "Olivenöl (nativ extra)", "Lachs / fetter Fisch", "Makrele", "Sardinen", "Thunfisch", "Austern", "Kurkuma", "Zimt", "Rosmarin", "Oregano", "Walnüsse", "Mandeln", "Pistazien", "Cashews", "Pekannüsse", "Macadamia", "Esskastanien", "Pinienkerne", "Grünkohl", "Brokkoli", "Karfiol", "Pak Choi", "Rucola", "Radicchio", "Chicorée", "Marillen", "Pfirsiche", "Nektarinen", "Zwetschken", "Mango", "Kiwi", "Litschi", "Guave", "Wassermelone", "Äpfel (Granny Smith, Red Delicious)", "Cranberrys", "Schwarze Bohnen", "Gouda / Edamer / Emmentaler", "Camembert", "Rotwein (in Maßen)", "Süßholzwurzel", "Kapern", "Melanzani", "Bambussprossen", "Karotten", "Rote Rübe"] },
+  regeneration: { name: "Regeneration", icon: "🌱", farbe: "#5B7355", lebensmittel: ["Dunkle Schokolade", "Blaubeeren", "Grüner Tee", "Schwarzer Tee", "Kamillentee", "Kaffee", "Spinat", "Grünkohl", "Mango", "Pistazien", "Walnüsse", "Leinsamen", "Kürbiskerne", "Sesam", "Sonnenblumenkerne", "Lila Kartoffeln", "Fetter Fisch (Lachs, Makrele)", "Olivenöl (nativ extra)", "Sojabohnen / Tofu", "Vollkorn / Weizenvollkorn", "Chinesischer Sellerie", "Karotten", "Marillen", "Kirschen", "Nektarinen", "Pfirsiche", "Zwetschken", "Kiwi", "Litschi", "Bambussprossen", "Melanzani", "Farnspitzen (Fiddleheads)", "Tintenfischtinte", "Austern", "Bier (in Maßen)"] },
+  mikrobiom: { name: "Mikrobiom", icon: "🦠", farbe: "#A85440", lebensmittel: ["Sauerkraut", "Kimchi", "Naturjoghurt", "Kefir", "Sauerteigbrot", "Parmesan / Gouda / Cheddar", "Hülsenfrüchte (Bohnen, Linsen)", "Kichererbsen", "Spargel", "Zwiebeln", "Knoblauch", "Lauch", "Granatapfelsaft", "Vollkorn / Weizenvollkorn", "Gerste", "Brokkoli (Stiele)", "Pilze (Shiitake, Champignons)", "Grüner Tee", "Dunkle Schokolade", "Blaubeeren", "Kiwi", "Bambussprossen", "Chicorée / Topinambur", "Walnüsse", "Karotten", "Kürbiskerne", "Leinsamen", "Rotwein (in Maßen)", "Concord-Traubensaft", "Pu-Erh-Tee"] },
+  dna: { name: "DNA-Schutz", icon: "🧬", farbe: "#4A6478", lebensmittel: ["Kiwi", "Karotten", "Brokkoli", "Brokkolisprossen", "Beeren (alle)", "Blaubeeren", "Kirschen", "Orangen", "Zitrusfrüchte", "Mandeln", "Walnüsse", "Leinsamen", "Kürbiskerne", "Sesam", "Sonnenblumenkerne", "Kaffee", "Grüner Tee", "Schwarzer Tee", "Oolong-Tee", "Kamillentee", "Tomaten", "Mango", "Marillen", "Pfirsiche", "Nektarinen", "Zwetschken", "Litschi", "Grünkohl", "Melanzani", "Bambussprossen", "Farnspitzen (Fiddleheads)", "Olivenöl (nativ extra)", "Dunkle Schokolade", "Lachs / fetter Fisch", "Tintenfischtinte", "Kohlsprossen", "Rotkohl"] },
+  immun: { name: "Immunsystem", icon: "🛡️", farbe: "#C39A3A", lebensmittel: ["Gealterter Knoblauch", "Shiitake / Pilze", "Champignons", "Brokkolisprossen", "Blaubeeren", "Brombeeren", "Granatapfel", "Walnüsse", "Zitrusfrüchte", "Orangen", "Grüner Tee", "Schwarzer Tee", "Kamillentee", "Kaffee", "Erdbeeren", "Kirschen", "Marillen", "Pfirsiche", "Nektarinen", "Zwetschken", "Kiwi", "Mango", "Litschi", "Grünkohl", "Karotten", "Melanzani", "Bambussprossen", "Farnspitzen (Fiddleheads)", "Chilischoten", "Dunkle Schokolade", "Olivenöl (nativ extra)", "Leinsamen", "Kürbiskerne", "Sesam", "Sonnenblumenkerne", "Tintenfischtinte", "Heidelbeeren", "Tomaten"] },
 };
 
 // GRAND SLAMMERS (Dr. William Li): Lebensmittel, die ALLE FÜNF Verteidigungssysteme auf einmal
@@ -923,19 +967,19 @@ const ZYKLUS_ERKRANKUNGEN = [
 // Die drei Trimester mit Kerninfos
 const TRIMESTER_INFO = {
   1: {
-    name: "1. Trimester", wochen: "Woche 1–13", farbe: "#E8A0BF",
+    name: "1. Trimester", wochen: "Woche 1–13", farbe: "#C08DA0",
     fokus: "Ankommen & Übelkeit überstehen",
     text: `Im ersten Trimester werden die Organe deines Babys angelegt — eine sehr sensible Phase. Gleichzeitig kämpfen 60–90 % der Frauen mit Übelkeit. Inchauspés wichtigste Botschaft dazu: Wirf die Schuld über Bord und iss, was du verträgst — zur Not auch nur Kohlenhydrate. "Es ist okay, dein Baby ist okay." Du isst übrigens nicht "für zwei": Der zusätzliche Energiebedarf ist anfangs minimal. Wichtiger als die Menge ist, WAS du isst.`,
     tipps: ["Bei Übelkeit: morgens als Erstes etwas Protein (Eier, Joghurt, Nüsse)", "Nüsse/Mandeln am Nachttisch — vor dem Aufstehen essen", "Viele kleine Mahlzeiten statt großer Portionen", "Blutzucker-Crashes vermeiden (lösen Übelkeit aus)", "Ingwer (z.B. als Gummis) kann helfen", "Kohlenhydrate mit etwas Protein/Fett/Faser kombinieren"],
   },
   2: {
-    name: "2. Trimester", wochen: "Woche 14–27", farbe: "#C18FD1",
+    name: "2. Trimester", wochen: "Woche 14–27", farbe: "#8B6B84",
     fokus: "Die Bausteine in den Mittelpunkt",
     text: `Sobald die Übelkeit nachlässt (oft ab Woche 12–14) und die Plazenta voll arbeitet, beginnt die spannende Zeit: Jetzt kannst du dein Baby gezielt mit den wichtigsten Bausteinen versorgen. Inchauspé: Es geht nicht um MEHR Essen, sondern um ANDERES — Protein, Cholin, DHA, Eisen ins Zentrum des Tellers. Du brauchst nur etwas mehr Glukose (etwa eine kleine Portion Reis) — am besten aus Stärke statt Zucker.`,
     tipps: ["Protein: ~1,5 g pro kg Körpergewicht täglich", "Cholin: 450 mg+ täglich (Eier, Leber) — fürs Babygehirn", "DHA/Omega-3: 500–1000 mg täglich, Fisch 3×/Woche", "Eisen & Folat nicht vergessen", "Zucker minimal halten, Glukose-Hacks nutzen", "Bunte Gemüse & Beeren für Mikronährstoffe"],
   },
   3: {
-    name: "3. Trimester", wochen: "Woche 28–40+", farbe: "#9B7BAD",
+    name: "3. Trimester", wochen: "Woche 28–40+", farbe: "#8B6B84",
     fokus: "Wachstum & Vorbereitung auf die Geburt",
     text: `Im letzten Trimester wächst dein Baby am stärksten — sein Gehirn entwickelt sich rasant. Der Protein- und DHA-Bedarf bleibt hoch, und du brauchst jetzt etwas mehr Glukose (ca. 70 g/Tag, etwa 1½ Tassen Reis) — weiterhin am besten aus Stärke statt Zucker. Bewegung bleibt wertvoll und kann die Geburt erleichtern. Gleichzeitig darfst du auf deinen Körper hören und langsamer machen.`,
     tipps: ["Protein & DHA weiter hochhalten (Babygehirn wächst rasant)", "Etwas mehr Glukose nötig — aus Stärke, nicht Zucker", "Auf den Körper hören, Tempo rausnehmen ist okay", "Beckenboden-Training & sanfte Bewegung", "Eisen im Blick behalten (Bluttest)", "Mit dem Geburtsteam Ernährung & Bewegung besprechen"],
@@ -1020,32 +1064,32 @@ const BESCHWERDEN_THEMEN = [
   {
     id: "sodbrennen", icon: "🔥", titel: "Sodbrennen",
     text: `Sehr häufig — bis zu 80 % im letzten Drittel. Das Hormon Progesteron lockert den Schließmuskel zwischen Magen und Speiseröhre, und die wachsende Gebärmutter drückt auf den Magen. Beides lässt Magensäure leichter aufsteigen. Für das Baby ist es harmlos, aber lästig. Mit Ernährung und Haltung lässt sich viel verbessern.`,
-    tipps: ["🍽️ Mehrere kleine Mahlzeiten statt weniger großer; langsam essen, gut kauen", "🍽️ Meiden: Fettiges, Scharfes, Saures, Zitrus, Tomatensaft, Schokolade, Kaffee, Kohlensäure", "🍽️ Hilft oft: langsam gekaute Mandeln/Haferflocken, ein Glas Milch oder stilles Wasser, Banane", "🍽️ Nicht spät am Abend essen — letzte große Mahlzeit ein paar Stunden vor dem Schlafen", "💪 Nach dem Essen aufrecht bleiben (mind. 30–60 Min), nicht hinlegen", "💪 Sanfte Bewegung/Spaziergang regt die Verdauung an", "😴 Oberkörper beim Schlafen erhöht lagern (Keilkissen), eher auf der linken Seite liegen", "👚 Lockere Kleidung tragen — kein Druck auf den Bauch", "Bei starken Beschwerden: in der Apotheke gibt es schwangerschaftsgeeignete Mittel — Ärztin/Apotheke fragen"],
+    tipps: ["Mehrere kleine Mahlzeiten statt weniger großer; langsam essen, gut kauen", "Meiden: Fettiges, Scharfes, Saures, Zitrus, Tomatensaft, Schokolade, Kaffee, Kohlensäure", "Hilft oft: langsam gekaute Mandeln/Haferflocken, ein Glas Milch oder stilles Wasser, Banane", "Nicht spät am Abend essen — letzte große Mahlzeit ein paar Stunden vor dem Schlafen", "💪 Nach dem Essen aufrecht bleiben (mind. 30–60 Min), nicht hinlegen", "💪 Sanfte Bewegung/Spaziergang regt die Verdauung an", "😴 Oberkörper beim Schlafen erhöht lagern (Keilkissen), eher auf der linken Seite liegen", "👚 Lockere Kleidung tragen — kein Druck auf den Bauch", "Bei starken Beschwerden: in der Apotheke gibt es schwangerschaftsgeeignete Mittel — Ärztin/Apotheke fragen"],
   },
   {
     id: "verdauung", icon: "🌀", titel: "Verstopfung & Blähungen",
     text: `Auch hier ist Progesteron der Grund: Es entspannt die Darmmuskulatur, der Darm wird träger, der Stuhl verliert mehr Wasser. Eisenpräparate können Verstopfung zusätzlich verstärken. Mit Ballaststoffen, Trinken und Bewegung kommt der Darm meist gut wieder in Schwung.`,
-    tipps: ["🍽️ Ballaststoffreich essen: Vollkorn, viel Obst & Gemüse, Hülsenfrüchte", "🍽️ Eingeweichte Trockenpflaumen, naturtrüber Apfelsaft, Lein- oder Flohsamen (mit viel Wasser!)", "🍽️ Pro EL Kleie/Leinsamen ein Glas Wasser — sonst wirkt es gegenteilig", "🍽️ Viel trinken: 2–3 Liter Wasser oder ungesüßter Tee (Fenchel, Anis, Kümmel, Kamille)", "🍽️ Bei Blähungen blähende Speisen wie viel Kohl & Hülsenfrüchte etwas reduzieren, Kohlensäure meiden", "💪 Täglich Bewegung — Spaziergänge bringen den Darm in Gang", "🍽️ Morgens nüchtern ein Glas (Mineral-)Wasser kann anregen", "Keine frei verkäuflichen Abführmittel ohne Rücksprache — viele sind in der Schwangerschaft nicht empfohlen"],
+    tipps: ["Ballaststoffreich essen: Vollkorn, viel Obst & Gemüse, Hülsenfrüchte", "Eingeweichte Trockenpflaumen, naturtrüber Apfelsaft, Lein- oder Flohsamen (mit viel Wasser!)", "Pro EL Kleie/Leinsamen ein Glas Wasser — sonst wirkt es gegenteilig", "Viel trinken: 2–3 Liter Wasser oder ungesüßter Tee (Fenchel, Anis, Kümmel, Kamille)", "Bei Blähungen blähende Speisen wie viel Kohl & Hülsenfrüchte etwas reduzieren, Kohlensäure meiden", "💪 Täglich Bewegung — Spaziergänge bringen den Darm in Gang", "Morgens nüchtern ein Glas (Mineral-)Wasser kann anregen", "Keine frei verkäuflichen Abführmittel ohne Rücksprache — viele sind in der Schwangerschaft nicht empfohlen"],
   },
   {
     id: "oedeme", icon: "🦶", titel: "Wassereinlagerungen (Ödeme)",
     text: `Rund zwei Drittel bekommen im 3. Trimester Wasser in Beinen oder Füßen: Die Gefäße werden elastischer, Flüssigkeit tritt leichter ins Gewebe. Meist harmlos. Wichtig zu wissen: Trinken hilft hier eher, als zu schaden — und entwässernde Tees oder salzarme Diät sind NICHT empfohlen.`,
-    tipps: ["💪 Bewegung, besonders im Wasser (Schwimmen, Wassergymnastik), regt den Rückfluss an", "💪 Beine so oft wie möglich hochlegen, langes Stehen vermeiden", "💪 Fuß- & Beingymnastik: Füße kreisen, Zehen Richtung Nase ziehen", "💪 Beine kalt abspritzen / Wechselduschen bringen den Kreislauf in Schwung", "🍽️ Ausreichend trinken (NICHT weniger!) — hilft, Flüssigkeit auszuschwemmen", "⚠️ KEINE entwässernden Tees, KEINE salzarme Diät", "Kompressions-/Stützstrümpfe können helfen (am besten morgens im Liegen anziehen)", "⚠️ Plötzliche, starke Schwellung (Gesicht/Hände) + Kopfschmerz → an Präeklampsie denken, abklären (siehe Warnzeichen)"],
+    tipps: ["Bewegung, besonders im Wasser (Schwimmen, Wassergymnastik), regt den Rückfluss an", "💪 Beine so oft wie möglich hochlegen, langes Stehen vermeiden", "💪 Fuß- & Beingymnastik: Füße kreisen, Zehen Richtung Nase ziehen", "💪 Beine kalt abspritzen / Wechselduschen bringen den Kreislauf in Schwung", "Ausreichend trinken (NICHT weniger!) — hilft, Flüssigkeit auszuschwemmen", "⚠️ KEINE entwässernden Tees, KEINE salzarme Diät", "Kompressions-/Stützstrümpfe können helfen (am besten morgens im Liegen anziehen)", "⚠️ Plötzliche, starke Schwellung (Gesicht/Hände) + Kopfschmerz → an Präeklampsie denken, abklären (siehe Warnzeichen)"],
   },
   {
     id: "ruecken", icon: "🤸‍♀️", titel: "Rückenschmerzen",
     text: `Fast jede Schwangere kennt sie, vor allem in den letzten Monaten: Das wachsende Gewicht verlagert den Schwerpunkt, das Hormon Relaxin lockert Bänder und Gelenke. Vorbeugen und lindern geht gut über Haltung, Bewegung und gezieltes Muskeltraining.`,
-    tipps: ["💪 Aufrecht bleiben, nicht ins Hohlkreuz fallen — bewusst auf die Haltung achten", "💪 Beckenboden-, Bauch- & Rückenmuskeln stärken: Yoga, Pilates, Schwangerschaftsgymnastik", "💪 Schwimmen, Wassergymnastik, Walking entlasten den Rücken", "🔥 Wärme tut gut: Wärmflasche, Körnerkissen, warmes (nicht heißes) Bad", "💆 Sanfte Massage mit Körperöl kann verspannte Stellen lösen", "💪 Schweres Heben vermeiden; beim Aufheben in die Knie gehen, nicht aus dem Rücken", "😴 Seitenlage mit Kissen zwischen den Knien entlastet nachts", "⚠️ Sehr starke, plötzliche Schmerzen oder Taubheit/Kribbeln in den Beinen → ärztlich abklären"],
+    tipps: ["💪 Aufrecht bleiben, nicht ins Hohlkreuz fallen — bewusst auf die Haltung achten", "💪 Beckenboden-, Bauch- & Rückenmuskeln stärken: Yoga, Pilates, Schwangerschaftsgymnastik", "💪 Schwimmen, Wassergymnastik, Walking entlasten den Rücken", "Wärme tut gut: Wärmflasche, Körnerkissen, warmes (nicht heißes) Bad", "💆 Sanfte Massage mit Körperöl kann verspannte Stellen lösen", "💪 Schweres Heben vermeiden; beim Aufheben in die Knie gehen, nicht aus dem Rücken", "😴 Seitenlage mit Kissen zwischen den Knien entlastet nachts", "⚠️ Sehr starke, plötzliche Schmerzen oder Taubheit/Kribbeln in den Beinen → ärztlich abklären"],
   },
   {
     id: "uebelkeit_b", icon: "🤢", titel: "Übelkeit (v.a. 1. Trimester)",
     text: `Die typische Frühschwangerschafts-Übelkeit hängt mit den Hormonumstellungen zusammen und bessert sich meist nach dem 1. Trimester. Kleine Tricks rund ums Essen helfen oft spürbar. (Wenn du gar nichts bei dir behältst, siehe Warnzeichen — das sollte abgeklärt werden.)`,
-    tipps: ["🍽️ Schon vor dem Aufstehen eine Kleinigkeit essen (z.B. Zwieback, ein paar Mandeln am Bett)", "🍽️ Über den Tag kleine Portionen — ein leerer Magen verstärkt Übelkeit oft", "🍽️ Protein vor Kohlenhydraten kann den Blutzucker stabiler halten und Übelkeit dämpfen", "🍽️ Ingwer (Tee, frisch) hilft vielen gegen Übelkeit", "🍽️ Genug trinken, in kleinen Schlucken; bei Brechreiz kühle, neutrale Getränke", "🍽️ Stark riechende, fettige oder sehr süße Speisen meiden, wenn sie dir nicht bekommen", "💪 Frische Luft & ruhige Spaziergänge tun oft gut", "1. Trimester & Übelkeit: Iss einfach, was geht — kein schlechtes Gewissen. Die Bausteine baust du auf, wenn es besser wird"],
+    tipps: ["Schon vor dem Aufstehen eine Kleinigkeit essen (z.B. Zwieback, ein paar Mandeln am Bett)", "Über den Tag kleine Portionen — ein leerer Magen verstärkt Übelkeit oft", "Protein vor Kohlenhydraten kann den Blutzucker stabiler halten und Übelkeit dämpfen", "Ingwer (Tee, frisch) hilft vielen gegen Übelkeit", "Genug trinken, in kleinen Schlucken; bei Brechreiz kühle, neutrale Getränke", "Stark riechende, fettige oder sehr süße Speisen meiden, wenn sie dir nicht bekommen", "💪 Frische Luft & ruhige Spaziergänge tun oft gut", "1. Trimester & Übelkeit: Iss einfach, was geht — kein schlechtes Gewissen. Die Bausteine baust du auf, wenn es besser wird"],
   },
   {
     id: "schlaf_b", icon: "😴", titel: "Schlafprobleme & Unruhe",
     text: `Vor allem im letzten Trimester wird Schlaf oft schwierig — der Bauch, häufiger Harndrang, Sodbrennen oder kreisende Gedanken. Ein paar Routinen und die richtige Lage helfen.`,
-    tipps: ["😴 Seitenlage (am besten links) mit Stillkissen/Kissen zwischen den Knien und unter dem Bauch", "🍽️ Abends nicht zu spät & nicht zu schwer essen (auch gegen Sodbrennen)", "🍽️ Koffein am Nachmittag/Abend meiden (zählt auch bei Tee, Cola, Schokolade)", "💪 Tagsüber Bewegung & frische Luft fördern abends den Schlaf", "🧘 Entspannungsrituale: warmes Bad, Atemübungen, ruhige Routine vor dem Schlafen", "💧 Abends etwas weniger trinken, tagsüber genug — gegen nächtlichen Harndrang", "Bei Wadenkrämpfen nachts: auf Magnesium-/Calciumzufuhr achten (mit Ärztin besprechen)"],
+    tipps: ["😴 Seitenlage (am besten links) mit Stillkissen/Kissen zwischen den Knien und unter dem Bauch", "Abends nicht zu spät & nicht zu schwer essen (auch gegen Sodbrennen)", "Koffein am Nachmittag/Abend meiden (zählt auch bei Tee, Cola, Schokolade)", "💪 Tagsüber Bewegung & frische Luft fördern abends den Schlaf", "🧘 Entspannungsrituale: warmes Bad, Atemübungen, ruhige Routine vor dem Schlafen", "💧 Abends etwas weniger trinken, tagsüber genug — gegen nächtlichen Harndrang", "Bei Wadenkrämpfen nachts: auf Magnesium-/Calciumzufuhr achten (mit Ärztin besprechen)"],
   },
 ];
 
@@ -1081,7 +1125,7 @@ const SCHWANGER_EXTRA_ERNAEHRUNG = [
   {
     id: "mikroplastik", icon: "🧴", titel: "Mikroplastik & BPA reduzieren",
     text: `Ein Thema, das Dr. Rhonda Patrick besonders betont: Kunststoffe enthalten Chemikalien wie BPA, BPS und Phthalate, die wie Hormone (Östrogen) im Körper wirken können — sogenannte „endokrine Disruptoren". In der Schwangerschaft ist das relevant, weil diese Stoffe die Hormonbalance und die Entwicklung des Babys beeinflussen können. Die Beweislage stammt überwiegend aus Beobachtungs- und Tierstudien, also kein Grund zur Panik — aber ein guter Grund für ein paar einfache, wirkungsvolle Gewohnheiten. Der mit Abstand wichtigste Hebel: Plastik niemals erhitzen.\n\nAuch Dr. William Li warnt inzwischen vor Mikroplastik — mit eindrücklichen Zahlen: Wir nehmen im Schnitt etwa die Menge einer Kreditkarte an Plastik pro Woche auf. Ein großer Teil davon stammt aus Plastik-Trinkflaschen, die winzige Partikel ins Wasser abgeben. Neuere Studien konnten Mikroplastik im menschlichen Blut und sogar in verengten Blutgefäßen nachweisen — und fanden dort einen Zusammenhang mit einem deutlich erhöhten Risiko für Herzinfarkt und Schlaganfall. Sein einfachster Rat: Statt Wasser aus Einweg-Plastikflaschen lieber gefiltertes Leitungswasser aus Glas oder Edelstahl.\n\nNeben BPA nennt Patrick eine zweite Gruppe: PFAS, die „Ewigkeits-Chemikalien". Sie stecken u.a. in beschichteten Pfannen, wasserabweisenden Textilien und sogar auf Obst und Gemüse, bauen sich im Körper über Jahre kaum ab und werden mit Krebs in Verbindung gebracht. Ein interessanter Ernährungs-Hebel: Beta-Glucan (ein löslicher Ballaststoff, z.B. aus Gerste oder Hafer) kann laut Studien nicht nur das LDL-Cholesterin senken, sondern auch helfen, PFAS zu binden und auszuscheiden. Patrick gibt es daher ihrer ganzen Familie (z.B. im Smoothie). Für die allgemeine Ausleitung setzt sie zudem auf Kreuzblütler wie Brokkolisprossen (Sulforaphan), viel Ballaststoffe, gutes Wasser und regelmäßiges Schwitzen durch Bewegung und Sauna.`,
-    tipps: ["🔥 Wichtigster Punkt: Essen & Getränke NIE in Plastik erhitzen — Hitze kann das Auslaugen von BPA massiv erhöhen (kochendes Wasser in Plastik: bis zu 55× mehr)", "🚰 Wasser lieber gefiltert aus Glas/Edelstahl statt aus Einweg-Plastikflaschen (Li: ~1 Kreditkarte Plastik pro Woche)", "Im Glas oder Edelstahl aufwärmen, nicht in Plastik mikrowellen", "Heiße Getränke nicht aus Einweg-Coffee-to-go-Bechern (innen oft kunststoffbeschichtet)", "Gutes Trinkwasser: ein Filter (z.B. Umkehrosmose) kann Schadstoffe reduzieren", "Dosen-Lebensmittel & -Getränke begrenzen (Innenbeschichtung enthält oft BPA)", "Saure/heiße Speisen nicht in Plastik lagern; zerkratzte Plastikdosen austauschen", "Glas oder Edelstahl statt Plastik für Aufbewahrung & Flaschen", "\"BPA-frei\" heißt nicht automatisch sicher (oft nur durch ähnliche Stoffe wie BPS ersetzt)", "Kassenbons (Thermopapier) enthalten BPA — nicht unnötig anfassen", "🌾 Beta-Glucan (Gerste/Hafer) kann PFAS binden & LDL senken (Patrick)", "🥦 Ausleiten unterstützen: Brokkolisprossen, Ballaststoffe, Wasser, Schwitzen (Sport/Sauna)"],
+    tipps: ["Wichtigster Punkt: Essen & Getränke NIE in Plastik erhitzen — Hitze kann das Auslaugen von BPA massiv erhöhen (kochendes Wasser in Plastik: bis zu 55× mehr)", "🚰 Wasser lieber gefiltert aus Glas/Edelstahl statt aus Einweg-Plastikflaschen (Li: ~1 Kreditkarte Plastik pro Woche)", "Im Glas oder Edelstahl aufwärmen, nicht in Plastik mikrowellen", "Heiße Getränke nicht aus Einweg-Coffee-to-go-Bechern (innen oft kunststoffbeschichtet)", "Gutes Trinkwasser: ein Filter (z.B. Umkehrosmose) kann Schadstoffe reduzieren", "Dosen-Lebensmittel & -Getränke begrenzen (Innenbeschichtung enthält oft BPA)", "Saure/heiße Speisen nicht in Plastik lagern; zerkratzte Plastikdosen austauschen", "Glas oder Edelstahl statt Plastik für Aufbewahrung & Flaschen", "\"BPA-frei\" heißt nicht automatisch sicher (oft nur durch ähnliche Stoffe wie BPS ersetzt)", "Kassenbons (Thermopapier) enthalten BPA — nicht unnötig anfassen", "🌾 Beta-Glucan (Gerste/Hafer) kann PFAS binden & LDL senken (Patrick)", "🥦 Ausleiten unterstützen: Brokkolisprossen, Ballaststoffe, Wasser, Schwitzen (Sport/Sauna)"],
   },
   {
     id: "tausend_tage", nurInfo: true, icon: "🌱", titel: "Die ersten 1.000 Tage",
@@ -1897,7 +1941,7 @@ const SCHWANGER_REZEPT_KATEGORIEN = [
   { id: "alle", label: "Alle" },
   { id: "fruehstueck", label: "🍳 Frühstück" },
   { id: "snack", label: "🥨 Snacks" },
-  { id: "hauptgericht", label: "🍽️ Hauptgerichte" },
+  { id: "hauptgericht", label: "Hauptgerichte" },
   { id: "suesses", label: "🍰 Süßes" },
 ];
 
@@ -1944,7 +1988,7 @@ const MENOPAUSE_TRAINING = [
     level: 3, name: "Hormon-kluge Kraft & Ausdauer", stufe: "Fortgeschrittene Mittelstufe",
     ziel: "Muskeln aufbauen, Cortisol-Spitzen vermeiden, Östrogen-Veränderungen berücksichtigen",
     fokus: "Mehr Kreatin-Unterstützung, HIIT für Wachstumshormon-Produktion",
-    farbe: "#C4845A",
+    farbe: "#A85440",
     plan: [
       ["Mo", "Krafttraining (schwere Gewichte, wenig Wiederholungen, 45 Min.)"],
       ["Di", "Aktive Erholung (zügiges Gehen, 30 Min.)"],
@@ -1959,7 +2003,7 @@ const MENOPAUSE_TRAINING = [
     level: 4, name: "Kriegerin-Protokoll", stufe: "Fortgeschritten",
     ziel: "Funktionelle Fitness maximieren, Muskeln erhalten, Gehirnfokus",
     fokus: "Neurotransmitter-Reset, Muskel-Nerven-Koordination, Kollagen UND Kreatin",
-    farbe: "#9B7BAD",
+    farbe: "#8B6B84",
     plan: [
       ["Mo", "Power-Kraft-Zirkel (Verbundübungen, 60 Min.)"],
       ["Di", "Gleichmäßiges Cardio (Radfahren oder Rudern, 45 Min.)"],
@@ -2510,7 +2554,7 @@ const TEENAGER_WISSEN = [
   {
     id: "teen_hilfe", icon: "🤝", titel: "Wo du Hilfe & Rat bekommst (Österreich/Steiermark)",
     text: `Mit deinen Fragen bist du nie allein. Es gibt Stellen, die extra für junge Menschen da sind — kostenlos, und du musst deinen Namen nicht sagen. Dort kannst du alles fragen: zur Periode, zum ersten Mal, zu Verhütung, oder wenn dich einfach etwas bedrückt. Die Menschen dort dürfen nichts weitererzählen. Oft kannst du einfach anrufen oder chatten.`,
-    tipps: ["📞 Rat auf Draht: Notruf 147 (rund um die Uhr, kostenlos & anonym, auch Chat auf rataufdraht.at)", "🌸 First Love (ÖGF): kostenlose & anonyme Beratung für Jugendliche, firstlove.at", "👧 MAFALDA Graz: Mädchenberatung (13–21 J.), Arche Noah 11, 8020 Graz, Tel. 0316 33730015, mafalda.at", "💜 Frauengesundheitszentrum Graz: Joanneumring 3, 8010 Graz, Tel. 0316 837998, fgz.co.at", "🍽️ Hotline für Essstörungen: 0800 20 11 20 (anonym & kostenlos)", "🩺 Gesundheitsberatung: 1450 (bei medizinischen Fragen, rund um die Uhr)", "Du darfst auch zu einer Vertrauensperson gehen: Eltern, Schulärztin, Lehrerin, Vertrauenslehrer"],
+    tipps: ["📞 Rat auf Draht: Notruf 147 (rund um die Uhr, kostenlos & anonym, auch Chat auf rataufdraht.at)", "First Love (ÖGF): kostenlose & anonyme Beratung für Jugendliche, firstlove.at", "👧 MAFALDA Graz: Mädchenberatung (13–21 J.), Arche Noah 11, 8020 Graz, Tel. 0316 33730015, mafalda.at", "💜 Frauengesundheitszentrum Graz: Joanneumring 3, 8010 Graz, Tel. 0316 837998, fgz.co.at", "Hotline für Essstörungen: 0800 20 11 20 (anonym & kostenlos)", "🩺 Gesundheitsberatung: 1450 (bei medizinischen Fragen, rund um die Uhr)", "Du darfst auch zu einer Vertrauensperson gehen: Eltern, Schulärztin, Lehrerin, Vertrauenslehrer"],
   },
 ];
 
@@ -2707,7 +2751,7 @@ const REZEPTE = {
       "Kokosöl in der Pfanne erhitzen, je 60 ml Teig pro Pancake backen.",
       "3 Min. pro Seite auf mittlerer Hitze.",
     ],
-    hinweis: `💡 Ideale erste Mahlzeit nach dem Fasten: Protein reaktiviert mTOR, kein Blutzuckerspike.`,
+    hinweis: `Ideale erste Mahlzeit nach dem Fasten: Protein reaktiviert mTOR, kein Blutzuckerspike.`,
   },
 
   granola_parfait: {
@@ -2742,7 +2786,7 @@ const REZEPTE = {
       "12–15 Min. auf Backblech rösten, abkühlen lassen.",
       "In Schichten mit Joghurt und Beeren servieren.",
     ],
-    hinweis: `💡 Kürbiskerne liefern Zink — wichtig für Testosteron in der Manifestationsphase.`,
+    hinweis: `Kürbiskerne liefern Zink — wichtig für Testosteron in der Manifestationsphase.`,
   },
 
   chia_protein_bars: {
@@ -2773,7 +2817,7 @@ const REZEPTE = {
       "Alle trockenen Zutaten einmischen.",
       "In Form drücken, 1 Stunde kühlen, in Riegel schneiden.",
     ],
-    hinweis: `💡 Im Kühlschrank bis zu 1 Woche haltbar. Reich an Omega-3 für Hormonproduktion.`,
+    hinweis: `Im Kühlschrank bis zu 1 Woche haltbar. Reich an Omega-3 für Hormonproduktion.`,
   },
 
   quinoa_porridge: {
@@ -2807,7 +2851,7 @@ const REZEPTE = {
       "Ahornsirup, Zimt und Vanille einrühren.",
       "Mit Beeren, Kokosflocken und Kürbiskernen servieren.",
     ],
-    hinweis: `💡 Kürbiskerne liefern Magnesium — essenziell für Progesteron in der Nurture-Phase.`,
+    hinweis: `Kürbiskerne liefern Magnesium — essenziell für Progesteron in der Nurture-Phase.`,
   },
 
   tofu_scramble: {
@@ -2838,7 +2882,7 @@ const REZEPTE = {
       "Tomaten und Spinat zugeben, 2–3 Min. mitgaren bis Spinat zusammenfällt.",
       "Mit Hefeflocken servieren.",
     ],
-    hinweis: `💡 Tofu (Soja) enthält Phytoöstrogene — ideal in Power Phase 2 für sanfte Östrogenunterstützung.`,
+    hinweis: `Tofu (Soja) enthält Phytoöstrogene — ideal in Power Phase 2 für sanfte Östrogenunterstützung.`,
   },
 
   lentil_soup: {
@@ -2875,7 +2919,7 @@ const REZEPTE = {
       "Linsen, Tomaten und Brühe zugeben, 25 Min. köcheln.",
       "Mit Zitronensaft abschmecken.",
     ],
-    hinweis: `💡 Rote Linsen sind reich an Folsäure — wichtig für hormonelle Balance.`,
+    hinweis: `Rote Linsen sind reich an Folsäure — wichtig für hormonelle Balance.`,
   },
 
   gazpacho: {
@@ -2909,7 +2953,7 @@ const REZEPTE = {
       "Ggf. durch Sieb passieren.",
       "Mindestens 2 Stunden kalt stellen.",
     ],
-    hinweis: `💡 Rohes Gemüse maximiert Enzymaktivität und Polyphenol-Gehalt.`,
+    hinweis: `Rohes Gemüse maximiert Enzymaktivität und Polyphenol-Gehalt.`,
   },
 
   buddha_bowl: {
@@ -2948,7 +2992,7 @@ const REZEPTE = {
       "Tahini-Dressing anrühren.",
       "Alle Zutaten in der Bowl anrichten.",
     ],
-    hinweis: `💡 Tahini (Sesam) enthält Lignane — unterstützen Östrogen-Metabolisierung.`,
+    hinweis: `Tahini (Sesam) enthält Lignane — unterstützen Östrogen-Metabolisierung.`,
   },
 
   // ── HAUPTGERICHTE – HORMONE FEASTING ──────────────────────────
@@ -2991,7 +3035,7 @@ const REZEPTE = {
       "Kichererbsen zugeben, 20 Min. eindicken lassen.",
       "Mit Zitronensaft und Koriander servieren.",
     ],
-    hinweis: `💡 Kichererbsen liefern Tryptophan — Vorstufe von Serotonin, stabilisiert Stimmung in Lutealphase.`,
+    hinweis: `Kichererbsen liefern Tryptophan — Vorstufe von Serotonin, stabilisiert Stimmung in Lutealphase.`,
   },
 
   red_thai_curry: {
@@ -3030,7 +3074,7 @@ const REZEPTE = {
       "Brokkoli und Spinat zugeben, 5 Min. garen.",
       "Mit Tamari, Zucker und Limettensaft abschmecken.",
     ],
-    hinweis: `💡 Süßkartoffeln stabilisieren den Blutzucker in der Nurture-Phase — wichtig für Progesteron.`,
+    hinweis: `Süßkartoffeln stabilisieren den Blutzucker in der Nurture-Phase — wichtig für Progesteron.`,
   },
 
   chicken_cacciatore: {
@@ -3062,7 +3106,7 @@ const REZEPTE = {
       "Tomaten, Kräuter, Kapern und Hühnchen zugeben.",
       "Zugedeckt 30–35 Min. bei niedriger Hitze schmoren.",
     ],
-    hinweis: `💡 Hühnerfleisch liefert alle 9 essentiellen Aminosäuren — wichtig für Testosteron in der Manifestationsphase.`,
+    hinweis: `Hühnerfleisch liefert alle 9 essentiellen Aminosäuren — wichtig für Testosteron in der Manifestationsphase.`,
   },
 
   spaghetti_bolognese: {
@@ -3101,7 +3145,7 @@ const REZEPTE = {
       "20–25 Min. köcheln bis dickflüssig.",
       "Mit Pasta servieren.",
     ],
-    hinweis: `💡 Linsen sind reich an Folsäure und Ballaststoffen — ideal für Progesteron-Unterstützung.`,
+    hinweis: `Linsen sind reich an Folsäure und Ballaststoffen — ideal für Progesteron-Unterstützung.`,
   },
 
   sweet_potato_tacos: {
@@ -3134,7 +3178,7 @@ const REZEPTE = {
       "Tortillas in trockener Pfanne kurz erwärmen.",
       "Tortillas mit Avocado, Tempeh, Süßkartoffeln und Koriander belegen.",
     ],
-    hinweis: `💡 Tempeh enthält fermentiertes Soja — probiotisch und reich an Phytoöstrogenen.`,
+    hinweis: `Tempeh enthält fermentiertes Soja — probiotisch und reich an Phytoöstrogenen.`,
   },
 
   // ── KETOBIOTIC HAUPTGERICHTE ──────────────────────────────────
@@ -3167,7 +3211,7 @@ const REZEPTE = {
       "Grünkohl in Streifen schneiden, mit Dressing 3 Min. massieren.",
       "Mit Pinienkernen, Leinsamen und Avocado servieren.",
     ],
-    hinweis: `💡 Sesam enthält Sesamin — unterstützt Östrogen-Entgiftung in der Leber.`,
+    hinweis: `Sesam enthält Sesamin — unterstützt Östrogen-Entgiftung in der Leber.`,
   },
 
   mediterranean_quinoa: {
@@ -3202,7 +3246,7 @@ const REZEPTE = {
       "Dressing anrühren.",
       "Alle Zutaten vermengen, Feta obenauf.",
     ],
-    hinweis: `💡 Quinoa ist eines der wenigen kompletten pflanzlichen Proteine — alle 9 Aminosäuren.`,
+    hinweis: `Quinoa ist eines der wenigen kompletten pflanzlichen Proteine — alle 9 Aminosäuren.`,
   },
 
   salmon_furikake: {
@@ -3227,7 +3271,7 @@ const REZEPTE = {
       "Lachs auf Backblech (Haut nach unten), Furikake gleichmäßig auf der Oberseite verteilen.",
       "12–15 Min. backen bis der Lachs gerade gar ist (innen noch leicht glasig).",
     ],
-    hinweis: `💡 Lachs liefert Omega-3-Fettsäuren — Grundbausteine für alle Steroidhormone.`,
+    hinweis: `Lachs liefert Omega-3-Fettsäuren — Grundbausteine für alle Steroidhormone.`,
   },
 
   spinach_frittata: {
@@ -3257,7 +3301,7 @@ const REZEPTE = {
       "Ziegenkäse darüber bröckeln.",
       "5 Min. auf dem Herd, dann 10–12 Min. im Ofen bis fest und goldbraun.",
     ],
-    hinweis: `💡 Eier enthalten alle für Östrogen nötigen Aminosäuren und Cholesterin als Hormonvorstufe.`,
+    hinweis: `Eier enthalten alle für Östrogen nötigen Aminosäuren und Cholesterin als Hormonvorstufe.`,
   },
 
   avocado_brazil_salad: {
@@ -3282,7 +3326,7 @@ const REZEPTE = {
       "Avocado und Paranüsse obenauf.",
       "Mit Dressing und Leinsamen servieren.",
     ],
-    hinweis: `💡 2–3 Paranüsse täglich decken den gesamten Selenium-Bedarf — essenziell für Schilddrüse und Östrogen-Metabolismus.`,
+    hinweis: `2–3 Paranüsse täglich decken den gesamten Selenium-Bedarf — essenziell für Schilddrüse und Östrogen-Metabolismus.`,
   },
 
   miso_poke_bowl: {
@@ -3318,7 +3362,7 @@ const REZEPTE = {
       "Blumenkohl im Foodprocessor zu Reis zerkleinern, kurz anbraten.",
       "Alle Komponenten in Bowls anrichten.",
     ],
-    hinweis: `💡 Miso (fermentiert) + Edamame (Phytoöstrogene) = Doppelunterstützung in Power Phase 2.`,
+    hinweis: `Miso (fermentiert) + Edamame (Phytoöstrogene) = Doppelunterstützung in Power Phase 2.`,
   },
 
   // ── DESSERTS ──────────────────────────────────────────────────
@@ -3350,7 +3394,7 @@ const REZEPTE = {
       "Mindestens 30 Min. kühlen.",
       "Mit Mandeln servieren.",
     ],
-    hinweis: `💡 Dunkle Schokolade (Kakao) enthält Magnesium — das Anti-PMS-Mineral der Nurture-Phase.`,
+    hinweis: `Dunkle Schokolade (Kakao) enthält Magnesium — das Anti-PMS-Mineral der Nurture-Phase.`,
   },
 
   maple_peanut_fudge: {
@@ -3380,7 +3424,7 @@ const REZEPTE = {
       "In Form gießen, Salz drüber.",
       "2 Stunden einfrieren, dann in Würfel schneiden.",
     ],
-    hinweis: `💡 Erdnussbutter liefert Tryptophan — die Serotonin-Vorstufe für bessere Stimmung in der Lutealphase.`,
+    hinweis: `Erdnussbutter liefert Tryptophan — die Serotonin-Vorstufe für bessere Stimmung in der Lutealphase.`,
   },
 
   keto_cheesecake: {
@@ -3413,7 +3457,7 @@ const REZEPTE = {
       "Sahne unterheben.",
       "In Springform bei 220°C ca. 55 Min. backen (dunkel lassen!).",
     ],
-    hinweis: `💡 Ohne Kohlenhydrate, vollfett — ideal für Ketobiotic in Power Phase 1.`,
+    hinweis: `Ohne Kohlenhydrate, vollfett — ideal für Ketobiotic in Power Phase 1.`,
   },
 
   // ── SMOOTHIES ──────────────────────────────────────────────────
@@ -3438,7 +3482,7 @@ const REZEPTE = {
       "Sofort trinken.",
     ],
     schritte: ["Alle Zutaten in den Mixer, 60 Sek. auf höchster Stufe. Sofort trinken."],
-    hinweis: `💡 Wildblaubeeren haben 3× mehr Antioxidantien als kultivierte — unterstützen Östrogen-Entgiftung.`,
+    hinweis: `Wildblaubeeren haben 3× mehr Antioxidantien als kultivierte — unterstützen Östrogen-Entgiftung.`,
   },
 
   heal_body_smoothie: {
@@ -3463,7 +3507,7 @@ const REZEPTE = {
       "Ggf. etwas Wasser für gewünschte Konsistenz zugeben.",
     ],
     schritte: ["Alle Zutaten in Mixer, 2 Min. bis cremig."],
-    hinweis: `💡 Ashwagandha ist das wichtigste Adaptogen für Cortisol-Reduktion und Hormonbalance.`,
+    hinweis: `Ashwagandha ist das wichtigste Adaptogen für Cortisol-Reduktion und Hormonbalance.`,
   },
 
   choco_maca_smoothie: {
@@ -3484,7 +3528,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in den Mixtopf: 1 Min. / Stufe 10. Sofort trinken."],
     schritte: ["Alle Zutaten mixen bis cremig."],
-    hinweis: `💡 Maca steigert Testosteron und Libido — ideal in der Manifestationsphase rund um den Eisprung.`,
+    hinweis: `Maca steigert Testosteron und Libido — ideal in der Manifestationsphase rund um den Eisprung.`,
   },
 
   // ── BRÜHEN & FERMENTIERTES ────────────────────────────────────
@@ -3515,7 +3559,7 @@ const REZEPTE = {
       "Durch feines Sieb abseihen, abkühlen lassen, Fettschicht entfernen.",
       "In Gläser füllen: 5 Tage im Kühlschrank oder 3 Monate gefroren haltbar.",
     ],
-    hinweis: `💡 Apfelessig ist PFLICHT — ohne ihn werden die Mineralien nicht aus den Knochen gelöst. Glycin aus dem Kollagen unterstützt die Leberfunktion und Hormon-Entgiftung.`,
+    hinweis: `Apfelessig ist PFLICHT — ohne ihn werden die Mineralien nicht aus den Knochen gelöst. Glycin aus dem Kollagen unterstützt die Leberfunktion und Hormon-Entgiftung.`,
   },
 
   mushroom_broth: {
@@ -3545,7 +3589,7 @@ const REZEPTE = {
       "30 Min. auf kleiner Flamme köcheln.",
       "Abseihen und warm trinken.",
     ],
-    hinweis: `💡 Reishi: Adaptogen, senkt Cortisol. Shiitake: Vitamin D2, Immunbooster. Ideal als Fastenbrühe.`,
+    hinweis: `Reishi: Adaptogen, senkt Cortisol. Shiitake: Vitamin D2, Immunbooster. Ideal als Fastenbrühe.`,
   },
 
   turmeric_sauerkraut: {
@@ -3571,7 +3615,7 @@ const REZEPTE = {
       "3–7 Tage bei Raumtemperatur fermentieren lassen (täglich eindrücken).",
       "Im Kühlschrank bis zu 2 Monate haltbar.",
     ],
-    hinweis: `💡 Fermentiertes Gemüse enthält lebende Probiotika — stärken das Mikrobiom für optimale Hormonsignalisierung.`,
+    hinweis: `Fermentiertes Gemüse enthält lebende Probiotika — stärken das Mikrobiom für optimale Hormonsignalisierung.`,
   },
 
   // ── BREAK FAST ERGÄNZUNGEN ──────────────────────────────────
@@ -3601,7 +3645,7 @@ const REZEPTE = {
       "Tahini und Zitronensaft zu Dressing verrühren.",
       "Quinoa in Bowls, Gemüse obenauf, Dressing darüber.",
     ],
-    hinweis: `💡 Brokkoli enthält DIM — unterstützt aktiv den Östrogen-Abbau in der Leber.`,
+    hinweis: `Brokkoli enthält DIM — unterstützt aktiv den Östrogen-Abbau in der Leber.`,
   },
 
   fettuccine_alfredo: {
@@ -3633,7 +3677,7 @@ const REZEPTE = {
       "Cashews mit Nudelwasser, Knoblauch, Hefeflocken, Zitronensaft und Miso cremig mixen.",
       "Mit Pasta vermengen.",
     ],
-    hinweis: `💡 Cashews liefern Magnesium und Zink — essenziell für Progesteron.`,
+    hinweis: `Cashews liefern Magnesium und Zink — essenziell für Progesteron.`,
   },
 
   lasagna: {
@@ -3693,7 +3737,7 @@ const REZEPTE = {
       "In Mini-Muffinform füllen. 18–20 Min. backen.",
     ],
     schritte: ["Bananen zerdrücken, alles vermengen, in Mini-Muffin-Form 18–20 Min. bei 180°C backen."],
-    hinweis: `💡 Bananen: Vitamin B6 für Progesteron und Serotonin-Produktion.`,
+    hinweis: `Bananen: Vitamin B6 für Progesteron und Serotonin-Produktion.`,
   },
 
   orange_chia_muffins: {
@@ -3721,7 +3765,7 @@ const REZEPTE = {
       "In Muffinform füllen, 22–25 Min. bei 180°C backen.",
     ],
     schritte: ["Leinsamen-Eier quellen, alle Zutaten vermengen, 22–25 Min. bei 180°C backen."],
-    hinweis: `💡 Orangenschale enthält Hesperidin — moduliert Östrogen-Rezeptoren.`,
+    hinweis: `Orangenschale enthält Hesperidin — moduliert Östrogen-Rezeptoren.`,
   },
 
   // ── SUPPEN ────────────────────────────────────────────────────
@@ -3750,7 +3794,7 @@ const REZEPTE = {
       "Grünkohl: 5 Min./100°C/Linkslauf/Stufe 1.",
     ],
     schritte: ["Gemüse andünsten, Bohnen und Brühe zugeben, 20 Min. köcheln, Grünkohl zugeben."],
-    hinweis: `💡 Weiße Bohnen: hoher Folsäure- und Magnesiumgehalt für die Nurture-Phase.`,
+    hinweis: `Weiße Bohnen: hoher Folsäure- und Magnesiumgehalt für die Nurture-Phase.`,
   },
 
   black_bean_soup: {
@@ -3835,7 +3879,7 @@ const REZEPTE = {
       "1 Min./Stufe 10 pürieren. Mit Limette abschmecken.",
     ],
     schritte: ["Aromaten andünsten, Kürbis mitbraten, Brühe und Kokosmilch zugeben, 25 Min. köcheln, pürieren."],
-    hinweis: `💡 Kürbiskerne = beste Magnesiumquelle für die Nurture-Phase.`,
+    hinweis: `Kürbiskerne = beste Magnesiumquelle für die Nurture-Phase.`,
   },
 
   zucchini_string_bean_soup: {
@@ -3887,7 +3931,7 @@ const REZEPTE = {
       "Bier einköcheln, Brühe und Fleisch zugeben: 45 Min. köcheln.",
       "Karotten und Kartoffeln: 30 Min. weich garen.",
     ],
-    hinweis: `💡 Rindfleisch: Zink und B12 für Testosteron in der Manifestationsphase.`,
+    hinweis: `Rindfleisch: Zink und B12 für Testosteron in der Manifestationsphase.`,
   },
 
   portuguese_pork_stew: {
@@ -3954,7 +3998,7 @@ const REZEPTE = {
     ],
     thermomix: false,
     schritte: ["Dressing verrühren. Rucola anrichten, Toppings drauf, Dressing kurz vor dem Servieren."],
-    hinweis: `💡 Rucola: bitteres Grün — aktiviert Gallenproduktion für Östrogen-Entgiftung.`,
+    hinweis: `Rucola: bitteres Grün — aktiviert Gallenproduktion für Östrogen-Entgiftung.`,
   },
 
   cauliflower_rice_bowl: {
@@ -3980,7 +4024,7 @@ const REZEPTE = {
       "Mit Edamame, Avocado, Sesam servieren.",
     ],
     schritte: ["Blumenkohl zu Reis zerkleinern, mit Knoblauch anrösten, würzen, mit Belag servieren."],
-    hinweis: `💡 Blumenkohl: Sulforaphan — starkes Entgiftungsmittel für Östrogen.`,
+    hinweis: `Blumenkohl: Sulforaphan — starkes Entgiftungsmittel für Östrogen.`,
   },
 
   probiotic_bowl: {
@@ -4000,7 +4044,7 @@ const REZEPTE = {
     ],
     thermomix: false,
     schritte: ["Joghurt in Bowls, alle fermentierten Lebensmittel und Gemüse anrichten, mit Leinsamen und Öl fertigstellen."],
-    hinweis: `💡 Mehrere fermentierte Lebensmittel = maximale Mikrobiom-Vielfalt.`,
+    hinweis: `Mehrere fermentierte Lebensmittel = maximale Mikrobiom-Vielfalt.`,
   },
 
   kimchi_edamame_bowl: {
@@ -4021,7 +4065,7 @@ const REZEPTE = {
     ],
     thermomix: false,
     schritte: ["Dressing verrühren. Alle Zutaten in Bowls anrichten, Dressing und Sesam drüber."],
-    hinweis: `💡 Kimchi + Edamame = Probiotika und Phytoöstrogene kombiniert.`,
+    hinweis: `Kimchi + Edamame = Probiotika und Phytoöstrogene kombiniert.`,
   },
 
   chickpea_omelet: {
@@ -4069,7 +4113,7 @@ const REZEPTE = {
       "Kartoffeln abgießen, mit verquirlten Eiern mischen, 5 Min. ruhen.",
       "In Pfanne 8–10 Min. bei niedriger Hitze stocken, dann wenden, 3–4 Min. fertiggaren.",
     ],
-    hinweis: `💡 Eier und Olivenöl = alle Hormon-Grundbausteine in einem Gericht.`,
+    hinweis: `Eier und Olivenöl = alle Hormon-Grundbausteine in einem Gericht.`,
   },
 
   chili_sweet_potato: {
@@ -4123,7 +4167,7 @@ const REZEPTE = {
       "Steak separat 3–4 Min. pro Seite braten, 5 Min. ruhen, aufschneiden.",
       "Mit Avocado und Limette servieren.",
     ],
-    hinweis: `💡 Rotes Fleisch: maximiert Zink und Eisen für Testosteron-Peak.`,
+    hinweis: `Rotes Fleisch: maximiert Zink und Eisen für Testosteron-Peak.`,
   },
 
   okonomiyaki: {
@@ -4151,7 +4195,7 @@ const REZEPTE = {
       "In geölter Pfanne 5–6 Min. pro Seite backen.",
       "Mit Tamari und Sesam servieren.",
     ],
-    hinweis: `💡 Kohl enthält Indol-3-Carbinol — unterstützt Östrogen-Entgiftung.`,
+    hinweis: `Kohl enthält Indol-3-Carbinol — unterstützt Östrogen-Entgiftung.`,
   },
 
   sardine_tostadas: {
@@ -4175,7 +4219,7 @@ const REZEPTE = {
       "Avocado mit Limettensaft zerdrücken, auf Tostadas streichen.",
       "Sardinen, Zwiebel, Koriander obenauf.",
     ],
-    hinweis: `💡 Sardinen: eine der reichsten Omega-3-Quellen für Hormonrezeptoren.`,
+    hinweis: `Sardinen: eine der reichsten Omega-3-Quellen für Hormonrezeptoren.`,
   },
 
 
@@ -4211,7 +4255,7 @@ const REZEPTE = {
       "Zugedeckt 20 Min. bei mittlerer Hitze garen.",
       "Mit Koriander bestreuen und servieren.",
     ],
-    hinweis: `💡 Zitronengras unterstützt die Verdauung und wirkt entzündungshemmend.`,
+    hinweis: `Zitronengras unterstützt die Verdauung und wirkt entzündungshemmend.`,
   },
 
   greek_lamb: {
@@ -4245,7 +4289,7 @@ const REZEPTE = {
       "Feta mit Joghurt, Zitronensaft und Minze cremig verrühren.",
       "Koteletts auf Feta-Creme anrichten.",
     ],
-    hinweis: `💡 Lamm ist reich an Zink und B12 – wichtig für Testosteron in der Manifestationsphase.`,
+    hinweis: `Lamm ist reich an Zink und B12 – wichtig für Testosteron in der Manifestationsphase.`,
   },
 
   miso_pork: {
@@ -4278,7 +4322,7 @@ const REZEPTE = {
       "Ofen auf 200°C. Filet 20–25 Min. backen.",
       "In Scheiben schneiden, mit Sesam und Frühlingszwiebeln servieren.",
     ],
-    hinweis: `💡 Miso ist lebendige Fermentation – stärkt das Darmmikrobiom aktiv.`,
+    hinweis: `Miso ist lebendige Fermentation – stärkt das Darmmikrobiom aktiv.`,
   },
 
   spanish_shrimp: {
@@ -4311,7 +4355,7 @@ const REZEPTE = {
       "Weißwein angießen, 1 Min. einkochen.",
       "Mit Zitronensaft und Petersilie servieren.",
     ],
-    hinweis: `💡 Garnelen liefern Iod und Selen – essenziell für die Schilddrüsenhormone.`,
+    hinweis: `Garnelen liefern Iod und Selen – essenziell für die Schilddrüsenhormone.`,
   },
 
   spanish_tuna_salad: {
@@ -4339,7 +4383,7 @@ const REZEPTE = {
       "Olivenöl und Sherryessig darüber träufeln.",
       "Mit Petersilie abschmecken. 10 Min. ziehen lassen.",
     ],
-    hinweis: `💡 Thunfisch in Olivenöl enthält Omega-3 und fettlösliche Vitamine in einem.`,
+    hinweis: `Thunfisch in Olivenöl enthält Omega-3 und fettlösliche Vitamine in einem.`,
   },
 
   turkish_eggs: {
@@ -4373,7 +4417,7 @@ const REZEPTE = {
       "Butter mit Paprika und Chili in kleiner Pfanne erhitzen.",
       "Eier auf Joghurt, Paprikabutter darüber, mit Dill garnieren.",
     ],
-    hinweis: `💡 Joghurt + Ei = vollständige Aminosäuren mit Probiotika für den Darm.`,
+    hinweis: `Joghurt + Ei = vollständige Aminosäuren mit Probiotika für den Darm.`,
   },
 
   soft_scrambled_eggs: {
@@ -4403,7 +4447,7 @@ const REZEPTE = {
       "Eier langsam mit Spatel von außen nach innen schieben bis cremig-weich.",
       "Mit Za'atar, Feta, Minze und Olivenöl garnieren.",
     ],
-    hinweis: `💡 Za'atar (Thymian, Oregano, Sesam, Sumach) ist reich an Antioxidantien.`,
+    hinweis: `Za'atar (Thymian, Oregano, Sesam, Sumach) ist reich an Antioxidantien.`,
   },
 
   turmeric_eggs_salmon: {
@@ -4433,7 +4477,7 @@ const REZEPTE = {
       "Kokosöl in Pfanne erhitzen, Ei-Masse zu weichem Rührei garen.",
       "Auf Teller, Räucherlachs drauflegen, mit Kapern, Dill und Zitrone servieren.",
     ],
-    hinweis: `💡 Schwarzer Pfeffer erhöht die Bioverfügbarkeit von Kurkuma um bis zu 2000%.`,
+    hinweis: `Schwarzer Pfeffer erhöht die Bioverfügbarkeit von Kurkuma um bis zu 2000%.`,
   },
 
   tempeh_broccoli: {
@@ -4469,7 +4513,7 @@ const REZEPTE = {
       "Brokkoli dazugeben, 5 Min. mitbraten.",
       "Sauce darüber, auf Reis servieren. Mit Sesam und Frühlingszwiebeln garnieren.",
     ],
-    hinweis: `💡 Schwarzer Reis ist reich an Anthocyanen – starke Antioxidantien für die Hormonbalance.`,
+    hinweis: `Schwarzer Reis ist reich an Anthocyanen – starke Antioxidantien für die Hormonbalance.`,
   },
 
   quinoa_tofu_tabbouleh: {
@@ -4504,7 +4548,7 @@ const REZEPTE = {
       "Mit Olivenöl, Zitronensaft, Kreuzkümmel abschmecken.",
       "Tofu in Pfanne mit Tamari goldbraun braten, obenauf anrichten.",
     ],
-    hinweis: `💡 Petersilie enthält mehr Vitamin C als Orangen – gut für die Kollagenproduktion.`,
+    hinweis: `Petersilie enthält mehr Vitamin C als Orangen – gut für die Kollagenproduktion.`,
   },
 
   kelp_noodle_pad_thai: {
@@ -4541,7 +4585,7 @@ const REZEPTE = {
       "Nudeln, Edamame und Sauce zugeben, gut mischen.",
       "Mit Erdnüssen und Frühlingszwiebeln servieren.",
     ],
-    hinweis: `💡 Kelp-Nudeln = kalorienfrei + reichhaltig an Iod für die Schilddrüse.`,
+    hinweis: `Kelp-Nudeln = kalorienfrei + reichhaltig an Iod für die Schilddrüse.`,
   },
 
   socca_pizza: {
@@ -4575,7 +4619,7 @@ const REZEPTE = {
       "Ofen auf 230°C. Teig auf geöltes Blech gießen, 12 Min. backen.",
       "Belegen und weitere 10 Min. backen.",
     ],
-    hinweis: `💡 Kichererbsenmehl: glutenfrei, reich an Proteinen und Magnesium.`,
+    hinweis: `Kichererbsenmehl: glutenfrei, reich an Proteinen und Magnesium.`,
   },
 
   walnut_pate: {
@@ -4606,7 +4650,7 @@ const REZEPTE = {
       "Pulsieren bis grobe, formbare Masse entsteht (nicht zu glatt!).",
       "In Glas füllen.",
     ],
-    hinweis: `💡 Walnüsse: die einzige Nuss mit signifikanten ALA-Omega-3-Fettsäuren.`,
+    hinweis: `Walnüsse: die einzige Nuss mit signifikanten ALA-Omega-3-Fettsäuren.`,
   },
 
   pomegranate_asparagus: {
@@ -4640,7 +4684,7 @@ const REZEPTE = {
       "Cashew-Ricotta auf Platte, Spargel darauf.",
       "Mit Granatapfelkernen, Minze und Balsamico garnieren.",
     ],
-    hinweis: `💡 Granatapfelkerne: reich an Punicalagin – unterstützt Östrogen-Balance.`,
+    hinweis: `Granatapfelkerne: reich an Punicalagin – unterstützt Östrogen-Balance.`,
   },
 
   guacamole_chips: {
@@ -4672,7 +4716,7 @@ const REZEPTE = {
       "Salz, Knoblauch, Kreuzkümmel und Koriander unterrühren.",
       "Mit Gemüsestiften servieren.",
     ],
-    hinweis: `💡 Avocado enthält gesunde Fette die Hormone und Zellmembranen aufbauen.`,
+    hinweis: `Avocado enthält gesunde Fette die Hormone und Zellmembranen aufbauen.`,
   },
 
   tahini_dressing: {
@@ -4692,7 +4736,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in Mixtopf: 20 Sek. / Stufe 4. Mit Wasser auf Konsistenz verdünnen."],
     schritte: ["Alle Zutaten verrühren. Mit Wasser auf gewünschte Konsistenz verdünnen.", "Im Kühlschrank bis zu 1 Woche haltbar."],
-    hinweis: `💡 Sesam enthält Lignane die helfen, überschüssiges Östrogen zu binden.`,
+    hinweis: `Sesam enthält Lignane die helfen, überschüssiges Östrogen zu binden.`,
   },
 
   miso_ginger_dressing: {
@@ -4713,7 +4757,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in Mixtopf: 20 Sek. / Stufe 4."],
     schritte: ["Alle Zutaten in ein Glas geben und gut schütteln."],
-    hinweis: `💡 Miso ist lebendige Fermentation – unterstützt das Darmmikrobiom.`,
+    hinweis: `Miso ist lebendige Fermentation – unterstützt das Darmmikrobiom.`,
   },
 
   lemon_dressing: {
@@ -4733,7 +4777,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in Mixtopf: 10 Sek. / Stufe 4 emulgieren."],
     schritte: ["Alle Zutaten in Glas geben, verschließen und kräftig schütteln."],
-    hinweis: `💡 Olivenöl + Zitrone: das mediterrane Duo für Herzgesundheit und Entgiftung.`,
+    hinweis: `Olivenöl + Zitrone: das mediterrane Duo für Herzgesundheit und Entgiftung.`,
   },
 
   sherry_vinaigrette: {
@@ -4752,7 +4796,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in Mixtopf: 15 Sek. / Stufe 4 emulgieren."],
     schritte: ["Sherryessig, Senf, Knoblauch, Salz verrühren. Olivenöl einrühren bis emulgiert."],
-    hinweis: `💡 Sherryessig hat ein komplexes Aroma und unterstützt die Verdauung.`,
+    hinweis: `Sherryessig hat ein komplexes Aroma und unterstützt die Verdauung.`,
   },
 
   chimichurri: {
@@ -4781,7 +4825,7 @@ const REZEPTE = {
       "Mit Olivenöl, Essig, Oregano und Salz mischen.",
       "Mind. 10 Min. ziehen lassen.",
     ],
-    hinweis: `💡 Frische Petersilie ist reich an Apigenin – unterstützt die Östrogenbalance.`,
+    hinweis: `Frische Petersilie ist reich an Apigenin – unterstützt die Östrogenbalance.`,
   },
 
   catalan_plancha_sauce: {
@@ -4803,7 +4847,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in Mixtopf: 1 Min. / Stufe 8 zu glatter Sauce mixen."],
     schritte: ["Alle Zutaten in Mixer geben und zu glatter Sauce mixen."],
-    hinweis: `💡 Mandeln + Paprika = Vitamin E + C – schützt Hormon-produzierende Drüsen.`,
+    hinweis: `Mandeln + Paprika = Vitamin E + C – schützt Hormon-produzierende Drüsen.`,
   },
 
   keto_ketchup: {
@@ -4827,7 +4871,7 @@ const REZEPTE = {
       "1 Min. / Stufe 9 fein mixen. In sterilisiertes Glas abfüllen.",
     ],
     schritte: ["Alle Zutaten aufkochen, 15 Min. einkochen lassen. Fein mixen. Hält 2 Wochen im Kühlschrank."],
-    hinweis: `💡 Zuckerfrei und ohne Zusatzstoffe – ideal für Ketobiotic-Phasen.`,
+    hinweis: `Zuckerfrei und ohne Zusatzstoffe – ideal für Ketobiotic-Phasen.`,
   },
 
   calabrian_chili_dressing: {
@@ -4847,7 +4891,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in Mixtopf: 10 Sek. / Stufe 4 mixen."],
     schritte: ["Alle Zutaten in Glas geben und gut schütteln."],
-    hinweis: `💡 Capsaicin regt den Stoffwechsel an und wirkt entzündungshemmend.`,
+    hinweis: `Capsaicin regt den Stoffwechsel an und wirkt entzündungshemmend.`,
   },
 
   salted_caramel_sauce: {
@@ -4869,7 +4913,7 @@ const REZEPTE = {
       "Kokosöl, Vanille, Salz zugeben: 20 Sek. / Stufe 4 einrühren. Abkühlen lassen.",
     ],
     schritte: ["Kokosmilch und Ahornsirup aufkochen, 8–10 Min. unter Rühren einkochen.", "Kokosöl, Vanille und Salz einrühren. Abkühlen lassen (dickt beim Abkühlen weiter ein)."],
-    hinweis: `💡 Zu Datteln-Bark, Keto-Käsekuchen oder als Dip für Äpfel.`,
+    hinweis: `Zu Datteln-Bark, Keto-Käsekuchen oder als Dip für Äpfel.`,
   },
 
   chicken_bone_broth: {
@@ -4899,7 +4943,7 @@ const REZEPTE = {
       "Bei kleinster Flamme mind. 4 Stunden (besser 8–12h) köcheln.",
       "Abseihen, abkühlen, Fett entfernen.",
     ],
-    hinweis: `💡 Hühnerkollagen liefert Glycin und Glutamin – nährt die Darmschleimhaut.`,
+    hinweis: `Hühnerkollagen liefert Glycin und Glutamin – nährt die Darmschleimhaut.`,
   },
 
   vegetable_broth: {
@@ -4922,7 +4966,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in Mixtopf: 60 Min. / 95°C / Stufe 1 köcheln. Abseihen."],
     schritte: ["Alle Zutaten in großen Topf, aufkochen, 60–90 Min. köcheln. Abseihen.", "Hält 5 Tage im Kühlschrank, 3 Monate eingefroren."],
-    hinweis: `💡 Selbstgemachte Gemüsebrühe ohne Glutamat – ideal als tägliche Basis.`,
+    hinweis: `Selbstgemachte Gemüsebrühe ohne Glutamat – ideal als tägliche Basis.`,
   },
 
   dashi_broth: {
@@ -4948,7 +4992,7 @@ const REZEPTE = {
       "Bonitoflocken einstreuen, 3 Min. bei 80°C ziehen lassen.",
       "Durch feines Tuch abseihen.",
     ],
-    hinweis: `💡 Kombu ist reich an Iod – natürliche Schilddrüsenunterstützung.`,
+    hinweis: `Kombu ist reich an Iod – natürliche Schilddrüsenunterstützung.`,
   },
 
   fat_bomb_smoothie: {
@@ -4969,7 +5013,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in Mixtopf: 1 Min. / Stufe 9 cremig mixen. Sofort trinken."],
     schritte: ["Alle Zutaten in Mixer, 60 Sek. auf höchster Stufe. Sofort trinken."],
-    hinweis: `💡 MCT-Fette aus Kokos liefern sofortige Energie ohne Blutzuckerspike.`,
+    hinweis: `MCT-Fette aus Kokos liefern sofortige Energie ohne Blutzuckerspike.`,
   },
 
   cherry_mint_mocktail: {
@@ -4993,7 +5037,7 @@ const REZEPTE = {
       "Mit Mineralwasser auffüllen und sofort servieren.",
     ],
     schritte: ["Kirschen, Kokoswasser, Minze, Limettensaft mixen.", "Durch Sieb passieren, mit Mineralwasser auffüllen."],
-    hinweis: `💡 Kirschen enthalten Melatonin-Vorstufen – ideal für die Nurture-Phase.`,
+    hinweis: `Kirschen enthalten Melatonin-Vorstufen – ideal für die Nurture-Phase.`,
   },
 
   best_workout_smoothie: {
@@ -5014,7 +5058,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten in Mixtopf: 1 Min. / Stufe 9 cremig mixen."],
     schritte: ["Alle Zutaten 60 Sekunden cremig mixen. 30–60 Min. vor/nach Training trinken."],
-    hinweis: `💡 Maca unterstützt die Nebennieren und hilft Stresshormone auszubalancieren.`,
+    hinweis: `Maca unterstützt die Nebennieren und hilft Stresshormone auszubalancieren.`,
   },
 
   korean_pickled_cucumbers: {
@@ -5044,7 +5088,7 @@ const REZEPTE = {
       "Dressing verrühren, über Gurken geben.",
       "Mit Sesam und Frühlingszwiebeln garnieren.",
     ],
-    hinweis: `💡 Für probiotische Version 24h bei Raumtemperatur stehen lassen.`,
+    hinweis: `Für probiotische Version 24h bei Raumtemperatur stehen lassen.`,
   },
 
   korean_pickled_radishes: {
@@ -5068,7 +5112,7 @@ const REZEPTE = {
       "Über Radieschen geben, 1h kühlstellen.",
     ],
     schritte: ["Radieschen salzen, 15 Min. ziehen, abgießen.", "Marinade verrühren, über Radieschen geben. 1h kühlstellen."],
-    hinweis: `💡 Rettich enthält Enzyme die Leberfunktion und Entgiftung unterstützen.`,
+    hinweis: `Rettich enthält Enzyme die Leberfunktion und Entgiftung unterstützen.`,
   },
 
   pickled_red_onions: {
@@ -5092,7 +5136,7 @@ const REZEPTE = {
       "Abkühlen lassen. Nach 1h verwendbar, nach 24h perfekt.",
     ],
     schritte: ["Zwiebelringe in Glas geben.", "Sud aufkochen, darüber gießen, abkühlen lassen."],
-    hinweis: `💡 Hält 2 Wochen im Kühlschrank – immer vorrätig haben!`,
+    hinweis: `Hält 2 Wochen im Kühlschrank – immer vorrätig haben!`,
   },
 
   daikon_carrot_slaw: {
@@ -5117,7 +5161,7 @@ const REZEPTE = {
       "30 Min. ziehen lassen, mit Sesam bestreut servieren.",
     ],
     schritte: ["Daikon und Karotten raspeln.", "Dressing verrühren, drüber geben. 30 Min. ziehen lassen."],
-    hinweis: `💡 Daikon unterstützt Verdauungsenzyme und hilft beim Fettabbau.`,
+    hinweis: `Daikon unterstützt Verdauungsenzyme und hilft beim Fettabbau.`,
   },
 
   mexican_pickled_jalapenos: {
@@ -5144,7 +5188,7 @@ const REZEPTE = {
       "Abkühlen, verschließen. Mind. 24h ziehen lassen.",
     ],
     schritte: ["Jalapeños und Karotten in Glas geben.", "Lake aufkochen, darüber gießen. Abkühlen, mind. 24h ziehen lassen."],
-    hinweis: `💡 Capsaicin steigert den Stoffwechsel und wirkt entzündungshemmend.`,
+    hinweis: `Capsaicin steigert den Stoffwechsel und wirkt entzündungshemmend.`,
   },
 
   keto_pickled_ginger: {
@@ -5168,7 +5212,7 @@ const REZEPTE = {
       "Abkühlen, 24h kühlstellen vor dem Servieren.",
     ],
     schritte: ["Ingwer hobeln, salzen, 10 Min. ziehen.", "Sud aufkochen, über Ingwer gießen, abkühlen, 24h kühlstellen."],
-    hinweis: `💡 Ingwer-Pickles: natürliches Antiemetikum und Verdauungshelfer.`,
+    hinweis: `Ingwer-Pickles: natürliches Antiemetikum und Verdauungshelfer.`,
   },
 
   basic_brine: {
@@ -5186,7 +5230,7 @@ const REZEPTE = {
     thermomix: true,
     schritte_tm: ["Alle Zutaten: 5 Min. / 100°C / Stufe 1 bis Salz aufgelöst.", "Über vorbereitetes Gemüse in saubere Gläser gießen."],
     schritte: ["Alle Zutaten erhitzen bis Salz aufgelöst ist. Über Gemüse gießen."],
-    hinweis: `💡 Verhältnis 2:1 Wasser zu Essig ist die klassische Basis für alle Pickles.`,
+    hinweis: `Verhältnis 2:1 Wasser zu Essig ist die klassische Basis für alle Pickles.`,
   },
 
   date_bark: {
@@ -5215,7 +5259,7 @@ const REZEPTE = {
       "Auf Backpapier gießen, mit Datteln, Tahini, Mandeln und Salz belegen.",
       "30 Min. kühlstellen, in Stücke brechen.",
     ],
-    hinweis: `💡 Datteln: natürlicher Zucker + Ballaststoffe + Magnesium – ideal in der Nurture-Phase.`,
+    hinweis: `Datteln: natürlicher Zucker + Ballaststoffe + Magnesium – ideal in der Nurture-Phase.`,
   },
 
   coconut_oil_fudge: {
@@ -5244,7 +5288,7 @@ const REZEPTE = {
       "Kakao, Ahornsirup, Vanille, Salz einrühren.",
       "Nüsse unterheben, in Form gießen, einfrieren.",
     ],
-    hinweis: `💡 MCT-Fette aus Kokosöl: Ketone als sofortige Gehirnenergie.`,
+    hinweis: `MCT-Fette aus Kokosöl: Ketone als sofortige Gehirnenergie.`,
   },
 
   strawberry_cream_popsicles: {
@@ -5267,7 +5311,7 @@ const REZEPTE = {
       "Mind. 4 Stunden einfrieren.",
     ],
     schritte: ["Alle Zutaten cremig mixen. In Formen gießen und mind. 4h einfrieren."],
-    hinweis: `💡 Erdbeeren: reich an Folsäure und Vitamin C – gut für Progesteron.`,
+    hinweis: `Erdbeeren: reich an Folsäure und Vitamin C – gut für Progesteron.`,
   },
 
   almond_chocolate_torte: {
@@ -5302,7 +5346,7 @@ const REZEPTE = {
       "Mandelmehl, Kakao, Backpulver, Salz unterheben.",
       "In gefettete Form, 30–35 Min. backen.",
     ],
-    hinweis: `💡 Mandelmehl statt Weizen: mehr Protein, kein Gluten, niedriger glykämischer Index.`,
+    hinweis: `Mandelmehl statt Weizen: mehr Protein, kein Gluten, niedriger glykämischer Index.`,
   },
 
   marinated_mushroom_salad: {
@@ -5333,7 +5377,7 @@ const REZEPTE = {
       "Tamari, Essig, Knoblauch zugeben, 2 Min. weiterbraten.",
       "Mit Thymian, Petersilie und Salz abschmecken.",
     ],
-    hinweis: `💡 Shiitake-Pilze enthalten Lentinan – stärkt das Immunsystem nachweislich.`,
+    hinweis: `Shiitake-Pilze enthalten Lentinan – stärkt das Immunsystem nachweislich.`,
   },
 
   // ══════════════════════════════════════════════════════════════
@@ -5362,7 +5406,7 @@ const REZEPTE = {
       "Verquirlte Eier und den Großteil des Parmesans zugeben, sanft ~3 Min. zu cremigem Rührei stocken lassen.",
       "Auf zwei Teller verteilen und mit dem restlichen Parmesan bestreuen.",
     ],
-    hinweis: `💡 Artischocke liefert Ballaststoffe fürs Mikrobiom, dazu Protein aus Ei. Funktioniert auch mit zerkrümeltem Tofu. Parmesan ist von Natur aus laktosearm.`,
+    hinweis: `Artischocke liefert Ballaststoffe fürs Mikrobiom, dazu Protein aus Ei. Funktioniert auch mit zerkrümeltem Tofu. Parmesan ist von Natur aus laktosearm.`,
   },
 
   li_beeren_walnuss_cookies: {
@@ -5391,7 +5435,7 @@ const REZEPTE = {
       "8 Häufchen auf das Blech setzen, leicht flach drücken.",
       "15–18 Min. goldbraun backen. Auf dem Blech abkühlen lassen.",
     ],
-    hinweis: `💡 Der ideale Grab-and-go-Start: Ballaststoffe, Omega-3 aus Walnüssen und Antioxidantien aus den Beeren. Getrocknete Früchte nach Belieben tauschen.`,
+    hinweis: `Der ideale Grab-and-go-Start: Ballaststoffe, Omega-3 aus Walnüssen und Antioxidantien aus den Beeren. Getrocknete Früchte nach Belieben tauschen.`,
   },
 
   li_quinoa_porridge: {
@@ -5417,7 +5461,7 @@ const REZEPTE = {
       "Porridge auf zwei Schalen verteilen.",
       "Mit Blaubeeren, Feigen und je 1 EL Kokosflocken toppen. Warm servieren.",
     ],
-    hinweis: `💡 Quinoa liefert komplettes Protein, die Feigen füttern über Ballaststoffe das Mikrobiom. Wärmender Start in den Tag.`,
+    hinweis: `Quinoa liefert komplettes Protein, die Feigen füttern über Ballaststoffe das Mikrobiom. Wärmender Start in den Tag.`,
   },
 
   li_tomate_wassermelone_saft: {
@@ -5441,7 +5485,7 @@ const REZEPTE = {
       "Durch ein feines Sieb passieren und 20–30 Min. kalt stellen, damit sich die Aromen verbinden.",
       "In Gläser füllen und gut gekühlt servieren.",
     ],
-    hinweis: `💡 Doppelte Lycopin-Power aus Tomate UND Wassermelone — ein erfrischender Muntermacher am Morgen.`,
+    hinweis: `Doppelte Lycopin-Power aus Tomate UND Wassermelone — ein erfrischender Muntermacher am Morgen.`,
   },
 
   li_mediterrane_thunfisch_caponata: {
@@ -5470,7 +5514,7 @@ const REZEPTE = {
       "Das Dressing zugeben und alles gut vermengen.",
       "Auf zwei Teller verteilen, dazu passt eine Scheibe Sauerteigbrot.",
     ],
-    hinweis: `💡 Echte Mittelmeer-Aromen in Minuten. Statt Thunfisch schmecken auch Sardinen oder Makrele in Olivenöl.`,
+    hinweis: `Echte Mittelmeer-Aromen in Minuten. Statt Thunfisch schmecken auch Sardinen oder Makrele in Olivenöl.`,
   },
 
   li_gruener_papaya_salat: {
@@ -5495,7 +5539,7 @@ const REZEPTE = {
       "Papaya, Mango, Tomaten, Minze und Pistazien zugeben.",
       "Gut durchmischen und sofort servieren. Hält gekühlt bis zu 3 Tage.",
     ],
-    hinweis: `💡 Für extra Fat-Fighting-Kick eine fein gehackte rote Chili ins Dressing geben. Frisch und tropisch.`,
+    hinweis: `Für extra Fat-Fighting-Kick eine fein gehackte rote Chili ins Dressing geben. Frisch und tropisch.`,
   },
 
   li_kiwi_drachenfrucht_smoothie: {
@@ -5517,7 +5561,7 @@ const REZEPTE = {
       "In eine Schale füllen.",
       "Mit der zweiten Kiwi, Kokoschips und Kakaonibs toppen.",
     ],
-    hinweis: `💡 Ballaststoffreicher Muntermacher. Tipp: eine Kiwi vorab einfrieren für extra cremige Konsistenz.`,
+    hinweis: `Ballaststoffreicher Muntermacher. Tipp: eine Kiwi vorab einfrieren für extra cremige Konsistenz.`,
   },
 
   li_dark_chocolate_coffee_bark: {
@@ -5538,7 +5582,7 @@ const REZEPTE = {
       "Die Masse dünn auf das Backpapier streichen, mit Meersalz bestreuen.",
       "Fest werden lassen (im Kühl-/Gefrierfach schneller). In Stücke brechen. Luftdicht im Kühlschrank bis zu 1 Woche haltbar.",
     ],
-    hinweis: `💡 Knuspriger Frühstücks- oder Snack-Genuss mit Koffein-Kick. Nach Belieben mit gehackten Nüssen oder Trockenfrüchten verfeinern.`,
+    hinweis: `Knuspriger Frühstücks- oder Snack-Genuss mit Koffein-Kick. Nach Belieben mit gehackten Nüssen oder Trockenfrüchten verfeinern.`,
   },
 
   li_edamame_hummus: {
@@ -5568,7 +5612,7 @@ const REZEPTE = {
       "Olivenöl, Tahini, Knoblauch, Zitronensaft & -abrieb, Petersilie, Koriander, Basilikum, Ahornsirup, Cayenne und Salz zugeben und cremig pürieren.",
       "Sofort servieren oder abgedeckt bis zu 4 Tage im Kühlschrank aufbewahren. Dazu passen Zucchini, Karotten oder Paprika.",
     ],
-    hinweis: `💡 „Truly MediterAsian“ — die Soja-Variante des Klassikers, reich an pflanzlichem Protein und Ballaststoffen.`,
+    hinweis: `„Truly MediterAsian“ — die Soja-Variante des Klassikers, reich an pflanzlichem Protein und Ballaststoffen.`,
   },
 
   li_kraeuter_avocado_sandwich: {
@@ -5595,7 +5639,7 @@ const REZEPTE = {
       "Sonnenblumenkerne unterrühren.",
       "Je 2 EL Avocadocreme auf eine Brotscheibe streichen, mit einer zweiten Scheibe belegen. Halbieren und sofort servieren.",
     ],
-    hinweis: `💡 In Minuten fertig. Die knusprigen Sonnenblumenkerne ergänzen die cremige Avocado. Nach Wunsch mit Gurkenscheiben aufpeppen.`,
+    hinweis: `In Minuten fertig. Die knusprigen Sonnenblumenkerne ergänzen die cremige Avocado. Nach Wunsch mit Gurkenscheiben aufpeppen.`,
   },
 
   li_ratatouille: {
@@ -5627,7 +5671,7 @@ const REZEPTE = {
       "Dosentomaten, Thymian und Oregano einrühren. Zugedeckt bei mittlerer Hitze ~20 Min. schmoren.",
       "Mit Salz & Pfeffer abschmecken, mit frischem Basilikum bestreut servieren.",
     ],
-    hinweis: `💡 Provenzalischer Gemüseklassiker voller Antioxidantien. Warm oder bei Zimmertemperatur ein Genuss.`,
+    hinweis: `Provenzalischer Gemüseklassiker voller Antioxidantien. Warm oder bei Zimmertemperatur ein Genuss.`,
   },
 
   li_gemuese_chili: {
@@ -5658,7 +5702,7 @@ const REZEPTE = {
       "Dosentomaten, alle Bohnen und Mais zugeben. Aufkochen, dann bei mittlerer Hitze ~20 Min. köcheln.",
       "Mit Salz abschmecken, mit Koriander bestreut servieren. Dazu passt brauner Reis.",
     ],
-    hinweis: `💡 Herzhafter Eintopf voller pflanzlichem Protein & Ballaststoffen — perfekt zum Vorkochen.`,
+    hinweis: `Herzhafter Eintopf voller pflanzlichem Protein & Ballaststoffen — perfekt zum Vorkochen.`,
   },
 
   li_wildpilz_graupen_eintopf: {
@@ -5695,7 +5739,7 @@ const REZEPTE = {
       "Graupen, Brühe, Tomatenpüree, Ahornsirup, Paprikapulver, Kreuzkümmel, Cayenne und Salz einrühren. Aufkochen, dann zugedeckt bei mittlerer Hitze 40–45 Min. köcheln, bis die Graupen weich sind.",
       "Petersilie und Rosmarin unterrühren. Warm servieren.",
     ],
-    hinweis: `💡 Getrocknete Pilze geben mehr Umami als frische. Sättigendes Comfort Food voller Ballaststoffe.`,
+    hinweis: `Getrocknete Pilze geben mehr Umami als frische. Sättigendes Comfort Food voller Ballaststoffe.`,
   },
 
   li_geroestete_pilze_bohnen_rucola: {
@@ -5728,7 +5772,7 @@ const REZEPTE = {
       "Für das Dressing Weißweinessig, Zitronensaft, Knoblauch und Senf verrühren, langsam das Olivenöl einrühren.",
       "Rucola, Bohnen und geröstete Pilze in einer Schüssel mischen, mit dem Dressing überziehen und sofort servieren.",
     ],
-    hinweis: `💡 Umami aus gerösteten Pilzen trifft würzigen Rucola und cremige Bohnen. Vegan mit veganem Senf statt Sardellen.`,
+    hinweis: `Umami aus gerösteten Pilzen trifft würzigen Rucola und cremige Bohnen. Vegan mit veganem Senf statt Sardellen.`,
   },
 
   li_shakshuka_kraeuter_oliven: {
@@ -5758,7 +5802,7 @@ const REZEPTE = {
       "Hitze reduzieren, zugedeckt ~6 Min. pochieren, bis die Eier gestockt sind.",
       "Je 1 Ei mit Sauce auf einen Teller geben. Dazu passt Vollkornbrot.",
     ],
-    hinweis: `💡 Tunesischer Klassiker („shakshuka“ = Mischung). Die pochierten Eier liefern Cholin, die Tomaten Lycopin.`,
+    hinweis: `Tunesischer Klassiker („shakshuka“ = Mischung). Die pochierten Eier liefern Cholin, die Tomaten Lycopin.`,
   },
 
   li_tofu_nudeln_scharfe_sauce: {
@@ -5787,7 +5831,7 @@ const REZEPTE = {
       "Sauce zugeben und den Tofu vorsichtig ~2 Min. darin schwenken.",
       "Soba-Nudeln nach Packung garen, abgießen (für kalte Variante kalt abspülen). In eine Schüssel geben, Tofu-Sauce darüber, mischen. Mit Frühlingszwiebeln bestreut servieren.",
     ],
-    hinweis: `💡 „Das OG der pflanzlichen Fleisch-Gerichte“ — Tofu liefert Protein & Textur. Warm oder kalt ein Genuss.`,
+    hinweis: `„Das OG der pflanzlichen Fleisch-Gerichte“ — Tofu liefert Protein & Textur. Warm oder kalt ein Genuss.`,
   },
 
   li_baby_bok_choy: {
@@ -5814,7 +5858,7 @@ const REZEPTE = {
       "Reiswein zugeben, 1 Min. rühren. Dann die Sauce angießen und den Pak-Choi ~2 Min. darin wenden, bis die Sauce andickt.",
       "Vom Herd nehmen und sofort servieren. Dazu passt brauner Reis.",
     ],
-    hinweis: `💡 Familienliebling: einfaches grünes Gemüse mit intensiver Sauce, in 10 Minuten fertig.`,
+    hinweis: `Familienliebling: einfaches grünes Gemüse mit intensiver Sauce, in 10 Minuten fertig.`,
   },
 
   li_haehnchen_weisse_bohnen: {
@@ -5843,7 +5887,7 @@ const REZEPTE = {
       "Hühnerschenkel obenauf legen (nicht überlappen), mit etwas Olivenöl beträufeln.",
       "~40 Min. backen, bis das Hähnchen gar und goldbraun ist und die Tomaten aufplatzen. Ergibt leckere Reste für den nächsten Tag.",
     ],
-    hinweis: `💡 Ein ganzes Gericht auf einem Blech — die Bohnen werden außen knusprig, innen cremig. Mediterranes Aroma pur.`,
+    hinweis: `Ein ganzes Gericht auf einem Blech — die Bohnen werden außen knusprig, innen cremig. Mediterranes Aroma pur.`,
   },
 
   li_soba_ramen: {
@@ -5874,7 +5918,7 @@ const REZEPTE = {
       "Brühe durch ein Sieb passieren, Feststoffe verwerfen.",
       "Heiße Brühe auf 4 Schalen verteilen, mit Pilzscheiben, Pak Choi, Karotten und gekochten Soba-Nudeln anrichten. Nach Wunsch mit etwas Olivenöl, Soja oder Miso abschmecken.",
     ],
-    hinweis: `💡 Wärmende Umami-Brühe mit Pilzen und Miso — leicht, aber tief im Geschmack.`,
+    hinweis: `Wärmende Umami-Brühe mit Pilzen und Miso — leicht, aber tief im Geschmack.`,
   },
 
   li_wassermelone_chili_limette: {
@@ -5895,7 +5939,7 @@ const REZEPTE = {
       "Je ca. 1 Prise der Mischung über eine Wassermelonenscheibe streuen und servieren.",
       "Restliches Chili-Limetten-Salz für Dips, Salate oder Marinaden aufbewahren.",
     ],
-    hinweis: `💡 Ultraleichtes Sommer-Häppchen — laut Li ein „brown-fat-aktivierender“ Twist auf Wassermelone.`,
+    hinweis: `Ultraleichtes Sommer-Häppchen — laut Li ein „brown-fat-aktivierender“ Twist auf Wassermelone.`,
   },
 
   li_aprikosen_kokos_curry: {
@@ -5927,7 +5971,7 @@ const REZEPTE = {
       "Blumenkohl, Karotten und Kichererbsen zugeben. Aufkochen und teilweise zugedeckt 20 Min. köcheln.",
       "Mit Koriander und Cashews toppen. Über braunem Reis servieren, nach Wunsch mit einem Spritzer Limette.",
     ],
-    hinweis: `💡 Aromatisches Comfort Food: die getrockneten Aprikosen geben eine feine Süße, Kichererbsen liefern Protein.`,
+    hinweis: `Aromatisches Comfort Food: die getrockneten Aprikosen geben eine feine Süße, Kichererbsen liefern Protein.`,
   },
 
   li_pasta_salat_sundried: {
@@ -5957,7 +6001,7 @@ const REZEPTE = {
       "Paprika, Oliven, getrocknete Tomaten und Zwiebel zur abgekühlten Pasta geben.",
       "Dressing untermischen. Zugedeckt mind. 20 Min. im Kühlschrank durchziehen lassen. Kalt servieren.",
     ],
-    hinweis: `💡 Schöner Meal-Prep-Salat — schmeckt am nächsten Tag noch besser. Edamame gibt pflanzliches Protein.`,
+    hinweis: `Schöner Meal-Prep-Salat — schmeckt am nächsten Tag noch besser. Edamame gibt pflanzliches Protein.`,
   },
 
   li_gruener_salat_garnelen_blutorange: {
@@ -5986,7 +6030,7 @@ const REZEPTE = {
       "Rucola, Petersilie und Fenchel in eine große Schüssel geben, Parmesan und Garnelen zufügen.",
       "Mit dem Dressing beträufeln und vorsichtig mischen. Sofort servieren.",
     ],
-    hinweis: `💡 Omega-3 aus Garnelen trifft Vitamin-C-reiche Blutorange. Alle Komponenten lassen sich vorbereiten.`,
+    hinweis: `Omega-3 aus Garnelen trifft Vitamin-C-reiche Blutorange. Alle Komponenten lassen sich vorbereiten.`,
   },
 
   li_gegrilltes_chili_haehnchen: {
@@ -6020,7 +6064,7 @@ const REZEPTE = {
       "Tomaten und Grünkohl zugeben, salzen und 5–8 Min. braten, bis der Grünkohl zusammenfällt.",
       "Mit einem Spritzer Apfelessig ablöschen, 2–3 Min. weiterbraten. Mit dem Hähnchen warm servieren.",
     ],
-    hinweis: `💡 Karibisch inspiriert: wärmende Gewürze, viel Grünkohl. Die Schärfe der Chili nach Geschmack dosieren.`,
+    hinweis: `Karibisch inspiriert: wärmende Gewürze, viel Grünkohl. Die Schärfe der Chili nach Geschmack dosieren.`,
   },
 
   li_chicha_morada: {
@@ -6046,7 +6090,7 @@ const REZEPTE = {
       "Granatapfelsaft und Limettensaft einrühren, ~4 Std. kalt stellen.",
       "Mit gewürfeltem Apfel über Eis servieren.",
     ],
-    hinweis: `💡 Peruanischer Anthocyan-Booster aus lila Mais — tiefviolett und voller Antioxidantien. Ohne zugesetzten Zucker.`,
+    hinweis: `Peruanischer Anthocyan-Booster aus lila Mais — tiefviolett und voller Antioxidantien. Ohne zugesetzten Zucker.`,
   },
 
   li_jasmine_wake_up: {
@@ -6068,7 +6112,7 @@ const REZEPTE = {
       "3–4 Min. ziehen lassen, dann abseihen.",
       "Mit Zitronenscheiben und nach Wunsch etwas Honig servieren. Warm genießen.",
     ],
-    hinweis: `💡 Sanfter, aromatischer Start in den Tag — Jasmintee liefert Polyphenole, Ingwer wärmt.`,
+    hinweis: `Sanfter, aromatischer Start in den Tag — Jasmintee liefert Polyphenole, Ingwer wärmt.`,
   },
 
   li_zitrus_trail_mix: {
@@ -6092,7 +6136,7 @@ const REZEPTE = {
       "Getrockneten Orangenabrieb darüberstreuen und alles gut vermengen. 24 Std. offen durchziehen lassen.",
       "Zum Servieren je ~¼ Tasse in ein Schälchen geben. Luftdicht bis zu 2 Wochen haltbar.",
     ],
-    hinweis: `💡 Selbstgemacht ohne Zuckerzusatz: gesunde Fette, Ballaststoffe und ein Hauch Zitrus. Perfekt für unterwegs.`,
+    hinweis: `Selbstgemacht ohne Zuckerzusatz: gesunde Fette, Ballaststoffe und ein Hauch Zitrus. Perfekt für unterwegs.`,
   },
 
   li_edamame_rucola_pasta: {
@@ -6120,7 +6164,7 @@ const REZEPTE = {
       "In einer kleinen Schüssel die restlichen 4 EL Olivenöl mit Essig, Salz und Pfeffer verquirlen. Über die Pasta geben und mischen.",
       "Geröstete Walnüsse zufügen. Feta vorsichtig unterheben. Mit Zitronensaft abschmecken. Warm oder lauwarm servieren.",
     ],
-    hinweis: `💡 Leichte MediterAsian-Pasta, die als Hauptgericht satt macht. Für vegan den Feta weglassen und mit mehr Walnüssen arbeiten.`,
+    hinweis: `Leichte MediterAsian-Pasta, die als Hauptgericht satt macht. Für vegan den Feta weglassen und mit mehr Walnüssen arbeiten.`,
   },
 
   li_spiced_chicken_rice_kale: {
@@ -6154,7 +6198,7 @@ const REZEPTE = {
       "Reis abgießen und zugeben. Kokosmilch einrühren. Kichererbsen, Grünkohl und Chili unterheben, mit dem Saft ½ Limette abschmecken.",
       "Aufkochen, dann zugedeckt bei niedriger Hitze 20 Min. garen. Herd ausschalten, Deckel abnehmen, 5 Min. ausdampfen lassen. Heiß mit Limettenspalten servieren.",
     ],
-    hinweis: `💡 Ein-Topf-Gericht nach zentralasiatischer Art — aromatisch und sättigend. Vegetarisch: Hähnchen durch festen Tofu ersetzen.`,
+    hinweis: `Ein-Topf-Gericht nach zentralasiatischer Art — aromatisch und sättigend. Vegetarisch: Hähnchen durch festen Tofu ersetzen.`,
   },
 
   li_tomaten_garnelen_suess_sauer: {
@@ -6183,7 +6227,7 @@ const REZEPTE = {
       "Sauce angießen und 2–3 Min. köcheln, bis sie andickt und die Garnelen gar sind.",
       "Mit Frühlingszwiebeln bestreut servieren. Dazu passt brauner Reis.",
     ],
-    hinweis: `💡 Der Klassiker sonst mit Ketchup — Li nutzt intensives Tomatenmark und Apfelessig. Mit Schale gebraten wird die Sauce besonders aromatisch.`,
+    hinweis: `Der Klassiker sonst mit Ketchup — Li nutzt intensives Tomatenmark und Apfelessig. Mit Schale gebraten wird die Sauce besonders aromatisch.`,
   },
 
   // ══════════════════════════════════════════════════════════════
@@ -6217,7 +6261,7 @@ const REZEPTE = {
       "Dattelpüree über die Hafer-Frucht-Mischung geben und alles gründlich vermengen, bis alles klebrig überzogen ist.",
       "Masse fest in die Form drücken. 15–20 Min. backen, bis die Ränder leicht bräunen. Vollständig abkühlen lassen (2–3 Std.), dann in 12 Riegel schneiden.",
     ],
-    hinweis: `💡 Stärkt Mikrobiom & Stammzellen (dunkle Schokolade). Ohne Cashews bei Nussallergie. Reste luftdicht aufbewahren.`,
+    hinweis: `Stärkt Mikrobiom & Stammzellen (dunkle Schokolade). Ohne Cashews bei Nussallergie. Reste luftdicht aufbewahren.`,
   },
 
   etbd_ingwer_orange_kakao: {
@@ -6242,7 +6286,7 @@ const REZEPTE = {
       "Ingwer, Orangenabrieb, Ahornsirup und Salz einrühren.",
       "Kurz erhitzen, in zwei Tassen füllen und warm genießen.",
     ],
-    hinweis: `💡 Wärmender Kakao mit Ingwer & Orange — dunkle Schokolade fürs Gefäß- und Stammzellsystem.`,
+    hinweis: `Wärmender Kakao mit Ingwer & Orange — dunkle Schokolade fürs Gefäß- und Stammzellsystem.`,
   },
 
   etbd_brokkolistiel_oregano_suppe: {
@@ -6271,7 +6315,7 @@ const REZEPTE = {
       "Röschen in kochendem Wasser 2–3 Min. blanchieren, in Eiswasser abschrecken. Ebenso Spinat und Petersilie kurz blanchieren, abtropfen.",
       "Stiel-Brühe im Mixer pürieren, nach und nach Röschen, Spinat und Petersilie zugeben, bis die Suppe leuchtend grün und cremig ist. Salzen, pfeffern, mit Zitronenabrieb und Sprossen garnieren.",
     ],
-    hinweis: `💡 Nutzt die oft weggeworfenen Brokkolistiele (Angiogenese) plus Sprossen fürs Immunsystem — nichts geht verloren.`,
+    hinweis: `Nutzt die oft weggeworfenen Brokkolistiele (Angiogenese) plus Sprossen fürs Immunsystem — nichts geht verloren.`,
   },
 
   etbd_geroestete_pilze: {
@@ -6297,7 +6341,7 @@ const REZEPTE = {
       "25–30 Min. rösten, bis die Pilze goldbraun sind.",
       "Etwas abkühlen lassen, salzen, mit Petersilie bestreuen und warm servieren.",
     ],
-    hinweis: `💡 Pilze nicht waschen, nur mit feuchtem Tuch abwischen. Salz erst nach dem Garen — sonst ziehen sie Wasser. Stärkt Immunsystem, Mikrobiom & Angiogenese.`,
+    hinweis: `Pilze nicht waschen, nur mit feuchtem Tuch abwischen. Salz erst nach dem Garen — sonst ziehen sie Wasser. Stärkt Immunsystem, Mikrobiom & Angiogenese.`,
   },
 
   etbd_gegrillte_aubergine: {
@@ -6326,7 +6370,7 @@ const REZEPTE = {
       "Fest mit Folie abdecken und mind. 30 Min. bei Zimmertemperatur (oder über Nacht im Kühlschrank) durchziehen lassen.",
       "Zum Servieren auf einer Platte anrichten, mit Basilikum und nach Wunsch Oliven/Kapern garnieren. Auch über Rucola als Salat oder auf geröstetem Brot als Bruschetta.",
     ],
-    hinweis: `💡 Aubergine enthält Chlorogensäure fürs Regenerationssystem. Hält 7–10 Tage im Kühlschrank — perfekt zum Vorbereiten.`,
+    hinweis: `Aubergine enthält Chlorogensäure fürs Regenerationssystem. Hält 7–10 Tage im Kühlschrank — perfekt zum Vorbereiten.`,
   },
 
   etbd_schoko_mousse: {
@@ -6351,7 +6395,7 @@ const REZEPTE = {
       "In Förmchen/Gläser füllen und mind. 30 Min. kühl stellen.",
       "Mit gehackten Nüssen, Beeren und nach Wunsch Minze garnieren.",
     ],
-    hinweis: `💡 Cremiges Dessert aus nur 3 Basiszutaten — dunkle Schokolade für Gefäße & Stammzellen, Sojaprotein aus dem Tofu.`,
+    hinweis: `Cremiges Dessert aus nur 3 Basiszutaten — dunkle Schokolade für Gefäße & Stammzellen, Sojaprotein aus dem Tofu.`,
   },
 
   etbd_kastaniensuppe: {
@@ -6380,7 +6424,7 @@ const REZEPTE = {
       "Mit dem Pürierstab cremig pürieren. Mit Salz & Pfeffer abschmecken.",
       "In Schalen füllen, mit etwas gutem Olivenöl beträufeln. Dazu passen gebratene Pilze und Sauerteigbrot.",
     ],
-    hinweis: `💡 Herbstliches Comfort Food — Maronen liefern Ellagsäure. Cremig ganz ohne Sahne.`,
+    hinweis: `Herbstliches Comfort Food — Maronen liefern Ellagsäure. Cremig ganz ohne Sahne.`,
   },
 
   etbd_pilzsuppe: {
@@ -6407,7 +6451,7 @@ const REZEPTE = {
       "Mit dem Pürierstab (oder Standmixer) cremig pürieren. Mit Salz & Pfeffer abschmecken.",
       "Mit den zurückbehaltenen Pilzstücken und Petersilie garnieren.",
     ],
-    hinweis: `💡 Umami pur — verschiedene Pilzsorten stärken Immunsystem und Mikrobiom. Kreativ kombinieren!`,
+    hinweis: `Umami pur — verschiedene Pilzsorten stärken Immunsystem und Mikrobiom. Kreativ kombinieren!`,
   },
 
   etbd_kuerbissuppe: {
@@ -6438,7 +6482,7 @@ const REZEPTE = {
       "Brühe und Kokosmilch angießen, aufkochen, bis es blubbert. Mit dem Pürierstab cremig pürieren, mit Salz abschmecken.",
       "Mit Kürbiskernen bestreut servieren.",
     ],
-    hinweis: `💡 Klassische Herbstsuppe mit wärmenden Gewürzen. Kürbis liefert Carotinoide, Kokosmilch macht sie samtig.`,
+    hinweis: `Klassische Herbstsuppe mit wärmenden Gewürzen. Kürbis liefert Carotinoide, Kokosmilch macht sie samtig.`,
   },
 
   etbd_lila_kartoffelsuppe: {
@@ -6465,7 +6509,7 @@ const REZEPTE = {
       "Rosmarinstängel entfernen. Mit dem Pürierstab cremig pürieren, mit Meersalz abschmecken.",
       "Mit Petersilie/Dill und frisch gemahlenem Pfeffer servieren. Nach Wunsch mit einem Klecks Joghurt (fürs Mikrobiom).",
     ],
-    hinweis: `💡 Der violette Farbstoff der Kartoffeln wirkt antiangiogen und gegen Krebs-Stammzellen. Ein Klecks Joghurt bringt Probiotika dazu.`,
+    hinweis: `Der violette Farbstoff der Kartoffeln wirkt antiangiogen und gegen Krebs-Stammzellen. Ein Klecks Joghurt bringt Probiotika dazu.`,
   },
 
   etbd_sommergemuese_eintopf: {
@@ -6500,7 +6544,7 @@ const REZEPTE = {
       "Schwarzkohl, Karottengrün und Bohnen zugeben, weitere 10 Min. kochen. Vom Herd nehmen, Minze/Basilikum einrühren.",
       "In Schalen mit einem Schuss Olivenöl und geröstetem Sauerteigbrot servieren.",
     ],
-    hinweis: `💡 18 gesundheitsfördernde Zutaten in einem Topf — sogar das Karottengrün wird mitverwendet. Ideal für den Sommer.`,
+    hinweis: `18 gesundheitsfördernde Zutaten in einem Topf — sogar das Karottengrün wird mitverwendet. Ideal für den Sommer.`,
   },
 
   etbd_walnuss_pesto: {
@@ -6526,7 +6570,7 @@ const REZEPTE = {
       "Food Processor starten und langsam das Olivenöl einlaufen lassen. Bei Bedarf etwas von der aufbewahrten Milch zugeben, bis eine dicke, cremige Konsistenz entsteht.",
       "Mit Salz & Pfeffer abschmecken. Über Pasta, Fisch, Hähnchen oder Gemüse. Hält 3–4 Tage im Kühlschrank (nicht einfrieren).",
     ],
-    hinweis: `💡 Pesto mal anders: Walnüsse liefern Omega-3 fürs DNA-Schutzsystem. Für nussigeren Geschmack die Walnüsse kurz rösten.`,
+    hinweis: `Pesto mal anders: Walnüsse liefern Omega-3 fürs DNA-Schutzsystem. Für nussigeren Geschmack die Walnüsse kurz rösten.`,
   },
 
   etbd_haehnchen_kokos_curry: {
@@ -6560,7 +6604,7 @@ const REZEPTE = {
       "Kartoffeln, Süßkartoffel, Karotten und Orangenabrieb zugeben, die Sauce angießen. Aufkochen, dann zugedeckt ~45 Min. köcheln, bis Hähnchen gar und Gemüse weich ist.",
       "Salzen, kurz vor dem Servieren das Basilikum unterrühren. Dazu passt Sauerteigbrot.",
     ],
-    hinweis: `💡 Kurkuma aus dem Currypulver plus Hähnchen & Chili — antiangiogen und immunstärkend. Ein Alltags-Curry, das satt macht.`,
+    hinweis: `Kurkuma aus dem Currypulver plus Hähnchen & Chili — antiangiogen und immunstärkend. Ein Alltags-Curry, das satt macht.`,
   },
 
   etbd_haehnchen_minze_fischsauce: {
@@ -6591,7 +6635,7 @@ const REZEPTE = {
       "Sofort das Hähnchen zugeben und 2–3 Min. pfannenrühren. Sauce angießen und das Hähnchen ~2 Min. darin schwenken, bis es gar ist.",
       "Über braunem Reis servieren, mit den frittierten Minzblättern garnieren.",
     ],
-    hinweis: `💡 Hähnchenschenkel wirken antiangiogen. Die frittierten Minzblätter sind ein besonderer, aromatischer Clou.`,
+    hinweis: `Hähnchenschenkel wirken antiangiogen. Die frittierten Minzblätter sind ein besonderer, aromatischer Clou.`,
   },
 
   etbd_gedaempfter_fisch_ingwer: {
@@ -6618,7 +6662,7 @@ const REZEPTE = {
       "Fisch auf eine Platte geben. Grüne Frühlingszwiebeln, die Hälfte des Ingwers, Koriander und Pilze längs auf dem Fisch verteilen.",
       "Sesamöl heiß (nicht rauchend) erhitzen, vom Herd nehmen und über den Fisch gießen. Dann die Sojasauce-Mischung darübergeben. Sofort servieren.",
     ],
-    hinweis: `💡 Dämpfen ist schonend und schnell — Fisch (DNA-Schutz), Pilze & Soja aktivieren mehrere Schutzsysteme auf einmal.`,
+    hinweis: `Dämpfen ist schonend und schnell — Fisch (DNA-Schutz), Pilze & Soja aktivieren mehrere Schutzsysteme auf einmal.`,
   },
 
   etbd_warmer_karottengruen_salat: {
@@ -6647,7 +6691,7 @@ const REZEPTE = {
       "Kirschtomaten zugeben und braten, bis sie weich werden.",
       "Die warme Gemüsemischung über das Karottengrün geben und untermengen, sodass die Blätter leicht zusammenfallen. Mit Salz, Pfeffer, Zitronenabrieb und etwas Olivenöl abschmecken. Sofort servieren.",
     ],
-    hinweis: `💡 Verwertet das oft weggeworfene Karottengrün (antiangiogen) mit Shiitake und Kreuzkümmel — nichts wird verschwendet.`,
+    hinweis: `Verwertet das oft weggeworfene Karottengrün (antiangiogen) mit Shiitake und Kreuzkümmel — nichts wird verschwendet.`,
   },
 
   etbd_schoko_kastanien_trueffel: {
@@ -6674,7 +6718,7 @@ const REZEPTE = {
       "Ist die Masse klebrig, 20–30 Min. im Kühlschrank ruhen lassen. Dann kleine Kugeln formen und im gewünschten Überzug wälzen.",
       "Auf einer Platte oder in Papierförmchen anrichten. Gut verschlossen im Kühlschrank aufbewahren.",
     ],
-    hinweis: `💡 Kleine Menge Schokolade, große Wirkung: Ellagsäure aus Maronen plus Flavanole aus dunkler Schokolade. Europäischer Trüffel-Genuss.`,
+    hinweis: `Kleine Menge Schokolade, große Wirkung: Ellagsäure aus Maronen plus Flavanole aus dunkler Schokolade. Europäischer Trüffel-Genuss.`,
   },
 
   etbd_zitronen_vinaigrette: {
@@ -6698,7 +6742,7 @@ const REZEPTE = {
       "Das Olivenöl langsam einrühren, bis alles emulgiert.",
       "Mit frisch gemahlenem Pfeffer und einer Prise Salz abschmecken. Über Blattsalate geben. Lässt sich gut vorbereiten und mitnehmen.",
     ],
-    hinweis: `💡 Das richtige Dressing macht den Salat — mit Olivenöl als Basis. Für vegan die Sardelle weglassen (etwas mehr Salz oder eine Kaper zugeben).`,
+    hinweis: `Das richtige Dressing macht den Salat — mit Olivenöl als Basis. Für vegan die Sardelle weglassen (etwas mehr Salz oder eine Kaper zugeben).`,
   },
 
   etbd_frische_tomatensauce_pasta: {
@@ -6726,7 +6770,7 @@ const REZEPTE = {
       "Ca. 480 ml Tomatenpüree zugeben, salzen und 20–30 Min. köcheln. Die Hälfte des Basilikums einrühren.",
       "Pasta al dente kochen, abgießen, mit der Sauce mischen. Mit Olivenöl beträufeln, restliches Basilikum und nach Wunsch Parmesan darüber.",
     ],
-    hinweis: `💡 Betont die Frische der Tomaten (antiangiogen, DNA-Schutz, Mikrobiom). Reste-Püree lässt sich einfrieren oder als schnelle Pizzasauce nutzen.`,
+    hinweis: `Betont die Frische der Tomaten (antiangiogen, DNA-Schutz, Mikrobiom). Reste-Püree lässt sich einfrieren oder als schnelle Pizzasauce nutzen.`,
   },
 
   etbd_pasta_knoblauch_scapes: {
@@ -6753,7 +6797,7 @@ const REZEPTE = {
       "Pasta und geröstete Scapes vermengen. In Teller anrichten, mit den Tomaten toppen.",
       "Mit Zitronensaft & -abrieb, frischem Pfeffer, Basilikum und ggf. Mozzarella servieren. Bei Zimmertemperatur genießen.",
     ],
-    hinweis: `💡 Knoblauch-Scapes sind ein Sommer-Highlight — karamellisiert mild-nussig, mit Lycopin aus den Kirschtomaten. Vegan ohne Mozzarella.`,
+    hinweis: `Knoblauch-Scapes sind ein Sommer-Highlight — karamellisiert mild-nussig, mit Lycopin aus den Kirschtomaten. Vegan ohne Mozzarella.`,
   },
 
   etbd_basic_pesto_trofie: {
@@ -6778,7 +6822,7 @@ const REZEPTE = {
       "Trofie in gesalzenem Wasser al dente kochen (1 Min. weniger als Packungsangabe). 1 Tasse Kochwasser aufheben, dann abgießen.",
       "Pasta mit dem Pesto und so viel Kochwasser mischen, dass alles gleichmäßig überzogen ist. Sofort servieren, mit extra Parmesan.",
     ],
-    hinweis: `💡 Traditionelle Pasta aus Ligurien — Basilikum, Pinienkerne & Olivenöl. Mit Kastanienmehl-Trofie (online erhältlich) für den extra Gesundheits-Twist.`,
+    hinweis: `Traditionelle Pasta aus Ligurien — Basilikum, Pinienkerne & Olivenöl. Mit Kastanienmehl-Trofie (online erhältlich) für den extra Gesundheits-Twist.`,
   },
 
   etbd_lila_kartoffel_gnocchi: {
@@ -6802,7 +6846,7 @@ const REZEPTE = {
       "Teig zu einem Laib formen, in 8–10 Stücke teilen. Jedes zu einer ~1,5 cm dicken Rolle formen, in 2,5-cm-Stücke schneiden.",
       "Gnocchi ins kochende Salzwasser geben, garen, bis sie aufsteigen (2–4 Min.). Mit Schaumkelle herausnehmen. Mit Walnuss-Pesto oder einer anderen Sauce mischen. Mit Parmesan servieren.",
     ],
-    hinweis: `💡 Der violette Farbstoff der Kartoffeln zielt auf Krebs-Stammzellen. Passt perfekt zum Walnuss-Pesto aus diesem Buch.`,
+    hinweis: `Der violette Farbstoff der Kartoffeln zielt auf Krebs-Stammzellen. Passt perfekt zum Walnuss-Pesto aus diesem Buch.`,
   },
 
   etbd_spaghetti_kakao_calamari: {
@@ -6834,7 +6878,7 @@ const REZEPTE = {
       "Spaghetti in gut gesalzenem Wasser al dente kochen (1 Min. weniger als Packung). Abgießen und in die Sauce geben, 1 Min. durchschwenken.",
       "Spaghetti anrichten, Calamari daraufgeben. Mit gehobelter dunkler Schokolade, Orangenabrieb und Chilipulver bestreuen.",
     ],
-    hinweis: `💡 Klingt gewagt, überzeugt aber: Kakao & Chili umhüllen die Pasta mit tiefem Aroma, Calamari rundet ab. Ein besonderes Gericht.`,
+    hinweis: `Klingt gewagt, überzeugt aber: Kakao & Chili umhüllen die Pasta mit tiefem Aroma, Calamari rundet ab. Ein besonderes Gericht.`,
   },
 
   etbd_clams_plancha: {
@@ -6859,7 +6903,7 @@ const REZEPTE = {
       "Wein angießen und die Pfanne kräftig schütteln. Weitere 5–6 Min. garen, bis alle Muscheln offen sind. Nicht geöffnete Muscheln wegwerfen.",
       "Muscheln in eine große Schüssel geben, den Saft darüber, mit Meersalz würzen. Sofort mit viel Brot zum Auftunken servieren.",
     ],
-    hinweis: `💡 Schlicht und sublim: frische Muscheln, Olivenöl, Knoblauch & Weißwein. Muscheln liefern Zink und wertvolle Mineralstoffe.`,
+    hinweis: `Schlicht und sublim: frische Muscheln, Olivenöl, Knoblauch & Weißwein. Muscheln liefern Zink und wertvolle Mineralstoffe.`,
   },
 
   // ══════════════════════════════════════════════════════════════
@@ -6886,7 +6930,7 @@ const REZEPTE = {
       "In kleine Silikonförmchen füllen, mit restlichen Kokosflocken bestreuen.",
       "Im Kühlschrank ~30 Min. fest werden lassen. Kühl aufbewahren.",
     ],
-    hinweis: `💡 Fasted Snack (Pelz): fettbasiert, praktisch keine Kohlenhydrate — hält dich im Fasten und stillt den Hunger. Teste bei Bedarf deinen Blutzucker.`,
+    hinweis: `Fasted Snack (Pelz): fettbasiert, praktisch keine Kohlenhydrate — hält dich im Fasten und stillt den Hunger. Teste bei Bedarf deinen Blutzucker.`,
   },
 
   fs_mandelmus_loeffel: {
@@ -6906,7 +6950,7 @@ const REZEPTE = {
       "Mit etwas Zimt (und nach Wunsch einer Prise Salz) bestreuen.",
       "Langsam genießen — das Fett stillt den Hunger.",
     ],
-    hinweis: `💡 Fasted Snack (Pelz): Nussmus ist ein Klassiker im Fasten-Fenster. Bei nur 1 EL bleibst du unter den Grenzwerten (Protein/KH niedrig halten).`,
+    hinweis: `Fasted Snack (Pelz): Nussmus ist ein Klassiker im Fasten-Fenster. Bei nur 1 EL bleibst du unter den Grenzwerten (Protein/KH niedrig halten).`,
   },
 
   fs_oliven_schale: {
@@ -6928,7 +6972,7 @@ const REZEPTE = {
       "Mit Olivenöl, Zitronenschale, Kräutern und ggf. Chiliflocken vermengen.",
       "Kurz durchziehen lassen und genießen.",
     ],
-    hinweis: `💡 Fasted Snack (Pelz): Oliven sind ein ausdrücklich empfohlener Fasten-Fett-Snack. Fettbasiert, kaum Protein/KH.`,
+    hinweis: `Fasted Snack (Pelz): Oliven sind ein ausdrücklich empfohlener Fasten-Fett-Snack. Fettbasiert, kaum Protein/KH.`,
   },
 
   fs_bulletproof_kaffee: {
@@ -6948,7 +6992,7 @@ const REZEPTE = {
       "Mit einem Mixer/Milchaufschäumer ~15 Sek. cremig-schaumig aufmixen.",
       "Sofort genießen.",
     ],
-    hinweis: `💡 Fasted Snack (Pelz): Fett im Kaffee verlängert das Fasten und stillt Hunger, ohne den Blutzucker zu spiken. Ohne Zucker/Süßstoff bleiben.`,
+    hinweis: `Fasted Snack (Pelz): Fett im Kaffee verlängert das Fasten und stillt Hunger, ohne den Blutzucker zu spiken. Ohne Zucker/Süßstoff bleiben.`,
   },
 
   fs_kakao_fettbombe: {
@@ -6971,7 +7015,7 @@ const REZEPTE = {
       "In Silikonförmchen füllen und im Kühlschrank fest werden lassen.",
       "Kühl aufbewahren, direkt aus dem Kühlschrank genießen.",
     ],
-    hinweis: `💡 Fasted Snack (Pelz): Schokoladiger Fett-Genuss ohne Zucker — der bittere Kakao liefert Polyphenole, das Fett hält im Fasten.`,
+    hinweis: `Fasted Snack (Pelz): Schokoladiger Fett-Genuss ohne Zucker — der bittere Kakao liefert Polyphenole, das Fett hält im Fasten.`,
   },
 
   fs_gurke_olivenoel: {
@@ -6992,7 +7036,7 @@ const REZEPTE = {
       "Mit Olivenöl beträufeln, mit Meersalz und einem Spritzer Zitrone würzen.",
       "Sofort genießen — knackig und erfrischend.",
     ],
-    hinweis: `💡 Fasted Snack (Pelz): Gurke ist sehr kalorienarm; das Olivenöl liefert das sättigende Fett. Knackige Alternative zu Crackern.`,
+    hinweis: `Fasted Snack (Pelz): Gurke ist sehr kalorienarm; das Olivenöl liefert das sättigende Fett. Knackige Alternative zu Crackern.`,
   },
 
   fs_knochenbruehe_tasse: {
@@ -7013,7 +7057,7 @@ const REZEPTE = {
       "Mit Salz und nach Wunsch etwas Kurkuma und Zitrone abschmecken.",
       "Warm aus einer Tasse trinken.",
     ],
-    hinweis: `💡 Fasted Snack (Pelz): Knochenbrühe wird im Buch ausdrücklich als Fasten-Snack genannt — wärmt, spendet Mineralstoffe und hält im Fasten. Auf niedrigen Proteingehalt achten (nur eine Tasse).`,
+    hinweis: `Fasted Snack (Pelz): Knochenbrühe wird im Buch ausdrücklich als Fasten-Snack genannt — wärmt, spendet Mineralstoffe und hält im Fasten. Auf niedrigen Proteingehalt achten (nur eine Tasse).`,
   },
 
   fs_matcha_kokos: {
@@ -7034,7 +7078,7 @@ const REZEPTE = {
       "Restliches heißes Wasser, Kokosmilch und MCT-Öl zugeben.",
       "Cremig aufschäumen und warm genießen.",
     ],
-    hinweis: `💡 Fasted Snack (Pelz): Matcha (ungesüßt) plus etwas Fett hält im Fasten und gibt sanfte Energie. Ohne Zucker/Süßstoff bleiben.`,
+    hinweis: `Fasted Snack (Pelz): Matcha (ungesüßt) plus etwas Fett hält im Fasten und gibt sanfte Energie. Ohne Zucker/Süßstoff bleiben.`,
   },
 
 };
@@ -7396,7 +7440,7 @@ const TRAINING_PHASEN = {
   manifestation: {
     titel: "Manifestations-Phase — Ovulations-Power",
     untertitel: "Tag 11–15 · Ovulation & maximale Energie",
-    farbe: "#C4845A",
+    farbe: "#A85440",
     hellFarbe: "#FAF0E8",
     intensitaet: "Hoch",
     intensitaetSterne: 5,
@@ -7504,8 +7548,8 @@ const TRAINING_PHASEN = {
   nurture: {
     titel: "Nurture-Phase — Sanft & regenerativ",
     untertitel: "Tag 20–28 · Progesteron dominiert",
-    farbe: "#9B7BAD",
-    hellFarbe: "#F3EEF7",
+    farbe: "#8B6B84",
+    hellFarbe: "#F0EAEF",
     intensitaet: "Leicht–Mittel",
     intensitaetSterne: 2,
     wissenschaft: "Pelz & Sims sind sich hier am meisten einig: Tag 20–28 ist Regenerationszeit. Sims (ROAR): 'High Hormone Phase — Progesteron dominiert, Körpertemperatur erhöht (+0,5°C), Erholung dauert länger, HIIT fühlt sich schwerer an, Grundumsatz steigt um 100–300 kcal täglich.' Pelz: 'Nurture-Phase — Progesteron braucht Unterstützung durch Magnesium, Vitamin B6, kurze Fastenzeiten (max. 13h) und Selbstfürsorge.' 📌 Beide sind sich einig: Intensives Training jetzt ist kontraproduktiv — es erhöht Cortisol und kann Progesteron unterdrücken. Sanfte Bewegung, gutes Essen, viel Schlaf. ✅ Nutze diese Zeit zur Vorbereitung auf die nächste Power Phase.",
@@ -7514,7 +7558,7 @@ const TRAINING_PHASEN = {
     ernaehrungTipp: "Hormone Feasting voll aktiv: komplexe Kohlenhydrate, Magnesium (Kürbiskerne, Schokolade), Vitamin B6 (Bananen, Kichererbsen). Blutzucker stabil halten.",
     uebungen: [
       {
-        name: "🌸 Sanftes Krafttraining / Mobility",
+        name: "Sanftes Krafttraining / Mobility",
         geraet: "Körpergewicht, leichte Kurzhanteln, Bänder",
         dauer: "20–25 Min.",
         beschreibung: "Kraft ganz sanft: leichte Kniebeugen, Ausfallschritte, Rudern mit Band, sanfte Rumpfübungen — 2 Sätze, wenig Gewicht, ohne Erschöpfung. Höre gut auf deinen Körper und lass an schweren Tagen weg, was nicht guttut.",
@@ -7582,7 +7626,7 @@ const STIMMUNGEN = [
 function SchwangerRezepteTab() {
   const [kategorie, setKategorie] = useState("alle");
   const [offen, setOffen] = useState(null);
-  const accent = "#C18FD1";
+  const accent = "#8B6B84";
 
   const gefiltert = kategorie === "alle"
     ? SCHWANGER_REZEPTE
@@ -7591,8 +7635,8 @@ function SchwangerRezepteTab() {
   return (
     <div>
       {/* Header */}
-      <div style={{ background: `linear-gradient(135deg, #E8A0BF, #C18FD1)`, borderRadius: 16, padding: "18px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>🍽️ Schwangerschafts-Rezepte</h2>
+      <div style={{ background: `linear-gradient(135deg, #C08DA0, #8B6B84)`, borderRadius: 16, padding: "18px", marginBottom: 14, color: "#fff" }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>Schwangerschafts-Rezepte</h2>
         <p style={{ margin: 0, fontSize: 12.5, opacity: 0.95, lineHeight: 1.5 }}>Kuratierte Rezepte aus „9 Months That Count Forever“ (Inchauspé) sowie Dr. Mindy Pelz & Dr. William Li — reich an Protein, Cholin und DHA.</p>
       </div>
 
@@ -7600,7 +7644,7 @@ function SchwangerRezepteTab() {
       <div style={{ display: "flex", gap: 6, marginBottom: 14, flexWrap: "wrap" }}>
         {SCHWANGER_REZEPT_KATEGORIEN.map(k => (
           <button key={k.id} onClick={() => { setKategorie(k.id); setOffen(null); }}
-            style={{ background: kategorie === k.id ? accent : "#f4f4f4", color: kategorie === k.id ? "#fff" : "#666", border: "none", borderRadius: 9, padding: "8px 12px", cursor: "pointer", fontSize: 11.5, fontWeight: 700 }}>
+            style={{ background: kategorie === k.id ? accent : "#F1EDE6", color: kategorie === k.id ? "#fff" : "#666", border: "none", borderRadius: 9, padding: "8px 12px", cursor: "pointer", fontSize: 11.5, fontWeight: 700 }}>
             {k.label}
           </button>
         ))}
@@ -7612,7 +7656,7 @@ function SchwangerRezepteTab() {
         return (
           <div key={r.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
             <button onClick={() => setOffen(auf ? null : r.id)}
-              style={{ width: "100%", background: auf ? "#FBF0F5" : "none", border: "none", padding: "14px 15px", cursor: "pointer", textAlign: "left" }}>
+              style={{ width: "100%", background: auf ? "#F1E9EE" : "none", border: "none", padding: "14px 15px", cursor: "pointer", textAlign: "left" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 10 }}>
                 <div style={{ flex: 1 }}>
                   <p style={{ margin: "0 0 4px", fontSize: 14.5, fontWeight: 700, color: "#222" }}>{r.name}</p>
@@ -7622,9 +7666,9 @@ function SchwangerRezepteTab() {
               </div>
               {/* Nährwert-Badges */}
               <div style={{ display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }}>
-                <span style={{ fontSize: 10.5, background: "#FCE4EC", color: "#C2185B", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>💪 {r.ca ? "ca. " : ""}{r.protein} g Protein</span>
-                <span style={{ fontSize: 10.5, background: "#F3E5F5", color: "#7B1FA2", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>🥚 {r.ca ? "ca. " : ""}{r.cholin} mg Cholin</span>
-                {r.dha > 0 && <span style={{ fontSize: 10.5, background: "#E1F5FE", color: "#0277BD", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>🐟 {r.ca ? "ca. " : ""}{r.dha} mg DHA</span>}
+                <span style={{ fontSize: 10.5, background: "#F3E8EC", color: "#8B4A5C", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.protein} g Protein</span>
+                <span style={{ fontSize: 10.5, background: "#F0EAEF", color: "#7B1FA2", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.cholin} mg Cholin</span>
+                {r.dha > 0 && <span style={{ fontSize: 10.5, background: "#E1F5FE", color: "#4A6478", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.dha} mg DHA</span>}
               </div>
             </button>
             {auf && (
@@ -7659,7 +7703,7 @@ function SchwangerRezepteTab() {
       })}
 
       {/* Disclaimer */}
-      <div style={{ background: "#F3F4F6", borderRadius: 10, padding: "11px 13px", marginTop: 8, marginBottom: 80 }}>
+      <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginTop: 8, marginBottom: 80 }}>
         <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
           Rezepte aus „9 Months That Count Forever“ von Jessie Inchauspé sowie ausgewählte proteinreiche Rezepte aus „Eat Like a Girl“ von Dr. Mindy Pelz und den beiden Büchern von Dr. William Li (für die Schwangerschaft kuratiert & angepasst; die dort ergänzten Nährwerte sind geschätzt). Bewusst weggelassen wurden Gerichte mit rohem Fisch, quecksilberreichen Fischen (z.B. Thunfisch) und Alkohol. Achte generell auf pasteurisierte Milchprodukte sowie durchgegartes Fleisch, Fisch & Meeresfrüchte. Fetter Fisch (z.B. Lachs, Sardinen) liefert wertvolles DHA — 1–2 Portionen pro Woche werden in der Schwangerschaft empfohlen.
         </p>
@@ -7677,7 +7721,7 @@ function SchwangerBabyTab({ ssw }) {
     return (
       <div>
         <div style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)`, borderRadius: 16, padding: "18px", marginBottom: 14, color: "#fff" }}>
-          <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>👶 Dein Baby</h2>
+          <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>Dein Baby</h2>
           <p style={{ margin: 0, fontSize: 12.5, opacity: 0.95 }}>
             {ssw && ssw.zuFrueh
               ? "Dein eingetragener Geburtstermin liegt sehr weit in der Zukunft (mehr als 9 Monate). Bitte prüfe das Datum in den Einstellungen (☰ Mehr) — der errechnete Termin liegt normalerweise innerhalb der nächsten ~40 Wochen."
@@ -7696,7 +7740,7 @@ function SchwangerBabyTab({ ssw }) {
     <div>
       {/* Header */}
       <div style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)`, borderRadius: 16, padding: "18px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>👶 Dein Baby in Woche {ssw.woche}</h2>
+        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>Dein Baby in Woche {ssw.woche}</h2>
         <p style={{ margin: 0, fontSize: 12.5, opacity: 0.95 }}>{tri.name} · {ssw.woche} + {ssw.tag}</p>
       </div>
 
@@ -7712,7 +7756,7 @@ function SchwangerBabyTab({ ssw }) {
 
       {/* Was sich entwickelt */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", borderLeft: `4px solid ${accent}` }}>
-        <p style={{ margin: "0 0 6px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>🌱 Das tut sich gerade</p>
+        <p style={{ margin: "0 0 6px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Das tut sich gerade</p>
         <p style={{ margin: 0, fontSize: 13.5, color: "#444", lineHeight: 1.7 }}>{baby.text}</p>
       </div>
 
@@ -7788,7 +7832,7 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
       <div style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)`, borderRadius: 16, padding: "18px", marginBottom: 12, color: "#fff" }}>
         {ssw && !ssw.vorGeburt ? (
           <>
-            <p style={{ margin: "0 0 2px", fontSize: 13, opacity: 0.9 }}>{begruessung || "Schön, dass du da bist"} 🌸</p>
+            <p style={{ margin: "0 0 2px", fontSize: 13, opacity: 0.9 }}>{begruessung || "Schön, dass du da bist"}</p>
             <h2 style={{ margin: "0 0 4px", fontSize: 26, fontWeight: 800 }}>Du bist in Woche {ssw.woche}</h2>
             <p style={{ margin: "0 0 10px", fontSize: 14, fontWeight: 600 }}>{ssw.woche} Wochen + {ssw.tag} Tage · {tri.name}</p>
             <div style={{ background: "rgba(255,255,255,0.3)", borderRadius: 8, height: 8, overflow: "hidden", marginBottom: 6 }}>
@@ -7800,16 +7844,16 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
           </>
         ) : (
           <>
-            <h2 style={{ margin: "0 0 4px", fontSize: 20, fontWeight: 800 }}>🤰 Willkommen</h2>
-            <p style={{ margin: 0, fontSize: 13, opacity: 0.95 }}>Trage in den Einstellungen (☰ Mehr) deinen Geburtstermin ein, um deine Schwangerschaftswoche zu sehen.</p>
+            <h2 style={{ margin: "0 0 4px", fontSize: 20, fontWeight: 800 }}>Willkommen</h2>
+            <p style={{ margin: 0, fontSize: 13, opacity: 0.95 }}>Trage in den Einstellungen (Menü „Mehr") deinen Geburtstermin ein, um deine Schwangerschaftswoche zu sehen.</p>
           </>
         )}
       </div>
 
       {/* Tipp des Tages */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", borderLeft: `4px solid ${accent}` }}>
-        <p style={{ margin: "0 0 6px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>💡 Tipp des Tages</p>
-        <p style={{ margin: 0, fontSize: 13.5, color: "#333", lineHeight: 1.6 }}>{tagesTipp.icon} {tagesTipp.text}</p>
+        <p style={{ margin: "0 0 6px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Tipp des Tages</p>
+        <p style={{ margin: 0, fontSize: 13.5, color: "#333", lineHeight: 1.6 }}>{tagesTipp.text}</p>
       </div>
 
       {/* Trimester-Fokus (ein Satz, führt zum Schwangerschafts-Tab) */}
@@ -7828,7 +7872,7 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
       {/* Rezept-Ideen für heute — interaktiv aus den Schwangerschafts-Rezepten */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 18, marginBottom: 12, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-          <p style={{ margin: 0, fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>🍽️ Rezept-Ideen für heute</p>
+          <p style={{ margin: 0, fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Rezept-Ideen für heute</p>
           <button onClick={() => onTab("rezepte")} style={{ background: "none", border: "none", color: accent, fontSize: 12, cursor: "pointer", fontWeight: 600 }}>Alle →</button>
         </div>
         <p style={{ margin: "0 0 12px", fontSize: 11.5, color: "#888", lineHeight: 1.5 }}>Vorschläge aus deinen Schwangerschafts-Rezepten — reich an Protein, Cholin & DHA. Tippe für Details oder wechsle mit 🔄.</p>
@@ -7846,14 +7890,14 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
                   <p style={{ margin: "0 0 2px", fontSize: 10.5, fontWeight: 700, color: accent }}>{mahlzeit}</p>
                   <p style={{ margin: "0 0 4px", fontSize: 13, color: "#333", lineHeight: 1.4, fontWeight: 600 }}>{r.name}</p>
                   <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-                    <span style={{ fontSize: 9.5, background: "#FCE4EC", color: "#C2185B", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>💪 {r.ca ? "ca. " : ""}{r.protein}g</span>
-                    <span style={{ fontSize: 9.5, background: "#F3E5F5", color: "#7B1FA2", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>🥚 {r.ca ? "ca. " : ""}{r.cholin}mg</span>
-                    {r.dha > 0 && <span style={{ fontSize: 9.5, background: "#E1F5FE", color: "#0277BD", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>🐟 {r.ca ? "ca. " : ""}{r.dha}mg</span>}
+                    <span style={{ fontSize: 9.5, background: "#F3E8EC", color: "#8B4A5C", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.protein}g</span>
+                    <span style={{ fontSize: 9.5, background: "#F0EAEF", color: "#7B1FA2", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.cholin}mg</span>
+                    {r.dha > 0 && <span style={{ fontSize: 9.5, background: "#E1F5FE", color: "#4A6478", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.dha}mg</span>}
                   </div>
                 </div>
                 <button onClick={() => setSrVersatz(v => ({ ...v, [mahlzeit]: (v[mahlzeit] || 0) + 1 }))}
                   title="Anderes vorschlagen" aria-label="Anderes Rezept vorschlagen"
-                  style={{ background: "#f4f4f4", border: "none", borderRadius: 7, width: 30, height: 30, cursor: "pointer", fontSize: 14, flexShrink: 0 }}>🔄</button>
+                  style={{ background: "#F1EDE6", border: "none", borderRadius: 7, width: 30, height: 30, cursor: "pointer", fontSize: 14, flexShrink: 0 }}>🔄</button>
               </div>
               {auf && (
                 <div style={{ marginTop: 8, paddingLeft: 30 }}>
@@ -7882,23 +7926,23 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
 
       {/* Heute essen — Tagesplan aus dem Buch */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 18, marginBottom: 80, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>🍽️ So kann dein Tag aussehen</p>
+        <p style={{ margin: "0 0 4px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>So kann dein Tag aussehen</p>
         <p style={{ margin: "0 0 12px", fontSize: 11.5, color: "#888", lineHeight: 1.5 }}>Ein Beispieltag von Jessie Inchauspé aus "9 Months That Count Forever" — alle Bausteine abgedeckt.</p>
 
         {/* Varianten-Umschalter */}
         <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
           {Object.entries(SCHWANGER_TAGESPLAN).map(([key, v]) => (
             <button key={key} onClick={() => setPlanVariante(key)}
-              style={{ flex: 1, background: planVariante === key ? accent : "#f4f4f4", color: planVariante === key ? "#fff" : "#666", border: "none", borderRadius: 9, padding: "8px 6px", cursor: "pointer", fontSize: 11.5, fontWeight: 700 }}>
-              {v.icon} {v.name}
+              style={{ flex: 1, background: planVariante === key ? accent : "#F1EDE6", color: planVariante === key ? "#fff" : "#666", border: "none", borderRadius: 9, padding: "8px 6px", cursor: "pointer", fontSize: 11.5, fontWeight: 700 }}>
+              {v.name}
             </button>
           ))}
         </div>
 
         {/* Mahlzeiten */}
         {plan.mahlzeiten.map((m, i) => (
-          <div key={i} style={{ display: "flex", gap: 11, marginBottom: 12, paddingBottom: 12, borderBottom: i < plan.mahlzeiten.length - 1 ? "1px solid #f0f0f0" : "none" }}>
-            <span style={{ fontSize: 22, flexShrink: 0 }}>{m.icon}</span>
+          <div key={i} style={{ display: "flex", gap: 11, marginBottom: 12, paddingBottom: 12, borderBottom: i < plan.mahlzeiten.length - 1 ? "1px solid #EEEAE3" : "none" }}>
+            
             <div style={{ flex: 1 }}>
               <p style={{ margin: "0 0 2px", fontSize: 11, fontWeight: 700, color: accent }}>{m.zeit}</p>
               <p style={{ margin: "0 0 4px", fontSize: 13, color: "#333", lineHeight: 1.5 }}>{m.essen}</p>
@@ -7931,18 +7975,17 @@ function SchwangerTab({ ssw, geburtstermin }) {
   const renderKarten = (themen) => themen.map(w => {
     const auf = offen === w.id;
     return (
-      <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
+      <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
         <button onClick={() => setOffen(auf ? null : w.id)}
-          style={{ width: "100%", background: auf ? "#FBF0F5" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-          <span style={{ fontSize: 22 }}>{w.icon}</span>
-          <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>{w.titel}</span>
+          style={{ width: "100%", background: auf ? "#F1E9EE" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
+          <span style={{ flex: 1, fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
           <span style={{ fontSize: 15, color: accent }}>{auf ? "−" : "+"}</span>
         </button>
         {auf && (
           <div style={{ padding: "0 15px 15px" }}>
             <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{w.text}</p>
-            <div style={{ background: "#FBF0F5", borderRadius: 10, padding: "10px 12px" }}>
-              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>{w.nurInfo ? "💡 Das Wichtigste:" : "💡 Das kannst du tun:"}</p>
+            <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px" }}>
+              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
               {w.tipps.map((t, i) => (
                 <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                   <span style={{ position: "absolute", left: 0, color: accent }}>•</span>{t}
@@ -7974,7 +8017,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
           </>
         ) : (
           <>
-            <h2 style={{ margin: "0 0 4px", fontSize: 20, fontWeight: 800 }}>🤰 Schwangerschaft</h2>
+            <h2 style={{ margin: "0 0 4px", fontSize: 20, fontWeight: 800 }}>Schwangerschaft</h2>
             <p style={{ margin: 0, fontSize: 13, opacity: 0.95 }}>Trage in den Einstellungen deinen errechneten Geburtstermin ein, um deine Woche zu sehen.</p>
           </>
         )}
@@ -7985,8 +8028,8 @@ function SchwangerTab({ ssw, geburtstermin }) {
         <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: accent, textTransform: "uppercase", letterSpacing: 0.5 }}>Dein Fokus jetzt</p>
         <p style={{ margin: "0 0 8px", fontSize: 16, fontWeight: 800, color: "#333" }}>{tri.fokus}</p>
         <p style={{ margin: 0, fontSize: 12.5, color: "#555", lineHeight: 1.7 }}>{tri.text}</p>
-        <div style={{ background: "#FBF0F5", borderRadius: 10, padding: "10px 12px", marginTop: 10 }}>
-          <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>💡 Für dieses Trimester:</p>
+        <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px", marginTop: 10 }}>
+          <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>Für dieses Trimester:</p>
           {tri.tipps.map((t, i) => (
             <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
               <span style={{ position: "absolute", left: 0, color: accent }}>•</span>{t}
@@ -7997,9 +8040,9 @@ function SchwangerTab({ ssw, geburtstermin }) {
 
       {/* Bereichs-Umschalter */}
       <div style={{ display: "flex", gap: 6, marginBottom: 12, flexWrap: "wrap" }}>
-        {[["ernaehrung","🍽️ Ernährung"],["bewegung","💪 Bewegung"],["beschwerden","🤍 Beschwerden"],["stillen","🤱 Stillen"],["supplemente","💊 Supplemente"],["spaeter","🌸 Geburt & mehr"],["warnzeichen","⚠️ Warnzeichen"]].map(([id, label]) => (
+        {[["ernaehrung","Ernährung"],["bewegung","Bewegung"],["beschwerden","🤍 Beschwerden"],["stillen","🤱 Stillen"],["supplemente","Supplemente"],["spaeter","Geburt & mehr"],["warnzeichen","⚠️ Warnzeichen"]].map(([id, label]) => (
           <button key={id} onClick={() => { setBereich(id); setOffen(null); }}
-            style={{ flex: "1 1 40%", background: bereich === id ? (id === "warnzeichen" ? "#C62828" : accent) : (id === "warnzeichen" ? "#FFEBEE" : "#f4f4f4"), color: bereich === id ? "#fff" : (id === "warnzeichen" ? "#C62828" : "#666"), border: "none", borderRadius: 9, padding: "9px 6px", cursor: "pointer", fontSize: 11.5, fontWeight: 700 }}>
+            style={{ flex: "1 1 40%", background: bereich === id ? (id === "warnzeichen" ? "#A34A44" : accent) : (id === "warnzeichen" ? "#F3E8EC" : "#F1EDE6"), color: bereich === id ? "#fff" : (id === "warnzeichen" ? "#A34A44" : "#666"), border: "none", borderRadius: 9, padding: "9px 6px", cursor: "pointer", fontSize: 11.5, fontWeight: 700 }}>
             {label}
           </button>
         ))}
@@ -8026,8 +8069,8 @@ function SchwangerTab({ ssw, geburtstermin }) {
             </div>
           )}
           {renderKarten(SCHWANGER_BEWEGUNG)}
-          <div style={{ background: "#FFF3F3", borderRadius: 12, padding: "12px 14px", marginTop: 6, marginBottom: 4, border: "1px solid #FFCDD2" }}>
-            <p style={{ margin: "0 0 6px", fontSize: 12.5, fontWeight: 800, color: "#C62828" }}>⛔ Wann du pausieren / ärztlich abklären solltest</p>
+          <div style={{ background: "#FFF3F3", borderRadius: 12, padding: "12px 14px", marginTop: 6, marginBottom: 4, border: "1px solid #EDD8DA" }}>
+            <p style={{ margin: "0 0 6px", fontSize: 12.5, fontWeight: 800, color: "#A34A44" }}>⛔ Wann du pausieren / ärztlich abklären solltest</p>
             <p style={{ margin: 0, fontSize: 11.5, color: "#8B3A3A", lineHeight: 1.6 }}>
               Bei Blutungen, vorzeitigen Wehen, Fruchtwasserabgang, Schwindel, Schmerzen, Bluthochdruck/Präeklampsie oder wenn deine Ärztin/Hebamme dir davon abgeraten hat. Im Zweifel immer zuerst Rücksprache halten.
             </p>
@@ -8037,7 +8080,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
       {bereich === "beschwerden" && (
         <>
           <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#333" }}>Typische Beschwerden</p>
-          <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Was du mit Ernährung (🍽️) und Bewegung (💪) dagegen tun kannst. Meist harmlos — bei starken Beschwerden bitte ärztlich abklären.</p>
+          <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Was du mit Ernährung und Bewegung dagegen tun kannst. Meist harmlos — bei starken Beschwerden bitte ärztlich abklären.</p>
           {renderKarten(BESCHWERDEN_THEMEN)}
         </>
       )}
@@ -8061,7 +8104,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
           <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Die drei Phasen, Schmerzmanagement, Geburtsplan und mehr — fundiert und ehrlich nach Jessie Inchauspé.</p>
           {renderKarten(GEBURT_THEMEN)}
           <div style={{ height: 8 }} />
-          <p style={{ margin: "16px 0 8px", fontSize: 13.5, fontWeight: 800, color: "#8B3A3A" }}>🕊️ Ein sensibles Thema</p>
+          <p style={{ margin: "16px 0 8px", fontSize: 13.5, fontWeight: 800, color: "#8B3A3A" }}>Ein sensibles Thema</p>
           {renderKarten(SCHWANGER_SPAETER)}
         </>
       )}
@@ -8069,7 +8112,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
       {bereich === "warnzeichen" && (
         <>
           {/* Auffälliger Notfall-Hinweis oben */}
-          <div style={{ background: "linear-gradient(135deg, #C62828, #E53935)", borderRadius: 14, padding: "16px", marginBottom: 14, color: "#fff" }}>
+          <div style={{ background: "linear-gradient(135deg, #A34A44, #B5514B)", borderRadius: 14, padding: "16px", marginBottom: 14, color: "#fff" }}>
             <p style={{ margin: "0 0 6px", fontSize: 16, fontWeight: 800 }}>⚠️ Warnzeichen erkennen</p>
             <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.6, opacity: 0.97 }}>
               Diese Übersicht hilft dir einzuschätzen, wann du dich melden solltest. Sie ersetzt keine ärztliche Beurteilung. Im Zweifel immer anrufen oder in die Klinik fahren. <strong>Notruf in Österreich: 144</strong> (Rettung), Euro-Notruf 112.
@@ -8078,14 +8121,14 @@ function SchwangerTab({ ssw, geburtstermin }) {
           {WARNZEICHEN.map((w) => {
             const auf = offen === w.id;
             const istNotfall = w.id === "sofort";
-            const rot = istNotfall ? "#C62828" : "#E53935";
+            const rot = istNotfall ? "#A34A44" : "#B5514B";
             return (
-              <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden", border: istNotfall ? "2px solid #C62828" : "1px solid #FFCDD2" }}>
+              <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden", border: istNotfall ? "2px solid #A34A44" : "1px solid #EDD8DA" }}>
                 <button onClick={() => setOffen(auf ? null : w.id)}
-                  style={{ width: "100%", background: auf ? "#FFEBEE" : "none", border: "none", padding: "14px 15px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+                  style={{ width: "100%", background: auf ? "#F3E8EC" : "none", border: "none", padding: "14px 15px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
                   <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                    <span style={{ fontSize: 19, flexShrink: 0 }}>{w.icon}</span>
-                    <span style={{ fontSize: 14, fontWeight: 700, color: istNotfall ? "#C62828" : "#333" }}>{w.titel}</span>
+                    
+                    <span style={{ fontSize: 14, fontWeight: 700, color: istNotfall ? "#A34A44" : "#333" }}>{w.titel}</span>
                   </span>
                   <span style={{ fontSize: 16, color: rot, flexShrink: 0 }}>{auf ? "−" : "+"}</span>
                 </button>
@@ -8103,7 +8146,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
               </div>
             );
           })}
-          <div style={{ background: "#FFEBEE", borderRadius: 10, padding: "11px 13px", marginTop: 8, marginBottom: 4 }}>
+          <div style={{ background: "#F3E8EC", borderRadius: 10, padding: "11px 13px", marginTop: 8, marginBottom: 4 }}>
             <p style={{ margin: 0, fontSize: 11, color: "#B71C1C", lineHeight: 1.55 }}>
               Quellen u.a.: IQWiG (gesundheitsinformation.de), Apotheken Umschau, Helios, AOK, DocMedicus. Diese Inhalte ersetzen keine ärztliche oder hebammenkundliche Betreuung — bei Beschwerden immer das Betreuungsteam kontaktieren.
             </p>
@@ -8112,8 +8155,8 @@ function SchwangerTab({ ssw, geburtstermin }) {
       )}
 
       {/* Disclaimer */}
-      <div style={{ background: "#FFF8E1", borderRadius: 12, padding: "12px 14px", marginTop: 6, marginBottom: 80, border: "1px solid #FFE082" }}>
-        <p style={{ margin: 0, fontSize: 11.5, color: "#8D6E00", lineHeight: 1.6 }}>
+      <div style={{ background: "#F4EEE2", borderRadius: 12, padding: "12px 14px", marginTop: 6, marginBottom: 80, border: "1px solid #D8C8B5" }}>
+        <p style={{ margin: 0, fontSize: 11.5, color: "#8A6D2E", lineHeight: 1.6 }}>
           ⚠️ Diese Inhalte dienen der Information (Quellen u.a.: "9 Months That Count Forever" von Jessie Inchauspé, "ROAR" von Stacy Sims, Dr. Rhonda Patrick zur Muttermilch, Dr. Rachel Rubin zu Hormonen/GSL, sowie NHS/ACOG/CDC zu Stillproblemen & Babynahrung) und ersetzen keine ärztliche, hebammenkundliche oder Stillberatung. Jede Schwangerschaft und Stillzeit ist anders — besprich Ernährung, Bewegung, Nahrungsergänzung und Beschwerden mit deinem Betreuungsteam.
         </p>
       </div>
@@ -8129,8 +8172,8 @@ function EqologyEmpfehlung({ modus, istJugendlich }) {
   // Teenager: KEINE Produktempfehlung — nur allgemeiner, elternbezogener Hinweis
   if (istJugendlich) {
     return (
-      <div style={{ background: "#fff", borderRadius: 14, marginTop: 14, marginBottom: 8, padding: "15px 16px", boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: "1px solid #F3C6D9" }}>
-        <p style={{ margin: "0 0 6px", fontSize: 13.5, fontWeight: 800, color: "#333" }}>💊 Brauchst du Nahrungsergänzung?</p>
+      <div style={{ background: "#fff", borderRadius: 14, marginTop: 14, marginBottom: 8, padding: "15px 16px", boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: "1px solid #E6D0D8" }}>
+        <p style={{ margin: "0 0 6px", fontSize: 13.5, fontWeight: 800, color: "#333" }}>Brauchst du Nahrungsergänzung?</p>
         <p style={{ margin: 0, fontSize: 12, color: "#666", lineHeight: 1.65 }}>
           In deinem Alter bekommst du die meisten Nährstoffe am besten übers Essen — z.B. Omega-3 fürs wachsende Gehirn über fetten Fisch wie Lachs oder Makrele (1–2× pro Woche), Nüsse und Leinsamen. Ob für dich ein Nahrungsergänzungsmittel wirklich nötig ist, ist sehr individuell. <strong>Sprich am besten zuerst mit deinen Eltern darüber und klärt gemeinsam ärztlich ab</strong>, ob und was für dich sinnvoll wäre — nimm nichts einfach auf eigene Faust.
         </p>
@@ -8151,12 +8194,12 @@ function EqologyEmpfehlung({ modus, istJugendlich }) {
   }
 
   return (
-    <div style={{ background: "#fff", borderRadius: 14, marginTop: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden", border: "1px solid #F3C6D9" }}>
+    <div style={{ background: "#fff", borderRadius: 14, marginTop: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden", border: "1px solid #E6D0D8" }}>
       <button onClick={() => setOffen(!offen)}
-        style={{ width: "100%", background: offen ? "#FBEEF4" : "none", border: "none", padding: "14px 16px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-        <span style={{ fontSize: 22 }}>🌿</span>
+        style={{ width: "100%", background: offen ? "#F1E9EE" : "none", border: "none", padding: "14px 16px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
+        <span style={{ fontSize: 22 }}></span>
         <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>Meine Produkt-Empfehlungen</span>
-        <span style={{ fontSize: 15, color: "#D6749B" }}>{offen ? "−" : "+"}</span>
+        <span style={{ fontSize: 15, color: "#B07689" }}>{offen ? "−" : "+"}</span>
       </button>
       {offen && (
         <div style={{ padding: "0 16px 16px" }}>
@@ -8164,21 +8207,21 @@ function EqologyEmpfehlung({ modus, istJugendlich }) {
             Omega-3, Vitamin D und Mineralstoffe wie Magnesium und Zink kommen in dieser App oft vor — sie sind echte Bausteine für deine Hormone. Ich verwende dafür selbst die Produkte von <strong>Eqology</strong> und bin von ihrer Qualität überzeugt: hochwertiges Omega-3 aus arktischem Wildfisch, unabhängig laborgeprüft (u.a. MSC, KölnListe, TOTOX-Wert). Hier meine persönlichen Favoriten:
           </p>
           {liste.map((prod, i) => (
-            <div key={i} style={{ background: "#FBEEF4", borderRadius: 10, padding: "10px 12px", marginBottom: 7 }}>
-              <p style={{ margin: "0 0 2px", fontSize: 12.5, fontWeight: 700, color: "#8A3B5C" }}>{prod.name}</p>
+            <div key={i} style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px", marginBottom: 7 }}>
+              <p style={{ margin: "0 0 2px", fontSize: 12.5, fontWeight: 700, color: "#7D3B52" }}>{prod.name}</p>
               <p style={{ margin: "0 0 3px", fontSize: 11.5, color: "#666", lineHeight: 1.45 }}>{prod.was}</p>
               <p style={{ margin: 0, fontSize: 10.5, color: "#999", lineHeight: 1.4, fontStyle: "italic" }}>{prod.note}</p>
             </div>
           ))}
           {istSchwanger && (
-            <p style={{ margin: "8px 0 0", fontSize: 11, color: "#C2185B", lineHeight: 1.5 }}>
-              🤰 In der Schwangerschaft gilt besonders: Nimm Nahrungsergänzung nur in Absprache mit deiner Ärztin oder Hebamme.
+            <p style={{ margin: "8px 0 0", fontSize: 11, color: "#8B4A5C", lineHeight: 1.5 }}>
+              In der Schwangerschaft gilt besonders: Nimm Nahrungsergänzung nur in Absprache mit deiner Ärztin oder Hebamme.
             </p>
           )}
           {EQOLOGY_PARTNER_LINK ? (
             <>
               <a href={EQOLOGY_PARTNER_LINK} target="_blank" rel="noopener noreferrer"
-                style={{ display: "block", textAlign: "center", background: "#D6749B", color: "#fff", borderRadius: 10, padding: "11px", marginTop: 12, textDecoration: "none", fontSize: 13, fontWeight: 700 }}>
+                style={{ display: "block", textAlign: "center", background: "#B07689", color: "#fff", borderRadius: 10, padding: "11px", marginTop: 12, textDecoration: "none", fontSize: 13, fontWeight: 700 }}>
                 Zu den Produkten →
               </a>
               <p style={{ margin: "8px 0 0", fontSize: 10, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>
@@ -8230,18 +8273,18 @@ function EatToBeat5x5x5({ onAnzahl }) {
   const allesGeschafft = erledigt === 5;
 
   return (
-    <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginTop: 6, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)", border: "2px solid #66BB6A" }}>
+    <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginTop: 6, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)", border: "2px solid #788477" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-        <p style={{ margin: 0, fontSize: 15, fontWeight: 800, color: "#2E7D32" }}>🎯 Dein 5×5×5 heute</p>
-        <span style={{ fontSize: 13, fontWeight: 700, color: allesGeschafft ? "#2E7D32" : "#999" }}>{erledigt} / 5</span>
+        <p style={{ margin: 0, fontSize: 15, fontWeight: 800, color: "#5E6E5C" }}>Dein 5×5×5 heute</p>
+        <span style={{ fontSize: 13, fontWeight: 700, color: allesGeschafft ? "#5E6E5C" : "#999" }}>{erledigt} / 5</span>
       </div>
       <p style={{ margin: "0 0 12px", fontSize: 11.5, color: "#888", lineHeight: 1.5 }}>
         Wähle für jedes der 5 Verteidigungssysteme ein Lebensmittel, das du heute isst. Tippe auf ein System, um zu wählen.
       </p>
 
       {allesGeschafft && (
-        <div style={{ background: "#E8F5E9", borderRadius: 10, padding: "10px 12px", marginBottom: 12 }}>
-          <p style={{ margin: 0, fontSize: 12.5, color: "#2E7D32", fontWeight: 700, lineHeight: 1.5 }}>🎉 Super! Du hast heute alle 5 Systeme unterstützt.</p>
+        <div style={{ background: "#EEF0EC", borderRadius: 10, padding: "10px 12px", marginBottom: 12 }}>
+          <p style={{ margin: 0, fontSize: 12.5, color: "#5E6E5C", fontWeight: 700, lineHeight: 1.5 }}>Super! Du hast heute alle 5 Systeme unterstützt.</p>
         </div>
       )}
 
@@ -8252,8 +8295,8 @@ function EatToBeat5x5x5({ onAnzahl }) {
         return (
           <div key={key} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenesSystem(offen ? null : key)}
-              style={{ width: "100%", background: gewaehlt ? sys.farbe + "18" : "#f8f8f8", border: `1px solid ${gewaehlt ? sys.farbe + "55" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{ fontSize: 18, flexShrink: 0 }}>{sys.icon}</span>
+              style={{ width: "100%", background: gewaehlt ? sys.farbe + "18" : "#FAF8F4", border: `1px solid ${gewaehlt ? sys.farbe + "55" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 10 }}>
+              
               <span style={{ flex: 1 }}>
                 <span style={{ display: "block", fontSize: 13, fontWeight: 700, color: "#222" }}>{sys.name}</span>
                 {gewaehlt && <span style={{ display: "block", fontSize: 12, color: sys.farbe, fontWeight: 600, marginTop: 1 }}>✓ {gewaehlt}</span>}
@@ -8266,7 +8309,7 @@ function EatToBeat5x5x5({ onAnzahl }) {
                   const istGS = ETBD_GRAND_SLAMMERS.includes(lm);
                   return (
                     <button key={lm} onClick={() => waehle(key, lm)}
-                      style={{ background: gewaehlt === lm ? sys.farbe : (istGS ? "#FFF8E1" : "#f4f4f4"), color: gewaehlt === lm ? "#fff" : "#555", border: istGS && gewaehlt !== lm ? "1px solid #FFD54F" : "none", borderRadius: 20, padding: "7px 13px", cursor: "pointer", fontSize: 12, fontWeight: gewaehlt === lm ? 700 : 400 }}>
+                      style={{ background: gewaehlt === lm ? sys.farbe : (istGS ? "#F4EEE2" : "#F1EDE6"), color: gewaehlt === lm ? "#fff" : "#555", border: istGS && gewaehlt !== lm ? "1px solid #C9B48A" : "none", borderRadius: 20, padding: "7px 13px", cursor: "pointer", fontSize: 12, fontWeight: gewaehlt === lm ? 700 : 400 }}>
                       {istGS ? "⭐ " : ""}{lm}
                     </button>
                   );
@@ -8301,15 +8344,15 @@ function FatFightingFoodsTab({ alter }) {
   return (
     <div>
       {/* Header */}
-      <div style={{ background: "linear-gradient(135deg, #2E7D32, #66BB6A)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>{istJugendlich ? "💪 Power-Lebensmittel" : "🔥 Fett-Killer-Lebensmittel"}</h2>
+      <div style={{ background: "linear-gradient(135deg, #5E6E5C, #788477)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>{istJugendlich ? "Power-Lebensmittel" : "Fett-Killer-Lebensmittel"}</h2>
         <p style={{ margin: 0, fontSize: 12.5, opacity: 0.95, lineHeight: 1.5 }}>{istJugendlich ? "Über 150 Lebensmittel, die laut Dr. William Li deinen Körper stark und gesund machen — alle mit Studien belegt." : "Über 150 Lebensmittel, die laut Dr. William Li („Eat to Beat Your Diet“) den Stoffwechsel ankurbeln und beim Fettabbau helfen — alle mit Humanstudien belegt."}</p>
       </div>
 
       {/* Info-Kärtchen */}
-      <div style={{ background: "#E8F5E9", borderRadius: 12, padding: "12px 14px", marginBottom: 14 }}>
-        <p style={{ margin: 0, fontSize: 12, color: "#2E7D32", lineHeight: 1.6 }}>
-          {istJugendlich ? "💡 Diese Lebensmittel stecken voller guter Stoffe, die deinen Körper schützen, dein Immunsystem stärken und dir Energie geben. Kein Verzicht — einfach mehr davon einbauen. Nutze die Suche, wenn du im Supermarkt stehst." : "💡 „Nicht alle Kalorien sind gleich.“ Diese Lebensmittel enthalten Bioaktivstoffe, die braunes Fett aktivieren, Entzündungen senken und den Darm stärken. Kein Verzicht — einfach mehr davon einbauen. Nutze die Suche, wenn du im Supermarkt stehst."}
+      <div style={{ background: "#EEF0EC", borderRadius: 12, padding: "12px 14px", marginBottom: 14 }}>
+        <p style={{ margin: 0, fontSize: 12, color: "#5E6E5C", lineHeight: 1.6 }}>
+          {istJugendlich ? "Diese Lebensmittel stecken voller guter Stoffe, die deinen Körper schützen, dein Immunsystem stärken und dir Energie geben. Kein Verzicht — einfach mehr davon einbauen. Nutze die Suche, wenn du im Supermarkt stehst." : "„Nicht alle Kalorien sind gleich.“ Diese Lebensmittel enthalten Bioaktivstoffe, die braunes Fett aktivieren, Entzündungen senken und den Darm stärken. Kein Verzicht — einfach mehr davon einbauen. Nutze die Suche, wenn du im Supermarkt stehst."}
         </p>
       </div>
 
@@ -8319,21 +8362,21 @@ function FatFightingFoodsTab({ alter }) {
           type="text"
           value={suche}
           onChange={e => setSuche(e.target.value)}
-          placeholder="🔍 Lebensmittel suchen (z.B. Beeren, Tee, Lachs)…"
+          placeholder="Suchen … Lebensmittel suchen (z.B. Beeren, Tee, Lachs)…"
           style={{ width: "100%", boxSizing: "border-box", padding: "12px 14px", fontSize: 14, borderRadius: 12, border: "1px solid #ddd", outline: "none", background: "#fff" }}
         />
-        <p style={{ margin: "8px 2px 0", fontSize: 11, color: "#999", lineHeight: 1.5 }}>Lebensmittel mit 💡 haben einen Zubereitungs-Trick (nach Dr. Aronica) — antippen.</p>
+        <p style={{ margin: "8px 2px 0", fontSize: 11, color: "#999", lineHeight: 1.5 }}>Lebensmittel mit einem Stern-Symbol haben einen Zubereitungs-Trick (nach Dr. Aronica) — antippen.</p>
         {q && <p style={{ margin: "8px 2px 0", fontSize: 11.5, color: "#888" }}>{trefferGesamt + grandGefiltert.length} Treffer für „{suche}“</p>}
       </div>
 
       {/* Grand Slammers */}
       {grandGefiltert.length > 0 && (
-        <div style={{ background: "linear-gradient(135deg, #FFF8E1, #FFECB3)", borderRadius: 14, padding: "14px 16px", marginBottom: 14, border: "1px solid #FFD54F" }}>
-          <p style={{ margin: "0 0 4px", fontSize: 14, fontWeight: 800, color: "#F57F17" }}>⭐ Grand Slammers</p>
+        <div style={{ background: "linear-gradient(135deg, #F4EEE2, #FFECB3)", borderRadius: 14, padding: "14px 16px", marginBottom: 14, border: "1px solid #C9B48A" }}>
+          <p style={{ margin: "0 0 4px", fontSize: 14, fontWeight: 800, color: "#C39A3A" }}>⭐ Grand Slammers</p>
           <p style={{ margin: "0 0 10px", fontSize: 11.5, color: "#9E7B18", lineHeight: 1.5 }}>Lis Favoriten — sie treffen alle 5 Verteidigungssysteme auf einmal. Wenn du dich auf ein paar Lebensmittel konzentrieren willst, dann auf diese.</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {grandGefiltert.map(f => (
-              <span key={f} style={{ background: "#fff", color: "#F57F17", border: "1px solid #FFD54F", borderRadius: 20, padding: "5px 11px", fontSize: 12, fontWeight: 600 }}>{f}</span>
+              <span key={f} style={{ background: "#fff", color: "#C39A3A", border: "1px solid #C9B48A", borderRadius: 20, padding: "5px 11px", fontSize: 12, fontWeight: 600 }}>{f}</span>
             ))}
           </div>
         </div>
@@ -8346,13 +8389,13 @@ function FatFightingFoodsTab({ alter }) {
         gefiltert.map(kat => {
           const auf = q ? true : offeneKat === kat.id; // bei Suche alle offen
           return (
-            <div key={kat.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
+            <div key={kat.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
               <button onClick={() => !q && setOffeneKat(auf ? null : kat.id)}
-                style={{ width: "100%", background: auf ? "#E8F5E9" : "none", border: "none", padding: "13px 15px", cursor: q ? "default" : "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-                <span style={{ fontSize: 20 }}>{kat.icon}</span>
+                style={{ width: "100%", background: auf ? "#EEF0EC" : "none", border: "none", padding: "13px 15px", cursor: q ? "default" : "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
+                
                 <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>{kat.name}</span>
                 <span style={{ fontSize: 11, color: "#999", fontWeight: 600 }}>{kat.foods.length}</span>
-                {!q && <span style={{ fontSize: 15, color: "#2E7D32", marginLeft: 6 }}>{auf ? "−" : "+"}</span>}
+                {!q && <span style={{ fontSize: 15, color: "#5E6E5C", marginLeft: 6 }}>{auf ? "−" : "+"}</span>}
               </button>
               {auf && (
                 <div style={{ padding: "4px 15px 15px" }}>
@@ -8411,15 +8454,15 @@ function WeglassenTab({ alter }) {
   return (
     <div>
       {/* Header */}
-      <div style={{ background: "linear-gradient(135deg, #C62828, #E57373)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>🚫 Besser weglassen</h2>
+      <div style={{ background: "linear-gradient(135deg, #A34A44, #E57373)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>Besser weglassen</h2>
         <p style={{ margin: 0, fontSize: 12.5, opacity: 0.95, lineHeight: 1.5 }}>Was den Stoffwechsel & die Hormone bremst — und was du stattdessen nimmst. Nach Dr. Li, Dr. Pelz & Dr. Sims.</p>
       </div>
 
       {/* Info */}
-      <div style={{ background: "#FFEBEE", borderRadius: 12, padding: "12px 14px", marginBottom: 14 }}>
-        <p style={{ margin: 0, fontSize: 12, color: "#C62828", lineHeight: 1.6 }}>
-          💡 Es geht nicht ums Verbieten, sondern ums Tauschen. Für jede Gruppe findest du ein „Besser stattdessen“. Kleine Swaps über den Tag machen den größten Unterschied — nicht der perfekte Verzicht.
+      <div style={{ background: "#F3E8EC", borderRadius: 12, padding: "12px 14px", marginBottom: 14 }}>
+        <p style={{ margin: 0, fontSize: 12, color: "#A34A44", lineHeight: 1.6 }}>
+          Es geht nicht ums Verbieten, sondern ums Tauschen. Für jede Gruppe findest du ein „Besser stattdessen“. Kleine Swaps über den Tag machen den größten Unterschied — nicht der perfekte Verzicht.
         </p>
       </div>
 
@@ -8429,7 +8472,7 @@ function WeglassenTab({ alter }) {
           type="text"
           value={suche}
           onChange={e => setSuche(e.target.value)}
-          placeholder="🔍 Lebensmittel suchen (z.B. Limo, Öl, Wurst)…"
+          placeholder="Suchen … Lebensmittel suchen (z.B. Limo, Öl, Wurst)…"
           style={{ width: "100%", boxSizing: "border-box", padding: "12px 14px", fontSize: 14, borderRadius: 12, border: "1px solid #ddd", outline: "none", background: "#fff" }}
         />
       </div>
@@ -8441,34 +8484,34 @@ function WeglassenTab({ alter }) {
         gefiltert.map(kat => {
           const auf = q ? true : offeneKat === kat.id;
           return (
-            <div key={kat.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
+            <div key={kat.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
               <button onClick={() => !q && setOffeneKat(auf ? null : kat.id)}
-                style={{ width: "100%", background: auf ? "#FFEBEE" : "none", border: "none", padding: "13px 15px", cursor: q ? "default" : "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-                <span style={{ fontSize: 20 }}>{kat.icon}</span>
+                style={{ width: "100%", background: auf ? "#F3E8EC" : "none", border: "none", padding: "13px 15px", cursor: q ? "default" : "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
+                
                 <span style={{ flex: 1 }}>
                   <span style={{ display: "block", fontSize: 14, fontWeight: 700, color: "#222" }}>{kat.name}</span>
                   <span style={{ display: "block", fontSize: 10.5, color: "#aaa", marginTop: 1 }}>nach {kat.quelle}</span>
                 </span>
-                {!q && <span style={{ fontSize: 15, color: "#C62828" }}>{auf ? "−" : "+"}</span>}
+                {!q && <span style={{ fontSize: 15, color: "#A34A44" }}>{auf ? "−" : "+"}</span>}
               </button>
               {auf && (
                 <div style={{ padding: "0 15px 15px" }}>
                   <p style={{ margin: "0 0 10px", fontSize: 12, color: "#666", lineHeight: 1.6, fontStyle: "italic" }}>{kat.warum}</p>
                   {istJugendlich && kat.teenWarnung && (
-                    <div style={{ background: "#FFF3E0", borderRadius: 10, padding: "10px 12px", marginBottom: 12, border: "1px solid #FFCC80" }}>
-                      <p style={{ margin: 0, fontSize: 12, color: "#E65100", lineHeight: 1.6, fontWeight: 600 }}>💛 {kat.teenWarnung}</p>
+                    <div style={{ background: "#F4EEE2", borderRadius: 10, padding: "10px 12px", marginBottom: 12, border: "1px solid #D8C8B5" }}>
+                      <p style={{ margin: 0, fontSize: 12, color: "#B5652F", lineHeight: 1.6, fontWeight: 600 }}>{kat.teenWarnung}</p>
                     </div>
                   )}
-                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#C62828" }}>🚫 Besser weglassen:</p>
+                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#A34A44" }}>🚫 Besser weglassen:</p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 12 }}>
                     {kat.weglassen.map(f => (
-                      <span key={f} style={{ background: "#FFEBEE", color: "#C62828", borderRadius: 20, padding: "5px 11px", fontSize: 12 }}>{f}</span>
+                      <span key={f} style={{ background: "#F3E8EC", color: "#A34A44", borderRadius: 20, padding: "5px 11px", fontSize: 12 }}>{f}</span>
                     ))}
                   </div>
-                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#2E7D32" }}>✅ Besser stattdessen:</p>
+                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#5E6E5C" }}>✅ Besser stattdessen:</p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                     {kat.swap.map(f => (
-                      <span key={f} style={{ background: "#E8F5E9", color: "#2E7D32", borderRadius: 20, padding: "5px 11px", fontSize: 12 }}>{f}</span>
+                      <span key={f} style={{ background: "#EEF0EC", color: "#5E6E5C", borderRadius: 20, padding: "5px 11px", fontSize: 12 }}>{f}</span>
                     ))}
                   </div>
                 </div>
@@ -8490,27 +8533,26 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
   const [offen, setOffen] = useState(null);
   const istMeno = modus === "menopause";
   const istJugendlich = alter != null && alter >= 11 && alter <= 19;
-  const accentLila = "#7B5EA7";
-  const accentRosa = "#C2185B";
-  const accentGruen = "#2E7D32";
+  const accentLila = "#6B5470";
+  const accentRosa = "#8B4A5C";
+  const accentGruen = "#5E6E5C";
 
   const renderKarten = (themen, accent, hellBg) => themen.map(w => {
     const auf = offen === w.id;
     const anzeigeText = (istJugendlich && w.teenText) ? w.teenText : w.text;
     const anzeigeTipps = (istJugendlich && w.teenTipps) ? w.teenTipps : w.tipps;
     return (
-      <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
+      <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
         <button onClick={() => setOffen(auf ? null : w.id)}
           style={{ width: "100%", background: auf ? hellBg : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-          <span style={{ fontSize: 22 }}>{w.icon}</span>
-          <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>{w.titel}</span>
+          <span style={{ flex: 1, fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
           <span style={{ fontSize: 15, color: accent }}>{auf ? "−" : "+"}</span>
         </button>
         {auf && (
           <div style={{ padding: "0 15px 15px" }}>
             <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{anzeigeText}</p>
             <div style={{ background: hellBg, borderRadius: 10, padding: "10px 12px" }}>
-              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>{w.nurInfo ? "💡 Das Wichtigste:" : "💡 Das kannst du tun:"}</p>
+              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
               {anzeigeTipps.map((t, i) => (
                 <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                   <span style={{ position: "absolute", left: 0, color: accent }}>•</span>{t}
@@ -8518,14 +8560,14 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
               ))}
             </div>
             {modus === "schwanger" && w.schwangerHinweis && (
-              <div style={{ background: "#FFF0F5", borderRadius: 10, padding: "11px 13px", marginTop: 10, border: "1px solid #F8BBD0" }}>
-                <p style={{ margin: "0 0 4px", fontSize: 11, fontWeight: 700, color: "#C2185B" }}>🤰 Für dich in der Schwangerschaft</p>
+              <div style={{ background: "#FFF0F5", borderRadius: 10, padding: "11px 13px", marginTop: 10, border: "1px solid #E6D0D8" }}>
+                <p style={{ margin: "0 0 4px", fontSize: 11, fontWeight: 700, color: "#8B4A5C" }}>Für dich in der Schwangerschaft</p>
                 <p style={{ margin: 0, fontSize: 11.5, color: "#555", lineHeight: 1.6, whiteSpace: "pre-line" }}>{w.schwangerHinweis}</p>
               </div>
             )}
             {modus === "menopause" && w.menopauseHinweis && (
-              <div style={{ background: "#F3E5F5", borderRadius: 10, padding: "11px 13px", marginTop: 10, border: "1px solid #CE93D8" }}>
-                <p style={{ margin: "0 0 4px", fontSize: 11, fontWeight: 700, color: "#6A1B9A" }}>🌸 Für dich in der Menopause</p>
+              <div style={{ background: "#F0EAEF", borderRadius: 10, padding: "11px 13px", marginTop: 10, border: "1px solid #C0A8BC" }}>
+                <p style={{ margin: "0 0 4px", fontSize: 11, fontWeight: 700, color: "#6A1B9A" }}>Für dich in der Menopause</p>
                 <p style={{ margin: 0, fontSize: 11.5, color: "#555", lineHeight: 1.6, whiteSpace: "pre-line" }}>{w.menopauseHinweis}</p>
               </div>
             )}
@@ -8538,15 +8580,15 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
   return (
     <div>
       {/* Header */}
-      <div style={{ background: "linear-gradient(135deg, #2E7D32, #66BB6A)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>🍎 Ernährung</h2>
+      <div style={{ background: "linear-gradient(135deg, #5E6E5C, #788477)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>Ernährung</h2>
         <p style={{ margin: 0, fontSize: 12.5, opacity: 0.95, lineHeight: 1.5 }}>Essen als Medizin — für deine Hormone, deinen Blutzucker, deine Zellen und ein langes, gesundes Leben.</p>
       </div>
 
       {/* ══════ PRIMAL MENOPAUSAL DIET (nur Menopause-Modus, ganz oben & prominent) ══════ */}
       {istMeno && (
-        <div style={{ background: "linear-gradient(135deg, #9B7BAD, #B89BC9)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 16, color: "#fff", boxShadow: "0 4px 16px rgba(155,123,173,0.3)" }}>
-          <p style={{ margin: "0 0 6px", fontSize: 17, fontWeight: 800 }}>🍖 Deine Ernährung: Primal Menopausal Diet</p>
+        <div style={{ background: "linear-gradient(135deg, #8B6B84, #A88BA0)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 16, color: "#fff", boxShadow: "0 4px 16px rgba(155,123,173,0.3)" }}>
+          <p style={{ margin: "0 0 6px", fontSize: 17, fontWeight: 800 }}>Deine Ernährung: Primal Menopausal Diet</p>
           <p style={{ margin: "0 0 10px", fontSize: 12.5, opacity: 0.96, lineHeight: 1.6 }}>
             Dr. Pelz' Ernährungsplan speziell für die Wechseljahre — die Grundlage deiner Ernährung in dieser Lebensphase: viel gesundes Fett, moderates Protein, wenig Kohlenhydrate, aber mit den „Kohlenhydraten der Natur". Anders als strenges Keto, denn dein Gehirn braucht jetzt etwas natürliche Kohlenhydrate für Klarheit gegen den „Menopause-Nebel".
           </p>
@@ -8562,29 +8604,29 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
             Warum Knollen & Hülsenfrüchte? Sie stabilisieren den Blutzucker, füttern das Mikrobiom (wichtig fürs Estrobolom, das den Östrogen-Stoffwechsel reguliert) und liefern B6 & Magnesium für beruhigendes GABA und Serotonin.
           </p>
           <button onClick={() => onNavigate && onNavigate("rezepte")}
-            style={{ width: "100%", background: "#fff", color: "#9B7BAD", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
+            style={{ width: "100%", background: "#fff", color: "#8B6B84", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
             🍽️ Passende Rezepte ansehen →
           </button>
           <p style={{ margin: "8px 0 0", fontSize: 10.5, opacity: 0.85, lineHeight: 1.4, textAlign: "center" }}>
-            Im Rezepte-Bereich zeigt dir der Schalter „🌸 Nur Primal Menopausal Diet" gezielt passende Gerichte.
+            Im Rezepte-Bereich zeigt dir der Schalter „Nur Primal Menopausal Diet" gezielt passende Gerichte.
           </p>
         </div>
       )}
 
       {/* ══════ ESSEN FÜR DEINE HORMONE ══════ */}
       <div style={{ marginBottom: 8 }}>
-        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🍽️ Essen für deine Hormone</p>
+        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Essen für deine Hormone</p>
         <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
           {istMeno
             ? "Auch nach dem Zyklus bleiben diese drei Grundregeln aus Eat Like a Girl wertvoll: Deine aktiven Hormone (wie Insulin, Cortisol, Testosteron) und dein Stoffwechsel profitieren weiter — Hormone bilden, verstoffwechseln & entgiften."
             : "Die drei Ernährungsregeln aus dem Buch Eat Like a Girl — Hormone bilden, verstoffwechseln & entgiften."}
         </p>
       </div>
-      {renderKarten(ESSEN_WISSEN, accentLila, "#F3EEF9")}
+      {renderKarten(ESSEN_WISSEN, accentLila, "#F0EAEF")}
 
       {/* ══════ BLUTZUCKER & GLUKOSE-HACKS ══════ */}
       <div style={{ marginTop: 18, marginBottom: 8 }}>
-        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>📊 Blutzucker & Glukose-Hacks</p>
+        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Blutzucker & Glukose-Hacks</p>
         <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
           Stabiler Blutzucker = stabile Energie, Hormone & Stimmung. Die Hacks aus „Glucose Revolution“ von Jessie Inchauspé.
         </p>
@@ -8593,66 +8635,65 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
 
       {/* Verweis auf den Weglassen-Tab — für alle (auch Teenager) */}
       <button onClick={() => onNavigate && onNavigate("weglassen")}
-        style={{ width: "100%", background: "linear-gradient(135deg, #FFEBEE, #FFCDD2)", border: "1px solid #EF9A9A", borderRadius: 14, padding: "14px 16px", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 12, marginTop: 8, marginBottom: 8 }}>
+        style={{ width: "100%", background: "linear-gradient(135deg, #F3E8EC, #EDD8DA)", border: "1px solid #EF9A9A", borderRadius: 14, padding: "14px 16px", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 12, marginTop: 8, marginBottom: 8 }}>
         <span style={{ fontSize: 24 }}>🚫</span>
         <span style={{ flex: 1 }}>
-          <span style={{ display: "block", fontSize: 14, fontWeight: 800, color: "#C62828" }}>Was du besser weglässt</span>
+          <span style={{ display: "block", fontSize: 14, fontWeight: 800, color: "#A34A44" }}>Was du besser weglässt</span>
           <span style={{ display: "block", fontSize: 11.5, color: "#B71C1C", lineHeight: 1.4, marginTop: 2 }}>Süße Getränke, schlechte Öle, Alkohol & Co. — mit „Besser stattdessen“-Tipps. Tippen zum Öffnen →</span>
         </span>
       </button>
 
       {/* ══════ RICHTIG ESSEN, LÄNGER LEBEN (Dr. William Li) ══════ */}
       {/* ══════ RICHTIG ESSEN, LÄNGER LEBEN (Dr. William Li) ══════ */}
-      <div style={{ background: "linear-gradient(135deg, #2E7D32, #66BB6A)", borderRadius: 16, padding: "16px 18px", marginTop: 18, marginBottom: 12, color: "#fff" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800 }}>🛡️ {istJugendlich ? "Essen, das dich stark macht" : "Richtig essen, länger leben"}</p>
+      <div style={{ background: "linear-gradient(135deg, #5E6E5C, #788477)", borderRadius: 16, padding: "16px 18px", marginTop: 18, marginBottom: 12, color: "#fff" }}>
+        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800 }}>{istJugendlich ? "Essen, das dich stark macht" : "Richtig essen, länger leben"}</p>
         <p style={{ margin: 0, fontSize: 12, opacity: 0.95, lineHeight: 1.55 }}>
           {istJugendlich
             ? "Nach Dr. William Li: Dein Körper hat 5 eingebaute Schutzsysteme — und mit dem richtigen Essen machst du sie stark und bleibst gesund."
             : "Nach dem Buch „Eat to Beat Disease“ von Dr. William Li — die 5 Verteidigungssysteme deines Körpers und wie du sie mit dem richtigen Essen stärkst."}
         </p>
       </div>
-      {renderKarten(ETBD_INTRO, accentGruen, "#E8F5E9")}
-      {renderKarten(istJugendlich ? ETBD_SYSTEME.filter(k => k.id !== "etbd_braunes_fett" && k.id !== "etbd_fatburn_foods") : ETBD_SYSTEME, accentGruen, "#E8F5E9")}
-      {renderKarten(MEDITERASIAN_WISSEN, accentGruen, "#E8F5E9")}
+      {renderKarten(ETBD_INTRO, accentGruen, "#EEF0EC")}
+      {renderKarten(istJugendlich ? ETBD_SYSTEME.filter(k => k.id !== "etbd_braunes_fett" && k.id !== "etbd_fatburn_foods") : ETBD_SYSTEME, accentGruen, "#EEF0EC")}
+      {renderKarten(MEDITERASIAN_WISSEN, accentGruen, "#EEF0EC")}
 
       {/* Verweis auf den Lebensmittel-Tab */}
       <button onClick={() => onNavigate && onNavigate("foods")}
-        style={{ width: "100%", background: "linear-gradient(135deg, #FFF8E1, #FFECB3)", border: "1px solid #FFD54F", borderRadius: 14, padding: "14px 16px", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
-        <span style={{ fontSize: 24 }}>{istJugendlich ? "💪" : "🔥"}</span>
+        style={{ width: "100%", background: "linear-gradient(135deg, #F4EEE2, #FFECB3)", border: "1px solid #C9B48A", borderRadius: 14, padding: "14px 16px", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
         <span style={{ flex: 1 }}>
-          <span style={{ display: "block", fontSize: 14, fontWeight: 800, color: "#F57F17" }}>{istJugendlich ? "Über 150 Power-Lebensmittel" : "Über 150 Fett-Killer-Lebensmittel"}</span>
+          <span style={{ display: "block", fontSize: 14, fontWeight: 800, color: "#C39A3A" }}>{istJugendlich ? "Über 150 Power-Lebensmittel" : "Über 150 Fett-Killer-Lebensmittel"}</span>
           <span style={{ display: "block", fontSize: 11.5, color: "#9E7B18", lineHeight: 1.4, marginTop: 2 }}>{istJugendlich ? "Lebensmittel, die dich gesund & stark machen — zum Durchsuchen. Tippen zum Öffnen →" : "Lis komplette Liste zum Durchsuchen — inkl. der Grand Slammers. Tippen zum Öffnen →"}</span>
         </span>
       </button>
 
       {/* ══════ EPIGENETIK (Dr. Lucia Aronica) ══════ */}
-      <div style={{ background: "linear-gradient(135deg, #6A4C93, #9B7BAD)", borderRadius: 16, padding: "16px 18px", marginTop: 18, marginBottom: 12, color: "#fff" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800 }}>🧬 Deine Gene sind kein Schicksal</p>
+      <div style={{ background: "linear-gradient(135deg, #6B5470, #8B6B84)", borderRadius: 16, padding: "16px 18px", marginTop: 18, marginBottom: 12, color: "#fff" }}>
+        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800 }}>Deine Gene sind kein Schicksal</p>
         <p style={{ margin: 0, fontSize: 12, opacity: 0.95, lineHeight: 1.55 }}>
           {istJugendlich
             ? "Nach Dr. Lucia Aronica: Was du isst, beeinflusst, wie deine Gene arbeiten — du hast also viel selbst in der Hand."
             : "Ernährungs-Epigenetik nach Dr. Lucia Aronica (Stanford) — wie du mit jeder Mahlzeit deine Gene mitschreibst."}
         </p>
       </div>
-      {renderKarten(istJugendlich ? EPIGENETIK_WISSEN.filter(k => k.id !== "epi_genuss") : EPIGENETIK_WISSEN, "#7B5EA7", "#F3EEF9")}
+      {renderKarten(istJugendlich ? EPIGENETIK_WISSEN.filter(k => k.id !== "epi_genuss") : EPIGENETIK_WISSEN, "#6B5470", "#F0EAEF")}
 
 
       {/* ══════ NÄHRSTOFFE & SUPPLEMENTE ══════ */}
       {!istJugendlich && (
         <>
           <div style={{ marginTop: 18, marginBottom: 8 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>💊 Nährstoffe & Supplemente</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Nährstoffe & Supplemente</p>
             <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
               Zuerst über die Ernährung, dann testen, dann erst ergänzen. Was die wichtigsten Nährstoffe im Körper tun und wie du sie übers Essen bekommst.
             </p>
           </div>
-          {renderKarten(NAEHRSTOFF_INTRO, accentLila, "#F3EEF9")}
-          {renderKarten(NAEHRSTOFF_WISSEN, accentLila, "#F3EEF9")}
-          {renderKarten(COLLAGEN_WISSEN, accentLila, "#F3EEF9")}
-          {renderKarten(KREATIN_WISSEN, accentLila, "#F3EEF9")}
-          {renderKarten(SMOOTHIE_WISSEN, accentLila, "#F3EEF9")}
-          {renderKarten(supplementeKarten2().filter(k => k.id !== "patrick_supplements"), accentLila, "#F3EEF9")}
-          {renderKarten(NAEHRSTOFF_TEST, accentRosa, "#FCE4EC")}
+          {renderKarten(NAEHRSTOFF_INTRO, accentLila, "#F0EAEF")}
+          {renderKarten(NAEHRSTOFF_WISSEN, accentLila, "#F0EAEF")}
+          {renderKarten(COLLAGEN_WISSEN, accentLila, "#F0EAEF")}
+          {renderKarten(KREATIN_WISSEN, accentLila, "#F0EAEF")}
+          {renderKarten(SMOOTHIE_WISSEN, accentLila, "#F0EAEF")}
+          {renderKarten(supplementeKarten2().filter(k => k.id !== "patrick_supplements"), accentLila, "#F0EAEF")}
+          {renderKarten(NAEHRSTOFF_TEST, accentRosa, "#F3E8EC")}
           <EqologyEmpfehlung modus={modus} istJugendlich={istJugendlich} />
         </>
       )}
@@ -8676,27 +8717,26 @@ function VerstehenTab({ phase, modus, alter }) {
     ? [...SEXUAL_HEALTH_ALLGEMEIN, ...SEXUAL_HEALTH_MENOPAUSE]
     : [...SEXUAL_HEALTH_ALLGEMEIN, ...SEXUAL_HEALTH_ZYKLUS];
 
-  const accentRosa = "#C2185B";   // Sexuelle Gesundheit
-  const accentLila = "#7B5EA7";   // Hormone
-  const accentTeal = "#00897B";   // Erkrankungen
+  const accentRosa = "#8B4A5C";   // Sexuelle Gesundheit
+  const accentLila = "#6B5470";   // Hormone
+  const accentTeal = "#5E7370";   // Erkrankungen
 
   const renderKarten = (themen, accent, hellBg) => themen.map(w => {
     const auf = offen === w.id;
     const anzeigeText = (istJugendlich && w.teenText) ? w.teenText : w.text;
     const anzeigeTipps = (istJugendlich && w.teenTipps) ? w.teenTipps : w.tipps;
     return (
-      <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
+      <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
         <button onClick={() => setOffen(auf ? null : w.id)}
           style={{ width: "100%", background: auf ? hellBg : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-          <span style={{ fontSize: 22 }}>{w.icon}</span>
-          <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>{w.titel}</span>
+          <span style={{ flex: 1, fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
           <span style={{ fontSize: 15, color: accent }}>{auf ? "−" : "+"}</span>
         </button>
         {auf && (
           <div style={{ padding: "0 15px 15px" }}>
             <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{anzeigeText}</p>
             <div style={{ background: hellBg, borderRadius: 10, padding: "10px 12px" }}>
-              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>{w.nurInfo ? "💡 Das Wichtigste:" : "💡 Das kannst du tun:"}</p>
+              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
               {anzeigeTipps.map((t, i) => (
                 <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                   <span style={{ position: "absolute", left: 0, color: accent }}>•</span>{t}
@@ -8749,8 +8789,8 @@ function VerstehenTab({ phase, modus, alter }) {
   return (
     <div>
       {/* Header */}
-      <div style={{ background: "linear-gradient(135deg, #C2185B, #E91E63)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>🌸 Dein Körper</h2>
+      <div style={{ background: "linear-gradient(135deg, #8B4A5C, #9C5568)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800 }}>Dein Körper</h2>
         <p style={{ margin: 0, fontSize: 12.5, opacity: 0.95, lineHeight: 1.5 }}>{istMeno ? "Alles, was du für die Wechseljahre brauchst — an einem Ort. Über deine Hormone, Knochen, Gehirn, Schlaf, sexuelle Gesundheit und das, worüber niemand spricht." : "Die Aufklärung über deinen Körper, die viel zu oft fehlt — über Hormone, deinen Zyklus, sexuelle Gesundheit und das, worüber niemand spricht."}</p>
       </div>
 
@@ -8758,24 +8798,24 @@ function VerstehenTab({ phase, modus, alter }) {
       {istMeno && (
         <>
           {/* Einleitung */}
-          <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", borderLeft: "4px solid #9B7BAD" }}>
+          <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", borderLeft: "4px solid #8B6B84" }}>
             <p style={{ margin: 0, fontSize: 13, color: "#555", lineHeight: 1.7 }}>
               Die Menopause ist kein Verfall, sondern ein kraftvoller Übergang. Dr. Pelz beschreibt sie über die „Grandmother Hypothesis": Die Energie, die früher in die Fortpflanzung floss, steht dir jetzt für ein neues, selbstbestimmtes Lebenskapitel zur Verfügung. Wichtig ist jetzt vor allem, aktiv Knochen, Muskeln, Herz und Gehirn zu schützen — dafür findest du hier alles.
             </p>
           </div>
           <div style={{ marginTop: 4, marginBottom: 8 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🌸 Deine Wechseljahre verstehen</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Deine Wechseljahre verstehen</p>
             <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
               Die wichtigsten Themen zuerst: Knochen & Muskeln, Gehirn, Hormontherapie und Schlaf — danach alles Weitere rund um Ernährung, Fasten und Stimmung.
             </p>
           </div>
-          {renderKarten(menoWissenSortiert, accentLila, "#F3EEF7")}
-          {renderKarten(menoSymptomeKarte, accentLila, "#F3EEF7")}
-          <div style={{ background: "#F3EEF7", borderRadius: 14, padding: "13px 15px", marginTop: 6, marginBottom: 8, border: "1px solid #E1BEE7" }}>
-            <p style={{ margin: "0 0 3px", fontSize: 13, fontWeight: 700, color: "#9B7BAD" }}>💪 Training „the Menopause Way"</p>
-            <p style={{ margin: 0, fontSize: 12, color: "#777", lineHeight: 1.5 }}>Dein 4-Stufen-Trainingsprotokoll für die Menopause findest du im <strong>Training-Tab</strong> (💪 in der unteren Leiste). Krafttraining ist jetzt dein wichtigster Schutz für Knochen und Muskeln.</p>
+          {renderKarten(menoWissenSortiert, accentLila, "#F0EAEF")}
+          {renderKarten(menoSymptomeKarte, accentLila, "#F0EAEF")}
+          <div style={{ background: "#F0EAEF", borderRadius: 14, padding: "13px 15px", marginTop: 6, marginBottom: 8, border: "1px solid #D8C4D4" }}>
+            <p style={{ margin: "0 0 3px", fontSize: 13, fontWeight: 700, color: "#8B6B84" }}>Training „the Menopause Way"</p>
+            <p style={{ margin: 0, fontSize: 12, color: "#777", lineHeight: 1.5 }}>Dein 4-Stufen-Trainingsprotokoll für die Menopause findest du im <strong>Training-Tab</strong> (siehe untere Leiste). Krafttraining ist jetzt dein wichtigster Schutz für Knochen und Muskeln.</p>
           </div>
-          <div style={{ background: "#F3F4F6", borderRadius: 10, padding: "11px 13px", marginBottom: 18 }}>
+          <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginBottom: 18 }}>
             <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
               Quellen: „Age Like a Girl" von Dr. Mindy Pelz, ergänzt um Erkenntnisse von Dr. Rhonda Patrick (FoundMyFitness) zu Knochen/Krafttraining, Schlaf, Gehirn & Hormontherapie.
             </p>
@@ -8785,26 +8825,26 @@ function VerstehenTab({ phase, modus, alter }) {
 
       {/* ══════ 1. HORMONE VERSTEHEN (inkl. HRT) ══════ */}
       <div style={{ marginBottom: 8 }}>
-        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🩸 Deine Hormone verstehen</p>
+        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Deine Hormone verstehen</p>
         <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
           {istMeno ? "Die wichtigsten Botenstoffe — und wie sich ihr Zusammenspiel in der Menopause verändert." : "Die wichtigsten Botenstoffe und ihr Zusammenspiel — die Basis, um deinen Körper zu verstehen."}
         </p>
       </div>
-      {renderKarten(hormonWissenGezeigt, accentLila, "#F3EEF9")}
-      {!istJugendlich && !istMeno && renderKarten(hrtKarte, accentLila, "#F3EEF9")}
+      {renderKarten(hormonWissenGezeigt, accentLila, "#F0EAEF")}
+      {!istJugendlich && !istMeno && renderKarten(hrtKarte, accentLila, "#F0EAEF")}
 
       {/* ══════ ZYKLUS, VERHÜTUNG & KINDERWUNSCH (nur Zyklus-Modus) ══════ */}
       {!istMeno && !istJugendlich && (
         <>
           <div style={{ marginTop: 18, marginBottom: 8 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🌸 Zyklus, Verhütung & Kinderwunsch</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Zyklus, Verhütung & Kinderwunsch</p>
             <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
               Alles rund um Verhütung (hormonell & nicht-hormonell), die Pille, Fruchtbarkeit, Kinderwunsch und häufige Zyklusbeschwerden.
             </p>
           </div>
-          {renderKarten(verhuetungKarte, accentTeal, "#E0F2F1")}
-          {renderKarten(PATRICK_ZYKLUS_WISSEN, accentTeal, "#E0F2F1")}
-          {renderKarten(ZYKLUS_ERKRANKUNGEN, accentTeal, "#E0F2F1")}
+          {renderKarten(verhuetungKarte, accentTeal, "#EAEEE9")}
+          {renderKarten(PATRICK_ZYKLUS_WISSEN, accentTeal, "#EAEEE9")}
+          {renderKarten(ZYKLUS_ERKRANKUNGEN, accentTeal, "#EAEEE9")}
         </>
       )}
 
@@ -8813,27 +8853,27 @@ function VerstehenTab({ phase, modus, alter }) {
         <>
           {/* 5a) Urogenitale Gesundheit — medizinisch, „da unten" (inkl. Beckenboden) */}
           <div style={{ marginTop: 18, marginBottom: 8 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>💧 Urogenitale Gesundheit</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Urogenitale Gesundheit</p>
             <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
               Scheide, Blase & Beckenboden verändern sich durch den Östrogenmangel. Diese Themen sind sehr häufig — und fast immer gut behandelbar (nach Dr. Rachel Rubin & Dr. Stacy Sims).
             </p>
           </div>
-          {renderKarten(urogenitalKarten, accentRosa, "#FCE4EC")}
-          {renderKarten(BECKENBODEN_WISSEN, accentRosa, "#FCE4EC")}
+          {renderKarten(urogenitalKarten, accentRosa, "#F3E8EC")}
+          {renderKarten(BECKENBODEN_WISSEN, accentRosa, "#F3E8EC")}
 
           {/* 5b) Sexualität & Lust */}
           <div style={{ marginTop: 18, marginBottom: 8 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🌷 Sexualität & Lust</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Sexualität & Lust</p>
             <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
               Lust, Intimität und Wohlbefinden hören in den Wechseljahren nicht auf — vieles lässt sich verstehen und verbessern (nach Dr. Rachel Rubin).
             </p>
           </div>
-          {renderKarten(sexualitaetKarten, accentRosa, "#FCE4EC")}
+          {renderKarten(sexualitaetKarten, accentRosa, "#F3E8EC")}
 
           {/* Social-Media-Hinweis auf Dr. Rubin */}
-          <div style={{ background: "linear-gradient(135deg, #FCE4EC, #F8BBD0)", borderRadius: 14, padding: "14px 16px", marginTop: 6, marginBottom: 14, border: "1px solid #F48FB1" }}>
-            <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 800, color: "#880E4F" }}>📣 Mehr von Dr. Rachel Rubin</p>
-            <p style={{ margin: 0, fontSize: 12, color: "#AD1457", lineHeight: 1.6 }}>
+          <div style={{ background: "linear-gradient(135deg, #F3E8EC, #E6D0D8)", borderRadius: 14, padding: "14px 16px", marginTop: 6, marginBottom: 14, border: "1px solid #C99AAA" }}>
+            <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 800, color: "#6E2A44" }}>Mehr von Dr. Rachel Rubin</p>
+            <p style={{ margin: 0, fontSize: 12, color: "#8B3A5A", lineHeight: 1.6 }}>
               Dr. Rubin teilt fundierte, ehrliche Aufklärung auf Social Media — "die Sex-Ed, die du nie bekommen hast". Folge ihr auf Instagram & YouTube unter <strong>@drrachelrubin</strong> oder besuche rachelrubinmd.com.
             </p>
           </div>
@@ -8845,27 +8885,27 @@ function VerstehenTab({ phase, modus, alter }) {
         <>
           {/* 5a) Urogenitale Gesundheit — medizinisch, „da unten" (inkl. Beckenboden) */}
           <div style={{ marginTop: 18, marginBottom: 8 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>💧 Urogenitale Gesundheit</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Urogenitale Gesundheit</p>
             <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
               Alles rund um Blase, Scheide & Beckenboden — von wiederkehrenden Infekten bis zur Zeit nach einer Geburt. Sehr häufig und fast immer gut behandelbar (nach Dr. Rachel Rubin & Dr. Stacy Sims).
             </p>
           </div>
-          {renderKarten(urogenitalKarten, accentRosa, "#FCE4EC")}
-          {renderKarten(BECKENBODEN_WISSEN.filter(k => k.id !== "beckenboden_menopause"), accentRosa, "#FCE4EC")}
+          {renderKarten(urogenitalKarten, accentRosa, "#F3E8EC")}
+          {renderKarten(BECKENBODEN_WISSEN.filter(k => k.id !== "beckenboden_menopause"), accentRosa, "#F3E8EC")}
 
           {/* 5b) Sexualität & Lust */}
           <div style={{ marginTop: 18, marginBottom: 8 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🌷 Sexualität & Lust</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Sexualität & Lust</p>
             <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
               Lust, Intimität und Wohlbefinden — und was Hormone (auch die Pille) damit zu tun haben (nach Dr. Rachel Rubin).
             </p>
           </div>
-          {renderKarten(sexualitaetKarten, accentRosa, "#FCE4EC")}
+          {renderKarten(sexualitaetKarten, accentRosa, "#F3E8EC")}
 
           {/* Social-Media-Hinweis auf Dr. Rubin */}
-          <div style={{ background: "linear-gradient(135deg, #FCE4EC, #F8BBD0)", borderRadius: 14, padding: "14px 16px", marginTop: 6, marginBottom: 14, border: "1px solid #F48FB1" }}>
-            <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 800, color: "#880E4F" }}>📣 Mehr von Dr. Rachel Rubin</p>
-            <p style={{ margin: 0, fontSize: 12, color: "#AD1457", lineHeight: 1.6 }}>
+          <div style={{ background: "linear-gradient(135deg, #F3E8EC, #E6D0D8)", borderRadius: 14, padding: "14px 16px", marginTop: 6, marginBottom: 14, border: "1px solid #C99AAA" }}>
+            <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 800, color: "#6E2A44" }}>Mehr von Dr. Rachel Rubin</p>
+            <p style={{ margin: 0, fontSize: 12, color: "#8B3A5A", lineHeight: 1.6 }}>
               Dr. Rubin teilt fundierte, ehrliche Aufklärung auf Social Media — "die Sex-Ed, die du nie bekommen hast". Folge ihr auf Instagram & YouTube unter <strong>@drrachelrubin</strong> oder besuche rachelrubinmd.com.
             </p>
           </div>
@@ -8876,12 +8916,12 @@ function VerstehenTab({ phase, modus, alter }) {
       {istMeno && (
         <>
           <div style={{ marginTop: 18, marginBottom: 8 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🌿 Adaptogene gegen Wechseljahres-Symptome</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Adaptogene gegen Wechseljahres-Symptome</p>
             <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
               Pflanzliche Stress-Helfer nach Dr. Stacy Sims (Next Level). Mit Dosierungen & wichtigen Warnhinweisen — pflanzlich heißt nicht harmlos, bei Medikamenten bitte ärztlich abklären.
             </p>
           </div>
-          {renderKarten(ADAPTOGENE_WISSEN, accentLila, "#F3EEF9")}
+          {renderKarten(ADAPTOGENE_WISSEN, accentLila, "#F0EAEF")}
         </>
       )}
 
@@ -8889,18 +8929,18 @@ function VerstehenTab({ phase, modus, alter }) {
       {!istMeno && alter != null && alter >= 11 && alter <= 19 && (
         <>
           <div style={{ marginTop: 18, marginBottom: 8 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🌷 Für dich: erste Periode & Aufklärung</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Für dich: erste Periode & Aufklärung</p>
             <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>
               Altersgerechte Infos zu deiner Periode, deinem Körper, Verhütung & Selbstbestimmung — mit vertraulichen Anlaufstellen in Österreich & der Steiermark.
             </p>
           </div>
-          {renderKarten(TEENAGER_WISSEN.filter(k => !TEEN_ERNAEHRUNG_IDS.includes(k.id)), "#D6749B", "#FBEEF4")}
+          {renderKarten(TEENAGER_WISSEN.filter(k => !TEEN_ERNAEHRUNG_IDS.includes(k.id)), "#B07689", "#F1E9EE")}
         </>
       )}
 
       {/* Hinweis / Disclaimer */}
-      <div style={{ background: "#FFF8E1", borderRadius: 12, padding: "12px 14px", marginBottom: 80, border: "1px solid #FFE082" }}>
-        <p style={{ margin: 0, fontSize: 11.5, color: "#8D6E00", lineHeight: 1.6 }}>
+      <div style={{ background: "#F4EEE2", borderRadius: 12, padding: "12px 14px", marginBottom: 80, border: "1px solid #D8C8B5" }}>
+        <p style={{ margin: 0, fontSize: 11.5, color: "#8A6D2E", lineHeight: 1.6 }}>
           ⚠️ Diese Inhalte dienen der Aufklärung und ersetzen keine ärztliche Beratung oder Diagnose. Bei anhaltenden oder starken Beschwerden wende dich an eine Ärztin oder einen Arzt — idealerweise mit Erfahrung in Gynäkologie, sexueller Medizin oder Menopause. Hormontherapien sind verschreibungspflichtig. Quellen: Dr. Rachel Rubin, Stacy Sims ("ROAR"), Jessie Inchauspé ("Glucose Revolution"), Dr. Mindy Pelz.
         </p>
       </div>
@@ -8918,8 +8958,8 @@ function MenopauseTrainingTab({ phase }) {
   return (
     <div>
       {/* Header */}
-      <div style={{ background: "linear-gradient(135deg, #9B7BAD, #B89BC9)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>💪 Training "the Menopause Way"</h2>
+      <div style={{ background: "linear-gradient(135deg, #8B6B84, #A88BA0)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>Training "the Menopause Way"</h2>
         <p style={{ margin: 0, fontSize: 12, opacity: 0.9, lineHeight: 1.5 }}>Dein 4-Stufen-Protokoll nach "Age Like a Girl" von Dr. Mindy Pelz</p>
       </div>
 
@@ -8930,8 +8970,8 @@ function MenopauseTrainingTab({ phase }) {
           In den Wechseljahren verändert sich dein Körper: Muskeln und Knochen brauchen mehr Schutz, Gelenke mehr Schonung. Statt stundenlangem Ausdauersport (der Cortisol und Verletzungsrisiko erhöht) setzt Pelz auf vier Schlüsselbereiche:
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-          {[["💪","Kraft"],["🧘","Flexibilität"],["⚖️","Balance"],["🏃","Ausdauer"]].map(([icon, label]) => (
-            <span key={label} style={{ fontSize: 12, background: "#F3EEF7", color: "#9B7BAD", padding: "5px 12px", borderRadius: 20, fontWeight: 600 }}>{icon} {label}</span>
+          {[["","Kraft"],["","Flexibilität"],["","Balance"],["🏃","Ausdauer"]].map(([icon, label]) => (
+            <span key={label} style={{ fontSize: 12, background: "#F0EAEF", color: "#8B6B84", padding: "5px 12px", borderRadius: 20, fontWeight: 600 }}>{icon} {label}</span>
           ))}
         </div>
       </div>
@@ -8944,7 +8984,7 @@ function MenopauseTrainingTab({ phase }) {
       <div style={{ display: "flex", gap: 6, marginBottom: 12 }}>
         {MENOPAUSE_TRAINING.map(lvl => (
           <button key={lvl.level} onClick={() => setOffenLevel(lvl.level)}
-            style={{ flex: 1, background: offenLevel === lvl.level ? lvl.farbe : "#f4f4f4", color: offenLevel === lvl.level ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "10px 4px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
+            style={{ flex: 1, background: offenLevel === lvl.level ? lvl.farbe : "#F1EDE6", color: offenLevel === lvl.level ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "10px 4px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
             L{lvl.level}
           </button>
         ))}
@@ -8958,7 +8998,7 @@ function MenopauseTrainingTab({ phase }) {
             <p style={{ margin: 0, fontSize: 11.5, color: "#777", lineHeight: 1.5 }}><strong>Fokus:</strong> {lvl.fokus}</p>
           </div>
           {lvl.plan.map(([tag, uebung], i) => (
-            <div key={i} style={{ display: "flex", gap: 10, padding: "8px 0", borderBottom: i < lvl.plan.length - 1 ? "1px solid #f3f3f3" : "none" }}>
+            <div key={i} style={{ display: "flex", gap: 10, padding: "8px 0", borderBottom: i < lvl.plan.length - 1 ? "1px solid #F1EDE6" : "none" }}>
               <span style={{ fontSize: 11, fontWeight: 700, color: lvl.farbe, background: lvl.farbe + "18", borderRadius: 6, padding: "2px 0", width: 32, textAlign: "center", flexShrink: 0, height: "fit-content" }}>{tag}</span>
               <span style={{ fontSize: 12, color: "#555", lineHeight: 1.5 }}>{uebung}</span>
             </div>
@@ -8968,12 +9008,12 @@ function MenopauseTrainingTab({ phase }) {
 
       {/* Sims / ROAR — Warum Krafttraining in der Menopause */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 8px", fontSize: 14, fontWeight: 800, color: "#9B7BAD" }}>🏋️ Warum schwer heben jetzt zählt (Stacy Sims, "ROAR")</p>
+        <p style={{ margin: "0 0 8px", fontSize: 14, fontWeight: 800, color: "#8B6B84" }}>Warum schwer heben jetzt zählt (Stacy Sims, "ROAR")</p>
         <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7 }}>
           Stacy Sims bringt es auf den Punkt: In der Peri- und Postmenopause ist Krafttraining keine Option, sondern entscheidend. Nach der Menopause kann die Knochendichte in 5–7 Jahren um bis zu 20 % sinken — und etwa jede zweite Frau über 50 bricht sich wegen Osteoporose einmal einen Knochen. Krafttraining (ruhig auch schwer, mit guter Technik) schützt Knochen UND Muskeln. Sims' Botschaft: Trainiere nicht weiter wie mit 30, sondern arbeite mit deiner neuen Physiologie.
         </p>
-        <div style={{ background: "#F3EEF7", borderRadius: 10, padding: "10px 12px" }}>
-          <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#9B7BAD" }}>💡 Sims' Kernpunkte:</p>
+        <div style={{ background: "#F0EAEF", borderRadius: 10, padding: "10px 12px" }}>
+          <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#8B6B84" }}>Sims' Kernpunkte:</p>
           {[
             "Schweres Krafttraining schützt vor Knochenschwund (keine Angst davor)",
             "Knochendichte-Scan ab der Menopause sinnvoll (nicht erst mit 65)",
@@ -8982,7 +9022,7 @@ function MenopauseTrainingTab({ phase }) {
             "Hitze macht Training schwerer: vorab kühl & salzig trinken (Precooling)",
           ].map((t, i) => (
             <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
-              <span style={{ position: "absolute", left: 0, color: "#9B7BAD" }}>•</span>{t}
+              <span style={{ position: "absolute", left: 0, color: "#8B6B84" }}>•</span>{t}
             </div>
           ))}
         </div>
@@ -8990,12 +9030,12 @@ function MenopauseTrainingTab({ phase }) {
 
       {/* Sims / Next Level — konkrete Trainingsformel */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 8px", fontSize: 14, fontWeight: 800, color: "#9B7BAD" }}>⚡ Sims' Formel aus "Next Level"</p>
+        <p style={{ margin: "0 0 8px", fontSize: 14, fontWeight: 800, color: "#8B6B84" }}>Sims' Formel aus "Next Level"</p>
         <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7 }}>
           In "Next Level" (ihr Buch speziell für Peri-/Menopause) ist Sims' Botschaft klar: Weniger lange, moderate Einheiten — mehr Intensität, die zählt. Statt endloser Ausdauer empfiehlt sie kurze, knackige Sprint-Intervalle (SIT) und echtes schweres Krafttraining. Das setzt genau die Reize, die früher die Hormone von selbst gegeben haben.
         </p>
-        <div style={{ background: "#F3EEF7", borderRadius: 10, padding: "10px 12px" }}>
-          <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#9B7BAD" }}>💡 Konkret nach "Next Level":</p>
+        <div style={{ background: "#F0EAEF", borderRadius: 10, padding: "10px 12px" }}>
+          <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#8B6B84" }}>Konkret nach "Next Level":</p>
           {[
             "Sprint-Intervalle (SIT): kurze, sehr intensive Bursts statt Dauerlauf",
             "Schwer heben: kurz & kräftig — kurbelt Stoffwechsel & Fettverbrennung an",
@@ -9005,7 +9045,7 @@ function MenopauseTrainingTab({ phase }) {
             "Cortisol senken: nicht mehr ist besser, sondern gezielter",
           ].map((t, i) => (
             <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
-              <span style={{ position: "absolute", left: 0, color: "#9B7BAD" }}>•</span>{t}
+              <span style={{ position: "absolute", left: 0, color: "#8B6B84" }}>•</span>{t}
             </div>
           ))}
         </div>
@@ -9013,24 +9053,24 @@ function MenopauseTrainingTab({ phase }) {
 
       {/* Sims: Essen & Trinken rund ums Training */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>⚡ Essen & Trinken rund ums Training</p>
+        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Essen & Trinken rund ums Training</p>
         <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Frauenspezifisch nach Dr. Stacy Sims (ROAR) — in der Menopause besonders wichtig.</p>
         {SIMS_FUELING.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenFueling(offenFueling === idx ? null : idx)}
-              style={{ width: "100%", background: offenFueling === idx ? "#F3EEF7" : "#f8f8f8", border: `1px solid ${offenFueling === idx ? "#9B7BAD44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenFueling === idx ? "#F0EAEF" : "#FAF8F4", border: `1px solid ${offenFueling === idx ? "#8B6B8444" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{f.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{f.titel}</span>
               </span>
-              <span style={{ fontSize: 15, color: "#9B7BAD" }}>{offenFueling === idx ? "−" : "+"}</span>
+              <span style={{ fontSize: 15, color: "#8B6B84" }}>{offenFueling === idx ? "−" : "+"}</span>
             </button>
             {offenFueling === idx && (
               <div style={{ padding: "10px 14px 4px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{f.text}</p>
                 {f.tipps.map((t, i) => (
                   <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
-                    <span style={{ flexShrink: 0, color: "#9B7BAD", fontSize: 12, marginTop: 1 }}>•</span>
+                    <span style={{ flexShrink: 0, color: "#8B6B84", fontSize: 12, marginTop: 1 }}>•</span>
                     <p style={{ margin: 0, fontSize: 12, color: "#444", lineHeight: 1.55 }}>{t}</p>
                   </div>
                 ))}
@@ -9042,24 +9082,24 @@ function MenopauseTrainingTab({ phase }) {
 
       {/* Erholung, Hitze & Kälte */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>🛁 Erholung, Hitze & Kälte</p>
+        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Erholung, Hitze & Kälte</p>
         <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Was wirklich bei der Regeneration hilft — nach Dr. Stacy Sims (ROAR). In der Menopause besonders wertvoll.</p>
         {RECOVERY_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenRecovery(offenRecovery === idx ? null : idx)}
-              style={{ width: "100%", background: offenRecovery === idx ? "#F3EEF7" : "#f8f8f8", border: `1px solid ${offenRecovery === idx ? "#9B7BAD44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenRecovery === idx ? "#F0EAEF" : "#FAF8F4", border: `1px solid ${offenRecovery === idx ? "#8B6B8444" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{f.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{f.titel}</span>
               </span>
-              <span style={{ fontSize: 15, color: "#9B7BAD" }}>{offenRecovery === idx ? "−" : "+"}</span>
+              <span style={{ fontSize: 15, color: "#8B6B84" }}>{offenRecovery === idx ? "−" : "+"}</span>
             </button>
             {offenRecovery === idx && (
               <div style={{ padding: "10px 14px 4px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{f.text}</p>
                 {f.tipps.map((t, i) => (
                   <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
-                    <span style={{ flexShrink: 0, color: "#9B7BAD", fontSize: 12, marginTop: 1 }}>•</span>
+                    <span style={{ flexShrink: 0, color: "#8B6B84", fontSize: 12, marginTop: 1 }}>•</span>
                     <p style={{ margin: 0, fontSize: 12, color: "#444", lineHeight: 1.55 }}>{t}</p>
                   </div>
                 ))}
@@ -9071,24 +9111,24 @@ function MenopauseTrainingTab({ phase }) {
 
       {/* Genug essen / RED-S & Darmgesundheit */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>🍽️ Genug essen & Darmgesundheit</p>
+        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Genug essen & Darmgesundheit</p>
         <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Das wichtige Gegengewicht zum Fasten — nach Dr. Stacy Sims. In der Menopause besonders wichtig.</p>
         {GENUG_ESSEN_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenGenugEssen(offenGenugEssen === idx ? null : idx)}
-              style={{ width: "100%", background: offenGenugEssen === idx ? "#F3EEF7" : "#f8f8f8", border: `1px solid ${offenGenugEssen === idx ? "#9B7BAD44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenGenugEssen === idx ? "#F0EAEF" : "#FAF8F4", border: `1px solid ${offenGenugEssen === idx ? "#8B6B8444" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{f.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{f.titel}</span>
               </span>
-              <span style={{ fontSize: 15, color: "#9B7BAD" }}>{offenGenugEssen === idx ? "−" : "+"}</span>
+              <span style={{ fontSize: 15, color: "#8B6B84" }}>{offenGenugEssen === idx ? "−" : "+"}</span>
             </button>
             {offenGenugEssen === idx && (
               <div style={{ padding: "10px 14px 4px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{f.text}</p>
                 {f.tipps.map((t, i) => (
                   <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
-                    <span style={{ flexShrink: 0, color: "#9B7BAD", fontSize: 12, marginTop: 1 }}>•</span>
+                    <span style={{ flexShrink: 0, color: "#8B6B84", fontSize: 12, marginTop: 1 }}>•</span>
                     <p style={{ margin: 0, fontSize: 12, color: "#444", lineHeight: 1.55 }}>{t}</p>
                   </div>
                 ))}
@@ -9100,24 +9140,24 @@ function MenopauseTrainingTab({ phase }) {
 
       {/* Menopause-Performance: Cardio & Mental (Next Level) */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>🏃‍♀️ Cardio & mentale Stärke</p>
+        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Cardio & mentale Stärke</p>
         <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Menopause-spezifisch nach Dr. Stacy Sims (Next Level).</p>
         {MENO_PERFORMANCE_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenMenoPerf(offenMenoPerf === idx ? null : idx)}
-              style={{ width: "100%", background: offenMenoPerf === idx ? "#F3EEF7" : "#f8f8f8", border: `1px solid ${offenMenoPerf === idx ? "#9B7BAD44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenMenoPerf === idx ? "#F0EAEF" : "#FAF8F4", border: `1px solid ${offenMenoPerf === idx ? "#8B6B8444" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{f.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{f.titel}</span>
               </span>
-              <span style={{ fontSize: 15, color: "#9B7BAD" }}>{offenMenoPerf === idx ? "−" : "+"}</span>
+              <span style={{ fontSize: 15, color: "#8B6B84" }}>{offenMenoPerf === idx ? "−" : "+"}</span>
             </button>
             {offenMenoPerf === idx && (
               <div style={{ padding: "10px 14px 4px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{f.text}</p>
                 {f.tipps.map((t, i) => (
                   <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
-                    <span style={{ flexShrink: 0, color: "#9B7BAD", fontSize: 12, marginTop: 1 }}>•</span>
+                    <span style={{ flexShrink: 0, color: "#8B6B84", fontSize: 12, marginTop: 1 }}>•</span>
                     <p style={{ margin: 0, fontSize: 12, color: "#444", lineHeight: 1.55 }}>{t}</p>
                   </div>
                 ))}
@@ -9128,7 +9168,7 @@ function MenopauseTrainingTab({ phase }) {
       </div>
 
       {/* Quelle */}
-      <div style={{ background: "#F3F4F6", borderRadius: 10, padding: "11px 13px", marginBottom: 80 }}>
+      <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginBottom: 80 }}>
         <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
           Quellen: "Age Like a Girl" von Dr. Mindy Pelz & "ROAR" und "Next Level" von Stacy Sims. Diese Inhalte ersetzen keine medizinische Beratung. Bei starken Beschwerden in den Wechseljahren bitte ärztliche Begleitung suchen.
         </p>
@@ -9149,36 +9189,36 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
     <div>
       {/* Header */}
       <div style={{ background: `linear-gradient(135deg, ${phase.farbe}, ${phase.farbe}DD)`, borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>📔 Tagebuch</h2>
+        <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>Tagebuch</h2>
         <p style={{ margin: 0, fontSize: 12, opacity: 0.9 }}>
           {modus === "schwanger"
             ? (ssw && !ssw.vorGeburt ? `${heuteDatum} · 🤰 Woche ${ssw.woche} + ${ssw.tag}` : `${heuteDatum} · 🤰 Schwangerschaft`)
-            : `${heuteDatum} · ${phase.icon} ${phase.name} (Tag ${zyklusTag})`}
+            : `${heuteDatum} · ${phase.name} (Tag ${zyklusTag})`}
         </p>
       </div>
 
       {/* Schwangerschafts-Begleiter (nur im Schwangerschaftsmodus) */}
       {modus === "schwanger" && (
         <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-          <p style={{ margin: "0 0 12px", fontSize: 14, fontWeight: 700 }}>🤰 Schwangerschafts-Begleiter</p>
+          <p style={{ margin: "0 0 12px", fontSize: 14, fontWeight: 700 }}>Schwangerschafts-Begleiter</p>
 
           {/* Kindsbewegungen */}
           <div style={{ marginBottom: 16 }}>
-            <p style={{ margin: "0 0 7px", fontSize: 12.5, fontWeight: 700, color: "#333" }}>👣 Kindsbewegungen heute gespürt?</p>
+            <p style={{ margin: "0 0 7px", fontSize: 12.5, fontWeight: 700, color: "#333" }}>Kindsbewegungen heute gespürt?</p>
             <div style={{ display: "flex", gap: 6 }}>
               {[["viele","Viele"],["normal","Wie sonst"],["wenige","Weniger"],["keine","Keine"]].map(([wert, label]) => {
                 const aktiv = eintrag.kindsbewegungen === wert;
                 const istWarnung = wert === "wenige" || wert === "keine";
                 return (
                   <button key={wert} onClick={() => onSetEintrag(heuteKey, "kindsbewegungen", aktiv ? null : wert)}
-                    style={{ flex: 1, background: aktiv ? (istWarnung ? "#FFEBEE" : phase.hellFarbe) : "#f8f8f8", border: aktiv ? `2px solid ${istWarnung ? "#E53935" : phase.farbe}` : "2px solid transparent", borderRadius: 10, padding: "8px 4px", cursor: "pointer", fontSize: 10.5, fontWeight: 600, color: aktiv ? (istWarnung ? "#C62828" : phase.farbe) : "#666" }}>
+                    style={{ flex: 1, background: aktiv ? (istWarnung ? "#F3E8EC" : phase.hellFarbe) : "#FAF8F4", border: aktiv ? `2px solid ${istWarnung ? "#B5514B" : phase.farbe}` : "2px solid transparent", borderRadius: 10, padding: "8px 4px", cursor: "pointer", fontSize: 10.5, fontWeight: 600, color: aktiv ? (istWarnung ? "#A34A44" : phase.farbe) : "#666" }}>
                     {label}
                   </button>
                 );
               })}
             </div>
             {(eintrag.kindsbewegungen === "wenige" || eintrag.kindsbewegungen === "keine") && (
-              <p style={{ margin: "8px 0 0", fontSize: 11, color: "#C62828", lineHeight: 1.5, background: "#FFEBEE", borderRadius: 8, padding: "8px 10px" }}>
+              <p style={{ margin: "8px 0 0", fontSize: 11, color: "#A34A44", lineHeight: 1.5, background: "#F3E8EC", borderRadius: 8, padding: "8px 10px" }}>
                 ⚠️ Wenn dein Baby plötzlich deutlich weniger oder gar nicht mehr tritt: leg dich ruhig hin, trink etwas Kühles und achte 1–2 Std auf Bewegungen. Im Zweifel umgehend in die Klinik — warte nicht bis morgen.
               </p>
             )}
@@ -9186,7 +9226,7 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
 
           {/* Gewicht */}
           <div>
-            <p style={{ margin: "0 0 7px", fontSize: 12.5, fontWeight: 700, color: "#333" }}>⚖️ Gewicht (optional)</p>
+            <p style={{ margin: "0 0 7px", fontSize: 12.5, fontWeight: 700, color: "#333" }}>Gewicht (optional)</p>
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <input type="number" inputMode="decimal" step="0.1" value={eintrag.gewicht || ""}
                 onChange={e => onSetEintrag(heuteKey, "gewicht", e.target.value)}
@@ -9205,8 +9245,8 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
         <div style={{ display: "flex", justifyContent: "space-between", gap: 6 }}>
           {STIMMUNGEN.map(s => (
             <button key={s.wert} onClick={() => onSetEintrag(heuteKey, "stimmung", eintrag.stimmung === s.wert ? null : s.wert)}
-              style={{ flex: 1, background: eintrag.stimmung === s.wert ? phase.hellFarbe : "#f8f8f8", border: eintrag.stimmung === s.wert ? `2px solid ${phase.farbe}` : "2px solid transparent", borderRadius: 12, padding: "10px 2px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-              <span style={{ fontSize: 24 }}>{s.icon}</span>
+              style={{ flex: 1, background: eintrag.stimmung === s.wert ? phase.hellFarbe : "#FAF8F4", border: eintrag.stimmung === s.wert ? `2px solid ${phase.farbe}` : "2px solid transparent", borderRadius: 12, padding: "10px 2px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+              
               <span style={{ fontSize: 9.5, color: "#666", fontWeight: 600 }}>{s.label}</span>
             </button>
           ))}
@@ -9217,25 +9257,25 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <div style={{ marginBottom: 16 }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>⚡ Energie</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>Energie</span>
             <span style={{ fontSize: 12, color: phase.farbe, fontWeight: 700 }}>{eintrag.energie || 0}/5</span>
           </div>
           <div style={{ display: "flex", gap: 6 }}>
             {[1,2,3,4,5].map(n => (
               <button key={n} onClick={() => onSetEintrag(heuteKey, "energie", eintrag.energie === n ? 0 : n)}
-                style={{ flex: 1, height: 32, borderRadius: 8, border: "none", cursor: "pointer", background: (eintrag.energie || 0) >= n ? phase.farbe : "#f0f0f0" }} />
+                style={{ flex: 1, height: 32, borderRadius: 8, border: "none", cursor: "pointer", background: (eintrag.energie || 0) >= n ? phase.farbe : "#EEEAE3" }} />
             ))}
           </div>
         </div>
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>😴 Schlafqualität</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>Schlafqualität</span>
             <span style={{ fontSize: 12, color: phase.farbe, fontWeight: 700 }}>{eintrag.schlaf || 0}/5</span>
           </div>
           <div style={{ display: "flex", gap: 6 }}>
             {[1,2,3,4,5].map(n => (
               <button key={n} onClick={() => onSetEintrag(heuteKey, "schlaf", eintrag.schlaf === n ? 0 : n)}
-                style={{ flex: 1, height: 32, borderRadius: 8, border: "none", cursor: "pointer", background: (eintrag.schlaf || 0) >= n ? phase.farbe : "#f0f0f0" }} />
+                style={{ flex: 1, height: 32, borderRadius: 8, border: "none", cursor: "pointer", background: (eintrag.schlaf || 0) >= n ? phase.farbe : "#EEEAE3" }} />
             ))}
           </div>
         </div>
@@ -9244,14 +9284,14 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
       {/* Wasser */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-          <span style={{ fontSize: 14, fontWeight: 700 }}>💧 Wasser</span>
-          <span style={{ fontSize: 13, color: "#2196F3", fontWeight: 700 }}>{wasser * 200} / 2000 ml</span>
+          <span style={{ fontSize: 14, fontWeight: 700 }}>Wasser</span>
+          <span style={{ fontSize: 13, color: "#5E7A90", fontWeight: 700 }}>{wasser * 200} / 2000 ml</span>
         </div>
         <p style={{ margin: "0 0 10px", fontSize: 11, color: "#bbb" }}>1 Glas ≈ 200 ml · tippe die Gläser an, die du getrunken hast</p>
         <div style={{ display: "flex", gap: 5, marginBottom: 10, flexWrap: "wrap" }}>
           {[1,2,3,4,5,6,7,8,9,10].map(n => (
             <button key={n} onClick={() => onSetWasser(heuteKey, wasser >= n ? n - 1 : n)}
-              style={{ flex: 1, minWidth: 26, height: 36, borderRadius: 8, border: "none", cursor: "pointer", fontSize: 15, background: wasser >= n ? "#E3F2FD" : "#f8f8f8" }}>
+              style={{ flex: 1, minWidth: 26, height: 36, borderRadius: 8, border: "none", cursor: "pointer", fontSize: 15, background: wasser >= n ? "#EAEEF1" : "#FAF8F4" }}>
               {wasser >= n ? "💧" : ""}
             </button>
           ))}
@@ -9267,7 +9307,7 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
             const aktiv = (eintrag.symptome || []).includes(sym);
             return (
               <button key={sym} onClick={() => onToggleSymptom(heuteKey, sym)}
-                style={{ background: aktiv ? phase.farbe : "#f4f4f4", color: aktiv ? "#fff" : "#666", border: "none", borderRadius: 20, padding: "7px 13px", cursor: "pointer", fontSize: 12, fontWeight: aktiv ? 600 : 400 }}>
+                style={{ background: aktiv ? phase.farbe : "#F1EDE6", color: aktiv ? "#fff" : "#666", border: "none", borderRadius: 20, padding: "7px 13px", cursor: "pointer", fontSize: 12, fontWeight: aktiv ? 600 : 400 }}>
                 {sym}
               </button>
             );
@@ -9277,7 +9317,7 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
 
       {/* Notiz */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 10px", fontSize: 14, fontWeight: 700 }}>📝 Notiz</p>
+        <p style={{ margin: "0 0 10px", fontSize: 14, fontWeight: 700 }}>Notiz</p>
         <textarea value={eintrag.notiz || ""} onChange={e => onSetEintrag(heuteKey, "notiz", e.target.value)}
           placeholder="Wie war dein Tag? Was möchtest du festhalten?"
           style={{ width: "100%", minHeight: 70, borderRadius: 10, border: "1px solid #ddd", padding: "10px 12px", fontSize: 13, fontFamily: "inherit", resize: "vertical", boxSizing: "border-box" }} />
@@ -9286,18 +9326,18 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
       {/* Verlauf */}
       {eintraege.length > 0 && (
         <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 80, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-          <p style={{ margin: "0 0 12px", fontSize: 14, fontWeight: 700 }}>📅 Dein Verlauf</p>
+          <p style={{ margin: "0 0 12px", fontSize: 14, fontWeight: 700 }}>Dein Verlauf</p>
           {eintraege.slice(0, 14).map(([key, v]) => {
             const stim = STIMMUNGEN.find(s => s.wert === v.stimmung);
             return (
-              <div key={key} style={{ padding: "9px 0", borderBottom: "1px solid #f3f3f3" }}>
+              <div key={key} style={{ padding: "9px 0", borderBottom: "1px solid #F1EDE6" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span style={{ fontSize: 12.5, fontWeight: 600, color: "#444" }}>{new Date(key).toLocaleDateString("de-AT", { weekday: "short", day: "2-digit", month: "short" })}</span>
                   <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                     {stim && <span style={{ fontSize: 16 }}>{stim.icon}</span>}
                     {v.energie ? <span style={{ fontSize: 10, color: "#888" }}>⚡{v.energie}</span> : null}
                     {v.schlaf ? <span style={{ fontSize: 10, color: "#888" }}>😴{v.schlaf}</span> : null}
-                    {v.kindsbewegungen ? <span style={{ fontSize: 10, color: (v.kindsbewegungen === "wenige" || v.kindsbewegungen === "keine") ? "#C62828" : "#888" }}>👣{v.kindsbewegungen === "viele" ? "+" : v.kindsbewegungen === "normal" ? "✓" : v.kindsbewegungen === "wenige" ? "↓" : "✗"}</span> : null}
+                    {v.kindsbewegungen ? <span style={{ fontSize: 10, color: (v.kindsbewegungen === "wenige" || v.kindsbewegungen === "keine") ? "#A34A44" : "#888" }}>👣{v.kindsbewegungen === "viele" ? "+" : v.kindsbewegungen === "normal" ? "✓" : v.kindsbewegungen === "wenige" ? "↓" : "✗"}</span> : null}
                     {v.gewicht ? <span style={{ fontSize: 10, color: "#888" }}>⚖️{v.gewicht}</span> : null}
                   </div>
                 </div>
@@ -9320,12 +9360,12 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
   return (
     <div>
       <div style={{ background: `linear-gradient(135deg, ${phase.farbe}, ${phase.farbe}DD)`, borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: 0, fontSize: 18, fontWeight: 800 }}>⚙️ Einstellungen</h2>
+        <h2 style={{ margin: 0, fontSize: 18, fontWeight: 800 }}>Einstellungen</h2>
       </div>
 
       {/* Über dich: Name & Geburtsdatum */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 700 }}>👤 Über dich</p>
+        <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 700 }}>Über dich</p>
         <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Für eine persönliche Begrüßung. Diese Angaben bleiben nur auf deinem Gerät.</p>
         <label style={{ fontSize: 12, color: "#666", display: "block", marginBottom: 6 }}>Vorname</label>
         <input type="text" value={name || ""} onChange={e => onSetName(e.target.value)} placeholder="z.B. Jelena"
@@ -9338,19 +9378,19 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
 
       {/* Modus */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 700 }}>🌙 Tracking-Modus</p>
+        <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 700 }}>Tracking-Modus</p>
         <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>In welcher Lebensphase bist du gerade?</p>
         <div style={{ display: "flex", gap: 6, marginBottom: (modus === "menopause" || modus === "schwanger") ? 14 : 0 }}>
           <button onClick={() => onModusWechseln("zyklus")}
-            style={{ flex: 1, background: modus === "zyklus" ? phase.farbe : "#f4f4f4", color: modus === "zyklus" ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "12px 6px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
+            style={{ flex: 1, background: modus === "zyklus" ? phase.farbe : "#F1EDE6", color: modus === "zyklus" ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "12px 6px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
             🩸 Zyklus
           </button>
           <button onClick={() => onModusWechseln("schwanger")}
-            style={{ flex: 1, background: modus === "schwanger" ? phase.farbe : "#f4f4f4", color: modus === "schwanger" ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "12px 6px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
+            style={{ flex: 1, background: modus === "schwanger" ? phase.farbe : "#F1EDE6", color: modus === "schwanger" ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "12px 6px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
             🤰 Schwanger
           </button>
           <button onClick={() => onModusWechseln("menopause")}
-            style={{ flex: 1, background: modus === "menopause" ? phase.farbe : "#f4f4f4", color: modus === "menopause" ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "12px 6px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
+            style={{ flex: 1, background: modus === "menopause" ? phase.farbe : "#F1EDE6", color: modus === "menopause" ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "12px 6px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
             🌙 Wechsel
           </button>
         </div>
@@ -9372,7 +9412,7 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
         {modus === "schwanger" && (
           <div style={{ background: phase.hellFarbe, borderRadius: 10, padding: "12px 14px" }}>
             <p style={{ margin: "0 0 8px", fontSize: 12, color: "#555", lineHeight: 1.6 }}>
-              <strong>Herzlichen Glückwunsch! 🌸</strong> Trage deinen <strong>errechneten Geburtstermin</strong> ein (den bekommst du von deiner Ärztin/Hebamme oder per Online-Rechner). MoreSync zeigt dir dann deine aktuelle Schwangerschaftswoche und passt die Tipps an dein Trimester an — mit Ernährung, Bewegung und Wissen aus <em>9 Months That Count Forever</em>.
+              <strong>Herzlichen Glückwunsch!</strong> Trage deinen <strong>errechneten Geburtstermin</strong> ein (den bekommst du von deiner Ärztin/Hebamme oder per Online-Rechner). MoreSync zeigt dir dann deine aktuelle Schwangerschaftswoche und passt die Tipps an dein Trimester an — mit Ernährung, Bewegung und Wissen aus <em>9 Months That Count Forever</em>.
             </p>
             <label style={{ fontSize: 12, color: "#666", display: "block", marginBottom: 6 }}>Errechneter Geburtstermin</label>
             <input type="date"
@@ -9385,7 +9425,7 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
               </p>
             )}
             <p style={{ margin: "8px 0 0", fontSize: 10.5, color: "#999", lineHeight: 1.4 }}>
-              Den Schwangerschafts-Bereich findest du dann im 🤰-Tab. Diese App ersetzt keine ärztliche Betreuung.
+              Den Schwangerschafts-Bereich findest du dann im Tab. Diese App ersetzt keine ärztliche Betreuung.
             </p>
           </div>
         )}
@@ -9393,13 +9433,13 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
 
       {/* Backup */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 700 }}>💾 Daten sichern</p>
+        <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 700 }}>Daten sichern</p>
         <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Deine Daten liegen nur auf diesem Gerät. Erstelle regelmäßig ein Backup, damit nichts verloren geht.</p>
         <button onClick={onExport} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "12px", cursor: "pointer", fontSize: 13, fontWeight: 700, marginBottom: 8 }}>
-          ⬇️ Backup herunterladen
+          Backup herunterladen
         </button>
-        <label style={{ display: "block", width: "100%", background: "#f4f4f4", color: "#666", borderRadius: 10, padding: "12px", cursor: "pointer", fontSize: 13, fontWeight: 700, textAlign: "center", boxSizing: "border-box" }}>
-          ⬆️ Backup wiederherstellen
+        <label style={{ display: "block", width: "100%", background: "#F1EDE6", color: "#666", borderRadius: 10, padding: "12px", cursor: "pointer", fontSize: 13, fontWeight: 700, textAlign: "center", boxSizing: "border-box" }}>
+          Backup wiederherstellen
           <input type="file" accept="application/json" onChange={onImport} style={{ display: "none" }} />
         </label>
         <p style={{ margin: "8px 0 0", fontSize: 10.5, color: "#bbb", lineHeight: 1.4 }}>Beim Wiederherstellen werden die aktuellen Daten überschrieben.</p>
@@ -9407,9 +9447,9 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
 
       {/* Einführung nochmal */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 80, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 10px", fontSize: 14, fontWeight: 700 }}>❓ Hilfe</p>
-        <button onClick={onOnboarding} style={{ width: "100%", background: "#f4f4f4", color: "#444", border: "none", borderRadius: 10, padding: "12px", cursor: "pointer", fontSize: 13, fontWeight: 600 }}>
-          📖 Einführung nochmal ansehen
+        <p style={{ margin: "0 0 10px", fontSize: 14, fontWeight: 700 }}>Hilfe</p>
+        <button onClick={onOnboarding} style={{ width: "100%", background: "#F1EDE6", color: "#444", border: "none", borderRadius: 10, padding: "12px", cursor: "pointer", fontSize: 13, fontWeight: 600 }}>
+          Einführung nochmal ansehen
         </button>
       </div>
     </div>
@@ -9449,21 +9489,21 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
   return (
     <div>
       {/* Header */}
-      <div style={{ background: "linear-gradient(135deg, #6A4C93, #9B7BAD)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>⏰ Fasten</h2>
+      <div style={{ background: "linear-gradient(135deg, #6B5470, #8B6B84)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800, display: "flex", alignItems: "center", gap: 8 }}><NavIcon name="fasten" color={phase.farbe} size={20} />Fasten</h2>
         <p style={{ margin: 0, fontSize: 12, opacity: 0.9, lineHeight: 1.5 }}>Dein Fasten-Begleiter nach Dr. Mindy Pelz (Fast Like a Girl)</p>
       </div>
 
       {/* FASTEN VERSTEHEN (im Meno-Modus inkl. Menopause-Fasten) */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#333" }}>{modus === "menopause" ? "🌸 Fasten verstehen — in der Menopause" : "💡 Fasten verstehen"}</p>
+        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#333" }}>{modus === "menopause" ? "Fasten verstehen — in der Menopause" : "Fasten verstehen"}</p>
         <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>{modus === "menopause" ? "Erst die Grundlagen, dann was in der Menopause anders ist — aus „Fast Like a Girl\", „Eat Like a Girl\" und „Age Like a Girl\"." : "Die positiven Wirkungen & das Wichtigste aus „Fast Like a Girl\" und „Eat Like a Girl\"."}</p>
         {fastenWissenGezeigt.map((w, idx) => (
           <div key={w.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenWissen(offenWissen === idx ? null : idx)}
-              style={{ width: "100%", background: offenWissen === idx ? phase.hellFarbe : "#f8f8f8", border: `1px solid ${offenWissen === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenWissen === idx ? phase.hellFarbe : "#FAF8F4", border: `1px solid ${offenWissen === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{w.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{w.titel}</span>
               </span>
               <span style={{ fontSize: 15, color: phase.farbe }}>{offenWissen === idx ? "−" : "+"}</span>
@@ -9471,7 +9511,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             {offenWissen === idx && (
               <div style={{ padding: "10px 14px 4px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{w.text}</p>
-                <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: phase.farbe }}>{w.nurInfo ? "💡 Das Wichtigste:" : "💡 Das kannst du tun:"}</p>
+                <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: phase.farbe }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                 {w.tipps.map((t, i) => (
                   <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
                     <span style={{ flexShrink: 0, color: phase.farbe, fontSize: 12, marginTop: 1 }}>•</span>
@@ -9486,14 +9526,14 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
 
       {/* FASTEN-HACKS */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#333" }}>🔑 Fasten-Hacks</p>
+        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#333" }}>Fasten-Hacks</p>
         <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Praktische Tricks, damit dir das Fasten leichter fällt — Elektrolyte, was das Fasten bricht, richtig brechen & durchhalten.</p>
         {FASTEN_HACKS.map((w, idx) => (
           <div key={w.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenHack(offenHack === idx ? null : idx)}
-              style={{ width: "100%", background: offenHack === idx ? phase.hellFarbe : "#f8f8f8", border: `1px solid ${offenHack === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenHack === idx ? phase.hellFarbe : "#FAF8F4", border: `1px solid ${offenHack === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{w.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{w.titel}</span>
               </span>
               <span style={{ fontSize: 15, color: phase.farbe }}>{offenHack === idx ? "−" : "+"}</span>
@@ -9501,7 +9541,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             {offenHack === idx && (
               <div style={{ padding: "10px 14px 4px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{w.text}</p>
-                <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: phase.farbe }}>💡 Das kannst du tun:</p>
+                <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: phase.farbe }}>Das kannst du tun:</p>
                 {w.tipps.map((t, i) => (
                   <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
                     <span style={{ flexShrink: 0, color: phase.farbe, fontSize: 12, marginTop: 1 }}>•</span>
@@ -9519,9 +9559,9 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
       {aktivFasten ? (
         <div style={{ background: "#fff", borderRadius: 16, padding: 18, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)", border: `2px solid ${phase.farbe}` }}>
           <p style={{ margin: "0 0 4px", fontSize: 11, color: "#888" }}>Aktives Fasten</p>
-          <p style={{ margin: "0 0 12px", fontSize: 18, fontWeight: 800 }}>{aktivFasten.icon} {aktivFasten.name}</p>
-          <div style={{ background: "#f0f0f0", borderRadius: 8, height: 14, marginBottom: 8, overflow: "hidden" }}>
-            <div style={{ width: `${fortschritt}%`, height: "100%", background: `linear-gradient(90deg, ${phase.farbe}, #C4845A)`, borderRadius: 8, transition: "width 0.5s" }} />
+          <p style={{ margin: "0 0 12px", fontSize: 18, fontWeight: 800 }}>{aktivFasten.name}</p>
+          <div style={{ background: "#EEEAE3", borderRadius: 8, height: 14, marginBottom: 8, overflow: "hidden" }}>
+            <div style={{ width: `${fortschritt}%`, height: "100%", background: `linear-gradient(90deg, ${phase.farbe}, #A85440)`, borderRadius: 8, transition: "width 0.5s" }} />
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "#888", marginBottom: 14 }}>
             <span>Verstrichen: {verstrichenH.toFixed(1)}h</span>
@@ -9547,15 +9587,15 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
 
           {/* Ziel erreicht – Glückwunsch + Hochstufen-Angebot */}
           {zielErreicht && (
-            <div style={{ background: "linear-gradient(135deg, #E8F5E9, #F1F8E9)", borderRadius: 12, padding: "14px 16px", marginBottom: 12, border: "1px solid #A5D6A7", textAlign: "center" }}>
-              <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#2E7D32" }}>🎉 Geschafft!</p>
+            <div style={{ background: "linear-gradient(135deg, #EEF0EC, #F1F8E9)", borderRadius: 12, padding: "14px 16px", marginBottom: 12, border: "1px solid #A5D6A7", textAlign: "center" }}>
+              <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#5E6E5C" }}>Geschafft!</p>
               <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#388E3C", lineHeight: 1.5 }}>
                 Du hast dein {aktivFasten.name}-Ziel erreicht. Du kannst jetzt etwas essen — oder weiterfasten, wenn du dich gut fühlst.
               </p>
               {naechsteStufe && (
                 <button onClick={onHochstufen}
-                  style={{ width: "100%", background: "#2E7D32", color: "#fff", border: "none", borderRadius: 9, padding: "10px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
-                  ⬆️ Weiterfasten bis {naechsteStufe.name} ({naechsteStufe.stunden}h)
+                  style={{ width: "100%", background: "#5E6E5C", color: "#fff", border: "none", borderRadius: 9, padding: "10px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
+                  Weiterfasten bis {naechsteStufe.name} ({naechsteStufe.stunden}h)
                 </button>
               )}
             </div>
@@ -9565,7 +9605,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
           {!startBearbeiten ? (
             <button onClick={() => setStartBearbeiten(true)}
               style={{ width: "100%", background: "#f7f4fa", color: phase.farbe, border: `1px solid ${phase.farbe}33`, borderRadius: 10, padding: "9px", cursor: "pointer", fontSize: 12.5, fontWeight: 600, marginBottom: 10 }}>
-              🕐 Startzeit anpassen (seit {fastenStart.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })} Uhr)
+              Startzeit anpassen (seit {fastenStart.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })} Uhr)
             </button>
           ) : (
             <div style={{ background: "#f7f4fa", borderRadius: 10, padding: 12, marginBottom: 10 }}>
@@ -9601,10 +9641,10 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             const offen = offenerTyp === f.id;
             return (
               <div key={f.id} style={{ marginBottom: 8 }}>
-                <div style={{ background: offen ? phase.hellFarbe : "#f8f8f8", border: `1px solid ${offen ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, overflow: "hidden" }}>
+                <div style={{ background: offen ? phase.hellFarbe : "#FAF8F4", border: `1px solid ${offen ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, overflow: "hidden" }}>
                   <button onClick={() => setOffenerTyp(offen ? null : f.id)}
                     style={{ width: "100%", background: "none", border: "none", padding: "12px 14px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-                    <span style={{ fontSize: 24 }}>{f.icon}</span>
+                    
                     <div style={{ flex: 1 }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <span style={{ fontSize: 14, fontWeight: 700, color: "#222" }}>{f.name}</span>
@@ -9613,8 +9653,8 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
                       <div style={{ display: "flex", gap: 6, marginTop: 3, flexWrap: "wrap" }}>
                         <span style={{ fontSize: 10, color: "#fff", background: phase.farbe, borderRadius: 8, padding: "1px 7px" }}>{f.stunden}h</span>
                         {passt
-                          ? <span style={{ fontSize: 10, color: "#2E7D32", background: "#E8F5E9", borderRadius: 8, padding: "1px 7px" }}>✓ Für deine Phase</span>
-                          : <span style={{ fontSize: 10, color: "#999", background: "#f0f0f0", borderRadius: 8, padding: "1px 7px" }}>Andere Phase empfohlen</span>}
+                          ? <span style={{ fontSize: 10, color: "#5E6E5C", background: "#EEF0EC", borderRadius: 8, padding: "1px 7px" }}>✓ Für deine Phase</span>
+                          : <span style={{ fontSize: 10, color: "#999", background: "#EEEAE3", borderRadius: 8, padding: "1px 7px" }}>Andere Phase empfohlen</span>}
                       </div>
                     </div>
                   </button>
@@ -9628,12 +9668,12 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
                         {f.wirkung.map(w => <span key={w} style={{ fontSize: 10, background: phase.hellFarbe, color: phase.farbe, padding: "2px 8px", borderRadius: 10 }}>{w}</span>)}
                       </div>
                       {!passt && (
-                        <div style={{ background: "#FFF3E0", borderRadius: 8, padding: "8px 10px", marginBottom: 10, border: "1px solid #FFE0B2" }}>
-                          <p style={{ margin: 0, fontSize: 11, color: "#E65100", lineHeight: 1.5 }}>⚠️ Diese Kur ist eigentlich für eine andere Zyklusphase gedacht. Du kannst sie trotzdem starten, aber höre besonders gut auf deinen Körper.</p>
+                        <div style={{ background: "#F4EEE2", borderRadius: 8, padding: "8px 10px", marginBottom: 10, border: "1px solid #E8D8C0" }}>
+                          <p style={{ margin: 0, fontSize: 11, color: "#B5652F", lineHeight: 1.5 }}>⚠️ Diese Kur ist eigentlich für eine andere Zyklusphase gedacht. Du kannst sie trotzdem starten, aber höre besonders gut auf deinen Körper.</p>
                         </div>
                       )}
                       <button onClick={() => onStart(f)} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
-                        {f.icon} {f.name} starten
+                        {f.name} starten
                       </button>
                     </div>
                   )}
@@ -9646,7 +9686,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
 
       {/* FASTEN-ZEITLEISTE (Übersicht) */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 700 }}>🕐 Was beim Fasten im Körper passiert</p>
+        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 700 }}>Was beim Fasten im Körper passiert</p>
         <p style={{ margin: "0 0 14px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Je länger du fastest, desto tiefer die Heilungsprozesse. Diese Stufen durchläufst du nacheinander:</p>
         <div style={{ position: "relative" }}>
           {FASTEN_ZEITLEISTE.map((s, i) => {
@@ -9654,7 +9694,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             return (
               <div key={s.ab} style={{ display: "flex", gap: 12, marginBottom: i < FASTEN_ZEITLEISTE.length - 1 ? 14 : 0, position: "relative" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                  <div style={{ width: 38, height: 38, borderRadius: "50%", background: aktiv ? phase.farbe : phase.hellFarbe, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17, flexShrink: 0, border: aktiv ? `2px solid ${phase.farbe}` : "none" }}>{s.icon}</div>
+                  <div style={{ width: 38, height: 38, borderRadius: "50%", background: aktiv ? phase.farbe : phase.hellFarbe, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17, flexShrink: 0, border: aktiv ? `2px solid ${phase.farbe}` : "none" }}></div>
                   {i < FASTEN_ZEITLEISTE.length - 1 && <div style={{ width: 2, flex: 1, minHeight: 20, background: "#eee", marginTop: 2 }} />}
                 </div>
                 <div style={{ flex: 1, paddingBottom: 4 }}>
@@ -9672,20 +9712,20 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
 
       {/* FASTING CYCLE: Welches Fasten wann */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 700 }}>🔄 Welches Fasten in welcher Phase?</p>
+        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 700 }}>Welches Fasten in welcher Phase?</p>
         <p style={{ margin: "0 0 14px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Dr. Pelz' 'Fasting Cycle' — passe dein Fasten an deinen Zyklus an:</p>
         {Object.values(PHASEN).map(p => {
           const fastenFuerPhase = FASTEN_TYPEN.filter(f => f.phasen.includes(p.id));
           const istAktuell = p.id === phase.id;
           return (
-            <div key={p.id} style={{ background: istAktuell ? p.hellFarbe : "#fafafa", borderRadius: 10, padding: "11px 13px", marginBottom: 8, border: istAktuell ? `1px solid ${p.farbe}44` : "1px solid #f0f0f0" }}>
+            <div key={p.id} style={{ background: istAktuell ? p.hellFarbe : "#fafafa", borderRadius: 10, padding: "11px 13px", marginBottom: 8, border: istAktuell ? `1px solid ${p.farbe}44` : "1px solid #EEEAE3" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 5 }}>
-                <span style={{ fontSize: 13, fontWeight: 700, color: p.farbe }}>{p.icon} {p.name}</span>
+                <span style={{ fontSize: 13, fontWeight: 700, color: p.farbe }}>{p.name}</span>
                 <span style={{ fontSize: 10, color: "#aaa" }}>{p.tage}</span>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                 {fastenFuerPhase.map(f => (
-                  <span key={f.id} style={{ fontSize: 10.5, background: "#fff", color: p.farbe, padding: "2px 8px", borderRadius: 10, border: `1px solid ${p.farbe}33` }}>{f.icon} {f.stunden}h</span>
+                  <span key={f.id} style={{ fontSize: 10.5, background: "#fff", color: p.farbe, padding: "2px 8px", borderRadius: 10, border: `1px solid ${p.farbe}33` }}>{f.stunden}h</span>
                 ))}
               </div>
               {p.id === "nurture" && <p style={{ margin: "6px 0 0", fontSize: 11, color: "#888", lineHeight: 1.4 }}>In der Nurture-Phase nur sanftes Fasten (max. 13h) — Progesteron braucht Energie und Ruhe.</p>}
@@ -9697,17 +9737,17 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
 
       {/* FASTEN-PROTOKOLLE FÜR SPEZIFISCHE ANLIEGEN */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#333" }}>🎯 Fasten-Protokolle für bestimmte Anliegen</p>
+        <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#333" }}>Fasten-Protokolle für bestimmte Anliegen</p>
         <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>{modus === "menopause" ? "Gezielte Fasten-Kombinationen aus dem Buch Fast Like a Girl. Ohne Zyklus bist du flexibel — orientiere dich bei Bedarf am Mondzyklus (Neumond = Tag 1)." : "30-Tage-Pläne aus dem Buch Fast Like a Girl (an den Zyklus gekoppelt, Tag 1 = erster Tag der Periode)."}</p>
-        <div style={{ background: "#FFF8E1", border: "1px solid #FFE082", borderRadius: 10, padding: "10px 12px", marginBottom: 12 }}>
-          <p style={{ margin: 0, fontSize: 11, color: "#8D6E00", lineHeight: 1.55 }}>⚠️ Diese Protokolle sind für gesundheitliche Anliegen gedacht und ersetzen keine Behandlung. Bitte nur mit ärztlicher Begleitung anwenden — besonders bei Medikamenten, Erkrankungen, Untergewicht, Schwangerschaft oder Stillzeit.</p>
+        <div style={{ background: "#F4EEE2", border: "1px solid #D8C8B5", borderRadius: 10, padding: "10px 12px", marginBottom: 12 }}>
+          <p style={{ margin: 0, fontSize: 11, color: "#8A6D2E", lineHeight: 1.55 }}>⚠️ Diese Protokolle sind für gesundheitliche Anliegen gedacht und ersetzen keine Behandlung. Bitte nur mit ärztlicher Begleitung anwenden — besonders bei Medikamenten, Erkrankungen, Untergewicht, Schwangerschaft oder Stillzeit.</p>
         </div>
         {fastenProtokolleGezeigt.map((p, idx) => (
           <div key={p.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenProtokoll(offenProtokoll === idx ? null : idx)}
-              style={{ width: "100%", background: offenProtokoll === idx ? phase.hellFarbe : "#f8f8f8", border: `1px solid ${offenProtokoll === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenProtokoll === idx ? phase.hellFarbe : "#FAF8F4", border: `1px solid ${offenProtokoll === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{p.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{p.titel}</span>
               </span>
               <span style={{ fontSize: 15, color: phase.farbe }}>{offenProtokoll === idx ? "−" : "+"}</span>
@@ -9715,7 +9755,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             {offenProtokoll === idx && (
               <div style={{ padding: "10px 14px 4px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{p.intro}</p>
-                <div style={{ background: "#f8f8f8", borderRadius: 10, padding: "10px 12px", marginBottom: 10 }}>
+                <div style={{ background: "#FAF8F4", borderRadius: 10, padding: "10px 12px", marginBottom: 10 }}>
                   {p.plan.map((zeile, i) => (
                     <div key={i} style={{ display: "flex", gap: 8, marginBottom: i === p.plan.length - 1 ? 0 : 5, alignItems: "flex-start" }}>
                       <span style={{ flexShrink: 0, color: phase.farbe, fontSize: 12, marginTop: 1 }}>▸</span>
@@ -9723,8 +9763,8 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
                     </div>
                   ))}
                 </div>
-                <div style={{ background: "#FFF8E1", borderRadius: 8, padding: "8px 10px" }}>
-                  <p style={{ margin: 0, fontSize: 11, color: "#8D6E00", lineHeight: 1.5 }}>⚠️ {p.hinweis}</p>
+                <div style={{ background: "#F4EEE2", borderRadius: 8, padding: "8px 10px" }}>
+                  <p style={{ margin: 0, fontSize: 11, color: "#8A6D2E", lineHeight: 1.5 }}>⚠️ {p.hinweis}</p>
                 </div>
               </div>
             )}
@@ -9735,9 +9775,9 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
       {/* HISTORIE */}
       {fastenLogs.length > 0 && (
         <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 80, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-          <p style={{ margin: "0 0 12px", fontSize: 15, fontWeight: 700 }}>📊 Deine Fasten-Historie</p>
+          <p style={{ margin: "0 0 12px", fontSize: 15, fontWeight: 700 }}>Deine Fasten-Historie</p>
           {fastenLogs.slice(0, 10).map(log => (
-            <div key={log.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "9px 0", borderBottom: "1px solid #f3f3f3" }}>
+            <div key={log.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "9px 0", borderBottom: "1px solid #F1EDE6" }}>
               <div>
                 <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: "#333" }}>{log.name}</p>
                 <p style={{ margin: "2px 0 0", fontSize: 11, color: "#999" }}>{new Date(log.start).toLocaleDateString("de-AT", { day: "2-digit", month: "short" })} · Tag {log.zyklusTag}</p>
@@ -9761,7 +9801,7 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
   const essenBlock = istJugendlich ? (
     <div style={{ marginBottom: 20 }}>
       <div style={{ marginBottom: 10 }}>
-        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🍽️ Essen für deine Hormone</p>
+        <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Essen für deine Hormone</p>
         <p style={{ margin: 0, fontSize: 12, color: "#888", lineHeight: 1.5 }}>Drei einfache Regeln, wie du mit Essen gut für deinen Körper und deine Hormone sorgst.</p>
       </div>
       {ESSEN_WISSEN.map((w) => {
@@ -9769,21 +9809,20 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
         const txt = w.teenText || w.text;
         const tps = w.teenTipps || w.tipps;
         return (
-          <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
+          <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
             <button onClick={() => setOffenEssen(auf ? null : w.id)}
-              style={{ width: "100%", background: auf ? "#FBEEF4" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-              <span style={{ fontSize: 22 }}>{w.icon}</span>
-              <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>{w.titel}</span>
-              <span style={{ fontSize: 15, color: "#D6749B" }}>{auf ? "−" : "+"}</span>
+              style={{ width: "100%", background: auf ? "#F1E9EE" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
+                  <span style={{ flex: 1, fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
+              <span style={{ fontSize: 15, color: "#B07689" }}>{auf ? "−" : "+"}</span>
             </button>
             {auf && (
               <div style={{ padding: "0 15px 15px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{txt}</p>
-                <div style={{ background: "#FBEEF4", borderRadius: 10, padding: "10px 12px" }}>
-                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#D6749B" }}>{w.nurInfo ? "💡 Das Wichtigste:" : "💡 Das kannst du tun:"}</p>
+                <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px" }}>
+                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#B07689" }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                   {tps.map((t, i) => (
                     <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
-                      <span style={{ position: "absolute", left: 0, color: "#D6749B" }}>•</span>{t}
+                      <span style={{ position: "absolute", left: 0, color: "#B07689" }}>•</span>{t}
                     </div>
                   ))}
                 </div>
@@ -9799,8 +9838,8 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
     <div>
       {/* Header — nur wenn eigenständig (nicht im Ernährungs-Tab eingebettet) */}
       {!eingebettet && (
-        <div style={{ background: "linear-gradient(135deg, #C2185B, #E91E63)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-          <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>{istJugendlich ? "🍎 Ernährung" : "🩸 Blutzucker-Hacks"}</h2>
+        <div style={{ background: "linear-gradient(135deg, #8B4A5C, #9C5568)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
+          <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>{istJugendlich ? "Ernährung" : "Blutzucker-Hacks"}</h2>
           <p style={{ margin: 0, fontSize: 12, opacity: 0.9, lineHeight: 1.5 }}>{istJugendlich ? "Wie du gut für deinen Körper und deine Hormone sorgst — plus Tipps für stabilen Blutzucker." : "10 wissenschaftliche Tipps für stabilen Blutzucker — nach Jessie Inchauspé (Glucose Goddess)"}</p>
         </div>
       )}
@@ -9809,7 +9848,7 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
       {!eingebettet && essenBlock}
       {istJugendlich && !eingebettet && (
         <div style={{ marginBottom: 10 }}>
-          <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🩸 Tipps für stabilen Blutzucker</p>
+          <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Tipps für stabilen Blutzucker</p>
           <p style={{ margin: 0, fontSize: 12, color: "#888", lineHeight: 1.5 }}>Kleine Tricks, damit dein Blutzucker ruhig bleibt — das gibt dir mehr Energie und bessere Laune.</p>
         </div>
       )}
@@ -9828,10 +9867,10 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
       <div style={{ background: phase.hellFarbe, borderRadius: 14, padding: "12px 16px", marginBottom: 12, border: `1px solid ${phase.farbe}33` }}>
         <p style={{ margin: 0, fontSize: 12, color: "#555", lineHeight: 1.6 }}>
           {modus === "menopause"
-            ? "💜 In der Menopause ist stabiler Blutzucker besonders wichtig: Mit dem Östrogen-Rückgang wird der Körper insulinempfindlicher. Diese Hacks helfen gegen Heißhunger, Energietiefs und den 'Menopause-Nebel'."
+            ? "In der Menopause ist stabiler Blutzucker besonders wichtig: Mit dem Östrogen-Rückgang wird der Körper insulinempfindlicher. Diese Hacks helfen gegen Heißhunger, Energietiefs und den 'Menopause-Nebel'."
             : (istNurture
               ? "💜 Du bist gerade in der Nurture-Phase — hier ist stabiler Blutzucker besonders wichtig! Progesteron reagiert empfindlich auf Schwankungen. Diese Hacks helfen aktiv gegen PMS, Heißhunger und Stimmungstiefs."
-              : "💡 Stabiler Blutzucker unterstützt deine Hormonbalance in jeder Phase — besonders wertvoll wird er in der Nurture-Phase (vor der Periode).")}
+              : "Stabiler Blutzucker unterstützt deine Hormonbalance in jeder Phase — besonders wertvoll wird er in der Nurture-Phase (vor der Periode).")}
         </p>
       </div>
 
@@ -9840,7 +9879,7 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
         <div key={hack.nr} style={{ marginBottom: 8 }}>
           <button onClick={() => setOffenerHack(offenerHack === hack.nr ? null : hack.nr)}
             style={{ width: "100%", background: offenerHack === hack.nr ? phase.hellFarbe : "#fff", border: `1px solid ${offenerHack === hack.nr ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "12px 14px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "flex-start", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
-            <span style={{ fontSize: 22, lineHeight: 1.1 }}>{hack.icon}</span>
+            
             <div style={{ flex: 1 }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: 13.5, fontWeight: 700, color: "#222" }}>{hack.nr}. {hack.titel}</span>
@@ -9853,7 +9892,7 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
             <div style={{ background: phase.hellFarbe, borderRadius: "0 0 12px 12px", padding: "12px 14px", border: `1px solid ${phase.farbe}22`, borderTop: "none", marginTop: -4 }}>
               <p style={{ margin: "0 0 8px", fontSize: 12, color: "#444", lineHeight: 1.65 }}>{hack.detail}</p>
               <div style={{ background: "#fff", borderRadius: 8, padding: "8px 10px", border: `1px solid ${phase.farbe}22` }}>
-                <p style={{ margin: 0, fontSize: 11, color: phase.farbe, fontWeight: 600, lineHeight: 1.4 }}>📊 {hack.beleg}</p>
+                <p style={{ margin: 0, fontSize: 11, color: phase.farbe, fontWeight: 600, lineHeight: 1.4 }}>{hack.beleg}</p>
               </div>
             </div>
           )}
@@ -9864,7 +9903,7 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
       {istJugendlich && (
         <div style={{ marginTop: 20 }}>
           <div style={{ marginBottom: 10 }}>
-            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>🌱 Gut essen in der Pubertät</p>
+            <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, color: "#333" }}>Gut essen in der Pubertät</p>
             <p style={{ margin: 0, fontSize: 12, color: "#888", lineHeight: 1.5 }}>Wichtige Themen rund ums Essen, die gerade jetzt für dich zählen — Haut, Eisen, Knochen und genug Energie.</p>
           </div>
           {TEENAGER_WISSEN.filter(w => TEEN_ERNAEHRUNG_ANZEIGE_IDS.includes(w.id)).map((w) => {
@@ -9872,21 +9911,20 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
             const txt = w.teenText || w.text;
             const tps = w.teenTipps || w.tipps;
             return (
-              <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
+              <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
                 <button onClick={() => setOffenEssen(auf ? null : w.id)}
-                  style={{ width: "100%", background: auf ? "#FBEEF4" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-                  <span style={{ fontSize: 22 }}>{w.icon}</span>
-                  <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>{w.titel}</span>
-                  <span style={{ fontSize: 15, color: "#D6749B" }}>{auf ? "−" : "+"}</span>
+                  style={{ width: "100%", background: auf ? "#F1E9EE" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
+                          <span style={{ flex: 1, fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
+                  <span style={{ fontSize: 15, color: "#B07689" }}>{auf ? "−" : "+"}</span>
                 </button>
                 {auf && (
                   <div style={{ padding: "0 15px 15px" }}>
                     <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{txt}</p>
-                    <div style={{ background: "#FBEEF4", borderRadius: 10, padding: "10px 12px" }}>
-                      <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#D6749B" }}>{w.nurInfo ? "💡 Das Wichtigste:" : "💡 Das kannst du tun:"}</p>
+                    <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px" }}>
+                      <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#B07689" }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                       {tps.map((t, i) => (
                         <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
-                          <span style={{ position: "absolute", left: 0, color: "#D6749B" }}>•</span>{t}
+                          <span style={{ position: "absolute", left: 0, color: "#B07689" }}>•</span>{t}
                         </div>
                       ))}
                     </div>
@@ -9899,7 +9937,7 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
       )}
 
       {/* Quelle */}
-      <div style={{ background: "#F3F4F6", borderRadius: 10, padding: "11px 13px", marginTop: 10, marginBottom: 80 }}>
+      <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginTop: 10, marginBottom: 80 }}>
         <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
           Quelle: "Glucose Revolution" von Jessie Inchauspé. Diese Tipps ersetzen keine medizinische Beratung — bei Diabetes oder Blutzuckererkrankungen bitte ärztlich abklären.
         </p>
@@ -9947,36 +9985,36 @@ function TeenagerBewegungTab() {
   return (
     <div>
       {/* Header */}
-      <div style={{ background: "linear-gradient(135deg, #D6749B, #E89BB8)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>🤸 Bewegung & Sport</h2>
+      <div style={{ background: "linear-gradient(135deg, #B07689, #E89BB8)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>Bewegung & Sport</h2>
         <p style={{ margin: 0, fontSize: 12, opacity: 0.95, lineHeight: 1.5 }}>Bewegung tut deinem Körper und deinem Kopf gut — und darf vor allem Spaß machen. Hier findest du, was dir jetzt wirklich hilft.</p>
       </div>
 
       {/* Motivations-Box */}
-      <div style={{ background: "#FBEEF4", borderRadius: 14, padding: "13px 15px", marginBottom: 14, border: "1px solid #F3C6D9" }}>
-        <p style={{ margin: 0, fontSize: 12.5, color: "#8A3B5C", lineHeight: 1.6 }}>
-          💡 In deinem Alter geht es noch nicht um spezielles „Zyklus-Training\" — sondern einfach darum, dass du dich <strong>gern und regelmäßig bewegst</strong>. Finde etwas, das dir Freude macht — das ist das Wichtigste.
+      <div style={{ background: "#F1E9EE", borderRadius: 14, padding: "13px 15px", marginBottom: 14, border: "1px solid #E6D0D8" }}>
+        <p style={{ margin: 0, fontSize: 12.5, color: "#7D3B52", lineHeight: 1.6 }}>
+          In deinem Alter geht es noch nicht um spezielles „Zyklus-Training\" — sondern einfach darum, dass du dich <strong>gern und regelmäßig bewegst</strong>. Finde etwas, das dir Freude macht — das ist das Wichtigste.
         </p>
       </div>
 
       {TEEN_BEWEGUNG_KARTEN.map((k) => {
         const auf = offen === k.id;
         return (
-          <div key={k.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
+          <div key={k.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
             <button onClick={() => setOffen(auf ? null : k.id)}
-              style={{ width: "100%", background: auf ? "#FBEEF4" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-              <span style={{ fontSize: 22 }}>{k.icon}</span>
+              style={{ width: "100%", background: auf ? "#F1E9EE" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
+              
               <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>{k.titel}</span>
-              <span style={{ fontSize: 15, color: "#D6749B" }}>{auf ? "−" : "+"}</span>
+              <span style={{ fontSize: 15, color: "#B07689" }}>{auf ? "−" : "+"}</span>
             </button>
             {auf && (
               <div style={{ padding: "0 15px 15px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{k.text}</p>
-                <div style={{ background: "#FBEEF4", borderRadius: 10, padding: "10px 12px" }}>
-                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#D6749B" }}>{k.nurInfo ? "💡 Das Wichtigste:" : "💡 Das kannst du tun:"}</p>
+                <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px" }}>
+                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#B07689" }}>{k.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                   {k.tipps.map((t, i) => (
                     <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
-                      <span style={{ position: "absolute", left: 0, color: "#D6749B" }}>•</span>{t}
+                      <span style={{ position: "absolute", left: 0, color: "#B07689" }}>•</span>{t}
                     </div>
                   ))}
                 </div>
@@ -9987,7 +10025,7 @@ function TeenagerBewegungTab() {
       })}
 
       {/* Quelle */}
-      <div style={{ background: "#F3F4F6", borderRadius: 10, padding: "11px 13px", marginTop: 10, marginBottom: 80 }}>
+      <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginTop: 10, marginBottom: 80 }}>
         <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
           Quelle: Bewegungsempfehlungen der Weltgesundheitsorganisation (WHO) für Kinder & Jugendliche (5–17 Jahre). Bei Beschwerden oder vor intensivem Training im Zweifel ärztlich abklären.
         </p>
@@ -10006,9 +10044,9 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
   const istJugendlichTr = alter != null && alter >= 11 && alter <= 19;
 
   const intensitaetFarbe = (level) => {
-    if (level.includes("Maximal") || level.includes("Hoch")) return "#E53935";
+    if (level.includes("Maximal") || level.includes("Hoch")) return "#B5514B";
     if (level.includes("Mittel")) return "#FB8C00";
-    if (level.includes("Leicht")) return "#43A047";
+    if (level.includes("Leicht")) return "#5B7355";
     return "#7CB342";
   };
 
@@ -10030,21 +10068,21 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
 
       {/* Wissenschaft */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#333" }}>🔬 Warum jetzt so trainieren?</p>
+        <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#333" }}>Warum jetzt so trainieren?</p>
         <p style={{ margin: 0, fontSize: 12, color: "#555", lineHeight: 1.65 }}>{training.wissenschaft}</p>
       </div>
 
       {/* Übungen */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 12px", fontSize: 13, fontWeight: 700, color: "#333" }}>🏋️ Empfohlene Übungen</p>
+        <p style={{ margin: "0 0 12px", fontSize: 13, fontWeight: 700, color: "#333" }}>Empfohlene Übungen</p>
         {training.uebungen.map((u, idx) => (
           <div key={idx} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenUebung(offenUebung === idx ? null : idx)}
-              style={{ width: "100%", background: offenUebung === idx ? phase.hellFarbe : "#f8f8f8", border: `1px solid ${offenUebung === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "12px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              style={{ width: "100%", background: offenUebung === idx ? phase.hellFarbe : "#FAF8F4", border: `1px solid ${offenUebung === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "12px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div>
                 <div style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{u.name}</div>
                 <div style={{ display: "flex", gap: 8, marginTop: 3 }}>
-                  <span style={{ fontSize: 10, color: "#888" }}>🎯 {u.geraet}</span>
+                  <span style={{ fontSize: 10, color: "#888" }}>{u.geraet}</span>
                   <span style={{ fontSize: 10, color: "#888" }}>⏱ {u.dauer}</span>
                   <span style={{ fontSize: 10, color: intensitaetFarbe(u.intensitaet), fontWeight: 600 }}>{u.intensitaet}</span>
                 </div>
@@ -10054,7 +10092,7 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
             {offenUebung === idx && (
               <div style={{ background: phase.hellFarbe, borderRadius: "0 0 12px 12px", padding: "12px 14px", border: `1px solid ${phase.farbe}22`, borderTop: "none" }}>
                 <p style={{ margin: "0 0 8px", fontSize: 12, color: "#444", lineHeight: 1.6 }}><strong>Ablauf:</strong> {u.beschreibung}</p>
-                <p style={{ margin: 0, fontSize: 12, color: phase.farbe, lineHeight: 1.5 }}>💡 {u.warum}</p>
+                <p style={{ margin: 0, fontSize: 12, color: phase.farbe, lineHeight: 1.5 }}>{u.warum}</p>
               </div>
             )}
           </div>
@@ -10062,21 +10100,21 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
       </div>
 
       {/* Ernährungs-Tipp */}
-      <div style={{ background: "#FFF8E1", borderRadius: 14, padding: "12px 16px", marginBottom: 10, border: "1px solid #FFE082" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#E65100" }}>🥗 Ernährung & Training</p>
+      <div style={{ background: "#F4EEE2", borderRadius: 14, padding: "12px 16px", marginBottom: 10, border: "1px solid #D8C8B5" }}>
+        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#B5652F" }}>Ernährung & Training</p>
         <p style={{ margin: 0, fontSize: 12, color: "#5D4037", lineHeight: 1.6 }}>{training.ernaehrungTipp}</p>
       </div>
 
       {/* Fasten + Training */}
-      <div style={{ background: "#E8F5E9", borderRadius: 14, padding: "12px 16px", marginBottom: 10, border: "1px solid #C8E6C9" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#2E7D32" }}>⏰ Fasten & Training kombinieren</p>
+      <div style={{ background: "#EEF0EC", borderRadius: 14, padding: "12px 16px", marginBottom: 10, border: "1px solid #C8E6C9" }}>
+        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#5E6E5C" }}>Fasten & Training kombinieren</p>
         <p style={{ margin: 0, fontSize: 12, color: "#1B5E20", lineHeight: 1.6 }}>{training.fastenTraining}</p>
       </div>
 
       {/* Erholung */}
-      <div style={{ background: "#F3E5F5", borderRadius: 14, padding: "12px 16px", marginBottom: 10, border: "1px solid #E1BEE7" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#6A1B9A" }}>💤 Erholung & Schlaf</p>
-        <p style={{ margin: 0, fontSize: 12, color: "#4A148C", lineHeight: 1.6 }}>{training.erholung}</p>
+      <div style={{ background: "#F0EAEF", borderRadius: 14, padding: "12px 16px", marginBottom: 10, border: "1px solid #D8C4D4" }}>
+        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#6A1B9A" }}>Erholung & Schlaf</p>
+        <p style={{ margin: 0, fontSize: 12, color: "#4A2F44", lineHeight: 1.6 }}>{training.erholung}</p>
       </div>
 
       {/* Schwerpunkte */}
@@ -10085,47 +10123,47 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
           {training.schwerpunkt.map(s => <span key={s} style={{ fontSize: 11, background: phase.hellFarbe, color: phase.farbe, padding: "4px 10px", borderRadius: 20, fontWeight: 600 }}>{s}</span>)}
         </div>
-        <p style={{ margin: "8px 0 4px", fontSize: 12, fontWeight: 700, color: "#888" }}>❌ Jetzt besser vermeiden</p>
+        <p style={{ margin: "8px 0 4px", fontSize: 12, fontWeight: 700, color: "#888" }}>Jetzt besser vermeiden</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-          {training.vermeiden.map(v => <span key={v} style={{ fontSize: 11, background: "#FFF3F3", color: "#C62828", padding: "4px 10px", borderRadius: 20 }}>{v}</span>)}
+          {training.vermeiden.map(v => <span key={v} style={{ fontSize: 11, background: "#FFF3F3", color: "#A34A44", padding: "4px 10px", borderRadius: 20 }}>{v}</span>)}
         </div>
       </div>
 
       {/* Pre/Post Workout */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "12px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#333" }}>🍽️ Vor & nach dem Training essen</p>
-        <div style={{ background: "#E3F2FD", borderRadius: 10, padding: "10px 12px", marginBottom: 8 }}>
-          <p style={{ margin: "0 0 3px", fontSize: 11, color: "#1565C0", fontWeight: 700 }}>VOR dem Training</p>
-          <p style={{ margin: 0, fontSize: 12, color: "#0D47A1", lineHeight: 1.6 }}>{training.preWorkout}</p>
+        <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#333" }}>Vor & nach dem Training essen</p>
+        <div style={{ background: "#EAEEF1", borderRadius: 10, padding: "10px 12px", marginBottom: 8 }}>
+          <p style={{ margin: "0 0 3px", fontSize: 11, color: "#4A6478", fontWeight: 700 }}>VOR dem Training</p>
+          <p style={{ margin: 0, fontSize: 12, color: "#3A5068", lineHeight: 1.6 }}>{training.preWorkout}</p>
         </div>
-        <div style={{ background: "#E8F5E9", borderRadius: 10, padding: "10px 12px" }}>
-          <p style={{ margin: "0 0 3px", fontSize: 11, color: "#2E7D32", fontWeight: 700 }}>NACH dem Training</p>
+        <div style={{ background: "#EEF0EC", borderRadius: 10, padding: "10px 12px" }}>
+          <p style={{ margin: "0 0 3px", fontSize: 11, color: "#5E6E5C", fontWeight: 700 }}>NACH dem Training</p>
           <p style={{ margin: 0, fontSize: 12, color: "#1B5E20", lineHeight: 1.6 }}>{training.postWorkout}</p>
         </div>
       </div>
 
       {/* Schlaf */}
       <div style={{ background: "#EDE7F6", borderRadius: 14, padding: "12px 16px", marginBottom: 10, border: "1px solid #D1C4E9" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#4527A0" }}>🌙 Schlaf-Tipp für diese Phase</p>
-        <p style={{ margin: 0, fontSize: 12, color: "#311B92", lineHeight: 1.6 }}>{training.schlafTipp}</p>
+        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#4A2F44" }}>Schlaf-Tipp für diese Phase</p>
+        <p style={{ margin: 0, fontSize: 12, color: "#3A2540", lineHeight: 1.6 }}>{training.schlafTipp}</p>
       </div>
 
       {/* Knochengesundheit */}
-      <div style={{ background: "#FFF3E0", borderRadius: 14, padding: "12px 16px", marginBottom: 10, border: "1px solid #FFE0B2" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#E65100" }}>🦴 Knochengesundheit & Trampolin</p>
+      <div style={{ background: "#F4EEE2", borderRadius: 14, padding: "12px 16px", marginBottom: 10, border: "1px solid #E8D8C0" }}>
+        <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#B5652F" }}>Knochengesundheit & Trampolin</p>
         <p style={{ margin: 0, fontSize: 12, color: "#BF360C", lineHeight: 1.6 }}>{training.knochenInfo}</p>
       </div>
 
       {/* Sims: Essen & Trinken rund ums Training */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>⚡ Essen & Trinken rund ums Training</p>
+        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Essen & Trinken rund ums Training</p>
         <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Frauenspezifisch nach Dr. Stacy Sims (ROAR).</p>
         {SIMS_FUELING.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenFueling(offenFueling === idx ? null : idx)}
-              style={{ width: "100%", background: offenFueling === idx ? phase.hellFarbe : "#f8f8f8", border: `1px solid ${offenFueling === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenFueling === idx ? phase.hellFarbe : "#FAF8F4", border: `1px solid ${offenFueling === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{f.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{f.titel}</span>
               </span>
               <span style={{ fontSize: 15, color: phase.farbe }}>{offenFueling === idx ? "−" : "+"}</span>
@@ -10147,7 +10185,7 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
 
       {/* Bewegung im Alltag / Exercise Snacks (Dr. Rhonda Patrick) */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>⚡ Bewegung im Alltag</p>
+        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Bewegung im Alltag</p>
         <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Kurze, intensive Bewegungs-Häppchen — nach Dr. Rhonda Patrick. Der einfachste Hebel für ein langes, gesundes Leben.</p>
         {EXERCISE_SNACKS_WISSEN.map((f, idx) => {
           const txt = (istJugendlichTr && f.teenText) ? f.teenText : f.text;
@@ -10155,9 +10193,9 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
           return (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenSnacks(offenSnacks === idx ? null : idx)}
-              style={{ width: "100%", background: offenSnacks === idx ? phase.hellFarbe : "#f8f8f8", border: `1px solid ${offenSnacks === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenSnacks === idx ? phase.hellFarbe : "#FAF8F4", border: `1px solid ${offenSnacks === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{f.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{f.titel}</span>
               </span>
               <span style={{ fontSize: 15, color: phase.farbe }}>{offenSnacks === idx ? "−" : "+"}</span>
@@ -10172,8 +10210,8 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
                   </div>
                 ))}
                 {modus === "schwanger" && f.schwangerHinweis && (
-                  <div style={{ background: "#FFF0F5", borderRadius: 10, padding: "10px 12px", marginTop: 6, border: "1px solid #F8BBD0" }}>
-                    <p style={{ margin: 0, fontSize: 11.5, color: "#C2185B", lineHeight: 1.6 }}>🤰 {f.schwangerHinweis}</p>
+                  <div style={{ background: "#FFF0F5", borderRadius: 10, padding: "10px 12px", marginTop: 6, border: "1px solid #E6D0D8" }}>
+                    <p style={{ margin: 0, fontSize: 11.5, color: "#8B4A5C", lineHeight: 1.6 }}>{f.schwangerHinweis}</p>
                   </div>
                 )}
               </div>
@@ -10185,14 +10223,14 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
 
       {/* Erholung, Hitze & Kälte */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>🛁 Erholung, Hitze & Kälte</p>
+        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Erholung, Hitze & Kälte</p>
         <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Was wirklich bei der Regeneration hilft — nach Dr. Stacy Sims (ROAR).</p>
         {RECOVERY_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenRecovery(offenRecovery === idx ? null : idx)}
-              style={{ width: "100%", background: offenRecovery === idx ? phase.hellFarbe : "#f8f8f8", border: `1px solid ${offenRecovery === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenRecovery === idx ? phase.hellFarbe : "#FAF8F4", border: `1px solid ${offenRecovery === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{f.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{f.titel}</span>
               </span>
               <span style={{ fontSize: 15, color: phase.farbe }}>{offenRecovery === idx ? "−" : "+"}</span>
@@ -10214,14 +10252,14 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
 
       {/* Genug essen / RED-S & Darmgesundheit */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>🍽️ Genug essen & Darmgesundheit</p>
+        <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Genug essen & Darmgesundheit</p>
         <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Das wichtige Gegengewicht zum Fasten — nach Dr. Stacy Sims (ROAR).</p>
         {GENUG_ESSEN_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenGenugEssen(offenGenugEssen === idx ? null : idx)}
-              style={{ width: "100%", background: offenGenugEssen === idx ? phase.hellFarbe : "#f8f8f8", border: `1px solid ${offenGenugEssen === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
+              style={{ width: "100%", background: offenGenugEssen === idx ? phase.hellFarbe : "#FAF8F4", border: `1px solid ${offenGenugEssen === idx ? phase.farbe + "44" : "#eee"}`, borderRadius: 12, padding: "11px 14px", cursor: "pointer", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
               <span style={{ display: "flex", alignItems: "center", gap: 9, flex: 1 }}>
-                <span style={{ fontSize: 17 }}>{f.icon}</span>
+                
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{f.titel}</span>
               </span>
               <span style={{ fontSize: 15, color: phase.farbe }}>{offenGenugEssen === idx ? "−" : "+"}</span>
@@ -10243,12 +10281,12 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
 
       {/* Experten-Tipps */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "12px 16px", marginBottom: 80, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-        <p style={{ margin: "0 0 8px", fontSize: 12, fontWeight: 700, color: "#333" }}>📚 Aus den Büchern</p>
-        <div style={{ background: "#F3F4F6", borderRadius: 10, padding: "10px 12px", marginBottom: 8 }}>
+        <p style={{ margin: "0 0 8px", fontSize: 12, fontWeight: 700, color: "#333" }}>Aus den Büchern</p>
+        <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "10px 12px", marginBottom: 8 }}>
           <p style={{ margin: "0 0 2px", fontSize: 10, color: "#888", fontWeight: 600 }}>ROAR — Stacy Sims PhD</p>
           <p style={{ margin: 0, fontSize: 12, color: "#444", lineHeight: 1.5, fontStyle: "italic" }}>{training.roarTipp}</p>
         </div>
-        <div style={{ background: "#F3F4F6", borderRadius: 10, padding: "10px 12px" }}>
+        <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "10px 12px" }}>
           <p style={{ margin: "0 0 2px", fontSize: 10, color: "#888", fontWeight: 600 }}>Fast Like a Girl / Eat Like a Girl — Dr. Mindy Pelz</p>
           <p style={{ margin: 0, fontSize: 12, color: "#444", lineHeight: 1.5, fontStyle: "italic" }}>{training.pelzTipp}</p>
         </div>
@@ -10273,7 +10311,7 @@ function ZyklusKalender({ periodenStart, periodenHistorie, zyklusLaenge, zyklusT
 
   // Phasenfarben — deutlich unterscheidbar (P1 grün, Mani orange, P2 blau, Nurture lila)
   const phasenFarbe = {
-    power1: "#5B9E6F", manifestation: "#E08A3C", power2: "#5B8FC9", nurture: "#9B7BAD",
+    power1: "#5B7355", manifestation: "#C39A3A", power2: "#A85440", nurture: "#7B5A86",
   };
 
   // Lokaler Datums-Key (YYYY-MM-DD) ohne UTC-Verschiebung
@@ -10372,9 +10410,9 @@ function ZyklusKalender({ periodenStart, periodenHistorie, zyklusLaenge, zyklusT
     <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
       {/* Monats-Navigation */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-        <button onClick={() => setMonatOffset(monatOffset - 1)} style={{ background: "#f0f0f0", border: "none", borderRadius: 8, width: 32, height: 32, cursor: "pointer", fontSize: 16 }}>‹</button>
+        <button onClick={() => setMonatOffset(monatOffset - 1)} style={{ background: "#EEEAE3", border: "none", borderRadius: 8, width: 32, height: 32, cursor: "pointer", fontSize: 16 }}>‹</button>
         <p style={{ margin: 0, fontSize: 15, fontWeight: 700, color: "#333" }}>{monatsNamen[monat]} {jahr}</p>
-        <button onClick={() => setMonatOffset(monatOffset + 1)} style={{ background: "#f0f0f0", border: "none", borderRadius: 8, width: 32, height: 32, cursor: "pointer", fontSize: 16 }}>›</button>
+        <button onClick={() => setMonatOffset(monatOffset + 1)} style={{ background: "#EEEAE3", border: "none", borderRadius: 8, width: 32, height: 32, cursor: "pointer", fontSize: 16 }}>›</button>
       </div>
 
       {/* Nächste Periode vorhergesagt */}
@@ -10383,9 +10421,9 @@ function ZyklusKalender({ periodenStart, periodenHistorie, zyklusLaenge, zyklusT
         const tageBis = Math.round((naechstePeriodeDatum - heuteM) / 86400000);
         const dStr = `${String(naechstePeriodeDatum.getDate()).padStart(2,"0")}.${String(naechstePeriodeDatum.getMonth()+1).padStart(2,"0")}.`;
         return (
-          <div style={{ background: "#FCE4EC", borderRadius: 10, padding: "9px 12px", marginBottom: 10, textAlign: "center" }}>
-            <p style={{ margin: 0, fontSize: 12, color: "#AD1457", lineHeight: 1.5 }}>
-              🩸 Nächste Periode voraussichtlich: <strong>{dStr}</strong> {tageBis === 0 ? "(heute)" : tageBis === 1 ? "(morgen)" : `(in ${tageBis} Tagen)`}
+          <div style={{ background: "#F3E8EC", borderRadius: 10, padding: "9px 12px", marginBottom: 10, textAlign: "center" }}>
+            <p style={{ margin: 0, fontSize: 12, color: "#8B3A5A", lineHeight: 1.5 }}>
+              Nächste Periode voraussichtlich: <strong>{dStr}</strong> {tageBis === 0 ? "(heute)" : tageBis === 1 ? "(morgen)" : `(in ${tageBis} Tagen)`}
             </p>
           </div>
         );
@@ -10416,9 +10454,9 @@ function ZyklusKalender({ periodenStart, periodenHistorie, zyklusLaenge, zyklusT
           let randFarbe = "transparent";
           let randBreite = "1px";
           let randStil = "solid";
-          if (istPeriode) { randFarbe = "#E91E63"; randBreite = "2px"; }
-          else if (istPrognose) { randFarbe = "#F48FB1"; randBreite = "2px"; randStil = "dashed"; }
-          else if (istEisprung) { randFarbe = "#00897B"; randBreite = "2px"; }
+          if (istPeriode) { randFarbe = "#9C5568"; randBreite = "2px"; }
+          else if (istPrognose) { randFarbe = "#C99AAA"; randBreite = "2px"; randStil = "dashed"; }
+          else if (istEisprung) { randFarbe = "#5E7370"; randBreite = "2px"; }
           else if (istFruchtbar) { randFarbe = "#26A69A"; randBreite = "2px"; }
 
           return (
@@ -10435,14 +10473,14 @@ function ZyklusKalender({ periodenStart, periodenHistorie, zyklusLaenge, zyklusT
 
       {/* Legende */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12, justifyContent: "center" }}>
-        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #E91E63", display: "inline-block", boxSizing: "border-box" }} />🩸 Periode</span>}
-        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px dashed #F48FB1", display: "inline-block", boxSizing: "border-box" }} />vorhergesagt</span>}
-        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #00897B", display: "inline-block", boxSizing: "border-box" }} />✨ Eisprung</span>}
-        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #26A69A", display: "inline-block", boxSizing: "border-box" }} />🌱 fruchtbar</span>}
-        {modus === "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}>🌑 Neumond (Tag 1)</span>}
+        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #9C5568", display: "inline-block", boxSizing: "border-box" }} />Periode</span>}
+        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px dashed #C99AAA", display: "inline-block", boxSizing: "border-box" }} />vorhergesagt</span>}
+        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #5E7370", display: "inline-block", boxSizing: "border-box" }} />Eisprung</span>}
+        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #26A69A", display: "inline-block", boxSizing: "border-box" }} />fruchtbar</span>}
+        {modus === "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}>Neumond (Tag 1)</span>}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 8, justifyContent: "center" }}>
-        {[["power1","🌱 P1"],["manifestation","✨ Mani"],["power2","🌸 P2"],["nurture","🌙 Nurture"]].map(([id, label]) => (
+        {[["power1","P1"],["manifestation","Mani"],["power2","P2"],["nurture","🌙 Nurture"]].map(([id, label]) => (
           <span key={id} style={{ fontSize: 9, color: "#888", display: "flex", alignItems: "center", gap: 3 }}>
             <span style={{ width: 9, height: 9, borderRadius: 2, background: phasenFarbe[id] + "55", display: "inline-block" }} />{label}
           </span>
@@ -10454,8 +10492,8 @@ function ZyklusKalender({ periodenStart, periodenHistorie, zyklusLaenge, zyklusT
           : "Tippe auf einen Tag, um deine Periode für dieses Datum einzutragen."}
       </p>
       {/* Sicherheitshinweis fruchtbares Fenster */}
-      {modus !== "menopause" && <div style={{ background: "#E0F2F1", borderRadius: 10, padding: "10px 12px", marginTop: 12, border: "1px solid #B2DFDB" }}>
-        <p style={{ margin: 0, fontSize: 10.5, color: "#00695C", lineHeight: 1.5 }}>
+      {modus !== "menopause" && <div style={{ background: "#EAEEE9", borderRadius: 10, padding: "10px 12px", marginTop: 12, border: "1px solid #B2DFDB" }}>
+        <p style={{ margin: 0, fontSize: 10.5, color: "#4A5F5A", lineHeight: 1.5 }}>
           ⚠️ Das fruchtbare Fenster (grün) und der Eisprung sind nur <strong>grobe Schätzungen</strong> auf Basis deiner Zykluslänge. Der echte Eisprung schwankt von Zyklus zu Zyklus. <strong>Nicht zur Verhütung oder Empfängnisplanung geeignet</strong> — dafür bitte zusätzliche Methoden (z.B. Temperaturmessung, Ovulationstests) oder ärztliche Beratung nutzen.
         </p>
       </div>}
@@ -10927,7 +10965,7 @@ export default function App() {
 
   // Für Schwangerschafts-Modus: aktuelle SSW + Akzentfarbe des Trimesters
   const sswJetzt = modus === "schwanger" ? getSSW() : null;
-  const schwangerAccent = sswJetzt && !sswJetzt.vorGeburt ? TRIMESTER_INFO[sswJetzt.trimester].farbe : "#C18FD1";
+  const schwangerAccent = sswJetzt && !sswJetzt.vorGeburt ? TRIMESTER_INFO[sswJetzt.trimester].farbe : "#8B6B84";
   const headerFarbe = modus === "schwanger" ? schwangerAccent : phase.farbe;
 
   // ═══════════════════════════════════════════════════════════════
@@ -10935,7 +10973,7 @@ export default function App() {
   // ═══════════════════════════════════════════════════════════════
 
   return (
-    <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", maxWidth: 480, margin: "0 auto", background: "#F8F6F2", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", maxWidth: 480, margin: "0 auto", background: "#F6F3EE", minHeight: "100vh" }}>
 
       {/* HEADER */}
       <div style={{ background: `linear-gradient(135deg, ${headerFarbe}, ${headerFarbe}CC)`, padding: "18px 18px 14px", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}>
@@ -10945,12 +10983,12 @@ export default function App() {
             <h1 style={{ margin: "2px 0 0", color: "#fff", fontSize: 20, fontWeight: 800 }}>
               {modus === "schwanger"
                 ? (sswJetzt && !sswJetzt.vorGeburt ? `🤰 Woche ${sswJetzt.woche} · ${TRIMESTER_INFO[sswJetzt.trimester].name}` : "🤰 Schwangerschaft")
-                : `${phase.icon} Tag ${zyklusTag} · ${phase.name}`}
+                : `Tag ${zyklusTag} · ${phase.name}`}
             </h1>
           </div>
           {aktivFasten && (
             <div style={{ background: "rgba(255,255,255,0.2)", borderRadius: 20, padding: "4px 12px", textAlign: "center" }}>
-              <p style={{ margin: 0, color: "#fff", fontSize: 11 }}>⏰ Fasten</p>
+              <p style={{ margin: 0, color: "#fff", fontSize: 11 }}>Fasten</p>
               <p style={{ margin: 0, color: "#fff", fontSize: 13, fontWeight: 700 }}>{fastenRestH}h {fastenRestM}m</p>
             </div>
           )}
@@ -11017,7 +11055,10 @@ export default function App() {
         {tab === "home" && modus !== "schwanger" && (
           <div>
             {/* Persönliche Begrüßung */}
-            <p style={{ margin: "2px 0 12px", fontSize: 19, fontWeight: 800, color: "#333" }}>{getBegruessung()} 🌸</p>
+            <div style={{ margin: "4px 0 16px" }}>
+              <p style={{ margin: "0 0 2px", fontSize: 11, fontWeight: 600, color: "#9a9a9a", letterSpacing: 0.6, textTransform: "uppercase" }}>{new Date().toLocaleDateString("de-AT", { weekday: "long", day: "numeric", month: "long" })}</p>
+              <p style={{ margin: 0, fontSize: 24, fontWeight: 800, color: "#2a2a2a", letterSpacing: -0.4 }}>{getBegruessung()}</p>
+            </div>
 
             {/* PHASEN-KACHEL — kompakt, Link zu mehr */}
             {(() => {
@@ -11031,15 +11072,13 @@ export default function App() {
               const kurzText = String(kurz).split(".")[0] + ".";
               return (
                 <button onClick={() => setTab("zyklus")}
-                  style={{ width: "100%", background: "#fff", borderRadius: 14, padding: "12px 14px", marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: "none", borderLeft: `4px solid ${phase.farbe}`, cursor: "pointer", textAlign: "left" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 5 }}>
-                    <span style={{ fontSize: 13, fontWeight: 800, color: "#333" }}>{name}</span>
-                    <span style={{ fontSize: 10.5, fontWeight: 700, color: phase.farbe, background: phase.hellFarbe, borderRadius: 20, padding: "2px 9px" }}>{istMenoK ? unter : `${phase.tage} · Tag ${zyklusTag}`}</span>
+                  style={{ width: "100%", background: phase.farbe, borderRadius: 18, padding: "20px 20px 18px", marginBottom: 16, border: "none", cursor: "pointer", textAlign: "left", boxShadow: `0 6px 20px ${phase.farbe}33` }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
+                    <span style={{ fontSize: 11, fontWeight: 600, color: "#fff", opacity: 0.75, letterSpacing: 0.8, textTransform: "uppercase" }}>{istMenoK ? unter : `${phase.tage} · Tag ${zyklusTag}`}</span>
+                    <span style={{ fontSize: 12, color: "#fff", opacity: 0.85, fontWeight: 600 }}>Mehr →</span>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 10 }}>
-                    <p style={{ margin: 0, fontSize: 11.5, color: "#777", lineHeight: 1.45, flex: 1 }}>{kurzText}</p>
-                    <span style={{ fontSize: 11, color: phase.farbe, fontWeight: 700, flexShrink: 0 }}>Mehr →</span>
-                  </div>
+                  <p style={{ margin: "0 0 8px", fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: -0.3 }}>{name}</p>
+                  <p style={{ margin: 0, fontSize: 13, color: "#fff", opacity: 0.9, lineHeight: 1.5 }}>{kurzText}</p>
                 </button>
               );
             })()}
@@ -11052,30 +11091,30 @@ export default function App() {
                 const stunden = Math.floor((Date.now() - new Date(fastenStart).getTime()) / 3600000);
                 if (stunden >= 1) {
                   let phase2 = "";
-                  if (stunden >= 4 && stunden < 12) phase2 = " — Fettverbrennung startet 🔥";
-                  else if (stunden >= 12 && stunden < 16) phase2 = " — Autophagie beginnt ✨";
-                  else if (stunden >= 16) phase2 = " — tiefe Zellreinigung 💪";
-                  hinweise.push({ icon: "⏰", text: `Dein Fasten läuft seit ${stunden} h${phase2}`, tab: "fasten", farbe: "#00897B", bg: "#E0F2F1" });
+                  if (stunden >= 4 && stunden < 12) phase2 = " — Fettverbrennung startet";
+                  else if (stunden >= 12 && stunden < 16) phase2 = " — Autophagie beginnt";
+                  else if (stunden >= 16) phase2 = " — tiefe Zellreinigung";
+                  hinweise.push({ icon: "", text: `Dein Fasten läuft seit ${stunden} h${phase2}`, tab: "fasten", farbe: "#3D6B52", bg: "#EDF1EE" });
                 }
               }
               // 2) Heute noch kein Tagebuch-Eintrag
               const heutEintrag = tagebuch[heuteKey];
               const hatEintrag = heutEintrag && (heutEintrag.stimmung || (heutEintrag.symptome && heutEintrag.symptome.length) || heutEintrag.notiz || heutEintrag.energie || heutEintrag.schlaf);
               if (!hatEintrag) {
-                hinweise.push({ icon: "📔", text: "Wie geht es dir heute? Halte kurz deine Stimmung fest.", tab: "tagebuch", farbe: "#7B4F9B", bg: "#F3E5F5" });
+                hinweise.push({ icon: "", text: "Wie geht es dir heute? Halte kurz deine Stimmung fest.", tab: "tagebuch", farbe: "#6B5470", bg: "#F0EDF1" });
               }
               // 3) Wasser — immer sichtbar (ersetzt das Wasser-Tool auf der Startseite)
               const wasserHeute = wasserLog[heuteKey] || 0;
               const wasserZiel = 8;
               const restW = wasserZiel - wasserHeute;
               hinweise.push({
-                icon: "💧",
+                icon: "",
                 text: wasserHeute === 0
-                  ? "Starte gut hydriert in den Tag — dein erstes Glas Wasser 💧"
+                  ? "Starte gut hydriert in den Tag — dein erstes Glas Wasser"
                   : (restW > 0
                       ? `${wasserHeute} von ${wasserZiel} Gläsern — noch ${restW} ${restW === 1 ? "Glas" : "Gläser"} für dein Tagesziel`
-                      : `Tagesziel geschafft: ${wasserHeute} Gläser (${wasserHeute * 200} ml) 🎉`),
-                tab: "home", farbe: "#0277BD", bg: "#E1F5FE",
+                      : `Tagesziel geschafft: ${wasserHeute} Gläser (${wasserHeute * 200} ml)`),
+                tab: "home", farbe: "#3A5F7D", bg: "#ECF0F3",
                 aktion: () => setWasser(heuteKey, wasserHeute + 1), aktionLabel: "+1 Glas",
               });
               if (hinweise.length === 0) return null;
@@ -11084,7 +11123,7 @@ export default function App() {
                   {hinweise.map((h, i) => (
                     h.aktion ? (
                       <div key={i} style={{ width: "100%", background: h.bg, borderRadius: 11, padding: "11px 13px", marginBottom: 7, textAlign: "left", display: "flex", gap: 10, alignItems: "center" }}>
-                        <span style={{ fontSize: 17, flexShrink: 0 }}>{h.icon}</span>
+                        <span style={{ width: 7, height: 7, borderRadius: "50%", background: h.farbe, flexShrink: 0, opacity: 0.65 }} />
                         <span style={{ fontSize: 12.5, color: h.farbe, fontWeight: 600, lineHeight: 1.4, flex: 1 }}>{h.text}</span>
                         <button onClick={h.aktion}
                           style={{ flexShrink: 0, background: h.farbe, color: "#fff", border: "none", borderRadius: 8, padding: "6px 11px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
@@ -11094,7 +11133,7 @@ export default function App() {
                     ) : (
                       <button key={i} onClick={() => h.tab !== "home" && setTab(h.tab)}
                         style={{ width: "100%", background: h.bg, border: "none", borderRadius: 11, padding: "11px 13px", marginBottom: 7, cursor: h.tab !== "home" ? "pointer" : "default", textAlign: "left", display: "flex", gap: 10, alignItems: "center" }}>
-                        <span style={{ fontSize: 17, flexShrink: 0 }}>{h.icon}</span>
+                        <span style={{ width: 7, height: 7, borderRadius: "50%", background: h.farbe, flexShrink: 0, opacity: 0.65 }} />
                         <span style={{ fontSize: 12.5, color: h.farbe, fontWeight: 600, lineHeight: 1.4, flex: 1 }}>{h.text}</span>
                         {h.tab !== "home" && <span style={{ fontSize: 15, color: h.farbe, opacity: 0.6 }}>→</span>}
                       </button>
@@ -11106,10 +11145,10 @@ export default function App() {
 
             {modus === "menopause" && (
               <button onClick={() => setTab("verstehen")}
-                style={{ width: "100%", background: "linear-gradient(135deg, #9B7BAD, #B89BC9)", border: "none", borderRadius: 14, padding: "14px 16px", marginBottom: 12, cursor: "pointer", textAlign: "left", color: "#fff", boxShadow: "0 2px 10px rgba(155,123,173,0.3)" }}>
+                style={{ width: "100%", background: "linear-gradient(135deg, #6B5470, #6B5470)", border: "none", borderRadius: 14, padding: "14px 16px", marginBottom: 12, cursor: "pointer", textAlign: "left", color: "#fff", boxShadow: "0 2px 10px rgba(155,123,173,0.3)" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ display: "flex", gap: 11, alignItems: "center" }}>
-                    <span style={{ fontSize: 26 }}>🌸</span>
+                    
                     <div>
                       <p style={{ margin: 0, fontSize: 14, fontWeight: 800 }}>Wechseljahre & dein Körper</p>
                       <p style={{ margin: "1px 0 0", fontSize: 11.5, opacity: 0.92 }}>Wissen zu Knochen, Gehirn, Hormonen, Schlaf & mehr</p>
@@ -11121,10 +11160,10 @@ export default function App() {
             )}
             {modus === "schwanger" && (
               <button onClick={() => setTab("schwanger")}
-                style={{ width: "100%", background: "linear-gradient(135deg, #E8A0BF, #C18FD1)", border: "none", borderRadius: 14, padding: "14px 16px", marginBottom: 12, cursor: "pointer", textAlign: "left", color: "#fff", boxShadow: "0 2px 10px rgba(232,160,191,0.35)" }}>
+                style={{ width: "100%", background: "linear-gradient(135deg, #8B2942, #6B5470)", border: "none", borderRadius: 14, padding: "14px 16px", marginBottom: 12, cursor: "pointer", textAlign: "left", color: "#fff", boxShadow: "0 2px 10px rgba(232,160,191,0.35)" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ display: "flex", gap: 11, alignItems: "center" }}>
-                    <span style={{ fontSize: 26 }}>🤰</span>
+                    
                     <div>
                       <p style={{ margin: 0, fontSize: 14, fontWeight: 800 }}>
                         {getSSW() && !getSSW().vorGeburt ? `Woche ${getSSW().woche} + ${getSSW().tag}` : "Schwangerschaft"}
@@ -11139,10 +11178,40 @@ export default function App() {
               </button>
             )}
 
-            {/* Tagesplan */}
+            {/* HEUTE IM FOKUS — drei klare Bereiche (Editorial-Stil, randlos mit Trennlinien) */}
+            {!istJugendlich && (() => {
+              const istMeno = modus === "menopause";
+              const ernaehrung = phase.naehrstoffe ? phase.naehrstoffe.slice(0, 3).join(", ") : "";
+              const fastenListe = phase.fastenEmpfehlung || [];
+              const fastenText = fastenListe.length ? `${fastenListe[0]}–${fastenListe[Math.min(2, fastenListe.length - 1)]} Fenster passen heute gut` : "";
+              const trainingText = istMeno
+                ? "Krafttraining schützt Muskeln & Knochen"
+                : (phase.id === "power1" || phase.id === "manifestation"
+                    ? "Gute Phase für intensiveres Training"
+                    : "Moderates Training & Regeneration");
+              const bereiche = [
+                { label: "Ernährung", text: ernaehrung ? `${ernaehrung} priorisieren` : "", tab: "ernaehrung" },
+                { label: "Fasten", text: fastenText, tab: "fasten" },
+                { label: "Training", text: trainingText, tab: "training" },
+              ].filter(b => b.text);
+              return (
+                <div style={{ background: DS.karte, borderRadius: DS.r.m, padding: "4px 18px", marginBottom: 16, boxShadow: DS.schatten }}>
+                  {bereiche.map((b, i) => (
+                    <button key={b.label} onClick={() => setTab(b.tab)}
+                      style={{ width: "100%", display: "flex", alignItems: "center", gap: 14, background: "none", border: "none", borderTop: i === 0 ? "none" : `1px solid ${DS.linie}`, padding: "15px 0", cursor: "pointer", textAlign: "left" }}>
+                      <span style={{ ...DS.t.eyebrow, color: phase.farbe, width: 74, flexShrink: 0 }}>{b.label}</span>
+                      <span style={{ fontSize: 13.5, color: DS.text, fontWeight: 500, lineHeight: 1.45, flex: 1 }}>{b.text}</span>
+                      <span style={{ color: DS.textZart, fontSize: 16, flexShrink: 0 }}>›</span>
+                    </button>
+                  ))}
+                </div>
+              );
+            })()}
+
+
             <div style={{ background: "#fff", borderRadius: 14, padding: 14, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-                <p style={{ margin: 0, fontSize: 13, fontWeight: 700 }}>🗓️ Mein Tagesplan</p>
+                <p style={{ margin: 0, fontSize: 13, fontWeight: 700 }}>Mein Tagesplan</p>
                 <button onClick={() => setTab("rezepte")} style={{ background: "none", border: "none", color: phase.farbe, fontSize: 12, cursor: "pointer", fontWeight: 600 }}>+ Rezept</button>
               </div>
               {["Frühstück","Mittagessen","Abendessen","Fasted Snack"].map(slot => {
@@ -11155,7 +11224,7 @@ export default function App() {
                 // Für Jugendliche kein Fasten-Framing: "Fasted Snack" wird als "Snack" angezeigt
                 const slotLabel = (istJugendlich && slot === "Fasted Snack") ? "Snack" : slot;
                 return (
-                  <div key={slot} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0", borderBottom: "1px solid #f5f5f5" }}>
+                  <div key={slot} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0", borderBottom: "1px solid #F4F1EB" }}>
                     <span style={{ width: 90, fontSize: 12, color: "#888" }}>{slotLabel}</span>
                     {r ? (
                       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -11170,7 +11239,7 @@ export default function App() {
                         <div style={{ display: "flex", gap: 4, flexShrink: 0 }}>
                           <button onClick={() => setVorschlagVersatz(v => ({ ...v, [key]: (v[key] || 0) + 1 }))}
                             title="Anderes vorschlagen" aria-label="Anderes Rezept vorschlagen"
-                            style={{ background: "#f4f4f4", border: "none", borderRadius: 7, width: 28, height: 28, cursor: "pointer", fontSize: 13 }}>🔄</button>
+                            style={{ background: "#F1EDE6", border: "none", borderRadius: 7, width: 28, height: 28, cursor: "pointer", fontSize: 13 }}>↺</button>
                           <button onClick={() => rezeptInTagesplanToggle(vorschlag.id, slot)}
                             title="Übernehmen" aria-label="Vorschlag in Tagesplan übernehmen"
                             style={{ background: phase.farbe, border: "none", borderRadius: 7, width: 28, height: 28, cursor: "pointer", fontSize: 14, color: "#fff", fontWeight: 700 }}>✓</button>
@@ -11191,7 +11260,7 @@ export default function App() {
                   setErledigtItems({});
                   setTab("einkauf_anzeige");
                 }} style={{ width: "100%", marginTop: 10, background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "10px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
-                  🛒 Einkaufsliste für heute erstellen
+                  Einkaufsliste für heute erstellen
                 </button>
               )}
             </div>
@@ -11201,11 +11270,11 @@ export default function App() {
               <button onClick={() => setTool5x5x5Offen(!tool5x5x5Offen)}
                 style={{ width: "100%", background: "#fff", borderRadius: 14, padding: "12px 14px", marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: "none", cursor: "pointer", textAlign: "left" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 7 }}>
-                  <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>🎯 5×5×5 — deine Verteidigungssysteme</span>
-                  <span style={{ fontSize: 11.5, color: "#2E7D32", fontWeight: 700 }}>{anzahl5x5x5}/5</span>
+                  <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>5×5×5 — deine Verteidigungssysteme</span>
+                  <span style={{ fontSize: 11.5, color: "#3D6B52", fontWeight: 700 }}>{anzahl5x5x5}/5</span>
                 </div>
-                <div style={{ background: "#f0f0f0", borderRadius: 5, height: 7, marginBottom: 8, overflow: "hidden" }}>
-                  <div style={{ width: `${(anzahl5x5x5 / 5) * 100}%`, height: "100%", background: "#66BB6A", borderRadius: 5, transition: "width 0.3s" }} />
+                <div style={{ background: "#EEEAE3", borderRadius: 5, height: 7, marginBottom: 8, overflow: "hidden" }}>
+                  <div style={{ width: `${(anzahl5x5x5 / 5) * 100}%`, height: "100%", background: "#3D6B52", borderRadius: 5, transition: "width 0.3s" }} />
                 </div>
                 <p style={{ margin: 0, fontSize: 11.5, color: "#888" }}>{tool5x5x5Offen ? "Zuklappen ▲" : "Antippen zum Wählen ▼"}</p>
               </button>
@@ -11218,18 +11287,18 @@ export default function App() {
             {/* Fasten — nur für Erwachsene; für Jugendliche ein sanfter Ernährungs-Hinweis */}
             {istJugendlich ? (
               <div style={{ background: "#fff", borderRadius: 14, padding: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-                <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700 }}>🌱 Gut essen für deinen Tag</p>
+                <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700 }}>Gut essen für deinen Tag</p>
                 <p style={{ margin: "0 0 8px", fontSize: 12, color: "#666", lineHeight: 1.6 }}>Dein Körper wächst gerade — er braucht regelmäßig gute Energie. Iss über den Tag verteilt ausgewogen und höre auf deinen Hunger.</p>
-                <div style={{ background: "#FBEEF4", borderRadius: 10, padding: "10px 12px" }}>
-                  <p style={{ margin: 0, fontSize: 12, color: "#8A3D63", lineHeight: 1.6 }}>💡 Tipp: Versuche, etwa 3 Stunden vor dem Schlafengehen nichts mehr zu essen — das tut Schlaf und Verdauung gut.</p>
+                <div style={{ background: "#F0EDF1", borderRadius: 10, padding: "10px 12px" }}>
+                  <p style={{ margin: 0, fontSize: 12, color: "#6B5470", lineHeight: 1.6 }}>Tipp: Versuche, etwa 3 Stunden vor dem Schlafengehen nichts mehr zu essen — das tut Schlaf und Verdauung gut.</p>
                 </div>
               </div>
             ) : !aktivFasten ? (
               <div style={{ background: "#fff", borderRadius: 14, padding: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-                <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700 }}>⏰ Fasten starten</p>
+                <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, display: "flex", alignItems: "center", gap: 7 }}><NavIcon name="fasten" color={phase.farbe} size={16} />Fasten starten</p>
                 {empfohleneFasten.slice(0, 3).map(f => (
                   <button key={f.id} onClick={() => fastenStarten(f)} style={{ width: "100%", background: phase.hellFarbe, border: `1px solid ${phase.farbe}33`, borderRadius: 10, padding: "10px 14px", marginBottom: 6, cursor: "pointer", textAlign: "left", display: "flex", gap: 10, alignItems: "center" }}>
-                    <span style={{ fontSize: 22 }}>{f.icon}</span>
+                    
                     <div>
                       <p style={{ margin: 0, fontWeight: 600, fontSize: 13 }}>{f.name}</p>
                       <p style={{ margin: 0, fontSize: 11, color: "#888" }}>{f.beschreibung}</p>
@@ -11240,9 +11309,9 @@ export default function App() {
             ) : (
               <div style={{ background: "#fff", borderRadius: 14, padding: 16, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: `2px solid ${phase.farbe}` }}>
                 <p style={{ margin: "0 0 4px", fontSize: 11, color: "#888" }}>Aktives Fasten</p>
-                <p style={{ margin: "0 0 10px", fontSize: 17, fontWeight: 800 }}>{aktivFasten.icon} {aktivFasten.name}</p>
-                <div style={{ background: "#f0f0f0", borderRadius: 6, height: 10, marginBottom: 8 }}>
-                  <div style={{ width: `${fastenFortschritt}%`, height: "100%", background: `linear-gradient(90deg, ${phase.farbe}, #C4845A)`, borderRadius: 6 }} />
+                <p style={{ margin: "0 0 10px", fontSize: 17, fontWeight: 800 }}>{aktivFasten.name}</p>
+                <div style={{ background: "#EEEAE3", borderRadius: 6, height: 10, marginBottom: 8 }}>
+                  <div style={{ width: `${fastenFortschritt}%`, height: "100%", background: `linear-gradient(90deg, ${phase.farbe}, #B5652F)`, borderRadius: 6 }} />
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "#888", marginBottom: 12 }}>
                   <span>Verstrichen: {((now - fastenStart) / 3600000).toFixed(1)}h</span>
@@ -11252,11 +11321,11 @@ export default function App() {
                 {/* Startzeit anpassen */}
                 {!startBearbeiten ? (
                   <button onClick={() => setStartBearbeiten(true)}
-                    style={{ width: "100%", background: "#f7f4fa", color: phase.farbe, border: `1px solid ${phase.farbe}33`, borderRadius: 10, padding: "8px", cursor: "pointer", fontSize: 12, fontWeight: 600, marginBottom: 8 }}>
-                    🕐 Startzeit anpassen (seit {fastenStart.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })} Uhr)
+                    style={{ width: "100%", background: "#F5F3F6", color: phase.farbe, border: `1px solid ${phase.farbe}33`, borderRadius: 10, padding: "8px", cursor: "pointer", fontSize: 12, fontWeight: 600, marginBottom: 8 }}>
+                    Startzeit anpassen (seit {fastenStart.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })} Uhr)
                   </button>
                 ) : (
-                  <div style={{ background: "#f7f4fa", borderRadius: 10, padding: 12, marginBottom: 8 }}>
+                  <div style={{ background: "#F5F3F6", borderRadius: 10, padding: 12, marginBottom: 8 }}>
                     <p style={{ margin: "0 0 6px", fontSize: 12, color: "#555", lineHeight: 1.5 }}>Wann hast du zuletzt gegessen?</p>
                     <input
                       type="time"
@@ -11279,7 +11348,7 @@ export default function App() {
                   </div>
                 )}
 
-                <button onClick={() => { setStartBearbeiten(false); fastenBeenden(); }} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 14, fontWeight: 700 }}>✅ Fasten beenden & speichern</button>
+                <button onClick={() => { setStartBearbeiten(false); fastenBeenden(); }} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 14, fontWeight: 700 }}>Fasten beenden & speichern</button>
               </div>
             )}
           </div>
@@ -11303,14 +11372,14 @@ export default function App() {
               const zeigeNachfrage = tageBis != null && tageBis <= 0 && tageBis >= -10; // am Tag oder bis 10 Tage überfällig
               if (!zeigeNachfrage || !periodeNachfrageOffen) return null;
               return (
-                <div style={{ background: "linear-gradient(135deg,#E91E63,#F06292)", borderRadius: 14, padding: "16px", marginBottom: 14, color: "#fff" }}>
-                  <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 800 }}>🩸 Ist deine Periode gekommen?</p>
+                <div style={{ background: "linear-gradient(135deg,#9C5568,#C08196)", borderRadius: 14, padding: "16px", marginBottom: 14, color: "#fff" }}>
+                  <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 800 }}>Ist deine Periode gekommen?</p>
                   <p style={{ margin: "0 0 12px", fontSize: 12.5, opacity: 0.95, lineHeight: 1.5 }}>
                     {tageBis === 0 ? "Heute wäre laut Vorhersage deine nächste Periode dran." : `Deine Periode war vor ${Math.abs(tageBis)} Tag${Math.abs(tageBis) === 1 ? "" : "en"} erwartet.`} Hat sie begonnen?
                   </p>
                   <div style={{ display: "flex", gap: 8 }}>
                     <button onClick={() => { setPeriodenStartDatum(new Date().toISOString()); setPeriodeNachfrageOffen(false); }}
-                      style={{ flex: 1, background: "#fff", color: "#C2185B", border: "none", borderRadius: 10, padding: "10px", cursor: "pointer", fontSize: 13, fontWeight: 800 }}>Ja, heute 🩸</button>
+                      style={{ flex: 1, background: "#fff", color: "#8B4A5C", border: "none", borderRadius: 10, padding: "10px", cursor: "pointer", fontSize: 13, fontWeight: 800 }}>Ja, heute 🩸</button>
                     <button onClick={() => setPeriodeNachfrageOffen(false)}
                       style={{ flex: 1, background: "rgba(255,255,255,0.25)", color: "#fff", border: "none", borderRadius: 10, padding: "10px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>Noch nicht</button>
                   </div>
@@ -11318,18 +11387,18 @@ export default function App() {
               );
             })()}
             {modus === "menopause" && (
-              <div style={{ background: "linear-gradient(135deg, #9B7BAD, #B89BC9)", borderRadius: 14, padding: "14px 16px", marginBottom: 14, color: "#fff" }}>
-                <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 800 }}>🌙 Wechseljahre-Modus aktiv</p>
+              <div style={{ background: "linear-gradient(135deg, #8B6B84, #A88BA0)", borderRadius: 14, padding: "14px 16px", marginBottom: 14, color: "#fff" }}>
+                <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 800 }}>Wechseljahre-Modus aktiv</p>
                 <p style={{ margin: 0, fontSize: 12, opacity: 0.92, lineHeight: 1.5 }}>Deine Phasen richten sich nach dem Mondzyklus (Neumond = Tag 1). Den Neumond-Start änderst du in den Einstellungen (☰ Mehr).</p>
               </div>
             )}
             <div style={{ background: "#fff", borderRadius: 16, padding: 18, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-              <p style={{ margin: "0 0 14px", fontSize: 15, fontWeight: 700 }}>📅 {modus === "menopause" ? "Mondzyklus-Einstellungen" : "Zykluseinstellungen"}</p>
+              <p style={{ margin: "0 0 14px", fontSize: 15, fontWeight: 700 }}>{modus === "menopause" ? "Mondzyklus-Einstellungen" : "Zykluseinstellungen"}</p>
 
               {/* Automatik-Hinweis */}
               <div style={{ background: phase.hellFarbe, borderRadius: 10, padding: "10px 12px", marginBottom: 14, border: `1px solid ${phase.farbe}22` }}>
                 <p style={{ margin: 0, fontSize: 11.5, color: "#555", lineHeight: 1.5 }}>
-                  ✨ Die App zählt automatisch jeden Tag weiter und erkennt deine Phasen von selbst. Du musst nichts manuell umstellen.
+                  Die App zählt automatisch jeden Tag weiter und erkennt deine Phasen von selbst. Du musst nichts manuell umstellen.
                 </p>
               </div>
 
@@ -11345,17 +11414,17 @@ export default function App() {
 
               {/* Neue Periode begonnen */}
               <button onClick={() => setPeriodeBestaetigen(true)}
-                style={{ width: "100%", background: "#E91E63", color: "#fff", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 13, fontWeight: 700, marginBottom: periodeBestaetigen ? 8 : 14 }}>
+                style={{ width: "100%", background: "#9C5568", color: "#fff", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 13, fontWeight: 700, marginBottom: periodeBestaetigen ? 8 : 14 }}>
                 🩸 Meine Periode hat heute begonnen
               </button>
               {periodeBestaetigen && (
-                <div style={{ background: "#FCE4EC", borderRadius: 10, padding: "10px 12px", marginBottom: 14, border: "1px solid #F8BBD0" }}>
-                  <p style={{ margin: "0 0 8px", fontSize: 12, color: "#880E4F", lineHeight: 1.5 }}>Zyklus neu starten? Tag 1 wird auf heute gesetzt.</p>
+                <div style={{ background: "#F3E8EC", borderRadius: 10, padding: "10px 12px", marginBottom: 14, border: "1px solid #E6D0D8" }}>
+                  <p style={{ margin: "0 0 8px", fontSize: 12, color: "#6E2A44", lineHeight: 1.5 }}>Zyklus neu starten? Tag 1 wird auf heute gesetzt.</p>
                   <div style={{ display: "flex", gap: 8 }}>
                     <button onClick={() => { setPeriodenStartDatum(new Date().toISOString()); setPeriodeBestaetigen(false); }}
-                      style={{ flex: 1, background: "#E91E63", color: "#fff", border: "none", borderRadius: 8, padding: "8px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>Ja, neu starten</button>
+                      style={{ flex: 1, background: "#9C5568", color: "#fff", border: "none", borderRadius: 8, padding: "8px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>Ja, neu starten</button>
                     <button onClick={() => setPeriodeBestaetigen(false)}
-                      style={{ flex: 1, background: "#f0f0f0", color: "#666", border: "none", borderRadius: 8, padding: "8px", cursor: "pointer", fontSize: 12 }}>Abbrechen</button>
+                      style={{ flex: 1, background: "#EEEAE3", color: "#666", border: "none", borderRadius: 8, padding: "8px", cursor: "pointer", fontSize: 12 }}>Abbrechen</button>
                   </div>
                 </div>
               )}
@@ -11368,8 +11437,8 @@ export default function App() {
 
               {/* Mondzyklus-Hinweis im Menopausen-Modus */}
               {modus === "menopause" && (
-                <div style={{ background: "#F3EEF7", borderRadius: 10, padding: "10px 12px", marginBottom: 14, border: "1px solid #E1BEE7" }}>
-                  <p style={{ margin: 0, fontSize: 12, color: "#9B7BAD", lineHeight: 1.55 }}>🌙 Dein Rhythmus folgt dem Mondzyklus (30 Tage, Neumond = Tag 1). Den Neumond-Start passt du in den Einstellungen an (☰ Mehr → ⚙️).</p>
+                <div style={{ background: "#F0EAEF", borderRadius: 10, padding: "10px 12px", marginBottom: 14, border: "1px solid #D8C4D4" }}>
+                  <p style={{ margin: 0, fontSize: 12, color: "#8B6B84", lineHeight: 1.55 }}>Dein Rhythmus folgt dem Mondzyklus (30 Tage, Neumond = Tag 1). Den Neumond-Start passt du in den Einstellungen an (☰ Mehr → ⚙️).</p>
                 </div>
               )}
 
@@ -11378,7 +11447,7 @@ export default function App() {
                 <input type="range" min={1} max={modus === "menopause" ? 30 : zyklusLaenge} value={zyklusTag} onChange={e => setZyklusTagS(parseInt(e.target.value))} style={{ width: "100%", accentColor: phase.farbe }} />
               </div>
               <div style={{ display: "flex", gap: 8 }}>
-                <button onClick={() => setZyklusTagS(zyklusTag - 1)} style={{ flex: 1, background: "#f0f0f0", border: "none", borderRadius: 10, padding: 10, cursor: "pointer", fontSize: 13 }}>◀ Zurück</button>
+                <button onClick={() => setZyklusTagS(zyklusTag - 1)} style={{ flex: 1, background: "#EEEAE3", border: "none", borderRadius: 10, padding: 10, cursor: "pointer", fontSize: 13 }}>◀ Zurück</button>
                 <button onClick={() => setZyklusTagS(zyklusTag + 1)} style={{ flex: 1, background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: 10, cursor: "pointer", fontSize: 13 }}>Vor ▶</button>
               </div>
             </div>
@@ -11404,19 +11473,19 @@ export default function App() {
             {/* PERIODEN-HISTORIE */}
             {modus !== "menopause" && periodenHistorie.length > 0 && (
               <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-                <p style={{ margin: "0 0 12px", fontSize: 15, fontWeight: 700 }}>🩸 Perioden-Verlauf</p>
+                <p style={{ margin: "0 0 12px", fontSize: 15, fontWeight: 700 }}>Perioden-Verlauf</p>
                 {[...periodenHistorie].reverse().map((startISO, idx, arr) => {
                   const datum = new Date(startISO);
                   const naechster = arr[idx - 1]; // weil reversed
                   let abstand = null;
                   if (naechster) abstand = Math.round((new Date(naechster) - datum) / 86400000);
                   return (
-                    <div key={startISO} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "9px 0", borderBottom: idx < arr.length - 1 ? "1px solid #f3f3f3" : "none" }}>
+                    <div key={startISO} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "9px 0", borderBottom: idx < arr.length - 1 ? "1px solid #F1EDE6" : "none" }}>
                       <div>
                         <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: "#333" }}>{datum.toLocaleDateString("de-AT", { day: "2-digit", month: "long", year: "numeric" })}</p>
                         {abstand && <p style={{ margin: "2px 0 0", fontSize: 11, color: "#999" }}>Zyklus war {abstand} Tage lang</p>}
                       </div>
-                      <button onClick={() => loeschePeriodenEintrag(startISO)} style={{ background: "none", border: "none", color: "#ccc", cursor: "pointer", fontSize: 16, padding: 4 }}>🗑</button>
+                      <button onClick={() => loeschePeriodenEintrag(startISO)} style={{ background: "none", border: "none", color: "#ccc", cursor: "pointer", fontSize: 16, padding: 4 }}>Löschen</button>
                     </div>
                   );
                 })}
@@ -11435,7 +11504,7 @@ export default function App() {
 
             {/* Phasen-Einführung / Übersicht */}
             <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-              <p style={{ margin: "0 0 6px", fontSize: 15, fontWeight: 800, color: "#333" }}>🌙 Deine vier Phasen im Überblick</p>
+              <p style={{ margin: "0 0 6px", fontSize: 15, fontWeight: 800, color: "#333" }}>Deine vier Phasen im Überblick</p>
               <p style={{ margin: "0 0 12px", fontSize: 12.5, color: "#666", lineHeight: 1.6 }}>
                 {modus === "menopause"
                   ? "Auch ohne Zyklus folgst du einem Rhythmus — dem Mondzyklus. Er teilt den Monat in vier Phasen, an denen du Essen, Fasten und Training ausrichten kannst. Unten findest du jede Phase ausführlich erklärt."
@@ -11449,7 +11518,7 @@ export default function App() {
                   : (istJugendlich && PHASEN_TEEN[p.id] ? PHASEN_TEEN[p.id] : p);
                 return (
                   <div key={p.id} style={{ display: "flex", gap: 11, alignItems: "center", marginBottom: 8, background: p.hellFarbe, borderRadius: 10, padding: "9px 12px" }}>
-                    <span style={{ fontSize: 20, flexShrink: 0 }}>{p.icon}</span>
+                    
                     <div>
                       <p style={{ margin: 0, fontSize: 12.5, fontWeight: 700, color: p.farbe }}>{info.name || p.name} <span style={{ color: "#aaa", fontWeight: 400 }}>· {p.tage}</span></p>
                       <p style={{ margin: "1px 0 0", fontSize: 11.5, color: "#777", lineHeight: 1.45 }}>{info.subtitle || p.subtitle}</p>
@@ -11472,8 +11541,8 @@ export default function App() {
               <>
                 <div style={{ marginTop: 18, marginBottom: 12 }}>
                   <button onClick={() => setPeriBereichOffen(!periBereichOffen)}
-                    style={{ width: "100%", background: "linear-gradient(135deg, #B89BC9, #D4A5C4)", border: "none", borderRadius: 14, padding: "14px 16px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center", color: "#fff" }}>
-                    <span style={{ fontSize: 24 }}>🦋</span>
+                    style={{ width: "100%", background: "linear-gradient(135deg, #A88BA0, #8B6B84)", border: "none", borderRadius: 14, padding: "14px 16px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center", color: "#fff" }}>
+                    
                     <span style={{ flex: 1 }}>
                       <span style={{ display: "block", fontSize: 15, fontWeight: 800 }}>Perimenopause — der Übergang verstehen</span>
                       <span style={{ display: "block", fontSize: 11.5, opacity: 0.92, marginTop: 2 }}>Erste Veränderungen früh erkennen (oft ab den frühen 40ern)</span>
@@ -11484,7 +11553,7 @@ export default function App() {
 
                 {periBereichOffen && (
                   <div style={{ marginBottom: 12 }}>
-                    <div style={{ background: "#FBF7FD", borderRadius: 12, padding: 14, marginBottom: 10, border: "1px solid #EBDDF2" }}>
+                    <div style={{ background: "#F0EAEF", borderRadius: 12, padding: 14, marginBottom: 10, border: "1px solid #F0EAEF" }}>
                       <p style={{ margin: 0, fontSize: 12.5, color: "#666", lineHeight: 1.7 }}>
                         Solange du noch einen Zyklus hast, kann die Perimenopause bereits begonnen haben — oft unbemerkt. Dr. Pelz' wichtigste Botschaft: Je früher du die ersten Anzeichen verstehst und deinen Lebensstil anpasst, desto sanfter wird der spätere Übergang. Du bildest dir nichts ein, und du bist nicht allein.
                       </p>
@@ -11492,21 +11561,20 @@ export default function App() {
                     {PERIMENOPAUSE_WISSEN.map(w => {
                       const offen = offenPeri === w.id;
                       return (
-                        <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", overflow: "hidden" }}>
+                        <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
                           <button onClick={() => setOffenPeri(offen ? null : w.id)}
-                            style={{ width: "100%", background: offen ? "#FBF7FD" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-                            <span style={{ fontSize: 22 }}>{w.icon}</span>
-                            <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>{w.titel}</span>
-                            <span style={{ fontSize: 15, color: "#B89BC9" }}>{offen ? "−" : "+"}</span>
+                            style={{ width: "100%", background: offen ? "#F0EAEF" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
+                                              <span style={{ flex: 1, fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
+                            <span style={{ fontSize: 15, color: "#A88BA0" }}>{offen ? "−" : "+"}</span>
                           </button>
                           {offen && (
                             <div style={{ padding: "0 15px 15px" }}>
                               <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{w.text}</p>
-                              <div style={{ background: "#FBF7FD", borderRadius: 10, padding: "10px 12px" }}>
-                                <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#B89BC9" }}>{w.nurInfo ? "💡 Das Wichtigste:" : "💡 Das kannst du tun:"}</p>
+                              <div style={{ background: "#F0EAEF", borderRadius: 10, padding: "10px 12px" }}>
+                                <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#A88BA0" }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                                 {w.tipps.map((t, i) => (
                                   <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
-                                    <span style={{ position: "absolute", left: 0, color: "#B89BC9" }}>•</span>{t}
+                                    <span style={{ position: "absolute", left: 0, color: "#A88BA0" }}>•</span>{t}
                                   </div>
                                 ))}
                               </div>
@@ -11526,25 +11594,25 @@ export default function App() {
         {/* ──────────── FASTEN ──────────── */}
         {tab === "fasten" && istJugendlich && (
           <div>
-            <div style={{ background: "linear-gradient(135deg, #6A4C93, #9B7BAD)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
-              <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800 }}>⏰ Fasten</h2>
+            <div style={{ background: "linear-gradient(135deg, #6B5470, #8B6B84)", borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
+              <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 800, display: "flex", alignItems: "center", gap: 8 }}><NavIcon name="fasten" color={phase.farbe} size={20} />Fasten</h2>
               <p style={{ margin: 0, fontSize: 12, opacity: 0.9, lineHeight: 1.5 }}>Warum dieser Bereich für dich noch nicht dran ist</p>
             </div>
             <div style={{ background: "#fff", borderRadius: 16, padding: 18, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-              <p style={{ margin: "0 0 10px", fontSize: 14, fontWeight: 700, color: "#333" }}>🌱 Dein Körper wächst gerade — und das ist großartig</p>
+              <p style={{ margin: "0 0 10px", fontSize: 14, fontWeight: 700, color: "#333" }}>Dein Körper wächst gerade — und das ist großartig</p>
               <p style={{ margin: "0 0 12px", fontSize: 13, color: "#555", lineHeight: 1.65 }}>
                 Fasten ist etwas für erwachsene Körper. Solange du noch wächst und dich entwickelst, braucht dein Körper regelmäßig gute Energie — am besten drei ausgewogene Mahlzeiten und Snacks, wenn du Hunger hast. Deshalb blenden wir den Fasten-Bereich für dich bewusst aus.
               </p>
               <p style={{ margin: "0 0 12px", fontSize: 13, color: "#555", lineHeight: 1.65 }}>
                 Viel wichtiger für dich: regelmäßig essen, viel Abwechslung auf dem Teller, genug Protein, Obst & Gemüse — und auf deinen Hunger hören. Genug zu essen ist ein Zeichen von Stärke, nicht von Schwäche.
               </p>
-              <div style={{ background: "#FBEEF4", borderRadius: 10, padding: "12px 14px" }}>
-                <p style={{ margin: 0, fontSize: 12, color: "#8A3D63", lineHeight: 1.6 }}>💡 Ein einfacher, guter Tipp: Versuche, etwa 3 Stunden vor dem Schlafengehen nichts mehr zu essen. Das hilft deinem Schlaf und deiner Verdauung — ganz ohne Fasten.</p>
+              <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "12px 14px" }}>
+                <p style={{ margin: 0, fontSize: 12, color: "#7D3B52", lineHeight: 1.6 }}>Ein einfacher, guter Tipp: Versuche, etwa 3 Stunden vor dem Schlafengehen nichts mehr zu essen. Das hilft deinem Schlaf und deiner Verdauung — ganz ohne Fasten.</p>
               </div>
             </div>
             <div style={{ background: "#fff", borderRadius: 14, padding: 16, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
               <p style={{ margin: "0 0 6px", fontSize: 13, fontWeight: 700, color: "#333" }}>Schau dir stattdessen an:</p>
-              <p style={{ margin: 0, fontSize: 12, color: "#666", lineHeight: 1.6 }}>Im Bereich 🩸 Ernährung findest du, wie du deinen Blutzucker stabil hältst und dich gut fühlst. Und unter 💡 Verstehen gibt es Infos rund um deinen Zyklus und deinen Körper. 🌸</p>
+              <p style={{ margin: 0, fontSize: 12, color: "#666", lineHeight: 1.6 }}>Im Bereich Ernährung findest du, wie du deinen Blutzucker stabil hältst und dich gut fühlst. Und unter 💡 Verstehen gibt es Infos rund um deinen Zyklus und deinen Körper. 🌸</p>
             </div>
           </div>
         )}
@@ -11599,10 +11667,10 @@ export default function App() {
         {tab === "rezepte" && modus !== "schwanger" && (
           <div>
             {modus === "menopause" && (
-              <div style={{ background: primalNur ? "linear-gradient(135deg, #9B7BAD, #B89BC9)" : "#fff", borderRadius: 12, padding: "12px 14px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: primalNur ? "none" : "1px solid #E1BEE7" }}>
+              <div style={{ background: primalNur ? "linear-gradient(135deg, #8B6B84, #A88BA0)" : "#fff", borderRadius: 12, padding: "12px 14px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: primalNur ? "none" : "1px solid #D8C4D4" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ flex: 1 }}>
-                    <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: primalNur ? "#fff" : "#9B7BAD" }}>🌸 Nur Primal Menopausal Diet</p>
+                    <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: primalNur ? "#fff" : "#8B6B84" }}>Nur Primal Menopausal Diet</p>
                     <p style={{ margin: "2px 0 0", fontSize: 11, color: primalNur ? "rgba(255,255,255,0.9)" : "#999", lineHeight: 1.4 }}>Zeigt nur Rezepte, die zur menopause-gerechten Ernährung passen (viel Fett, moderates Protein, wenig Kohlenhydrate).</p>
                   </div>
                   <button onClick={() => setPrimalNur(!primalNur)}
@@ -11612,17 +11680,17 @@ export default function App() {
                 </div>
               </div>
             )}
-            <input type="text" placeholder="🔍 Rezept oder Zutat suchen (z.B. Lachs, Avocado)…" value={filter.suche} onChange={e => setFilter(f => ({ ...f, suche: e.target.value }))}
-              style={{ width: "100%", padding: "11px 14px", borderRadius: 12, border: "1px solid #e0e0e0", fontSize: 14, background: "#fff", boxSizing: "border-box", marginBottom: 10 }} />
+            <input type="text" placeholder="Rezept oder Zutat suchen (z.B. Lachs, Avocado)…" value={filter.suche} onChange={e => setFilter(f => ({ ...f, suche: e.target.value }))}
+              style={{ width: "100%", padding: "11px 14px", borderRadius: 12, border: "1px solid #E9E3DB", fontSize: 14, background: "#fff", boxSizing: "border-box", marginBottom: 10 }} />
 
             <div style={{ display: "flex", gap: 5, overflowX: "auto", paddingBottom: 6, marginBottom: 6 }}>
-              {[["alle","Alle Phasen"], ...Object.values(PHASEN).map(p => [p.id, `${p.icon} ${p.name.split(" ")[0]}`])].map(([val, label]) => (
+              {[["alle","Alle Phasen"], ...Object.values(PHASEN).map(p => [p.id, `${p.name.split(" ")[0]}`])].map(([val, label]) => (
                 <button key={val} onClick={() => setFilter(f => ({ ...f, phase: val }))} style={{ background: filter.phase === val ? (val === "alle" ? "#333" : PHASEN[val]?.farbe || "#333") : "#fff", color: filter.phase === val ? "#fff" : "#444", border: `1px solid ${filter.phase === val ? "transparent" : "#ddd"}`, borderRadius: 20, padding: "5px 12px", cursor: "pointer", fontSize: 11, whiteSpace: "nowrap" }}>{label}</button>
               ))}
             </div>
 
             <div style={{ display: "flex", gap: 5, overflowX: "auto", paddingBottom: 6, marginBottom: 12 }}>
-              {[["alle","Alle"],["ketobiotic", istJugendlich ? "🥑 Gemüse & Fette" : "Keto"],["hormone_feasting", istJugendlich ? "🍠 Energie" : "HF"],["fasted_snack", istJugendlich ? "🥪 Snacks" : "⏰ Fasted"],["vegan","🌱"],["vegetarisch","🥚"],["omnivor","🥩"],["gf","GF"]].map(([val, label]) => (
+              {[["alle","Alle"],["ketobiotic", istJugendlich ? "Gemüse & Fette" : "Keto"],["hormone_feasting", istJugendlich ? "Energie" : "HF"],["fasted_snack", istJugendlich ? "Snacks" : "⏰ Fasted"],["vegan","🌱"],["vegetarisch","🥚"],["omnivor","🥩"],["gf","GF"]].map(([val, label]) => (
                 <button key={val} onClick={() => setFilter(f => ({ ...f, stil: val }))} style={{ background: filter.stil === val ? phase.farbe : "#fff", color: filter.stil === val ? "#fff" : "#444", border: `1px solid ${filter.stil === val ? "transparent" : "#ddd"}`, borderRadius: 20, padding: "5px 12px", cursor: "pointer", fontSize: 11, whiteSpace: "nowrap" }}>{label}</button>
               ))}
             </div>
@@ -11631,9 +11699,9 @@ export default function App() {
 
             {/* Hinweis, wenn keine Rezepte zur Filter-Kombination passen */}
             {gefiltert.length === 0 && (
-              <div style={{ background: "#FFF8E1", borderRadius: 12, padding: "16px", textAlign: "center", border: "1px solid #FFE082" }}>
-                <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 700, color: "#F57F17" }}>Keine Rezepte gefunden</p>
-                <p style={{ margin: 0, fontSize: 12.5, color: "#8D6E00", lineHeight: 1.5 }}>
+              <div style={{ background: "#F4EEE2", borderRadius: 12, padding: "16px", textAlign: "center", border: "1px solid #D8C8B5" }}>
+                <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 700, color: "#C39A3A" }}>Keine Rezepte gefunden</p>
+                <p style={{ margin: 0, fontSize: 12.5, color: "#8A6D2E", lineHeight: 1.5 }}>
                   {primalNur
                     ? "Mit dem aktiven \"Nur Primal Menopausal Diet\"-Filter passen zu dieser Auswahl keine Rezepte. Schalte den Primal-Filter oben aus oder wähle einen anderen Filter."
                     : "Zu dieser Filter-Kombination passt gerade kein Rezept. Tippe auf \"Alle\", um die Filter zurückzusetzen."}
@@ -11665,11 +11733,11 @@ export default function App() {
         {/* ──────────── EINKAUFSLISTE ──────────── */}
         {tab === "einkauf" && (
           <div>
-            <p style={{ margin: "0 0 14px", fontSize: 15, fontWeight: 700 }}>🛒 Einkaufsliste erstellen</p>
+            <p style={{ margin: "0 0 14px", fontSize: 15, fontWeight: 700 }}>Einkaufsliste erstellen</p>
 
             {/* Modus-Auswahl */}
             <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
-              {[["tag","📅 Für heute"],["phase","🌙 Für Phase"],["manuell","✏️ Manuell"]].map(([m, l]) => (
+              {[["tag","Für heute"],["phase","Für Phase"],["manuell","✏️ Manuell"]].map(([m, l]) => (
                 <button key={m} onClick={() => setEinkaufsModus(m)} style={{ flex: 1, background: einkaufsModus === m ? phase.farbe : "#fff", color: einkaufsModus === m ? "#fff" : "#444", border: `1px solid ${einkaufsModus === m ? "transparent" : "#ddd"}`, borderRadius: 10, padding: "8px 4px", cursor: "pointer", fontSize: 11, fontWeight: 600 }}>{l}</button>
               ))}
             </div>
@@ -11701,7 +11769,7 @@ export default function App() {
                 <p style={{ fontSize: 13, color: "#666", marginBottom: 10 }}>Einkaufsliste für eine ganze Phase erstellen:</p>
                 {Object.values(PHASEN).map(p => (
                   <button key={p.id} onClick={() => einkaufslisteAusPhaseBauen(p.id)} style={{ width: "100%", background: "#fff", border: `1px solid ${p.farbe}44`, borderRadius: 12, padding: "12px 16px", marginBottom: 8, cursor: "pointer", textAlign: "left", display: "flex", gap: 12, alignItems: "center", boxShadow: "0 1px 6px rgba(0,0,0,0.04)" }}>
-                    <span style={{ fontSize: 26 }}>{p.icon}</span>
+                    
                     <div>
                       <p style={{ margin: 0, fontWeight: 700, fontSize: 14, color: p.farbe }}>{p.name}</p>
                       <p style={{ margin: 0, fontSize: 11, color: "#aaa" }}>{p.tage} · {getRezepteFuerPhase(p.id).length} Rezepte</p>
@@ -11745,7 +11813,7 @@ export default function App() {
 
             {(einkaufsModus === "tag" || einkaufsModus === "manuell") && Object.values(einkaufsAuswahl).some(Boolean) && (
               <button onClick={einkaufslisteBauen} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 12, padding: "14px", cursor: "pointer", fontSize: 15, fontWeight: 800, marginTop: 10 }}>
-                🛒 {Object.values(einkaufsAuswahl).filter(Boolean).length} Rezepte → Liste erstellen
+                {Object.values(einkaufsAuswahl).filter(Boolean).length} Rezepte → Liste erstellen
               </button>
             )}
           </div>
@@ -11755,7 +11823,7 @@ export default function App() {
         {tab === "einkauf_anzeige" && (
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-              <p style={{ margin: 0, fontSize: 15, fontWeight: 700 }}>🛒 Einkaufsliste</p>
+              <p style={{ margin: 0, fontSize: 15, fontWeight: 700 }}>Einkaufsliste</p>
               <button onClick={() => setTab("einkauf")} style={{ background: "none", border: "none", color: phase.farbe, fontSize: 12, cursor: "pointer", fontWeight: 600 }}>← Neu erstellen</button>
             </div>
             <p style={{ margin: "0 0 10px", fontSize: 12, color: "#aaa" }}>{einkaufsliste.filter(i => !erledigtItems[i.name]).length} von {einkaufsliste.length} übrig</p>
@@ -11764,7 +11832,7 @@ export default function App() {
               const menge = Number.isInteger(item.menge) ? item.menge : item.menge.toFixed(1);
               return (
                 <div key={item.name} onClick={() => setErledigtItems(e => ({ ...e, [item.name]: !e[item.name] }))}
-                  style={{ background: erledigt ? "#f9f9f9" : "#fff", borderRadius: 10, padding: "11px 14px", marginBottom: 6, display: "flex", alignItems: "center", gap: 12, cursor: "pointer", boxShadow: "0 1px 5px rgba(0,0,0,0.05)", opacity: erledigt ? 0.5 : 1 }}>
+                  style={{ background: erledigt ? "#FAF8F4" : "#fff", borderRadius: 10, padding: "11px 14px", marginBottom: 6, display: "flex", alignItems: "center", gap: 12, cursor: "pointer", boxShadow: "0 1px 5px rgba(0,0,0,0.05)", opacity: erledigt ? 0.5 : 1 }}>
                   <div style={{ width: 22, height: 22, borderRadius: "50%", background: erledigt ? phase.farbe : "#fff", border: `2px solid ${erledigt ? phase.farbe : "#ddd"}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     {erledigt && <span style={{ color: "#fff", fontSize: 12 }}>✓</span>}
                   </div>
@@ -11773,7 +11841,7 @@ export default function App() {
                 </div>
               );
             })}
-            <button onClick={() => setErledigtItems({})} style={{ width: "100%", background: "#f5f5f5", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 13, color: "#888", marginTop: 10 }}>↺ Alle zurücksetzen</button>
+            <button onClick={() => setErledigtItems({})} style={{ width: "100%", background: "#F4F1EB", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 13, color: "#888", marginTop: 10 }}>↺ Alle zurücksetzen</button>
           </div>
         )}
 
@@ -11806,29 +11874,28 @@ export default function App() {
       {/* BOTTOM NAV */}
       <div style={{ position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 480, background: "#fff", borderTop: "1px solid #eee", display: "flex", zIndex: 200, boxShadow: "0 -2px 16px rgba(0,0,0,0.08)" }}>
         {(modus === "schwanger" ? [
-          ["home","🏠","Heute"],
-          ["baby","👶","Baby"],
-          ["schwanger","🤰","Schwanger"],
-          ["rezepte","🍽️","Rezepte"],
+          ["home","home","Heute"],
+          ["baby","baby","Baby"],
+          ["schwanger","schwanger","Schwanger"],
+          ["rezepte","rezepte","Rezepte"],
         ] : [
-          ["home","🏠","Heute"],
-          ["ernaehrung","🍎","Ernährung"],
+          ["home","home","Heute"],
+          ["ernaehrung","ernaehrung","Ernährung"],
           ...(modus === "menopause"
-            ? [["verstehen","🌸","Wechseljahre"]]
-            : [["verstehen","🌸","Dein Körper"], ["zyklus","🌙","Zyklus"]]),
-          ["fasten","⏰","Fasten"],
-          ["training","💪","Training"],
+            ? [["verstehen","verstehen","Wechseljahre"]]
+            : [["verstehen","verstehen","Dein Körper"], ["zyklus","zyklus","Zyklus"]]),
+          ["fasten","fasten","Fasten"],
+          ["training","training","Training"],
         ]).map(([id, icon, label]) => (
-          <button key={id} onClick={() => setTab(id)} style={{ flex: 1, background: "none", border: "none", padding: "9px 0 7px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
-            <span style={{ fontSize: 16 }}>{icon}</span>
-            <span style={{ fontSize: 8.5, color: tab === id ? phase.farbe : "#bbb", fontWeight: tab === id ? 700 : 400 }}>{label}</span>
-            {tab === id && <div style={{ width: 18, height: 2, background: phase.farbe, borderRadius: 1 }} />}
+          <button key={id} onClick={() => setTab(id)} style={{ flex: 1, background: "none", border: "none", padding: "9px 0 7px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+            <NavIcon name={icon} color={tab === id ? phase.farbe : "#B8B0AA"} />
+            <span style={{ fontSize: 9, color: tab === id ? phase.farbe : "#A8A2A6", fontWeight: tab === id ? 700 : 500, letterSpacing: 0.2 }}>{label}</span>
           </button>
         ))}
         {/* Mehr-Button */}
-        <button onClick={() => setMehrOffen(true)} style={{ flex: 1, background: "none", border: "none", padding: "9px 0 7px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
-          <span style={{ fontSize: 16 }}>☰</span>
-          <span style={{ fontSize: 8.5, color: ["rezepte","foods","weglassen","einkauf","einkauf_anzeige","einstellungen","zyklus","tagebuch"].includes(tab) ? phase.farbe : "#bbb", fontWeight: ["rezepte","foods","weglassen","einkauf","einkauf_anzeige","einstellungen","zyklus","tagebuch"].includes(tab) ? 700 : 400 }}>Mehr</span>
+        <button onClick={() => setMehrOffen(true)} style={{ flex: 1, background: "none", border: "none", padding: "9px 0 7px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+          <NavIcon name="mehr" color="#B8B0AA" />
+          <span style={{ fontSize: 8.5, color: ["rezepte","foods","weglassen","einkauf","einkauf_anzeige","einstellungen","zyklus","tagebuch"].includes(tab) ? phase.farbe : "#A8A2A6", fontWeight: ["rezepte","foods","weglassen","einkauf","einkauf_anzeige","einstellungen","zyklus","tagebuch"].includes(tab) ? 700 : 400 }}>Mehr</span>
           {["rezepte","foods","weglassen","einkauf","einkauf_anzeige","einstellungen","zyklus","tagebuch"].includes(tab) && <div style={{ width: 18, height: 2, background: phase.farbe, borderRadius: 1 }} />}
         </button>
       </div>
@@ -11852,7 +11919,7 @@ export default function App() {
               ["einstellungen","⚙️","Einstellungen","Modus, Backup & mehr"],
             ]).map(([id, icon, label, sub]) => (
               <button key={id} onClick={() => { setTab(id); setMehrOffen(false); }}
-                style={{ width: "100%", background: tab === id ? phase.hellFarbe : "#f8f8f8", border: "none", borderRadius: 12, padding: "13px 15px", marginBottom: 8, cursor: "pointer", textAlign: "left", display: "flex", gap: 13, alignItems: "center" }}>
+                style={{ width: "100%", background: tab === id ? phase.hellFarbe : "#FAF8F4", border: "none", borderRadius: 12, padding: "13px 15px", marginBottom: 8, cursor: "pointer", textAlign: "left", display: "flex", gap: 13, alignItems: "center" }}>
                 <span style={{ fontSize: 24 }}>{icon}</span>
                 <div>
                   <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#222" }}>{label}</p>
@@ -11885,6 +11952,8 @@ export default function App() {
         const add = (liste, quelle) => (liste || []).forEach(k => pool.push({
           icon: k.icon, titel: k.titel,
           text: k.kurz || (k.text ? String(k.text).split("\n")[0] : ""),
+          vollText: k.text ? String(k.text) : (k.kurz || ""),
+          tipps: k.tipps || null,
           quelle,
         }));
         add(GLUKOSE_HACKS, "glukose");
@@ -11943,13 +12012,22 @@ export default function App() {
         return (
           <div onClick={schliessen} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 320, display: "flex", alignItems: "center", justifyContent: "center", padding: 22 }}>
             <div onClick={(e) => e.stopPropagation()} style={{ background: "#fff", borderRadius: 20, padding: "26px 22px 20px", maxWidth: 360, width: "100%", boxShadow: "0 12px 40px rgba(0,0,0,0.25)", textAlign: "center" }}>
-              <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: "#E91E63", textTransform: "uppercase", letterSpacing: 0.6 }}>💡 Tipp des Tages</p>
-              <p style={{ margin: "0 0 14px", fontSize: 40 }}>{tipp.icon}</p>
-              <h3 style={{ margin: "0 0 8px", fontSize: 18, fontWeight: 800, color: "#333" }}>{tipp.titel}</h3>
-              <p style={{ margin: "0 0 20px", fontSize: 13.5, color: "#666", lineHeight: 1.6 }}>{tipp.text}</p>
+              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 600, color: phase.farbe, textTransform: "uppercase", letterSpacing: 0.8 }}>Tipp des Tages</p>
+              <h3 style={{ margin: "0 0 12px", fontSize: 19, fontWeight: 800, color: "#242124", letterSpacing: -0.2, lineHeight: 1.25 }}>{tipp.titel}</h3>
+              <p style={{ margin: "0 0 14px", fontSize: 14, color: "#242124", lineHeight: 1.6, whiteSpace: "pre-line" }}>{tipp.vollText || tipp.text}</p>
+              {tipp.tipps && tipp.tipps.length > 0 && (
+                <div style={{ margin: "0 0 18px", padding: "12px 14px", background: phase.hellFarbe, borderRadius: 14 }}>
+                  {tipp.tipps.slice(0, 5).map((t, i) => (
+                    <div key={i} style={{ display: "flex", gap: 8, marginBottom: i < Math.min(4, tipp.tipps.length - 1) ? 7 : 0 }}>
+                      <span style={{ color: phase.farbe, flexShrink: 0, fontWeight: 700 }}>·</span>
+                      <span style={{ fontSize: 12.5, color: "#242124", lineHeight: 1.45, textAlign: "left" }}>{t}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
               <button onClick={() => { schliessen(); setTab(zielTab); }}
-                style={{ width: "100%", background: "linear-gradient(135deg, #C2185B, #E91E63)", color: "#fff", border: "none", borderRadius: 11, padding: "12px", cursor: "pointer", fontSize: 13.5, fontWeight: 700, marginBottom: 8 }}>
-                Mehr dazu ansehen →
+                style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 14, padding: "13px", cursor: "pointer", fontSize: 13.5, fontWeight: 700, marginBottom: 8 }}>
+                Zum passenden Bereich →
               </button>
               <button onClick={schliessen}
                 style={{ width: "100%", background: "transparent", color: "#999", border: "none", borderRadius: 11, padding: "8px", cursor: "pointer", fontSize: 13, fontWeight: 600 }}>
@@ -11970,7 +12048,7 @@ export default function App() {
               <>
                 <p style={{ margin: "0 0 8px", fontSize: 32, textAlign: "center" }}>🌸</p>
                 <h2 style={{ margin: "0 0 10px", fontSize: 20, fontWeight: 800, textAlign: "center", color: "#333" }}>Willkommen bei MoreSync</h2>
-                <p style={{ margin: "0 0 12px", fontSize: 14, color: "#D6749B", textAlign: "center", lineHeight: 1.5, fontWeight: 600 }}>
+                <p style={{ margin: "0 0 12px", fontSize: 14, color: "#B07689", textAlign: "center", lineHeight: 1.5, fontWeight: 600 }}>
                   Schön, dass du da bist! 🌸
                 </p>
                 <p style={{ margin: "0 0 12px", fontSize: 13.5, color: "#666", textAlign: "center", lineHeight: 1.6 }}>
@@ -12052,7 +12130,7 @@ export default function App() {
                     const mond = modus === "menopause" ? MOND_PHASEN_INFO[p.id] : null;
                     return (
                       <div key={p.id} style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 8, background: p.hellFarbe, borderRadius: 10, padding: "8px 12px" }}>
-                        <span style={{ fontSize: 20 }}>{p.icon}</span>
+                        
                         <div>
                           <p style={{ margin: 0, fontSize: 12.5, fontWeight: 700, color: p.farbe }}>{mond ? mond.name : p.name}{!mond && <span style={{ color: "#aaa", fontWeight: 400 }}> · {p.tage}</span>}</p>
                           <p style={{ margin: 0, fontSize: 11, color: "#777" }}>{mond ? mond.subtitle : p.subtitle}</p>
@@ -12110,27 +12188,27 @@ export default function App() {
                   Die Inhalte stammen aus fundierten Büchern und Expertinnen der Frauengesundheit:
                 </p>
                 <div style={{ marginBottom: 14, fontSize: 12, color: "#555", lineHeight: 1.7 }}>
-                  <p style={{ margin: "0 0 5px" }}>📖 <strong>Dr. Mindy Pelz</strong> — Fast Like a Girl, Eat Like a Girl, Age Like a Girl (Fasten, Ernährung, Menopause)</p>
-                  <p style={{ margin: "0 0 5px" }}>📖 <strong>Dr. Stacy Sims</strong> — ROAR & Next Level (Training, Zyklus, Menopause)</p>
-                  <p style={{ margin: "0 0 5px" }}>📖 <strong>Jessie Inchauspé</strong> — Glucose Revolution & 9 Months That Count Forever (Blutzucker, Schwangerschaft)</p>
-                  <p style={{ margin: "0 0 5px" }}>📖 <strong>Dr. William Li</strong> — Eat to Beat Disease & Eat to Beat Your Diet (Ernährung, die deine Abwehrsysteme stärkt)</p>
+                  <p style={{ margin: "0 0 5px" }}><strong>Dr. Mindy Pelz</strong> — Fast Like a Girl, Eat Like a Girl, Age Like a Girl (Fasten, Ernährung, Menopause)</p>
+                  <p style={{ margin: "0 0 5px" }}><strong>Dr. Stacy Sims</strong> — ROAR & Next Level (Training, Zyklus, Menopause)</p>
+                  <p style={{ margin: "0 0 5px" }}><strong>Jessie Inchauspé</strong> — Glucose Revolution & 9 Months That Count Forever (Blutzucker, Schwangerschaft)</p>
+                  <p style={{ margin: "0 0 5px" }}><strong>Dr. William Li</strong> — Eat to Beat Disease & Eat to Beat Your Diet (Ernährung, die deine Abwehrsysteme stärkt)</p>
                   <p style={{ margin: "0 0 5px" }}>👩‍⚕️ <strong>Dr. Rachel Rubin</strong> — sexuelle & urogenitale Gesundheit</p>
-                  <p style={{ margin: 0 }}>🔬 <strong>Dr. Rhonda Patrick</strong> — Supplemente, Langlebigkeit & Hormone</p>
+                  <p style={{ margin: 0 }}><strong>Dr. Rhonda Patrick</strong> — Supplemente, Langlebigkeit & Hormone</p>
                 </div>
                 <p style={{ margin: "0 0 14px", fontSize: 11, color: "#aaa", textAlign: "center", lineHeight: 1.5 }}>
                   MoreSync bündelt dieses Wissen an einem Ort. Es ersetzt keine ärztliche Beratung — bei Beschwerden wende dich an dein Behandlungsteam.
                 </p>
-                <div style={{ background: "#FBEEF4", borderRadius: 14, padding: "14px 16px", marginBottom: 16, border: "1px solid #F3C6D9" }}>
-                  <p style={{ margin: "0 0 8px", fontSize: 12.5, color: "#8A3B5C", lineHeight: 1.65, fontWeight: 700 }}>
+                <div style={{ background: "#F1E9EE", borderRadius: 14, padding: "14px 16px", marginBottom: 16, border: "1px solid #E6D0D8" }}>
+                  <p style={{ margin: "0 0 8px", fontSize: 12.5, color: "#7D3B52", lineHeight: 1.65, fontWeight: 700 }}>
                     {name && name.trim() ? `Liebe ${name.trim()},` : "Liebe zukünftige MoreSync-Nutzerin,"}
                   </p>
-                  <p style={{ margin: "0 0 8px", fontSize: 12.5, color: "#8A3B5C", lineHeight: 1.65 }}>
+                  <p style={{ margin: "0 0 8px", fontSize: 12.5, color: "#7D3B52", lineHeight: 1.65 }}>
                     Ich habe all diese Bücher selbst gelesen — und es liegt mir sehr am Herzen, dieses Wissen weiterzugeben. Denn Wissen ist Macht, und gerade in der Welt der Frauen wurde noch so wenig erforscht. Umso wichtiger ist es, das, was wir wissen, zugänglich zu machen.
                   </p>
-                  <p style={{ margin: "0 0 8px", fontSize: 12.5, color: "#8A3B5C", lineHeight: 1.65 }}>
+                  <p style={{ margin: "0 0 8px", fontSize: 12.5, color: "#7D3B52", lineHeight: 1.65 }}>
                     Ich verspreche dir außerdem: Sobald es neue Studien gibt, die zu unseren Themen passen, halte ich MoreSync für dich aktuell. Daraus ist ein Projekt geworden, auf das ich richtig stolz bin und das ich so gerne mit allen Frauen teile.
                   </p>
-                  <p style={{ margin: 0, fontSize: 12.5, color: "#8A3B5C", lineHeight: 1.65, fontWeight: 700, textAlign: "right" }}>
+                  <p style={{ margin: 0, fontSize: 12.5, color: "#7D3B52", lineHeight: 1.65, fontWeight: 700, textAlign: "right" }}>
                     Viel Spaß — deine Jelena 🌸
                   </p>
                 </div>
@@ -12148,17 +12226,17 @@ export default function App() {
                 </p>
                 <button onClick={() => setOnboardingSchritt(6)}
                   style={{ width: "100%", background: phase.hellFarbe, border: `2px solid ${phase.farbe}`, borderRadius: 12, padding: "14px", cursor: "pointer", marginBottom: 10, textAlign: "left" }}>
-                  <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: phase.farbe }}>🩸 Ich habe einen Zyklus</p>
+                  <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: phase.farbe }}>Ich habe einen Zyklus</p>
                   <p style={{ margin: "2px 0 0", fontSize: 11.5, color: "#777" }}>Tracking nach deiner Periode</p>
                 </button>
                 <button onClick={() => { modusWechseln("menopause"); setOnboardingSchritt(7); }}
-                  style={{ width: "100%", background: "#f4f4f4", border: "2px solid transparent", borderRadius: 12, padding: "14px", cursor: "pointer", textAlign: "left", marginBottom: 10 }}>
-                  <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#9B7BAD" }}>🌙 Wechseljahre / kein Zyklus</p>
+                  style={{ width: "100%", background: "#F1EDE6", border: "2px solid transparent", borderRadius: 12, padding: "14px", cursor: "pointer", textAlign: "left", marginBottom: 10 }}>
+                  <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#8B6B84" }}>Wechseljahre / kein Zyklus</p>
                   <p style={{ margin: "2px 0 0", fontSize: 11.5, color: "#777" }}>Tracking nach dem Mondzyklus</p>
                 </button>
                 <button onClick={() => setOnboardingSchritt(8)}
-                  style={{ width: "100%", background: "#f4f4f4", border: "2px solid transparent", borderRadius: 12, padding: "14px", cursor: "pointer", textAlign: "left" }}>
-                  <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#C2185B" }}>🤰 Ich bin schwanger</p>
+                  style={{ width: "100%", background: "#F1EDE6", border: "2px solid transparent", borderRadius: 12, padding: "14px", cursor: "pointer", textAlign: "left" }}>
+                  <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#8B4A5C" }}>Ich bin schwanger</p>
                   <p style={{ margin: "2px 0 0", fontSize: 11.5, color: "#777" }}>Begleitung durch alle Trimester</p>
                 </button>
               </>
@@ -12192,7 +12270,7 @@ export default function App() {
                 </p>
                 <input type="date" max={new Date().toISOString().split("T")[0]}
                   onChange={e => { if (e.target.value) { setMondStartDatum(new Date(e.target.value + "T12:00:00").toISOString()); setOnboardingSchritt(3); } }}
-                  style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #9B7BAD", fontSize: 15, boxSizing: "border-box", marginBottom: 12, textAlign: "center" }} />
+                  style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #8B6B84", fontSize: 15, boxSizing: "border-box", marginBottom: 12, textAlign: "center" }} />
                 <p style={{ margin: 0, fontSize: 11, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Den Mondkalender findest du online. Du kannst das später in den Einstellungen ändern.</p>
               </>
             )}
@@ -12201,13 +12279,13 @@ export default function App() {
             {onboardingSchritt === 8 && (
               <>
                 <p style={{ margin: "0 0 8px", fontSize: 28, textAlign: "center" }}>🤰</p>
-                <h2 style={{ margin: "0 0 8px", fontSize: 18, fontWeight: 800, textAlign: "center", color: "#333" }}>Herzlichen Glückwunsch! 🌸</h2>
+                <h2 style={{ margin: "0 0 8px", fontSize: 18, fontWeight: 800, textAlign: "center", color: "#333" }}>Herzlichen Glückwunsch!</h2>
                 <p style={{ margin: "0 0 16px", fontSize: 13, color: "#666", textAlign: "center", lineHeight: 1.55 }}>
                   Trage deinen errechneten Geburtstermin ein (von deiner Ärztin/Hebamme oder per Online-Rechner). MoreSync zeigt dir dann deine Schwangerschaftswoche und passt Ernährung, Bewegung & Wissen an dein Trimester an — nach <em>9 Months That Count Forever</em>.
                 </p>
                 <input type="date"
                   onChange={e => { if (e.target.value) { setGeburtsterminDatum(new Date(e.target.value + "T12:00:00").toISOString()); setOnboardingSchritt(3); } }}
-                  style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #C2185B", fontSize: 15, boxSizing: "border-box", marginBottom: 12, textAlign: "center" }} />
+                  style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #8B4A5C", fontSize: 15, boxSizing: "border-box", marginBottom: 12, textAlign: "center" }} />
                 <p style={{ margin: 0, fontSize: 11, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Du kannst den Modus & Termin später in den Einstellungen ändern.</p>
               </>
             )}
@@ -12222,14 +12300,40 @@ export default function App() {
   );
 }
 
+// Schlichte Linien-Icons für die Navigation (editorial statt Emoji)
+function NavIcon({ name, color, size = 21 }) {
+  const p = { fill: "none", stroke: color, strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" };
+  const paths = {
+    home: <><path {...p} d="M3 10.5 12 3l9 7.5" /><path {...p} d="M5 9.5V21h14V9.5" /></>,
+    ernaehrung: <><path {...p} d="M12 3c-4 0-6 3-6 7 0 5 3 11 6 11s6-6 6-11c0-4-2-7-6-7Z" /><path {...p} d="M12 3v8" /></>,
+    verstehen: <><circle {...p} cx="12" cy="12" r="9" /><path {...p} d="M12 7v5l3 3" /></>,
+    zyklus: <><circle {...p} cx="12" cy="12" r="8.5" /><path {...p} d="M12 3.5a8.5 8.5 0 0 1 0 17" fill={color} fillOpacity="0.12" /></>,
+    fasten: <><circle {...p} cx="12" cy="13" r="8" /><path {...p} d="M12 13V9M9 2h6" /></>,
+    training: <><path {...p} d="M6.5 9v6M17.5 9v6M4 10.5v3M20 10.5v3M6.5 12h11" /></>,
+    baby: <><circle {...p} cx="12" cy="8" r="4" /><path {...p} d="M5 21c0-4 3-6 7-6s7 2 7 6" /></>,
+    schwanger: <><circle {...p} cx="12" cy="5.5" r="2.5" /><path {...p} d="M12 8v6M12 11c3 0 4 2 4 4M9 21v-6" /></>,
+    rezepte: <><path {...p} d="M5 3v18M8 3v6a3 3 0 0 1-3 3M18 3c-1.5 0-2.5 2-2.5 5s1 4 2.5 4v9" /></>,
+    mehr: <><circle {...p} cx="5" cy="12" r="1.3" fill={color} /><circle {...p} cx="12" cy="12" r="1.3" fill={color} /><circle {...p} cx="19" cy="12" r="1.3" fill={color} /></>,
+    weglassen: <><circle {...p} cx="12" cy="12" r="9" /><path {...p} d="M5.6 5.6l12.8 12.8" /></>,
+    einkauf: <><path {...p} d="M4 5h2l1.5 11h10L19 8H6.5" /><circle {...p} cx="9" cy="20" r="1" /><circle {...p} cx="17" cy="20" r="1" /></>,
+    buch: <><path {...p} d="M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2V4Z" /><path {...p} d="M5 18a2 2 0 0 1 2-2h11" /></>,
+    einstellungen: <><circle {...p} cx="12" cy="12" r="3" /><path {...p} d="M12 2v3M12 19v3M22 12h-3M5 12H2M19 19l-2-2M7 7 5 5M19 5l-2 2M7 17l-2 2" /></>,
+    tagebuch: <><path {...p} d="M6 3h10a1 1 0 0 1 1 1v16l-3-2-3 2-3-2-3 2V4a1 1 0 0 1 1-1Z" /><path {...p} d="M9 8h5M9 12h5" /></>,
+    lebensmittel: <><path {...p} d="M6 3v7a3 3 0 0 0 6 0V3M9 3v18" /><path {...p} d="M17 3c-1.5 0-2.5 2-2.5 5s1 4 2.5 4v6" /></>,
+    warnung: <><path {...p} d="M12 3 2 20h20L12 3Z" /><path {...p} d="M12 9v5M12 17v.5" /></>,
+  };
+  return <svg width={size} height={size} viewBox="0 0 24 24">{paths[name] || paths.mehr}</svg>;
+}
+
+
 function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
   const [detailsOffen, setDetailsOffen] = useState(aktiv);
   const info = PHASEN_INFO[p.id];
 
   return (
-    <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 10, border: aktiv ? `2px solid ${p.farbe}` : "1px solid #f0f0f0", boxShadow: aktiv ? `0 4px 16px ${p.farbe}25` : "0 1px 6px rgba(0,0,0,0.04)" }}>
+    <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 10, border: aktiv ? `2px solid ${p.farbe}` : "1px solid #EEEAE3", boxShadow: aktiv ? `0 4px 16px ${p.farbe}25` : "0 1px 6px rgba(0,0,0,0.04)" }}>
       <div style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 10 }}>
-        <span style={{ fontSize: 28 }}>{p.icon}</span>
+        
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <p style={{ margin: 0, fontSize: 15, fontWeight: 700, color: p.farbe }}>{modus === "menopause" && MOND_PHASEN_INFO[p.id]?.name ? MOND_PHASEN_INFO[p.id].name : p.name}</p>
@@ -12245,24 +12349,24 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 8 }}>
-        {p.lebensmittelFokus.map(l => <span key={l} style={{ fontSize: 10, background: p.hellFarbe, color: p.farbe, padding: "2px 7px", borderRadius: 10 }}>🌿 {l}</span>)}
+        {p.lebensmittelFokus.map(l => <span key={l} style={{ fontSize: 10, background: p.hellFarbe, color: p.farbe, padding: "2px 7px", borderRadius: 10 }}>{l}</span>)}
       </div>
 
       {!istJugendlich && (
         <div style={{ background: p.hellFarbe, borderRadius: 10, padding: "8px 12px", marginBottom: 6 }}>
-          <p style={{ margin: 0, fontSize: 12, color: "#555" }}><strong>⏰ Fasten:</strong> {FASTEN_TYPEN.filter(f => f.phasen.includes(p.id)).map(f => f.name).join(", ")}</p>
+          <p style={{ margin: 0, fontSize: 12, color: "#555" }}><strong>Fasten:</strong> {FASTEN_TYPEN.filter(f => f.phasen.includes(p.id)).map(f => f.name).join(", ")}</p>
         </div>
       )}
 
       {modus !== "menopause" && !istJugendlich && (
         <div style={{ background: "#F9F9F9", borderRadius: 10, padding: "8px 12px", marginBottom: 6, border: "1px solid #eee" }}>
-          <p style={{ margin: 0, fontSize: 11, color: "#666", lineHeight: 1.55 }}>📖 {p.buchTipp}</p>
+          <p style={{ margin: 0, fontSize: 11, color: "#666", lineHeight: 1.55 }}>{p.buchTipp}</p>
         </div>
       )}
 
       {TRAINING_PHASEN[p.id] && (
         <div style={{ background: p.hellFarbe, borderRadius: 10, padding: "8px 12px", marginBottom: 8, border: `1px solid ${p.farbe}33` }}>
-          <p style={{ margin: 0, fontSize: 11, color: p.farbe, fontWeight: 600 }}>💪 Training: {TRAINING_PHASEN[p.id].intensitaet} · {TRAINING_PHASEN[p.id].schwerpunkt.slice(0,2).join(", ")}</p>
+          <p style={{ margin: 0, fontSize: 11, color: p.farbe, fontWeight: 600 }}>Training: {TRAINING_PHASEN[p.id].intensitaet} · {TRAINING_PHASEN[p.id].schwerpunkt.slice(0,2).join(", ")}</p>
         </div>
       )}
 
@@ -12273,7 +12377,7 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
         <>
           <button onClick={() => setDetailsOffen(!detailsOffen)}
             style={{ width: "100%", background: detailsOffen ? p.farbe : p.hellFarbe, color: detailsOffen ? "#fff" : p.farbe, border: `1px solid ${p.farbe}44`, borderRadius: 10, padding: "10px 12px", cursor: "pointer", fontSize: 12.5, fontWeight: 700, display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 4 }}>
-            <span>🧠 Hormone, Stimmung & Lifestyle</span>
+            <span>Hormone, Stimmung & Lifestyle</span>
             <span>{detailsOffen ? "▲" : "▼"}</span>
           </button>
 
@@ -12285,11 +12389,11 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
                   {MOND_PHASEN_INFO[p.id] && (
                     <>
                       <div style={{ marginBottom: 12 }}>
-                        <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: p.farbe }}>🌙 Diese Mond-Phase</p>
+                        <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: p.farbe }}>Diese Mond-Phase</p>
                         <p style={{ margin: 0, fontSize: 12, color: "#555", lineHeight: 1.65 }}>{MOND_PHASEN_INFO[p.id].kontext}</p>
                       </div>
                       <div style={{ marginBottom: 4 }}>
-                        <p style={{ margin: "0 0 5px", fontSize: 12, fontWeight: 700, color: p.farbe }}>✨ Fokus jetzt</p>
+                        <p style={{ margin: "0 0 5px", fontSize: 12, fontWeight: 700, color: p.farbe }}>Fokus jetzt</p>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                           {MOND_PHASEN_INFO[p.id].fokus.map((f, i) => (
                             <span key={i} style={{ fontSize: 11, background: p.hellFarbe, color: p.farbe, padding: "3px 9px", borderRadius: 12 }}>{f}</span>
@@ -12303,27 +12407,27 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
                 <>
                   {/* Hormone */}
                   <div style={{ marginBottom: 12 }}>
-                    <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: p.farbe }}>🌸 Deine Hormone jetzt</p>
+                    <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: p.farbe }}>Deine Hormone jetzt</p>
                     <p style={{ margin: 0, fontSize: 12, color: "#555", lineHeight: 1.65, whiteSpace: "pre-line" }}>{istJugendlich ? PHASEN_TEEN[p.id].hormone : info.hormone}</p>
                   </div>
 
                   {/* Gehirn */}
                   <div style={{ marginBottom: 12 }}>
-                    <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: p.farbe }}>🧠 Dein Gehirn & Fokus</p>
+                    <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: p.farbe }}>Dein Gehirn & Fokus</p>
                     <p style={{ margin: 0, fontSize: 12, color: "#555", lineHeight: 1.65 }}>{istJugendlich ? PHASEN_TEEN[p.id].gehirn : info.gehirn}</p>
                   </div>
 
                   {/* Lifestyle */}
                   <div style={{ marginBottom: 12 }}>
-                    <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: p.farbe }}>💼 {istJugendlich ? "Alltag & Timing" : "Lifestyle & Timing"}</p>
+                    <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: p.farbe }}>{istJugendlich ? "Alltag & Timing" : "Lifestyle & Timing"}</p>
                     <p style={{ margin: 0, fontSize: 12, color: "#555", lineHeight: 1.65 }}>{istJugendlich ? PHASEN_TEEN[p.id].lifestyle : info.lifestyle}</p>
                   </div>
 
                   {/* Fruchtbarkeits-Hinweis nur für Manifestationsphase */}
                   {p.id === "manifestation" && (
-                    <div style={{ background: "#E0F2F1", borderRadius: 10, padding: "10px 12px", marginBottom: 12, border: "1px solid #B2DFDB" }}>
-                      <p style={{ margin: "0 0 3px", fontSize: 12, fontWeight: 700, color: "#00695C" }}>🌱 Fruchtbarste Zeit — jetzt gut aufpassen</p>
-                      <p style={{ margin: 0, fontSize: 11.5, color: "#00695C", lineHeight: 1.55 }}>
+                    <div style={{ background: "#EAEEE9", borderRadius: 10, padding: "10px 12px", marginBottom: 12, border: "1px solid #B2DFDB" }}>
+                      <p style={{ margin: "0 0 3px", fontSize: 12, fontWeight: 700, color: "#4A5F5A" }}>Fruchtbarste Zeit — jetzt gut aufpassen</p>
+                      <p style={{ margin: 0, fontSize: 11.5, color: "#4A5F5A", lineHeight: 1.55 }}>
                         Diese Phase enthält den Eisprung und ist deine fruchtbarste Zeit im Zyklus. Das fruchtbare Fenster umfasst etwa die 5 Tage davor plus den Eisprungtag. {istJugendlich ? "Wenn du Sex hast, ist Verhütung gerade jetzt besonders wichtig — am sichersten mit Kondom (schützt auch vor Krankheiten). Verlass dich nicht auf „sichere Tage\", denn der Eisprung kann sich verschieben." : "Wenn du nicht schwanger werden möchtest, ist jetzt Verhütung besonders wichtig."} Hinweis: Die Berechnung ist nur eine Schätzung und <strong>allein nicht zur Verhütung geeignet</strong>.
                       </p>
                     </div>
@@ -12331,11 +12435,11 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
 
                   {/* Do's */}
                   <div style={{ marginBottom: 8 }}>
-                    <p style={{ margin: "0 0 5px", fontSize: 12, fontWeight: 700, color: "#2E7D32" }}>✅ Jetzt ideal</p>
+                    <p style={{ margin: "0 0 5px", fontSize: 12, fontWeight: 700, color: "#5E6E5C" }}>✅ Jetzt ideal</p>
                     <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                       {(istJugendlich ? PHASEN_TEEN[p.id].dos : info.dos).map((d, i) => (
                         <div key={i} style={{ fontSize: 11.5, color: "#444", lineHeight: 1.4, paddingLeft: 16, position: "relative" }}>
-                          <span style={{ position: "absolute", left: 0, color: "#2E7D32" }}>•</span>{d}
+                          <span style={{ position: "absolute", left: 0, color: "#5E6E5C" }}>•</span>{d}
                         </div>
                       ))}
                     </div>
@@ -12343,11 +12447,11 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
 
                   {/* Don'ts */}
                   <div style={{ marginBottom: 4 }}>
-                    <p style={{ margin: "0 0 5px", fontSize: 12, fontWeight: 700, color: "#C62828" }}>❌ Jetzt besser vermeiden</p>
+                    <p style={{ margin: "0 0 5px", fontSize: 12, fontWeight: 700, color: "#A34A44" }}>Jetzt besser vermeiden</p>
                     <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                       {(istJugendlich ? PHASEN_TEEN[p.id].donts : info.donts).map((d, i) => (
                         <div key={i} style={{ fontSize: 11.5, color: "#444", lineHeight: 1.4, paddingLeft: 16, position: "relative" }}>
-                          <span style={{ position: "absolute", left: 0, color: "#C62828" }}>•</span>{d}
+                          <span style={{ position: "absolute", left: 0, color: "#A34A44" }}>•</span>{d}
                         </div>
                       ))}
                     </div>
@@ -12376,23 +12480,23 @@ function RezeptKarte({ r, phase, onClick, tagesplanSlots, tagesplan, zyklusTag, 
         <div style={{ flex: 1, cursor: "pointer" }} onClick={onClick}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <p style={{ margin: "0 0 2px", fontSize: 14, fontWeight: 700, color: "#222", flex: 1, lineHeight: 1.3 }}>{rezeptAnzeigeName(r, istJugendlich)}</p>
-            {r.thermomix && <span style={{ fontSize: 10, background: "#E3F2FD", color: "#1565C0", padding: "2px 6px", borderRadius: 8, marginLeft: 6, whiteSpace: "nowrap" }}>🌀 TM6</span>}
+            {r.thermomix && <span style={{ fontSize: 10, background: "#EAEEF1", color: "#4A6478", padding: "2px 6px", borderRadius: 8, marginLeft: 6, whiteSpace: "nowrap" }}>TM6</span>}
           </div>
           <div style={{ display: "flex", gap: 6, marginTop: 4, alignItems: "center" }}>
             <span style={{ fontSize: 11, color: "#aaa" }}>⏱ {formatZeit(r.zeit)}</span>
             <span style={{ fontSize: 11, color: "#aaa" }}>·</span>
-            <span style={{ fontSize: 11, color: "#aaa" }}>🔥 {r.kalorien} kcal</span>
+            <span style={{ fontSize: 11, color: "#aaa" }}>{r.kalorien} kcal</span>
             <span style={{ fontSize: 11, color: "#aaa" }}>·</span>
             <span style={{ fontSize: 10, color: "#aaa" }}>{r.buchSeite}</span>
           </div>
           <div style={{ display: "flex", gap: 4, marginTop: 5, flexWrap: "wrap" }}>
-            {r.diät.map(d => <span key={d} style={{ fontSize: 10, background: "#f5f5f5", color: "#888", padding: "1px 6px", borderRadius: 8 }}>{d === "vegan" ? "🌱 Vegan" : d === "vegetarisch" ? "🥚 Veg" : d === "omnivor" ? "🥩 Omni" : d === "gf" ? "🌾 GF" : d}</span>)}
+            {r.diät.map(d => <span key={d} style={{ fontSize: 10, background: "#F4F1EB", color: "#888", padding: "1px 6px", borderRadius: 8 }}>{d === "vegan" ? "Vegan" : d === "vegetarisch" ? "🥚 Veg" : d === "omnivor" ? "🥩 Omni" : d === "gf" ? "🌾 GF" : d}</span>)}
           </div>
         </div>
         <button aria-label="Zum Tagesplan hinzufügen" onClick={() => setMenuOffen(m => !m)} style={{ background: menuOffen ? phase.farbe : phase.hellFarbe, border: "none", borderRadius: 8, padding: "6px 10px", cursor: "pointer", color: menuOffen ? "#fff" : phase.farbe, fontSize: 16, flexShrink: 0 }}>+</button>
       </div>
       {menuOffen && (
-        <div style={{ marginTop: 10, borderTop: "1px solid #f5f5f5", paddingTop: 10 }}>
+        <div style={{ marginTop: 10, borderTop: "1px solid #F4F1EB", paddingTop: 10 }}>
           <p style={{ margin: "0 0 6px", fontSize: 11, color: "#aaa" }}>Zum Tagesplan hinzufügen:</p>
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
             {tagesplanSlots.map(slot => {
@@ -12421,49 +12525,49 @@ function RezeptModal({ r, phase, portionen, setPortionen, onClose, onLog, tagesp
     <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.55)", zIndex: 1000, display: "flex", alignItems: "flex-end", justifyContent: "center" }} onClick={onClose}>
       <div onClick={e => e.stopPropagation()} style={{ background: "#fff", borderRadius: "20px 20px 0 0", maxWidth: 480, width: "100%", maxHeight: "92vh", overflowY: "auto", boxShadow: "0 -8px 40px rgba(0,0,0,0.2)" }}>
         {/* Modal Header */}
-        <div style={{ position: "sticky", top: 0, background: "#fff", padding: "16px 18px 12px", borderBottom: "1px solid #f5f5f5", zIndex: 10 }}>
+        <div style={{ position: "sticky", top: 0, background: "#fff", padding: "16px 18px 12px", borderBottom: "1px solid #F4F1EB", zIndex: 10 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div style={{ flex: 1 }}>
               <p style={{ margin: "0 0 2px", fontSize: 11, color: "#aaa" }}>{r.buchSeite} · {(istJugendlich ? KATEGORIE_NAMEN_TEEN : KATEGORIE_NAMEN)[r.kategorie]}</p>
               <h2 style={{ margin: 0, fontSize: 18, fontWeight: 800, color: "#222", lineHeight: 1.2 }}>{rezeptAnzeigeName(r, istJugendlich)}</h2>
             </div>
-            <button aria-label="Rezept schließen" onClick={onClose} style={{ background: "#f0f0f0", border: "none", borderRadius: "50%", width: 30, height: 30, cursor: "pointer", fontSize: 14, marginLeft: 10, flexShrink: 0 }}>✕</button>
+            <button aria-label="Rezept schließen" onClick={onClose} style={{ background: "#EEEAE3", border: "none", borderRadius: "50%", width: 30, height: 30, cursor: "pointer", fontSize: 14, marginLeft: 10, flexShrink: 0 }}>✕</button>
           </div>
           <div style={{ display: "flex", gap: 12, marginTop: 8, fontSize: 12, color: "#888" }}>
             <span>⏱ {formatZeit(r.zeit)}</span>
-            <span>🔥 {r.kalorien} kcal</span>
-            <span>👩‍🍳 {r.schwierigkeit}</span>
-            {r.thermomix && <span style={{ color: "#1565C0" }}>🌀 TM6</span>}
+            <span>{r.kalorien} kcal</span>
+            <span>{r.schwierigkeit}</span>
+            {r.thermomix && <span style={{ color: "#4A6478" }}>TM6</span>}
           </div>
         </div>
 
         <div style={{ padding: "14px 18px 20px" }}>
           {/* Hinweis — für Jugendliche keine Fasten-Bezüge zeigen */}
-          {r.hinweis && !(istJugendlich && /fast/i.test(r.hinweis)) && <div style={{ background: "#FFF8E1", border: "1px solid #FFE082", borderRadius: 10, padding: "8px 12px", marginBottom: 14, fontSize: 12, color: "#5D4037", lineHeight: 1.5 }}>{r.hinweis}</div>}
+          {r.hinweis && !(istJugendlich && /fast/i.test(r.hinweis)) && <div style={{ background: "#F4EEE2", border: "1px solid #D8C8B5", borderRadius: 10, padding: "8px 12px", marginBottom: 14, fontSize: 12, color: "#5D4037", lineHeight: 1.5 }}>{r.hinweis}</div>}
 
           {/* TM6 Toggle */}
           {r.thermomix && (
             <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
-              <button onClick={() => setTmModus(false)} style={{ flex: 1, background: !tmModus ? "#333" : "#f5f5f5", color: !tmModus ? "#fff" : "#666", border: "none", borderRadius: 8, padding: "8px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>🍳 Standard</button>
-              <button onClick={() => setTmModus(true)} style={{ flex: 1, background: tmModus ? "#1565C0" : "#f5f5f5", color: tmModus ? "#fff" : "#666", border: "none", borderRadius: 8, padding: "8px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>🌀 Thermomix TM6</button>
+              <button onClick={() => setTmModus(false)} style={{ flex: 1, background: !tmModus ? "#333" : "#F4F1EB", color: !tmModus ? "#fff" : "#666", border: "none", borderRadius: 8, padding: "8px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>Standard</button>
+              <button onClick={() => setTmModus(true)} style={{ flex: 1, background: tmModus ? "#4A6478" : "#F4F1EB", color: tmModus ? "#fff" : "#666", border: "none", borderRadius: 8, padding: "8px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>Thermomix TM6</button>
             </div>
           )}
 
           {/* Portionen */}
-          <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 14px", background: "#f8f8f8", borderRadius: 10, marginBottom: 14 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 14px", background: "#FAF8F4", borderRadius: 10, marginBottom: 14 }}>
             <span style={{ fontSize: 13, color: "#555", flex: 1 }}>Portionen</span>
-            <button aria-label="Eine Portion weniger" onClick={() => setPortionen(Math.max(1, portionen - 1))} style={{ background: "#e0e0e0", border: "none", borderRadius: "50%", width: 28, height: 28, cursor: "pointer", fontSize: 16 }}>−</button>
+            <button aria-label="Eine Portion weniger" onClick={() => setPortionen(Math.max(1, portionen - 1))} style={{ background: "#E9E3DB", border: "none", borderRadius: "50%", width: 28, height: 28, cursor: "pointer", fontSize: 16 }}>−</button>
             <span style={{ fontSize: 18, fontWeight: 800, minWidth: 24, textAlign: "center", color: phase.farbe }}>{portionen}</span>
-            <button aria-label="Eine Portion mehr" onClick={() => setPortionen(portionen + 1)} style={{ background: "#e0e0e0", border: "none", borderRadius: "50%", width: 28, height: 28, cursor: "pointer", fontSize: 16 }}>+</button>
+            <button aria-label="Eine Portion mehr" onClick={() => setPortionen(portionen + 1)} style={{ background: "#E9E3DB", border: "none", borderRadius: "50%", width: 28, height: 28, cursor: "pointer", fontSize: 16 }}>+</button>
           </div>
 
           {/* Zutaten — IN VERWENDUNGSREIHENFOLGE */}
-          <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#333" }}>🛒 Zutaten ({portionen} {portionen === 1 ? "Portion" : "Portionen"})</p>
+          <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#333" }}>Zutaten ({portionen} {portionen === 1 ? "Portion" : "Portionen"})</p>
           {r.zutaten.map((z, i) => {
             const m = z.menge * faktor;
             const anzeige = Number.isInteger(m) ? m : m < 1 ? m.toFixed(2).replace(/0+$/, "").replace(/\.$/, "") : m.toFixed(1);
             return (
-              <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "7px 0", borderBottom: "1px solid #f5f5f5", alignItems: "center" }}>
+              <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "7px 0", borderBottom: "1px solid #F4F1EB", alignItems: "center" }}>
                 <div style={{ flex: 1 }}>
                   <span style={{ fontSize: 14, color: "#333" }}>{z.name}</span>
                   {z.gruppe && <span style={{ fontSize: 10, color: "#ccc", marginLeft: 6 }}>{z.gruppe}</span>}
@@ -12475,7 +12579,7 @@ function RezeptModal({ r, phase, portionen, setPortionen, onClose, onLog, tagesp
 
           {/* Zubereitung */}
           <p style={{ margin: "16px 0 8px", fontSize: 13, fontWeight: 700, color: "#333" }}>
-            {tmModus ? "🌀 Thermomix TM6 – Zubereitung" : "📝 Zubereitung"}
+            {tmModus ? "Thermomix TM6 – Zubereitung" : "Zubereitung"}
           </p>
           <ol style={{ margin: "0 0 16px", padding: "0 0 0 18px" }}>
             {(schritte || r.schritte).map((s, i) => (
