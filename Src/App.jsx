@@ -34,7 +34,7 @@ const DS = {
   schattenHeld: (farbe) => `0 8px 24px ${farbe}26`,
   // Typo-Skala
   t: {
-    eyebrow: { fontSize: 11, fontWeight: 600, letterSpacing: 0.8, textTransform: "uppercase" },
+    eyebrow: { fontSize: 12, fontWeight: 600, letterSpacing: 0.8, textTransform: "uppercase" },
     h1: { fontSize: 25, fontWeight: 800, letterSpacing: -0.4 },
     h2: { fontSize: 18, fontWeight: 800, letterSpacing: -0.2 },
     h3: { fontSize: 15, fontWeight: 700 },
@@ -74,7 +74,7 @@ const PHASEN = {
     fastenEmpfehlung: ["13h","15h","17h","OMAD","24h","36h"],
     naehrstoffe: ["Gesunde Fette","Protein","Kreuzblütler","Fermentierte Lebensmittel","Omega-3"],
     lebensmittelFokus: ["Avocado","Lachs","Eier","Brokkoli","Kimchi","Sauerkraut","Nüsse","Olivenöl","Samen"],
-    buchTipp: "Pelz: Ketobiotic, 50g KH/Tag, Protein 0,8g/kg (ihr Wert fürs Ketose-Ziel). Sims: Intensivstes Training des Monats — 32% mehr Kraftzuwachs in dieser Phase möglich; wenn du aktiv trainierst, brauchst du deutlich mehr Protein (1,8–2,2g/kg) — siehe Karte „Wie viel Protein braucht ihr wirklich?“.",
+    buchTipp: "Pelz: Ketobiotic, 50g KH/Tag, Protein 0,8g/kg (ihr Wert fürs Ketose-Ziel). Sims: Gute Phase für intensiveres Training — in ihrer Lesart bis zu 32% mehr Kraftzuwachs möglich (Studienlage dazu ist uneinheitlich, dein Tagesgefühl zählt mehr); wenn du aktiv trainierst, brauchst du deutlich mehr Protein (1,8–2,2g/kg) — siehe Karte „Wie viel Protein braucht ihr wirklich?“.",
     simsPhase: "🟢 Low Hormone Phase (Sims)",
     simsKompatibel: true,
     icon: "🌱",
@@ -295,57 +295,57 @@ const MOND_PHASEN_INFO = {
 
 const MENOPAUSE_WISSEN = [
   {
-    id: "gehirn", icon: "🧠", titel: "Dein Gehirn in der Menopause",
+    id: "gehirn", kern: "Gehirnnebel in den Wechseljahren ist ein echtes biologisches Phänomen, keine Einbildung.", relevanz: "Der Östrogenabfall verändert, wie dein Gehirn Energie nutzt. Das erklärt Wortfindungsstörungen und Konzentrationsprobleme — und es bessert sich meist wieder.", evidenz: "belegt", quelle: "Patrick", icon: "🧠", titel: "Dein Gehirn in der Menopause",
     text: `Der sogenannte 'Menopause-Nebel' (Konzentrationsprobleme, Wortfindung, Vergesslichkeit) ist real — aber kein Zeichen von Verfall. Dein Gehirn stellt durch den sinkenden Östrogenspiegel seinen Treibstoff um: von Glukose auf Ketone. Pelz beschreibt, dass viele Frauen geistige Klarheit zurückgewinnen, sobald sie ihren Stoffwechsel durch Fasten und die richtige Ernährung flexibel machen. Der Nebel lichtet sich, wenn das Gehirn den Treibstoff bekommt, den es jetzt braucht.`,
     tipps: ["Metabolische Flexibilität durch Fasten aufbauen", "Stabiler Blutzucker (siehe Glukose-Hacks)", "Omega-3 (DHA) für die Gehirnzellen", "Neues lernen hält das Gehirn plastisch"],
   },
   {
-    id: "emotionen", icon: "💭", titel: "Emotionen & Stimmung",
+    id: "emotionen", kern: "Stimmungsschwankungen in den Wechseljahren haben hormonelle Ursachen — sie sind kein Charakterfehler.", relevanz: "Schwankendes Östrogen wirkt direkt auf Serotonin. Wenn du das weißt, kannst du milder mit dir sein und gezielt gegensteuern statt dich zu hinterfragen.", evidenz: "belegt", icon: "💭", titel: "Emotionen & Stimmung",
     text: `Schwankende und sinkende Hormone beeinflussen deine Botenstoffe (Serotonin, Dopamin, GABA, Oxytocin). Stimmungstiefs, Reizbarkeit oder Ängstlichkeit sind biochemisch — nicht ein Versagen. Pelz sieht die Menopause als Übergang zu mehr Klarheit und Selbstvertrauen: Wenn die Hormone der reproduktiven Jahre nachlassen, tritt oft die eigene, authentische Stimme klarer hervor.`,
     tipps: ["Dopamin: neue Aktivitäten, kleine Erfolge feiern", "Serotonin: Mittagssonne, Tryptophan-reiche Kost, Erdung", "GABA: Yoga Nidra, Kräutertees, langsame Nasenatmung", "Oxytocin: echte Verbindungen, Umarmungen, Gemeinschaft"],
   },
   {
-    id: "ernaehrung", icon: "🥑", titel: "Ernährung & Fasten",
+    id: "ernaehrung", kern: "In den Wechseljahren braucht dein Körper mehr Protein und stabileren Blutzucker als früher.", relevanz: "Der sinkende Östrogenspiegel erschwert Muskelaufbau und macht insulinresistenter. Protein zu jeder Mahlzeit ist der wirksamste einzelne Hebel.", evidenz: "belegt", quelle: "Sims, Next Level", icon: "🥑", titel: "Ernährung & Fasten",
     text: `Mit dem Östrogen-Rückgang verändert sich dein Stoffwechsel. Pelz empfiehlt in der Menopause oft längere Fastenfenster und eine ursprüngliche, unverarbeitete Ernährung (Gemüse, Knollen, gutes Fleisch, gesunde Fette, etwas Obst) — angelehnt an unsere sammelnden Vorfahrinnen. Wichtig ist Abwechslung und Variation statt strikter Dauerregeln. Zucker und ultraverarbeitete Lebensmittel belasten den menopausalen Körper besonders.`,
     tipps: ["Längere Fastenfenster sind oft gut verträglich", "Viel Protein für Muskelerhalt", "Unverarbeitete, echte Lebensmittel", "Abwechslung statt strenger Dauerdiät"],
   },
   {
-    id: "primal", icon: "🍖", titel: "Die Primal Menopausal Diet",
+    id: "primal", kern: "Die Primal Menopausal Diet setzt auf gute Fette, viel Protein und wenig verarbeitete Kohlenhydrate.", relevanz: "Pelz empfiehlt sie, weil der veränderte Stoffwechsel nach der Menopause anders auf Zucker reagiert. Fermentierte Milchprodukte sind dabei ausdrücklich erlaubt.", evidenz: "experten", quelle: "Pelz, Age Like a Girl", icon: "🍖", titel: "Die Primal Menopausal Diet",
     text: `Dr. Pelz' Ernährungsplan speziell für die Menopause: viel gesundes Fett, moderates Protein, wenig Kohlenhydrate — aber mit den 'Kohlenhydraten der Natur' (Knollen, Hülsenfrüchte, Obst). Anders als eine strenge Keto-Diät, denn das menopausale Gehirn braucht etwas natürliche Kohlenhydrate. In Kombination mit Fasten produziert dein Körper Ketone — der ideale Treibstoff fürs Gehirn gegen den 'Menopause-Nebel'.\n\nKnollen (Süßkartoffel, Pastinake & Co.) spielen eine Schlüsselrolle: Sie stabilisieren den Blutzucker, füttern das Mikrobiom (wichtig fürs 'Estrobolom', das den Östrogen-Stoffwechsel reguliert) und liefern Vitamin B6 und Magnesium für GABA und Serotonin.\n\nTipp: Im Rezepte-Bereich kannst du mit dem Schalter 'Nur Primal Menopausal Diet' gezielt passende Rezepte anzeigen.`,
     tipps: ["✅ Mageres Fleisch, Fisch, Eier, Meeresfrüchte", "✅ Gemüse, Knollen & Wurzelgemüse, etwas Obst", "✅ Nüsse, Samen, gesunde Fette (auch MCT-Öl)", "✅ Ausnahme bei Milch: fermentiertes wie Naturjoghurt & Kefir ist erwünscht (Probiotika fürs Estrobolom)", "❌ Getreide, Zucker, nicht-fermentierte Milchprodukte, Verarbeitetes"],
   },
   {
-    id: "naehrstoffe", icon: "💊", titel: "Schlüssel-Nährstoffe: Kollagen & Kreatin",
+    id: "naehrstoffe", kern: "Kollagen und Kreatin gehören zu den am besten untersuchten Ergänzungen für Frauen ab der Lebensmitte.", relevanz: "Kreatin wird für Muskeln, Knochen und Gehirn diskutiert, Kollagen für Bindegewebe. Beides ergänzt Krafttraining — es ersetzt es nicht.", evidenz: "hinweise", quelle: "Patrick / Candow", icon: "💊", titel: "Schlüssel-Nährstoffe: Kollagen & Kreatin",
     text: `Zwei Nährstoffe werden in der Menopause besonders wichtig, weil Östrogen sie nicht mehr unterstützt:\n\nKollagen hält Haut, Gelenke und Bindegewebe elastisch. Mangelzeichen: Gelenkschmerzen, schlaffe Haut, Verletzungsanfälligkeit. Quellen: Knochenbrühe, kollagenreiche Lebensmittel, Vitamin C, ggf. Supplement.\n\nKreatin unterstützt Muskeln UND Gehirn. Mangelzeichen: Muskelschwäche, Müdigkeit, geistige Trägheit. Quellen: Krafttraining 2–3x/Woche, Wildfisch, Weidefleisch, Kreatin-Monohydrat als Supplement.\n\nMehr zu Kreatin (Dosierung, Mythen, Vorteile für Frauen) findest du ausführlich im Tab 💡 Verstehen.`,
     tipps: ["Knochenbrühe & Vitamin C für Kollagen", "Krafttraining 2–3x/Woche für Kreatin-Wirkung", "Wildfisch & Weidefleisch", "Kreatin: ~8–10 g/Tag auch fürs Gehirn (Details im Verstehen-Tab)", "Supplemente bei Bedarf (ärztlich abklären)"],
   },
   {
-    id: "schlaf", icon: "😴", titel: "Besser schlafen",
+    id: "schlaf", kern: "Schlafprobleme sind eines der häufigsten und belastendsten Wechseljahres-Symptome.", relevanz: "Sie sind biologisch begründet und wirken auf Stimmung, Gedächtnis und Stoffwechsel zurück. Deshalb lohnt es, Schlaf gezielt anzugehen statt ihn hinzunehmen.", evidenz: "belegt", quelle: "Patrick", icon: "😴", titel: "Besser schlafen",
     text: `Schlafprobleme gehören zu den häufigsten Menopause-Beschwerden — oft durch sinkendes Progesteron (das beruhigend wirkt) und nächtliche Hitzewallungen. Guter Schlaf ist die Grundlage für Stimmung, Gehirn und Hormonbalance.`,
     tipps: ["Schlafzimmer kühl halten (gegen Hitzewallungen)", "Magnesium-Threonat oder -Glycinat am Abend", "GABA fördern: Yoga Nidra, Kamillentee", "Feste Schlafenszeiten, Bildschirme früh aus"],
   },
   {
-    id: "knochen_kraft", icon: "🏋️‍♀️", titel: "Knochen & Muskeln: Belastung zuerst",
+    id: "knochen_kraft", kern: "Für die Knochen zählt Belastung mehr als jedes Nahrungsergänzungsmittel.", relevanz: "Nach der Menopause beschleunigt sich der Knochenabbau. Krafttraining mit mehreren Gelenken und Sprungbelastung sind die stärksten Signale zum Knochenerhalt.", evidenz: "belegt", quelle: "Patrick / Candow", icon: "🏋️‍♀️", titel: "Knochen & Muskeln: Belastung zuerst",
     text: `Mit dem Östrogenabfall sinkt der Schutz für Knochen und Muskeln — das Risiko für Osteopenie und Osteoporose steigt. Dr. Rhonda Patrick (FoundMyFitness) macht hier einen klaren Punkt: Der wirksamste Hebel ist nicht ein Supplement, sondern mechanische Belastung. Krafttraining und Stoß-/Sprungreize bauen Knochen- und Muskelmasse auf, bevor Verluste entstehen — idealerweise früh damit anfangen, nicht erst wenn die Knochendichte schon niedrig ist. Supplemente sind ergänzend, nicht der Kern.`,
     tipps: ["Krafttraining mit mehrgelenkigen Übungen (Kniebeuge, Kreuzheben, Drücken) 2–3×/Woche", "Stoß-/Sprungbelastung (z.B. Hüpfen, zügiges Gehen, Treppen) reizt den Knochen", "Vitamin D + Calcium sicherstellen (Status messen lassen)", "Eine Studie zeigte: HIIT + Vitamin D verbesserte die Knochendichte-Zuwächse deutlich stärker", "Kollagen & Kreatin können ergänzen — aber Training ist die Basis", "Früh anfangen: Prävention wirkt am besten VOR Osteopenie/Osteoporose"],
   },
   {
-    id: "gehirn_schlaf_altern", icon: "🧬", titel: "Östrogen, Schlaf & Gehirn-Alterung",
+    id: "gehirn_schlaf_altern", kern: "Östrogen, Schlafqualität und Gehirnalterung hängen zusammen.", relevanz: "Menopausebedingte Schlafstörung wurde mit beschleunigter biologischer Alterung in Verbindung gebracht — ein Grund, Schlaf ernst zu nehmen, kein Grund zur Angst.", evidenz: "hinweise", quelle: "Patrick", icon: "🧬", titel: "Östrogen, Schlaf & Gehirn-Alterung",
     text: `Dr. Rhonda Patrick rahmt die Menopause als neuro-metabolischen Übergang: Der Östrogenabfall, die Schlafqualität und die kognitive Leistung hängen zusammen. Niedrigeres Östradiol rund um die Menopause wurde mit schlechterem Gedächtnis in Verbindung gebracht, und menopausebedingte Schlafstörung mit beschleunigter biologischer Alterung. Die Botschaft ist ermutigend, nicht beängstigend: Schlaf und Gehirnnebel sind echte biologische Marker — und genau deshalb lohnt es sich, sie ernst zu nehmen und gezielt zu unterstützen, statt sie abzutun.`,
     tipps: ["Schlaf als Priorität behandeln — er wirkt direkt auf Stimmung & Gedächtnis", "Krafttraining & Bewegung unterstützen auch die Gehirngesundheit", "Omega-3 (DHA) und stabiler Blutzucker fürs Gehirn", "Niedrig dosiertes Kreatin wird als möglicher Baustein gegen Brain-Fog/Fatigue untersucht (Evidenz noch jung)", "Gehirnnebel ist kein Verfall — sondern ein Signal, das Unterstützung verdient"],
   },
   {
-    id: "hrt", nurInfo: true, icon: "⚖️", titel: "Hormontherapie (HRT) — informiert abwägen",
+    id: "hrt", kern: "Ob eine Hormontherapie für dich passt, hängt von Zeitpunkt, Risikoprofil und deinen Beschwerden ab.", relevanz: "Patrick diskutiert HRT nicht pauschal, sondern nach Timing und individuellem Risiko. Diese Entscheidung gehört in ärztliche Hand — MoreSync hilft nur beim Informieren.", evidenz: "hinweise", quelle: "Patrick", nurInfo: true, icon: "⚖️", titel: "Hormontherapie (HRT) — informiert abwägen",
     text: `Die Hormontherapie (HRT/MHT) ist eines der wichtigsten — und am meisten missverstandenen — Menopause-Themen. Lange hatten Frauen und Ärzt:innen große Angst davor: Eine große Studie von 2002 legte höhere Risiken für Brustkrebs, Herzinfarkt und Schlaganfall nahe, und die Verschreibungen brachen ein. Heute ordnet man das anders ein. Stacy Sims („ROAR") fasst die aktuelle Sicht zusammen: Diese Risiken wurden überbewertet. Die Menopause Society (2022) hält fest: Für Frauen unter 60 oder innerhalb von 10 Jahren nach Beginn der Menopause, ohne Gegenanzeigen, ist das Nutzen-Risiko-Verhältnis günstig — gegen belastende Beschwerden und zum Schutz vor Knochenschwund.\n\nDr. Rhonda Patrick ergänzt eine wichtige Denkweise: HRT ist nicht pauschal „gut" oder „schlecht", sondern hängt von Zeitpunkt, Form und Risikoprofil ab. Der Beginn nahe dem Menopause-Start („Timing-Hypothese"), die Darreichungsform (z.B. transdermal statt oral) und die persönliche Vorgeschichte machen einen Unterschied. Besonders spannend: Östrogen scheint auch das Gehirn zu schützen — Beobachtungsdaten deuten auf besseres Gedächtnis und weniger Hippocampus-Schrumpfung bei frühem Start hin. Bei Trägerinnen der Genvariante APOE4 (erhöhtes Alzheimer-Risiko) ist das besonders relevant.\n\nEhrliche Einordnung: Vieles zum Gehirn ist noch Beobachtungs- und Diskussionsmaterial, keine feste Leitlinie. Klar ist: HRT ist eine sehr individuelle Entscheidung, die in die Hände einer informierten Ärztin gehört. Ein separates, sehr sicheres Thema sind lokale vaginale Hormone gegen Trockenheit und Harnwegsinfekte (siehe „Dein Körper" → sexuelle Gesundheit) — die brauchen diese Abwägung nicht.`,
     tipps: ["HRT ist eine individuelle Nutzen-Risiko-Entscheidung — kein Pauschalurteil", "Die Angst beruht auf einer überbewerteten Studie von 2002", "Heute: für viele Frauen unter 60 / <10 Jahre nach Menopausenbeginn günstiges Verhältnis", "Timing zählt: früher Start wird oft anders bewertet als ein später", "Form & Dosis besprechen (z.B. transdermale Optionen)", "Östrogen wirkt evtl. schützend aufs Gehirn (Timing-Hypothese, bei APOE4 relevant)", "Schützt auch vor Knochenschwund (Osteoporose)", "Risikoprofil (Thrombose, Brustkrebs, Genetik) einbeziehen", "Lokale vaginale Hormone gegen Trockenheit/UTIs sind ein separates, sehr sicheres Thema", "Such dir eine auf Menopause/Hormone spezialisierte Ärztin"],
   },
   {
-    id: "detox", icon: "🫧", titel: "Entgiftung: warum der Nebel kommt",
+    id: "detox", kern: "Der Körper entgiftet über Leber, Darm und Nieren — dafür braucht er Ballaststoffe, Wasser und Bitterstoffe.", relevanz: "Kreuzblütler wie Brokkoli unterstützen die Leber beim Abbau von Hormonabbauprodukten. Detox-Kuren braucht es dafür nicht.", evidenz: "praxis", quelle: "Pelz", icon: "🫧", titel: "Entgiftung: warum der Nebel kommt",
     text: `Ein eigenständiger Gedanke von Dr. Mindy Pelz: Über die Jahre speichert der Körper Umweltgifte (z.B. Schwermetalle wie Blei, Cadmium, Aluminium) in Knochen und Fettgewebe. Wenn in der Menopause das Östrogen sinkt, wird vermehrt Knochenmasse umgebaut — und dabei können diese eingelagerten Stoffe wieder in den Blutkreislauf freigesetzt werden. Da das Gehirn das fettreichste Organ ist, landen sie oft dort. Pelz sieht darin einen möglichen Mitauslöser für Stimmungstiefs, Wortfindungs- und Gedächtnisprobleme im Übergang. Wichtig zur Einordnung: Das ist Pelz' Lesart; die Forschung dazu ist noch im Aufbau, und nicht jede Frau muss sich damit beschäftigen. Kein Grund zur Sorge — eher ein Angebot, falls Gehirnsymptome stark sind.`,
     tipps: ["Pelz' Bild vom „Fass\": Jede:r hat eine unterschiedlich große Toleranz für Giftstoffe", "Sanfte, alltägliche Unterstützung: Kreuzblütler (Brokkoli/Sprossen), Ballaststoffe, viel Wasser, Schwitzen/Sauna, Bewegung", "Belastung von vornherein senken (siehe auch Mikroplastik/BPA-Tipps)", "Wichtiger Fasten-Hinweis (Pelz): In Hormon-Hochphasen NICHT extrem lange fasten — sonst können doppelt Giftstoffe frei werden. Kurzes Fasten bei hohen Hormonen", "Bei starken, anhaltenden Symptomen: ärztlich abklären statt selbst zu „entgiften\"", "Nicht jede braucht das — eher relevant, wenn Gehirn-/Stimmungssymptome ausgeprägt sind"],
   },
   {
-    id: "gehirn_treibstoff", icon: "🧠", titel: "Treibstoff fürs Gehirn",
+    id: "gehirn_treibstoff", kern: "Dein Gehirn kann neben Glukose auch Ketone als Brennstoff nutzen.", relevanz: "Wenn die Glukoseverwertung im Gehirn nachlässt, können Ketone eine Alternative sein. Gute Fette und stabiler Blutzucker unterstützen das.", evidenz: "hinweise", quelle: "Pelz", icon: "🧠", titel: "Treibstoff fürs Gehirn",
     text: `Der menopausale Gehirnnebel hat oft auch mit dem Energiestoffwechsel zu tun: Mit dem Östrogenabfall kann das Gehirn Glukose schlechter nutzen. Pelz' Ansatz ist, dem Gehirn einen alternativen Treibstoff anzubieten — Ketone, die der Körper beim Fasten oder bei sehr kohlenhydratarmer Ernährung bildet. Viele Frauen berichten, dass sich ihr Kopf damit klarer anfühlt. Das ergänzt sich gut mit dem, was im Verstehen-Tab zu Kreatin steht (auch ein Gehirn-Energie-Baustein).`,
     tipps: ["Primal Menopausal Diet: nährstoffreich, wenig Zucker & hochverarbeitete Carbs", "Verschiedene Fastenlängen ausprobieren — welche gibt DIR die beste Klarheit?", "MCT-Öl in den Morgenkaffee (liefert schnell Ketone)", "Im Fastenfenster ggf. mit Ketonen experimentieren", "Aminosäuren & Mineralstoffe in die tägliche Routine aufnehmen", "Kreatin als zusätzlichen Gehirn-Baustein bedenken (Details im Verstehen-Tab)"],
   },
@@ -360,13 +360,13 @@ const MENOPAUSE_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const COLLAGEN_WISSEN = [
   {
-    id: "collagen_warum", nurInfo: true, icon: "✨", titel: "Kollagen — warum es für Frauen zählt",
+    id: "collagen_warum", kern: "Kollagen ist das Strukturprotein für Haut, Sehnen, Gelenke und Knochen.", relevanz: "Die Eigenproduktion sinkt mit dem Alter und nach der Menopause. Die Studienlage zu Präparaten ist gemischt.", evidenz: "hinweise", quelle: "Patrick", nurInfo: true, icon: "✨", titel: "Kollagen — warum es für Frauen zählt",
     text: `Kollagen ist das häufigste Eiweiß in deinem Körper — es ist der Baustoff, der Haut, Knochen, Gelenke, Sehnen, Haare und Nägel zusammenhält und ihnen Festigkeit und Elastizität gibt. Man kann es sich wie das Gerüst vorstellen, das alles straff und stabil hält.\n\nDas Wichtige für Frauen: Ab etwa dem Alter von 25 Jahren beginnt die körpereigene Kollagenproduktion langsam zu sinken. Und weil Östrogen die Kollagenbildung fördert, verlieren Frauen rund um die Wechseljahre — wenn das Östrogen sinkt — besonders schnell Kollagen (in den ersten Jahren der Menopause teils deutlich). Die Folgen sieht und spürt man: Die Haut wird dünner und weniger elastisch, Gelenke können empfindlicher werden, Knochendichte und Haarfülle nehmen ab. Kollagen ist also weit mehr als ein Schönheitsthema — es geht um Haut, Knochen und Gelenke gleichzeitig.`,
     tipps: ["Kollagen ist der Baustoff für Haut, Knochen, Gelenke, Haare & Nägel", "Ab ~25 sinkt die körpereigene Produktion langsam", "Östrogen fördert Kollagen — darum Verlust rund um die Menopause", "Betrifft nicht nur die Haut, sondern auch Knochendichte & Gelenke", "Ein Gesundheitsthema, kein reines Beauty-Thema"],
     menopauseHinweis: "Dr. Lucia Aronica bringt es auf den Punkt: Ab etwa 25 verlieren wir rund 1 % Kollagen pro Jahr — und dieser Verlust verdoppelt sich nach der Menopause. Ihr Rat ist erfrischend unkompliziert: Statt zuerst zum Pulver zu greifen, lohnt sich der Blick auf kollagenreiche Lebensmittel, die wir oft wegwerfen — Fisch mit Haut, Dosenfisch mit Gräten (Lachs, Sardinen), Hähnchen mit Haut, langsam geschmortes Fleisch und Knochenbrühe. Dazu Vitamin C (Beeren, Paprika, Zitrus), das der Körper braucht, um Kollagen überhaupt zu bilden.",
   },
   {
-    id: "collagen_ernaehrung", icon: "🍳", titel: "Kollagen über die Ernährung unterstützen",
+    id: "collagen_ernaehrung", kern: "Der Körper braucht Vitamin C und Aminosäuren, um selbst Kollagen zu bilden.", relevanz: "Knochenbrühe, Eier und genug Protein plus Vitamin C unterstützen die eigene Produktion.", evidenz: "praxis", icon: "🍳", titel: "Kollagen über die Ernährung unterstützen",
     text: `Deinen Körper bei der Kollagenbildung zu unterstützen, geht zu einem großen Teil über die Ernährung. Zwei Dinge sind entscheidend: die Bausteine (Aminosäuren aus Eiweiß) und die Helfer (allen voran Vitamin C, das der Körper zwingend für die Kollagensynthese braucht).\n\nGute Quellen sind eiweißreiche Lebensmittel (Eier, Fisch, Fleisch, Hülsenfrüchte), Knochenbrühe, sowie reichlich Vitamin C aus Paprika, Beeren, Zitrusfrüchten und Brokkoli. Auch Zink und Kupfer (in Nüssen, Samen, Vollkorn) spielen mit. Wer zusätzlich ein Kollagenpräparat nimmt, greift meist zu hydrolysiertem Kollagen (in kleine Peptide zerlegt, dadurch gut aufnehmbar), oft kombiniert mit Vitamin C. Marines Kollagen (aus Fisch) gilt als besonders gut verwertbar. Die Studienlage ist noch jung, aber vielversprechend — vor allem für Hautelastizität und Gelenke.`,
     tipps: ["Eiweiß liefert die Bausteine: Eier, Fisch, Fleisch, Hülsenfrüchte", "Vitamin C ist Pflicht für die Kollagenbildung: Paprika, Beeren, Zitrus, Brokkoli", "Auch Zink & Kupfer helfen (Nüsse, Samen, Vollkorn)", "Knochenbrühe ist eine traditionelle Kollagenquelle", "Präparate: hydrolysiertes (marines) Kollagen + Vitamin C sind am besten untersucht", "Studienlage jung, aber vielversprechend für Haut & Gelenke"],
   },
@@ -375,17 +375,17 @@ const COLLAGEN_WISSEN = [
 // ─────────── NÄHRSTOFFE IM DETAIL (Ernährung zuerst, dann testen, dann ergänzen) ───────────
 const NAEHRSTOFF_INTRO = [
   {
-    id: "naehrstoff_grundsatz", nurInfo: true, icon: "🥗", titel: "Zuerst das Essen — der wichtigste Grundsatz",
+    id: "naehrstoff_grundsatz", kern: "Lebensmittel zuerst — Präparate ergänzen nur, was fehlt.", relevanz: "Nährstoffe aus Essen kommen im Verbund mit anderen Stoffen, die die Aufnahme verbessern.", evidenz: "belegt", quelle: "Patrick", nurInfo: true, icon: "🥗", titel: "Zuerst das Essen — der wichtigste Grundsatz",
     text: `Bevor es um einzelne Nahrungsergänzungsmittel geht, das Wichtigste vorweg — und bitte nimm dir das wirklich zu Herzen: Nahrungsergänzung heißt Ergänzung, nicht Ersatz. Die Basis ist und bleibt eine gute, bunte Ernährung. Die allermeisten Nährstoffe kannst du über echtes Essen decken, und das ist fast immer der bessere Weg, weil Lebensmittel ihre Stoffe in einem klugen Zusammenspiel liefern, das keine Kapsel nachbaut.\n\nDeshalb findest du bei jedem Nährstoff hier zuerst konkrete Ernährungs-Tipps: was du essen kannst, um ihn abzudecken. Erst wenn das über die Ernährung nicht reicht, wird ein Supplement sinnvoll.\n\nUnd der zweite Grundsatz: Rate nicht, sondern teste. Bevor du etwas dauerhaft einnimmst, lass deine Werte prüfen — denn zu viel eines Nährstoffs kann genauso ungünstig sein wie zu wenig. Wie du testen kannst (und was gerade für Frauen sinnvoll ist), findest du in der Test-Karte weiter unten.`,
     tipps: ["Ergänzung heißt Ergänzung — nicht Ersatz fürs Essen", "Die meisten Nährstoffe lassen sich über die Ernährung decken", "Bei jedem Nährstoff hier: zuerst Ernährungs-Tipps, dann Supplement", "Rate nicht — teste deine Werte, bevor du dauerhaft ergänzt", "Zu viel kann so ungünstig sein wie zu wenig"],
   },
   {
-    id: "wasser_wichtigkeit", nurInfo: true, icon: "💧", titel: "Genug trinken — die unterschätzte Basis",
+    id: "wasser_wichtigkeit", kern: "Genug zu trinken ist eine der einfachsten und meistunterschätzten Maßnahmen.", relevanz: "Die verbreitete Acht-Gläser-Regel hat keine wissenschaftliche Grundlage — dein Bedarf hängt von Aktivität und Wetter ab.", evidenz: "belegt", nurInfo: true, icon: "💧", titel: "Genug trinken — die unterschätzte Basis",
     text: `Bevor es um einzelne Nährstoffe geht: Wasser ist die Grundlage für fast alles im Körper. Jede Zelle, dein Blut, dein Stoffwechsel, die Verdauung, die Konzentration und sogar deine Stimmung brauchen genug Flüssigkeit. Schon leichter Flüssigkeitsmangel macht sich als Müdigkeit, Kopfschmerzen, Heißhunger oder Konzentrationsschwäche bemerkbar — das berühmte Nachmittagstief gegen 15 Uhr kommt laut Stacy Sims oft schlicht von zu wenig Körperwasser.\n\nWie viel? Eine starre Regel gibt es nicht — der Bedarf hängt von Größe, Bewegung, Hitze und Zyklusphase ab. Als Orientierung: Die meisten Frauen decken ihren Bedarf mit rund 2,3 Litern Gesamtwasser am Tag — und wichtig: Da zählt alles mit, auch wasserreiches Obst und Gemüse, Tee und Suppen, nicht nur pures Wasser. Die oft gehörte „8 Gläser"- oder gar „1-Gallone"-Regel hat übrigens keine wissenschaftliche Grundlage. Der einfachste Selbst-Check ist dein Morgenurin: hell-strohgelb heißt gut versorgt, dunkel heißt nachtrinken.\n\nFür Frauen besonders wichtig: In der zweiten Zyklushälfte (hohe Hormonphase) und rund um die Wechseljahre meldet sich der Durst weniger zuverlässig — Östrogen und Progesteron dämpfen das Durstsignal. Man trinkt dann leicht zu wenig, ohne es zu merken. Deshalb lohnt es sich, in dieser Zeit bewusst zu trinken, statt nur auf den Durst zu warten. Umgekehrt gilt: Literweise pures Wasser auf einmal ist nicht besser — der Körper scheidet das meiste einfach wieder aus, und sehr große Mengen können sogar den Salzhaushalt stören.`,
     tipps: ["Richtwert: rund 2 L über den Tag — Obst, Gemüse, Tee & Suppen zählen mit", "Morgenurin als Check: hell-strohgelb = gut, dunkel = nachtrinken", "In der 2. Zyklushälfte & Menopause bewusst trinken (der Durst meldet sich seltener)", "Nachmittagstief? Erst ein Glas Wasser statt gleich Snack oder Kaffee", "Nicht literweise auf einmal — über den Tag verteilt ist besser", "Beim Fasten & Sport zusätzlich an Elektrolyte denken (siehe Fasten-Hacks)"],
   },
   {
-    id: "naehrstoff_basis5", nurInfo: true, icon: "💊", titel: "Die 5 Basis-Supplemente im Überblick",
+    id: "naehrstoff_basis5", kern: "Fünf Basis-Supplemente decken für die meisten Frauen die häufigsten Lücken.", relevanz: "Vitamin D, Omega-3, Magnesium, gegebenenfalls Eisen und B12. Messen statt raten bleibt die Regel.", evidenz: "hinweise", quelle: "Patrick", nurInfo: true, icon: "💊", titel: "Die 5 Basis-Supplemente im Überblick",
     text: `Die Biochemikerin Dr. Rhonda Patrick betont: Die meisten Nahrungsergänzungsmittel sind überflüssig — Essen kommt zuerst. Fünf nennt sie aber, die sie fast allen empfiehlt, weil die Studienlage solide ist und viele Menschen Lücken haben: Omega-3, ein Multivitamin, Vitamin D (am besten mit K2), Magnesium und Kreatin. Sie ist Biochemikerin (PhD), keine Ärztin — das ist Bildung, keine medizinische Beratung.\n\nDie drei, die für Frauen besonders zählen — Omega-3, Magnesium und Vitamin D3 (mit K2) — schauen wir uns unten im Detail an: was sie im Körper tun und wie du sie über die Ernährung bekommst. Kollagen ist streng genommen kein „Basis-5"-Supplement, aber für Frauen eine sinnvolle Ergänzung, wenn man es über die Ernährung nicht schafft (siehe Kollagen-Karten).`,
     tipps: ["1. Omega-3 — für Herz, Gehirn & gegen Entzündungen", "2. Multivitamin — füllt typische Lücken", "3. Vitamin D (+ K2) — für Knochen, Immunsystem & Hormone", "4. Magnesium — für Schlaf, Muskeln & Nerven (>300 Prozesse)", "5. Kreatin — für Muskeln & Gehirn (siehe eigene Karten)", "Kollagen: keine Basis-5, aber sinnvolle Ergänzung für Frauen", "Diät zuerst, Supplemente füllen Lücken — und vorher testen"],
   },
@@ -393,34 +393,34 @@ const NAEHRSTOFF_INTRO = [
 
 const NAEHRSTOFF_WISSEN = [
   {
-    id: "omega3_warum", nurInfo: true, icon: "🐟", titel: "Omega-3 — was es im Körper tut",
+    id: "omega3_warum", kern: "Omega-3-Fettsäuren wirken entzündungshemmend und sind Baustoff für Gehirn und Zellmembranen.", relevanz: "Sie beeinflussen Stimmung, Konzentration und Zyklusbeschwerden. Die meisten Menschen nehmen zu wenig davon auf.", evidenz: "belegt", nurInfo: true, icon: "🐟", titel: "Omega-3 — was es im Körper tut",
     text: `Omega-3-Fettsäuren (vor allem EPA und DHA) gehören zu den am besten erforschten Nährstoffen überhaupt — und viele Frauen bekommen zu wenig davon. Sie sind Bausteine jeder Zellwand und wirken im ganzen Körper: EPA wirkt entzündungshemmend (wichtig bei PMS, Gelenken, Haut und Herz-Kreislauf-Gesundheit), DHA ist ein zentraler Baustein von Gehirn und Augen — es unterstützt Konzentration, Stimmung und Gedächtnis und ist in Schwangerschaft und Stillzeit für die Entwicklung des Babys entscheidend. Omega-3 trägt außerdem zu einem normalen Blutfettspiegel und einer normalen Herzfunktion bei. Gerade rund um die Menopause, wenn das Herz-Kreislauf-Risiko steigt, ist eine gute Omega-3-Versorgung wertvoll.`,
     tipps: ["EPA wirkt entzündungshemmend — gut bei PMS, Gelenken, Haut & Herz", "DHA ist Baustein für Gehirn & Augen — Fokus, Stimmung, Gedächtnis", "In Schwangerschaft & Stillzeit wichtig für die Baby-Entwicklung", "Unterstützt normale Herzfunktion & Blutfettwerte", "Besonders wertvoll rund um die Menopause (Herz-Kreislauf)"],
   },
   {
-    id: "omega3_ernaehrung", icon: "🍽️", titel: "Omega-3 über die Ernährung",
+    id: "omega3_ernaehrung", kern: "Fetter Seefisch ist die beste Omega-3-Quelle — pflanzliche Quellen liefern eine Vorstufe.", relevanz: "Zweimal pro Woche Lachs, Makrele oder Sardinen decken den Bedarf gut. Leinsamen und Walnüsse helfen, ersetzen Fisch aber nicht vollständig.", evidenz: "belegt", icon: "🍽️", titel: "Omega-3 über die Ernährung",
     text: `So deckst du Omega-3 übers Essen: Am besten wirken die direkt verfügbaren Formen EPA und DHA aus fettem Fisch. Iss 1–2× pro Woche fetten Kaltwasserfisch — Lachs, Makrele, Hering, Sardinen. Pflanzliche Quellen (Leinsamen, Chiasamen, Walnüsse, Rapsöl) liefern die Vorstufe ALA, die der Körper aber nur zu einem kleinen Teil in EPA/DHA umwandelt — für Veganerinnen ist deshalb ein Algenöl die zuverlässigste Quelle.\n\nWann ein Supplement sinnvoll ist: wenn du kaum fetten Fisch isst, in Schwangerschaft/Stillzeit, oder wenn dein Omega-3-Index niedrig ist (den kann man testen — siehe Test-Karte). Achte bei Präparaten auf Qualität: Triglycerid-Form (besser aufnehmbar), einen niedrigen TOTOX-Wert (Frische/Oxidation) und Schadstoffprüfung.`,
     tipps: ["1–2× pro Woche fetten Fisch: Lachs, Makrele, Hering, Sardinen", "Pflanzlich (Leinöl, Chia, Walnüsse) liefert nur die Vorstufe ALA", "Vegan? Algenöl ist die zuverlässige EPA/DHA-Quelle", "Supplement sinnvoll bei wenig Fisch, Schwangerschaft/Stillzeit oder niedrigem Index", "Qualität: Triglycerid-Form, niedriger TOTOX-Wert, schadstoffgeprüft"],
   },
   {
-    id: "magnesium_warum", nurInfo: true, icon: "🧲", titel: "Magnesium — was es im Körper tut",
+    id: "magnesium_warum", kern: "Magnesium ist an über 300 Prozessen beteiligt — von Muskelentspannung bis Schlaf.", relevanz: "Ein Mangel zeigt sich oft als Krämpfe, Unruhe oder schlechter Schlaf. Gerade vor der Periode steigt der Bedarf.", evidenz: "belegt", nurInfo: true, icon: "🧲", titel: "Magnesium — was es im Körper tut",
     text: `Magnesium ist an über 300 Prozessen im Körper beteiligt — es ist einer der wichtigsten Mineralstoffe für Frauen und gleichzeitig einer, bei dem viele zu wenig haben. Es entspannt Muskeln und Nerven (hilft gegen Krämpfe, Verspannungen und Regelschmerzen), unterstützt einen ruhigen Schlaf, ist an der Energiegewinnung beteiligt und hilft dem Körper, mit Stress umzugehen (bei Dauerstress verbraucht man mehr Magnesium). Für den Zyklus besonders relevant: Magnesium kann PMS-Symptome wie Reizbarkeit, Kopfschmerzen und Wassereinlagerungen lindern — es wird deshalb in der zweiten Zyklushälfte oft gezielt eingesetzt. Auch für Knochen (zusammen mit Calcium und Vitamin D) und einen stabilen Blutzucker spielt es eine Rolle.`,
     tipps: ["An über 300 Prozessen beteiligt — Muskeln, Nerven, Energie", "Entspannt Muskeln → hilft bei Krämpfen & Regelschmerzen", "Unterstützt ruhigen Schlaf (abends eingenommen)", "Kann PMS lindern (Reizbarkeit, Kopfschmerzen, Wassereinlagerungen)", "Stress verbraucht Magnesium — Bedarf steigt dann", "Wichtig auch für Knochen & stabilen Blutzucker"],
   },
   {
-    id: "magnesium_ernaehrung", icon: "🥬", titel: "Magnesium über die Ernährung",
+    id: "magnesium_ernaehrung", kern: "Kürbiskerne, dunkle Schokolade, Blattgemüse und Hülsenfrüchte sind gute Magnesiumquellen.", relevanz: "Über Lebensmittel ist Magnesium gut aufzunehmen und praktisch nicht überdosierbar — anders als bei hochdosierten Präparaten.", evidenz: "belegt", icon: "🥬", titel: "Magnesium über die Ernährung",
     text: `So deckst du Magnesium übers Essen: Die besten Quellen sind dunkelgrünes Blattgemüse (Spinat, Mangold), Nüsse und Samen (Kürbiskerne, Mandeln), Hülsenfrüchte, Vollkorn, Avocado und dunkle Schokolade (ab ~70 % Kakao — ein schöner Grund für ein Stück). Ein Smoothie mit Blattgemüse oder eine Handvoll Kürbiskerne als Snack bringen dich schon ein gutes Stück weiter.\n\nWann ein Supplement sinnvoll ist: bei viel Stress, Schlafproblemen, starken Regelschmerzen/PMS oder wenn die Ernährung wenig von den obigen Quellen enthält. Bei der Form lohnt sich der Blick aufs Etikett: gut verträgliche, gut aufnehmbare Formen sind Magnesiumglycinat (besonders für Schlaf/Entspannung) oder -citrat. Magnesiumoxid ist billig, wird aber schlecht aufgenommen (wirkt eher abführend). Abends eingenommen unterstützt Magnesium den Schlaf.`,
     tipps: ["Top-Quellen: grünes Blattgemüse, Kürbiskerne, Mandeln, Hülsenfrüchte", "Auch Avocado, Vollkorn & dunkle Schokolade (ab 70 %)", "Ein grüner Smoothie oder Kürbiskerne als Snack helfen", "Supplement bei Stress, Schlafproblemen, PMS oder wenig grünem Gemüse", "Gut: Magnesiumglycinat (Schlaf) oder -citrat — nicht Oxid", "Abends einnehmen unterstützt den Schlaf"],
   },
   {
-    id: "vitd_k2_warum", nurInfo: true, icon: "☀️", titel: "Vitamin D3 & K2 — was sie im Körper tun",
+    id: "vitd_k2_warum", kern: "Vitamin D wirkt wie ein Hormon und steuert unter anderem Knochen, Immunsystem und Stimmung.", relevanz: "K2 sorgt dafür, dass das aufgenommene Calcium in den Knochen landet statt in den Gefäßen. Deshalb werden beide oft zusammen genannt.", evidenz: "belegt", nurInfo: true, icon: "☀️", titel: "Vitamin D3 & K2 — was sie im Körper tun",
     text: `Vitamin D ist eigentlich ein Hormon und für den ganzen Körper wichtig: Es steuert die Aufnahme von Calcium (Knochen & Zähne), unterstützt das Immunsystem, die Muskelfunktion und die Stimmung. Ein Mangel ist gerade in unseren Breiten sehr verbreitet — vor allem im Winterhalbjahr, weil die Sonne dann zu schwach steht, damit die Haut selbst genug bilden kann.\n\nDer wichtige Punkt: Vitamin D3 spielt am besten im Team mit Vitamin K2. Denn D3 sorgt dafür, dass Calcium aus der Nahrung aufgenommen wird — und K2 sorgt dafür, dass dieses Calcium auch am richtigen Ort landet: in den Knochen, statt sich in Blutgefäßen abzulagern. Für die Knochengesundheit (gerade perimenopausal, wenn die Knochendichte sinkt) ist diese Kombination deshalb besonders sinnvoll. Wichtig: K2 kann die Wirkung von blutverdünnenden Medikamenten beeinflussen — wer solche nimmt oder schwanger ist, klärt K2 vorher ärztlich ab.`,
     tipps: ["Vitamin D ist ein Hormon: Knochen, Immunsystem, Muskeln, Stimmung", "Mangel ist verbreitet — vor allem im Winterhalbjahr", "D3 nimmt Calcium auf, K2 lenkt es in die Knochen (statt in Gefäße)", "Die Kombi D3+K2 ist besonders für die Knochen sinnvoll", "Perimenopausal wichtig (sinkende Knochendichte)", "⚠️ K2 bei Blutverdünnern & Schwangerschaft vorher ärztlich abklären"],
     schwangerHinweis: "In der Schwangerschaft ist ein guter Vitamin-D-Status besonders wichtig — für deine Knochen und die Entwicklung deines Babys. Dr. Rhonda Patrick verweist auf Forschung, die einen niedrigen mütterlichen Vitamin-D-Spiegel mit der neurologischen Entwicklung des Kindes in Verbindung bringt (u.a. Studien zum Autismus-Risiko; das sind Beobachtungsdaten, kein Beweis). Viele Schwangere sind unterversorgt, gerade im Winter. Sinnvoll: den Spiegel testen lassen und die Dosis mit deiner Ärztin abstimmen — Vitamin D wird in der Schwangerschaft oft gezielt ergänzt. K2 in dieser Zeit bitte separat ärztlich abklären.",
     menopauseHinweis: "Rund um die Menopause sinkt die Knochendichte schneller, weil das schützende Östrogen fehlt — Vitamin D3 (mit K2) und genug Calcium werden dann besonders wichtig, zusammen mit Krafttraining. Ein Vitamin-D-Test beim Hausarzt hilft, die richtige Menge zu finden.",
   },
   {
-    id: "vitd_k2_ernaehrung", icon: "🍳", titel: "Vitamin D & K2 über Sonne und Ernährung",
+    id: "vitd_k2_ernaehrung", kern: "Der Körper bildet Vitamin D über Sonnenlicht — in unseren Breiten reicht das im Winter meist nicht.", relevanz: "Ein Bluttest zeigt dir, wo du stehst. Patrick empfiehlt messen statt raten, bevor man ergänzt.", evidenz: "belegt", quelle: "Patrick", icon: "🍳", titel: "Vitamin D & K2 über Sonne und Ernährung",
     text: `Vitamin D bekommst du zum größten Teil über die Haut: 15–30 Minuten Sonne (Gesicht, Arme) an Frühlings-/Sommertagen kurbeln die körpereigene Bildung an. Über die Ernährung ist es schwieriger — nennenswerte Mengen stecken vor allem in fettem Fisch (Lachs, Hering, Makrele), Eigelb und etwas in Pilzen. Deshalb ist ein Supplement im Winterhalbjahr für viele sinnvoll — aber am besten nicht blind: Vitamin D lässt sich sehr gut und günstig im Blut testen (siehe Test-Karte), und danach richtet sich die Dosis.\n\nVitamin K2 steckt vor allem in fermentierten Lebensmitteln (das japanische Natto ist die reichste Quelle), in manchen Käsesorten und in kleineren Mengen in Eigelb und Butter von Weidetieren. Wer D3 als Supplement nimmt, wählt oft ein Kombi-Präparat mit K2, weil beide zusammen am besten wirken — und nimmt es zu einer fetthaltigen Mahlzeit (beide sind fettlöslich).`,
     tipps: ["Hauptquelle Vitamin D: 15–30 Min. Sonne auf die Haut (Frühling/Sommer)", "In der Nahrung: fetter Fisch, Eigelb, etwas in Pilzen", "Im Winterhalbjahr ist ein Supplement für viele sinnvoll — aber testen!", "K2 steckt in Natto, manchen Käsesorten, Eigelb & Weidebutter", "D3+K2 als Kombi-Präparat zu einer fetthaltigen Mahlzeit einnehmen", "Dosis nach Blutwert richten, nicht blind hoch dosieren"],
   },
@@ -428,7 +428,7 @@ const NAEHRSTOFF_WISSEN = [
 
 const NAEHRSTOFF_TEST = [
   {
-    id: "naehrstoff_testen", icon: "🩸", titel: "Testen statt raten — bevor du ergänzt",
+    id: "naehrstoff_testen", kern: "Bevor du ergänzt, lohnt sich ein Bluttest.", relevanz: "So weißt du, was dir wirklich fehlt — und vermeidest Überdosierung bei Vitamin D oder Eisen.", evidenz: "belegt", quelle: "Patrick", icon: "🩸", titel: "Testen statt raten — bevor du ergänzt",
     text: `Bevor du dauerhaft ein Nahrungsergänzungsmittel nimmst, lass wenn möglich deine Werte testen. So weißt du, ob du überhaupt einen Mangel hast — und vermeidest, unnötig oder zu hoch zu dosieren. Das gilt besonders für Vitamin D, Omega-3 (der Omega-3-Index), Magnesium und Eisen/Ferritin.\n\nSo kannst du testen:\n\n1) Über deine Ärztin / deinen Hausarzt. Du kannst dort um eine Blutabnahme bitten. Wichtig zu wissen: Die Krankenkasse übernimmt meist nur ein Standard-Blutbild. Spezielle Werte wie Vitamin D, der Omega-3-Index oder Magnesium im Vollblut zählen oft nicht dazu und müssen dann selbst gezahlt werden. Wenn du privat (zusatz-)versichert bist, übernimmt die private Versicherung solche Werte manchmal — das klärst du am besten vorher ab.\n\n2) Mit einem Selbsttest-Kit von zu Hause. Eqology bietet z.B. ein Omega-3-Testkit an, mit dem du deinen Fettsäure-Status per Trockenblut-Tropfen misst und nach einiger Zeit die Verbesserung siehst.\n\n3) Über ein Labor mit frei wählbaren Werten. Wenn du in Graz oder der Steiermark wohnst, kannst du beim Labor Dr. Petek über „DiagnostikDirekt" (diagnostikdirekt.at) selbst zusammenstellen, was du testen möchtest — du zahlst online im Voraus und gibst die Probe im Labor ab. Sinnvolle Einzelwerte dort sind z.B. Vitamin D (günstig), Magnesium im Vollblut (aussagekräftiger als im Serum), ein Omega-3-/Fettsäureprofil, sowie — wenn dich das Thema Insulinresistenz betrifft — Nüchtern-Insulin, HbA1c und der daraus berechnete HOMA-IR. Am besten besprichst du die Auswahl kurz mit deiner Ärztin.`,
     tipps: ["Teste vor dem dauerhaften Ergänzen — besonders Vitamin D, Omega-3, Magnesium, Ferritin", "Hausarzt: Kasse deckt meist nur Standard-Blutbild — Spezialwerte oft Selbstzahlung", "Privat(zusatz)versichert? Vorher klären, was übernommen wird", "Selbsttest von zu Hause: z.B. Eqology Omega-3-Testkit", "Graz/Steiermark: DiagnostikDirekt (Labor Dr. Petek) — Werte frei wählbar", "Sinnvoll dort: Vitamin D, Magnesium (Vollblut), Omega-3-Index", "Bei Insulinresistenz-Verdacht: Nüchtern-Insulin, HbA1c & HOMA-IR", "Auswahl am besten mit deiner Ärztin abstimmen"],
   },
@@ -440,7 +440,7 @@ const NAEHRSTOFF_TEST = [
 // ═══════════════════════════════════════════════════════════════════
 const ETBD_INTRO = [
   {
-    id: "etbd_grundidee", nurInfo: true, icon: "🛡️", titel: "Essen als Medizin — die Grundidee",
+    id: "etbd_grundidee", kern: "Lis Grundidee: Essen kann die körpereigenen Abwehrsysteme unterstützen.", relevanz: "Es geht nicht ums Verbieten, sondern ums Hinzufügen — täglich Lebensmittel für deine fünf Systeme.", evidenz: "experten", quelle: "Li", nurInfo: true, icon: "🛡️", titel: "Essen als Medizin — die Grundidee",
     text: `Dr. William Li ist Mediziner und Krebsforscher (Angiogenesis Foundation). Seine zentrale Botschaft in „Eat to Beat Disease": Dein Körper hat fünf eingebaute Gesundheits-Verteidigungssysteme, die dich Tag für Tag vor Krankheiten schützen — und du kannst sie mit ganz normalem, leckerem Essen stärken.\n\nDas Schöne an seinem Ansatz: Es geht nicht um Verzicht, Verbote oder Diäten, sondern ums Hinzufügen. Du wählst aus vielen Lebensmitteln, die du ohnehin gern isst, die aus, die deine Abwehr am besten unterstützen. Li stützt sich dabei bewusst auf Humanstudien und Bevölkerungsdaten, nicht auf Hype.\n\nDie fünf Systeme sind: Angiogenese (Blutgefäße), Regeneration (Stammzellen), Mikrobiom (Darmbakterien), DNA-Schutz und Immunsystem. Auf den nächsten Karten lernst du jedes einzeln kennen — und mit dem 5×5×5-Tool kannst du täglich für jedes System ein Lebensmittel auswählen.`,
     tipps: ["Fünf Verteidigungssysteme schützen deine Gesundheit", "Essen kann sie stärken — ohne Verzicht, durch Hinzufügen", "Basiert auf echten Studien, nicht auf Hype", "Wähle Lebensmittel, die du ohnehin gern magst", "Mit dem 5×5×5-Tool machst du es zur täglichen Gewohnheit"],
   },
@@ -448,43 +448,43 @@ const ETBD_INTRO = [
 
 const ETBD_SYSTEME = [
   {
-    id: "etbd_angiogenese", nurInfo: true, icon: "🩸", titel: "1. Angiogenese — die Gefäß-Kontrolle",
+    id: "etbd_angiogenese", kern: "Angiogenese ist die Bildung neuer Blutgefäße — dein Körper reguliert sie normalerweise perfekt.", relevanz: "Bestimmte Lebensmittel unterstützen dieses Gleichgewicht. Li nennt unter anderem Beeren, grünen Tee und Tomaten.", evidenz: "hinweise", quelle: "Li, Eat to Beat Disease", nurInfo: true, icon: "🩸", titel: "1. Angiogenese — die Gefäß-Kontrolle",
     text: `Angiogenese ist der Prozess, mit dem dein Körper Blutgefäße bildet. Rund 60.000 Meilen Blutgefäße versorgen deine Organe — und dein Körper steuert genau, wo neue wachsen dürfen. Warum das wichtig ist: Fast jeder Mensch trägt winzige, harmlose Mikro-Tumore in sich. Ein gesundes Angiogenese-System hält sie klein, indem es ihnen die Blutversorgung verweigert — es „hungert sie aus". Erst wenn dieses Gleichgewicht kippt und Tumore sich eigene Gefäße bauen, werden sie gefährlich.\n\nBestimmte Lebensmittel unterstützen dieses Gleichgewicht: Sie können krankhafte Gefäße bremsen (gegen Krebs) und gleichzeitig gesunde Durchblutung fördern (für Herz, Gehirn, Haut, Haare).\n\nBesonders für Frauen: Ein gut funktionierendes Angiogenese-System senkt laut Li das Risiko für Brustkrebs. Und: Auch Endometriose ist eine angiogenese-abhängige Erkrankung — das falsche Gewebe braucht neue Blutgefäße, um zu wachsen. Angiogenese-hemmende Lebensmittel sind hier also besonders interessant.`,
     tipps: ["Top-Lebensmittel: Soja (Edamame, Tofu, Miso), grüner Tee, Tomaten", "Beeren (v.a. Brombeeren), Granatapfel, dunkle Schokolade, Olivenöl", "Auch: fetter Fisch, Nüsse, Kurkuma, Rotwein (in Maßen)", "Senkt laut Li das Brustkrebs-Risiko", "Für Endometriose besonders relevant (angiogenese-abhängig)"],
   },
   {
-    id: "etbd_regeneration", nurInfo: true, icon: "🌱", titel: "2. Regeneration — deine Stammzellen",
+    id: "etbd_regeneration", kern: "Deine Stammzellen erneuern täglich Gewebe — bestimmte Lebensmittel unterstützen sie.", relevanz: "Dunkle Schokolade, Olivenöl und Beeren gehören laut Li dazu. Auch Schlaf und Bewegung spielen mit.", evidenz: "hinweise", quelle: "Li", nurInfo: true, icon: "🌱", titel: "2. Regeneration — deine Stammzellen",
     text: `In deinem Körper sitzen über 750.000 Stammzellen — in Knochenmark, Leber, Lunge und fast allen Organen. Sie erneuern, reparieren und regenerieren dich jeden Tag. Mit dem Alter werden sie weniger und träger — genau das macht einen Teil des Alterns aus. Die gute Nachricht: Bestimmte Lebensmittel können deine Stammzellen aktivieren, sodass sie wieder arbeiten wie in jungen Jahren — für Muskeln, Gefäße, Haut und Gehirn.\n\nEs gibt sogar Lebensmittel, die gezielt Krebs-Stammzellen abtöten können (z.B. lila Kartoffeln, Olivenöl-Bioaktivstoffe), ohne die guten Stammzellen zu schädigen.\n\nDas ist ein Anti-Aging-Thema im besten Sinn: nicht kosmetisch, sondern von innen — deine eigene Reparaturmannschaft bei Laune halten.`,
     tipps: ["Top-Lebensmittel: dunkle Schokolade, Beeren, grüner & schwarzer Tee", "Spinat, Grünkohl, Mango, Pfirsich, Pistazien", "Fetter Fisch (Omega-3) unterstützt die Regeneration", "Lila Kartoffeln können Krebs-Stammzellen abtöten", "Stärkt Muskeln, Gefäße & Gehirn — Anti-Aging von innen"],
   },
   {
-    id: "etbd_mikrobiom", nurInfo: true, icon: "🦠", titel: "3. Mikrobiom — deine Darmbakterien",
+    id: "etbd_mikrobiom", kern: "Dein Mikrobiom beeinflusst Verdauung, Immunsystem und sogar die Stimmung.", relevanz: "Fermentiertes und ballaststoffreiche Lebensmittel füttern die guten Bakterien — Vielfalt ist wichtiger als einzelne Superfoods.", evidenz: "belegt", quelle: "Li", nurInfo: true, icon: "🦠", titel: "3. Mikrobiom — deine Darmbakterien",
     text: `In und auf dir leben rund 39 Billionen Bakterien — etwa so viele wie du eigene Zellen hast, zusammen so schwer wie dein Gehirn. Die meisten sind deine Verbündeten: Sie verdauen, was du selbst nicht kannst, bilden schützende Stoffe, steuern dein Immunsystem, beeinflussen sogar Hormone, Gehirn und Stimmung.\n\nDu fütterst sie über zwei Wege: Präbiotika (Ballaststoffe aus Pflanzen — das Futter der guten Bakterien) und Probiotika (fermentierte Lebensmittel, die selbst gute Bakterien mitbringen). Je vielfältiger du pflanzlich isst, desto vielfältiger und stabiler wird dein Mikrobiom.\n\nBesonders für Frauen: Ein Teil deiner Darmbakterien bildet das sogenannte Östrobolom — die Bakterien, die mitregulieren, wie viel Östrogen in deinem Körper zirkuliert. Ein gesundes Mikrobiom unterstützt also direkt dein Hormongleichgewicht. Nach Antibiotika lohnt es sich besonders, den Darm gezielt wieder aufzubauen.`,
     tipps: ["Präbiotika (Futter): Gemüse, Hülsenfrüchte, Vollkorn, Spargel, Zwiebeln", "Probiotika (gute Bakterien): Sauerkraut, Kimchi, Joghurt, Sauerteigbrot", "Auch Käse (Gouda, Parmesan) & etwas dunkle Schokolade", "Granatapfel-/Cranberry-/Traubensaft fördern gute Bakterien", "Vielfältig pflanzlich essen = vielfältiges Mikrobiom", "Wichtig fürs Östrobolom (Östrogen-Balance) — besonders nach Antibiotika"],
   },
   {
-    id: "etbd_dna", nurInfo: true, icon: "🧬", titel: "4. DNA-Schutz — dein Bauplan & Anti-Aging",
+    id: "etbd_dna", kern: "Dein Erbgut wird täglich beschädigt und repariert — Ernährung unterstützt die Reparatur.", relevanz: "Buntes Gemüse, Nüsse und Kaffee liefern Stoffe, die dabei helfen. Kein Wundermittel, aber ein guter Baustein.", evidenz: "hinweise", quelle: "Li", nurInfo: true, icon: "🧬", titel: "4. DNA-Schutz — dein Bauplan & Anti-Aging",
     text: `Deine DNA ist nicht nur dein genetischer Bauplan — sie ist selbst ein Verteidigungssystem mit erstaunlichen Reparaturmechanismen. Jeden Tag entstehen tausende DNA-Fehler durch UV-Strahlung, Stress, schlechten Schlaf, Chemikalien und Ernährung. Bestimmte Lebensmittel helfen der DNA, sich selbst zu reparieren, schalten schützende Gene an und schädliche ab.\n\nEin faszinierendes Beispiel: In Studien senkte der Verzehr von Kiwis die DNA-Schäden um etwa 60 % — und drei Kiwis täglich steigerten die DNA-Reparatur-Aktivität um zwei Drittel. Auch Karotten und Brokkoli verbessern die Reparatur.\n\nBesonders spannend fürs Altern: Manche Lebensmittel schützen und verlängern deine Telomere — die Schutzkappen an den Enden deiner Chromosomen, die mit jedem Lebensjahr kürzer werden. Vor allem Nüsse und Samen wirken hier. Das ist Anti-Aging auf der tiefsten, zellulären Ebene.`,
     tipps: ["DNA-Reparatur: Kiwi (stark!), Karotten, Brokkoli", "Antioxidantien: Beeren(-säfte), Orangen, Tomaten, Wassermelone", "Telomere schützen/verlängern: Nüsse & Samen (Mandeln, Walnüsse, Leinsamen)", "Auch Kaffee & grüner Tee wirken auf die Epigenetik", "Schützt vor vorzeitiger Hautalterung & vielen Krankheiten"],
   },
   {
-    id: "etbd_immun", nurInfo: true, icon: "🛡️", titel: "5. Immunsystem — deine Kommandozentrale",
+    id: "etbd_immun", kern: "Dein Immunsystem ist deine wichtigste Verteidigung — und lässt sich über Ernährung unterstützen.", relevanz: "Knoblauch, Pilze und Zitrusfrüchte gehören zu Lis Immun-Lebensmitteln. Schlaf bleibt aber der stärkste Hebel.", evidenz: "hinweise", quelle: "Li", nurInfo: true, icon: "🛡️", titel: "5. Immunsystem — deine Kommandozentrale",
     text: `Dein Immunsystem ist weit ausgefeilter als lange gedacht — und es wird stark von deinem Darm beeinflusst. Es lässt sich mit Essen in beide Richtungen justieren: stärken, wenn es Unterstützung braucht (Infekte, sogar Krebsabwehr), und beruhigen, wenn es überschießt (Autoimmunerkrankungen, Entzündungen).\n\nEin schönes Beispiel: In einer Studie hatten Menschen, die gealterten Knoblauch aßen, deutlich aktivere Immunzellen und 20 % weniger Erkältungssymptome. Auch Speisepilze (Shiitake, Maitake, Champignons) und Brokkolisprossen aktivieren die Abwehr.\n\nFür das richtige Maß gilt das „Goldlöckchen-Prinzip": nicht zu schwach, nicht zu stark, sondern genau richtig. Bei Autoimmunthemen helfen eher beruhigende Lebensmittel (Vitamin-C-reiche Früchte, grüner Tee), bei Infektanfälligkeit eher die stärkenden.`,
     tipps: ["Immun-stärkend: gealterter Knoblauch, Pilze (Shiitake, Maitake, Champignon)", "Brokkolisprossen, Beeren, Granatapfel, Walnüsse", "Immun-beruhigend (bei Autoimmun/Entzündung): Vitamin-C-Früchte, grüner Tee", "Zitrusfrüchte, Erdbeeren, Guave, Brokkoli liefern viel Vitamin C", "Ziel ist Balance — nicht zu schwach, nicht zu stark"],
   },
   {
-    id: "etbd_5x5x5", nurInfo: true, icon: "🎯", titel: "Das 5×5×5-Prinzip — so setzt du es um",
+    id: "etbd_5x5x5", kern: "Das 5×5×5-Prinzip heißt: täglich fünf Lebensmittel für deine fünf Verteidigungssysteme.", relevanz: "Es macht gesunde Ernährung zum Spiel statt zur Verbotsliste. Grand Slammer decken gleich mehrere Systeme ab.", evidenz: "experten", quelle: "Li", nurInfo: true, icon: "🎯", titel: "Das 5×5×5-Prinzip — so setzt du es um",
     text: `Lis geniale Vereinfachung für den Alltag: das 5×5×5-Framework. Die Idee ist, jeden Tag fünf Lebensmittel zu essen — je eines für jedes der fünf Verteidigungssysteme. Kein starrer Plan, keine Verbote: Du wählst aus deinen Lieblingslebensmitteln, was zu jedem System passt.\n\nEin Beispieltag könnte sein: Tomaten (Angiogenese), dunkle Schokolade (Regeneration), Sauerkraut (Mikrobiom), Lachs (DNA), Brokkoli (Immun) — verteilt über Frühstück, Mittag, Snack und Abendessen.\n\nSo wird gesunde Ernährung zur einfachen, spielerischen Gewohnheit, statt zu einer Liste von Verboten. Genau dafür haben wir dir unten ein Tool gebaut: Dort wählst du täglich für jedes System ein Lebensmittel aus und hakst es ab.`,
     tipps: ["Wähle täglich 5 Lebensmittel — eines pro Verteidigungssystem", "Verteile sie über den Tag (Frühstück bis Abendessen)", "Nutze, was du ohnehin gern isst — kein Verzicht", "Manche Lebensmittel zählen für mehrere Systeme gleichzeitig", "Nutze das 5×5×5-Tool unten, um es zur Gewohnheit zu machen"],
   },
   {
-    id: "etbd_braunes_fett", nurInfo: true, icon: "🔥", titel: "Braunes Fett — dein eingebauter Fettverbrenner",
+    id: "etbd_braunes_fett", kern: "Braunes Fettgewebe verbrennt Energie zur Wärmeproduktion statt sie zu speichern.", relevanz: "Kälte und bestimmte Lebensmittel können es aktivieren. Die Effekte beim Menschen sind real, aber moderat.", evidenz: "hinweise", quelle: "Li", nurInfo: true, icon: "🔥", titel: "Braunes Fett — dein eingebauter Fettverbrenner",
     text: `Nicht alles Körperfett ist gleich. Es gibt zwei Arten: Das weiße Fett ist das „wackelige" Speicherfett, das wir loswerden wollen — besonders das Viszeralfett, das sich um die Organe legt und Entzündungen fördert. Das braune Fett dagegen ist etwas Gutes: Es sitzt tiefer (rund um Hals, hinter dem Brustbein, zwischen den Schulterblättern) und wirkt wie ein eingebauter Heizofen. Wenn es aktiviert wird, verbrennt es weißes Fett, um Wärme zu erzeugen — dieser Vorgang heißt Thermogenese.\n\nDas Spannende an Lis Forschung: Bestimmte Lebensmittel können dein braunes Fett „anschalten" und so helfen, schädliches weißes Fett abzubauen. Es sind pflanzliche Bioaktivstoffe (Polyphenole, Lycopin, Quercetin, Catechine), die diesen Schalter umlegen. Auch Kälte aktiviert braunes Fett — deshalb wirken kalte Duschen (die letzten Sekunden kalt) mit. Wichtig: Bei Kreislauf-, Blutdruck- oder Herzthemen vorher ärztlich abklären, bevor du mit Kälte experimentierst.\n\nDas ist kein Freifahrtschein, sondern ein sanfter Zusatz-Hebel: Über den Tag nicht zu viel „schlechtes" essen, in Bewegung bleiben — und gezielt die Lebensmittel wählen, die dein braunes Fett unterstützen (nächste Karte).`,
     tipps: ["Weißes Fett = Speicherfett (v.a. Viszeralfett um die Organe = entzündlich)", "Braunes Fett = „Heizofen\", verbrennt weißes Fett (Thermogenese)", "Bestimmte Lebensmittel schalten braunes Fett an (siehe nächste Karte)", "Auch Kälte aktiviert es: die letzten Sekunden kalt duschen", "⚠️ Kälte-Experimente bei Herz/Kreislauf/Blutdruck vorher ärztlich abklären", "Kombi wirkt am besten: gute Lebensmittel + Bewegung"],
     menopauseHinweis: "In der Menopause verändert sich der Stoffwechsel spürbar: Mit sinkendem Östrogen verlangsamt er sich oft, Fett lagert sich leichter am Bauch an (Viszeralfett) und die Muskelmasse nimmt ab. Genau deshalb ist dieser Ansatz hier hilfreich — nicht über Verzicht, sondern über die richtigen Lebensmittel (siehe nächste Karte), viel Protein, Krafttraining und Bewegung. Wichtig und entlastend: Eine gewisse Veränderung der Figur ist in dieser Lebensphase normal und kein Versagen — es geht um Gesundheit und Kraft, nicht um ein bestimmtes Gewicht.",
   },
   {
-    id: "etbd_fatburn_foods", nurInfo: true, icon: "🍅", titel: "Lis fettverbrennende Lebensmittel im Detail",
+    id: "etbd_fatburn_foods", kern: "Einige Lebensmittel unterstützen laut Li den Fettstoffwechsel gezielt.", relevanz: "Dazu gehören grüner Tee, Chili und bestimmte Meeresfrüchte. Sie ersetzen keine Ernährungsumstellung, ergänzen sie aber.", evidenz: "hinweise", quelle: "Li", nurInfo: true, icon: "🍅", titel: "Lis fettverbrennende Lebensmittel im Detail",
     text: `In der Mel-Robbins-Folge nennt Li konkrete, alltägliche Lebensmittel, die laut Studien beim Fettabbau helfen — indem sie braunes Fett aktivieren, Entzündung senken oder den Darm stärken. Das Schöne: Es sind ganz normale Dinge, keine teuren Pülverchen.\n\nSeine Favoriten mit den jeweiligen Tricks: Tomaten (Lycopin — aktiviert braunes Fett; gekocht in Öl noch besser). Zwiebeln (Quercetin — feuert braunes Fett an; wem sie zu scharf sind: in Olivenöl karamellisieren). Grüner Tee, am besten Matcha (das ganze gemahlene Blatt = 100 % der Polyphenole, viel stärker als ein Teebeutel — kann laut japanischer Studie den Bauchumfang schrumpfen). Kiwi (viel Vitamin C gegen Entzündung + Ballaststoffe, die die Darmflora schon in 24 Stunden verbessern; die ballaststoffreiche Schale einfach in den Smoothie geben). Granatapfel („Mutter Naturs Apotheke im Saft"). Dunkle Schokolade ab 80 % Kakao — mit einem Schluck Kaffee wird daraus ein „Mocha": beide enthalten Polyphenole (Chlorogensäure), die braunes Fett anfeuern. Und Bohnen/Soja/Edamame, die zusätzlich den Darm füttern.`,
     tipps: ["🍅 Tomaten (Lycopin) — gekocht in Olivenöl besonders wirksam", "🧅 Zwiebeln (Quercetin) — bei Schärfe in Olivenöl karamellisieren", "🍵 Matcha statt Teebeutel: ganzes Blatt = 100 % Polyphenole (schrumpft Bauchumfang)", "🥝 1 Kiwi/Tag: Vitamin C + Ballaststoffe (Darmeffekt in 24 h); Schale in den Smoothie", "🍫 Dunkle Schokolade (ab 80 %) + Kaffee = „Mocha\"-Trick (Polyphenole)", "🫘 Bohnen, Soja & Edamame füttern zusätzlich den Darm", "Nicht zu viel auf einmal — genießen & über den Tag verteilen"],
   },
@@ -517,14 +517,14 @@ const ETBD_GRAND_SLAMMERS = [
 // ═══════════════════════════════════════════════════════════════════
 const MEDITERASIAN_WISSEN = [
   {
-    id: "ma_ansatz", nurInfo: true, icon: "🌍", titel: "Der MediterAsian-Weg — kein Diät, ein Genuss",
+    id: "ma_ansatz", kern: "MediterAsian verbindet mediterrane und asiatische Esstraditionen — beide gelten als besonders gesund.", relevanz: "Es ist keine Diät mit Verboten, sondern eine Genussrichtung: viel Gemüse, gute Fette, Fisch, fermentierte Lebensmittel.", evidenz: "belegt", quelle: "Li", nurInfo: true, icon: "🌍", titel: "Der MediterAsian-Weg — kein Diät, ein Genuss",
     text: `Dr. Li verbindet in „Eat to Beat Your Diet" das Beste aus zwei der gesündesten Esskulturen der Welt: der mediterranen und der asiatischen. Beide setzen seit Jahrhunderten auf frische, saisonale Zutaten, traditionelle Zubereitung, viel Gemüse, Hülsenfrüchte, Kräuter, Olivenöl, Fisch — und wenig verarbeitetes Fleisch.\n\nDas Entscheidende an seinem Ansatz: Es ist keine Diät mit starren Regeln, sondern eine genussvolle Art zu essen, die du selbst gestaltest. Li betont, dass strenge Verbote fast immer scheitern — der Mensch sucht Freude und Freiheit. Sein Weg ist flexibel und persönlich: Du wählst aus tausenden traditionellen Gerichten die, die dir schmecken.\n\nEr fasst das in seiner „Swap In"-Idee zusammen: Statt dir etwas zu verbieten, tauschst du Gutes ein. Je mehr gute Lebensmittel du einbaust, desto weniger Platz bleibt für die weniger guten — ganz ohne Verzichtsgefühl.`,
     tipps: ["Kombiniert die mediterrane & asiatische Küche — zwei der gesündesten der Welt", "Frisch, saisonal, viel Pflanzliches, Olivenöl, Fisch, wenig verarbeitetes Fleisch", "Keine strenge Diät — flexibel, persönlich, genussvoll", "„Swap In\": Gutes einbauen statt Schlechtes verbieten", "Je mehr gute Lebensmittel, desto weniger Platz für den Rest"],
     teenText: "Dr. Li verbindet die mediterrane und die asiatische Küche — zwei der gesündesten Esskulturen der Welt. Beide setzen auf frische Zutaten, viel Gemüse, Hülsenfrüchte, Kräuter, Olivenöl und Fisch.\n\nDas Coole daran: Es ist keine Diät mit Verboten, sondern eine leckere Art zu essen. Lis Trick heißt „Swap In\": Statt dir etwas zu verbieten, baust du einfach mehr gute Sachen ein. Je mehr Gutes auf deinem Teller landet, desto automatisch weniger Platz bleibt für das, was dir weniger guttut — ganz ohne Verzicht.",
     teenTipps: ["Mediterrane + asiatische Küche = viel Gemüse, Olivenöl, Fisch, Hülsenfrüchte", "Keine Diät, keine Verbote — einfach lecker & bunt essen", "„Swap In\": mehr Gutes einbauen statt Schlechtes verbieten", "Frisch & selbst gekocht schmeckt und tut gut"],
   },
   {
-    id: "ma_prinzipien", nurInfo: true, icon: "🍽️", titel: "Die 10 Prinzipien des MediterAsian-Essens",
+    id: "ma_prinzipien", kern: "Zehn einfache Prinzipien statt komplizierter Regeln.", relevanz: "Dazu gehören: bunt essen, langsam essen, Pflanzen bevorzugen, gute Fette nutzen und regelmäßig fermentierte Lebensmittel.", evidenz: "experten", quelle: "Li", nurInfo: true, icon: "🍽️", titel: "Die 10 Prinzipien des MediterAsian-Essens",
     text: `Lis zehn einfache Leitgedanken, um genussvoll und gesund zu essen:\n\n1. Mit Absicht essen — wähle bewusst, was dir schmeckt UND guttut.\n2. Auch mal eine Mahlzeit auslassen — wenn du beschäftigt bist oder nichts Gutes findest, ist das völlig okay (aktiviert die Schutzsysteme). Danach nicht überessen.\n3. Frisch vor verarbeitet — frische Zutaten enthalten die wertvollen Bioaktivstoffe.\n4. Personalisiere — iss, was DU magst und brauchst; es gibt keine Einheitslösung.\n5. Tradition respektieren — bewährte Rezepte und Zubereitung sind oft die gesündesten.\n6. Maßhalten — bei Buffets & Festen genießen, aber den Körper nicht überladen.\n7. Trink die „Trinität" — Wasser, Tee und Kaffee, die drei Getränke mit belegtem Nutzen.\n8. Gemeinsam essen — in Gesellschaft isst man langsamer, entspannter und bewusster.\n9. Öffne dich & probiere Neues — Vielfalt macht gesünder, trau dich an unbekannte Gerichte.\n10. Lebe, um zu essen — gib dir die Erlaubnis, Essen wirklich zu genießen.`,
     tipps: ["Mit Absicht essen — bewusst wählen, was schmeckt & guttut", "Frisch statt verarbeitet, und personalisiert (iss, was DU brauchst)", "Trink die „Trinität\": Wasser, Tee, Kaffee", "Gemeinsam & langsam essen — bewusster und entspannter", "Neues probieren — Vielfalt macht gesünder", "Genieße dein Essen — Freude gehört dazu"],
     teenText: "Lis einfache Leitgedanken für genussvolles, gesundes Essen — hier die, die auch für dich super passen:\n\n• Mit Absicht essen: Wähle bewusst, was dir schmeckt UND guttut.\n• Frisch vor verarbeitet: Frische Zutaten stecken voller guter Stoffe.\n• Iss, was DU magst und brauchst — es gibt keine Einheitslösung.\n• Trink die „Trinität\": Wasser (am besten!), und später mal Tee/Kaffee.\n• Gemeinsam essen: In Gesellschaft schmeckt's besser und man isst entspannter.\n• Probier Neues: Trau dich an unbekannte Gerichte — Vielfalt macht gesünder.\n• Genieße dein Essen! Freude beim Essen gehört einfach dazu.",
@@ -532,14 +532,14 @@ const MEDITERASIAN_WISSEN = [
     schwangerHinweis: "Ein Hinweis zu Prinzip 2 („eine Mahlzeit auslassen\"): Das gilt NICHT für die Schwangerschaft. Du und dein Baby braucht regelmäßige, gute Mahlzeiten — Auslassen oder Fasten ist jetzt nicht angebracht. Alle anderen Prinzipien (frisch, bunt, gemeinsam, genießen) passen wunderbar für dich.",
   },
   {
-    id: "ma_satt", nurInfo: true, icon: "🧘", titel: "Satt statt voll — achtsam essen",
+    id: "ma_satt", kern: "Achtsam essen heißt aufhören, wenn du satt bist — nicht wenn der Teller leer ist.", relevanz: "Das Sättigungsgefühl kommt zeitverzögert. Langsamer essen hilft mehr als jede Portionsvorgabe.", evidenz: "belegt", nurInfo: true, icon: "🧘", titel: "Satt statt voll — achtsam essen",
     text: `Ein Kerngedanke bei Dr. Li: WIE du isst, ist genauso wichtig wie WAS du isst. Sein Leitsatz stammt aus Japan — „Hara hachi bun me", „Iss, bis du zu 80 % satt bist". Der Grund: Dein Magen braucht etwa 20 Minuten, um dem Gehirn zu melden, dass genug da ist. Wer langsam isst, hört auf, wenn er zufrieden ist — nicht erst, wenn er pappsatt ist.\n\nLi räumt auch mit dem „Teller-leer-essen"-Reflex auf: Diese Regel stammt aus Notzeiten des frühen 20. Jahrhunderts und passt nicht mehr — du darfst Essen übrig lassen. Es geht nicht um Verzicht oder Hunger, sondern darum, entspannt auf dein Sättigungsgefühl zu hören.\n\nSeine einfachen Wege, ohne Verzichtsgefühl nicht zu viel zu essen: langsam essen und genießen, ohne Ablenkung (kein Handy/TV), ballaststoff- und proteinreich essen (macht satt), Wasser zum Essen trinken — und bei großen Portionen im Restaurant ruhig etwas übrig lassen oder teilen.`,
     tipps: ["„Iss, bis du zu 80 % satt bist\" (japanisch: Hara hachi bun me)", "Langsam essen — der Magen braucht ~20 Min. fürs Sättigungssignal", "Ohne Ablenkung essen (kein Handy, kein TV)", "Ballaststoffe & Protein machen satt — sie sind auf der Power-Liste", "Wasser zum Essen trinken hilft beim Sattwerden", "Den „Teller-leer\"-Zwang loslassen — Übriglassen ist völlig okay"],
     teenText: "Ein wichtiger Gedanke von Dr. Li: WIE du isst zählt genauso wie WAS du isst. Zwei einfache Dinge machen einen großen Unterschied und tun einfach gut:\n\n• Iss langsam und genieße dein Essen. Wenn du es hinunterschlingst, verpasst du den Genuss — und schmeckst gar nicht richtig, wie gut es ist.\n• Iss ohne Ablenkung. Handy und Fernseher weg: Wenn du dich aufs Essen konzentrierst, schmeckst du mehr und bist viel mehr im Moment.\n\nEs geht nicht um weniger oder mehr — sondern darum, entspannt und mit Freude zu essen und auf deinen Körper zu hören.",
     teenTipps: ["Langsam essen und richtig genießen", "Ohne Handy & TV essen — dann schmeckst du mehr", "Auf deinen Körper hören", "Essen darf Freude machen"],
   },
   {
-    id: "ma_bewegung", nurInfo: true, icon: "🚶", titel: "Bewegung — jede zählt",
+    id: "ma_bewegung", kern: "Jede Bewegung zählt — auch der Weg zum Einkaufen.", relevanz: "Alltagsbewegung summiert sich stärker als gelegentliche intensive Einheiten.", evidenz: "belegt", nurInfo: true, icon: "🚶", titel: "Bewegung — jede zählt",
     text: `Dr. Li nennt Essen und Bewegung einen „doppelläufigen Ansatz" — zusammen wirken sie am besten. Die gute Nachricht: Es muss kein hartes Workout sein. Jede Bewegung verbrennt Energie und unterstützt deinen Stoffwechsel — sogar Zappeln, Treppensteigen oder Herumlaufen beim Telefonieren.\n\nEs geht nicht um Leistung oder Kalorienzählen, sondern darum, den Körper über den Tag in Bewegung zu halten. Ein flotter 30-Minuten-Spaziergang, Tanzen, Schwimmen, Radfahren, Gartenarbeit — alles zählt. Regelmäßige Alltagsbewegung ist oft wirkungsvoller als das eine intensive Training, nach dem man den Rest des Tages sitzt.\n\nWichtig: Bewegung wirkt am besten in Kombination mit den guten Lebensmitteln — nicht als „Ausgleich" fürs Essen, sondern als eigener Gesundheitsbaustein.`,
     tipps: ["Essen + Bewegung wirken zusammen am besten", "Jede Bewegung zählt — auch Zappeln, Treppen, Herumlaufen", "30 Min. flott gehen, tanzen, schwimmen, radeln — such dir, was Freude macht", "Über den Tag in Bewegung bleiben schlägt langes Sitzen + 1 Workout", "Nicht als „Strafe\" oder Ausgleich sehen, sondern als etwas Gutes für dich"],
     teenText: "Dr. Li sagt: Essen und Bewegung gehören zusammen — zusammen wirken sie am besten. Und das Schöne: Es muss kein anstrengendes Workout sein. Jede Bewegung tut deinem Körper gut — Tanzen, mit Freundinnen spazieren, Radfahren, Schwimmen, Sport, den du magst.\n\nEs geht nicht um Leistung oder darum, Essen „auszugleichen\", sondern darum, dass Bewegung Spaß macht und dich stark und wach hält. Finde etwas, das sich für dich gut anfühlt.",
@@ -553,26 +553,26 @@ const MEDITERASIAN_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const EPIGENETIK_WISSEN = [
   {
-    id: "epi_schicksal", nurInfo: true, icon: "🧬", titel: "Deine Gene sind kein Schicksal",
+    id: "epi_schicksal", kern: "Deine Gene bestimmen nicht allein, wie gesund du bist — Lebensstil beeinflusst, welche aktiv werden.", relevanz: "Aronica beschreibt das als Zusammenspiel: Die Anlage ist da, aber du beeinflusst, was daraus wird.", evidenz: "belegt", quelle: "Aronica", nurInfo: true, icon: "🧬", titel: "Deine Gene sind kein Schicksal",
     text: `Dr. Lucia Aronica forscht in Stanford zu Ernährungs-Epigenetik. Ihre Kernbotschaft ist befreiend: „Essen ist nicht nur Treibstoff — es ist der Bleistift, der deine genetischen Anweisungen neu schreibt."\n\nWas heißt das? Deine Gene sind nur zu etwa 25 % für deine Gesundheit verantwortlich — die anderen 75 % schreibst du selbst, mit jeder Mahlzeit, jeder Bewegung, jedem Umgang mit Stress. Auf deinen Genen sitzen kleine molekulare „Schalter" (epigenetische Marker), die Gene lauter oder leiser stellen — wie ein Lautstärkeregler. Das Entscheidende: Diese Schalter sind in Bleistift geschrieben, nicht in Tinte. Sie werden täglich von Enzymen neu geschrieben — und was diese Enzyme tun, steuerst du über deinen Lebensstil.\n\nEine große Studie (New England Journal of Medicine, 2016) zeigte das eindrücklich: Von 55.000 Menschen mit hohem genetischem Herzrisiko halbierten diejenigen mit gesundem Lebensstil (gute Ernährung, Bewegung, Nichtrauchen) ihr Risiko — während Menschen mit guten Genen, aber schlechtem Lebensstil trotzdem krank wurden. Oder wie man sagt: „Die Gene laden die Waffe, der Lebensstil drückt ab."\n\nSchönes Bild dazu: Bienenköniginnen sind mit Arbeiterinnen genetisch identisch — aber weil die Larve Gelée Royale bekommt, wird sie zur Königin und lebt 20× länger. Nahrung legt den Schalter um.`,
     tipps: ["Nur ~25 % deiner Gesundheit sind Gene — 75 % schreibst du selbst", "Epigenetische Schalter sind „in Bleistift\" — täglich veränderbar", "Ernährung, Bewegung & Stressumgang steuern deine Gene", "Gesunder Lebensstil kann selbst hohes genetisches Risiko halbieren", "Du bist nicht deinen Genen ausgeliefert — du hältst den Bleistift"],
     schwangerHinweis: "Gerade in der Schwangerschaft ist das besonders kraftvoll: In den ersten ~1000 Tagen (Empfängnis bis 2. Geburtstag) wird ein großer Teil der epigenetischen „Grundeinstellung\" deines Kindes geprägt — und deine Ernährung schreibt daran mit. Das ist kein Druck, sondern eine Ermutigung: Mit guter, bunter Ernährung und genug der richtigen Nährstoffe (siehe Cholin auf der nächsten Karte) gibst du deinem Baby einen wunderbaren Start.",
     menopauseHinweis: "Auch in und nach der Menopause bleibt der Bleistift in deiner Hand: Der Rückgang von Östrogen ist Biologie, aber wie gut du dich fühlst, wird stark von Lebensstil und Ernährung mitbestimmt. Es ist nie zu spät — Studien zeigen Verbesserungen in jedem Alter.",
   },
   {
-    id: "epi_naehrstoffe", nurInfo: true, icon: "🖊️", titel: "Epi-Nährstoffe: Tinte & Signale",
+    id: "epi_naehrstoffe", kern: "Bestimmte Nährstoffe wirken wie Signale, die Gene an- oder abschalten.", relevanz: "Folat, B12 und Polyphenole gehören dazu. Buntes Gemüse liefert viele dieser Signalstoffe.", evidenz: "hinweise", quelle: "Aronica", nurInfo: true, icon: "🖊️", titel: "Epi-Nährstoffe: Tinte & Signale",
     text: `Aronica nennt die Nährstoffe, die deine Gene positiv steuern, „Epi-Nährstoffe" — unser menschliches Gelée Royale. Es gibt zwei Gruppen, die zusammenarbeiten:\n\n1. Die „Tinte" (Methyl-Donatoren) — das strukturelle Material, um gesunde Gen-Anweisungen zu schreiben. Fünf sind besonders wichtig: Methionin (in eiweißreichen Lebensmitteln), Folat (grünes Blattgemüse, Leber, Hülsenfrüchte), Vitamin B12 (tierisches Eiweiß), Cholin (v.a. Eier und Leber) und Betain (Rote Rübe, Spinat, Quinoa). Ohne diese „Tinte" geht deinen Genen buchstäblich die Schreibfarbe aus.\n\n2. Die „Signale" (Epi-Bioaktive) — sie sagen den Schreib- und Radier-Enzymen, was sie wo tun sollen. Dazu gehören die bunten Pflanzenfarbstoffe (aus Obst und Gemüse), Omega-3-Fettsäuren (fetter Fisch) und Postbiotika aus fermentierten Lebensmitteln (Joghurt, Sauerkraut, Kimchi, Kombucha).\n\nAronicas Fazit: Epi-Ernährung ist eine „schöne Freundschaft zwischen pflanzlichen und tierischen Lebensmitteln" — du brauchst beides: die Tinte (u.a. B12 und Cholin, meist tierisch) und die Signale (v.a. pflanzlich, plus Omega-3).`,
     tipps: ["„Tinte\": Methionin (Eiweiß), Folat (grünes Gemüse), B12 (tierisch), Cholin (Eier), Betain (Rote Rübe)", "„Signale\": bunte Pflanzenfarben, Omega-3, fermentierte Lebensmittel", "Cholin ist der „vergessene Nährstoff\" — Eigelb ist die beste Quelle", "Vegan/vegetarisch? 1 EL Sonnenblumen-/Soja-Lecithin ≈ 1 Ei (Cholin)", "Kombiniere pflanzlich + tierisch für beide Bausteine"],
     schwangerHinweis: "In der Schwangerschaft wird Cholin besonders wichtig: Der Bedarf steigt stark, weil dein Baby es nutzt, um sein Gehirn zu bauen UND seine DNA epigenetisch zu programmieren. Aronica verweist auf Forschung, wonach Schwangere mit ~930 mg Cholin täglich (statt der üblichen 450 mg) im 3. Trimester Kinder hatten, die noch 7 Jahre später bessere Aufmerksamkeit und weniger Ängstlichkeit zeigten. Das Erschreckende: Nur etwa 10 % der Schwangeren erreichen überhaupt die Mindestmenge. Beste Quellen: Eigelb (schon ein paar Eier am Tag decken viel), dazu Lachs, Hähnchen, etwas Leber; pflanzlich Brokkoli & Soja. Cholin-Dosierung in der Schwangerschaft bitte mit deiner Ärztin/Hebamme abstimmen.",
     menopauseHinweis: "Rund um die Menopause lohnt sich der Blick auf Protein & die „Tinte\"-Nährstoffe: Sie liefern die Bausteine für Muskeln, Haut, Haare und einen wachen Kopf — genau die Bereiche, die mit sinkendem Östrogen mehr Unterstützung brauchen. B12-Aufnahme kann mit dem Alter nachlassen, ein Check beim Hausarzt ist sinnvoll.",
   },
   {
-    id: "epi_rainbow", nurInfo: true, icon: "🌈", titel: "Eat the Rainbow — jede Farbe ein Signal",
+    id: "epi_rainbow", kern: "Jede Farbe im Gemüse steht für andere Pflanzenstoffe mit anderer Wirkung.", relevanz: "Deshalb ist Vielfalt wichtiger als die Menge eines einzelnen Superfoods.", evidenz: "belegt", quelle: "Li", nurInfo: true, icon: "🌈", titel: "Eat the Rainbow — jede Farbe ein Signal",
     text: `„Iss den Regenbogen" kennst du vielleicht — aber Aronica erklärt, warum: Die Farbstoffe sind nicht nur Antioxidantien, sondern Epi-Nährstoffe, und jede Farbe sendet ein anderes Signal an deine Gene. Das Beste: Mit ein paar einfachen Küchen-Tricks holst du ein Vielfaches heraus.\n\n🍅 Rot — Tomaten (Lycopin): gut für Herz und Haut (steigert den internen Sonnenschutz um ~40 %, schützt Kollagen). Trick: Lycopin ist fettlöslich — Tomaten in Olivenöl gekocht (z.B. als Tomatenmark) werden bis zu 3× besser aufgenommen.\n\n🥕 Orange — Karotten & Kürbis (Carotinoide): Vitamin-A-Vorstufe und „innere Hautpflege".\n\n🥦 Grün — Brokkoli (Sulforaphan): schaltet den Master-Schalter NRF2 an → über 200 Schutzgene, und das für bis zu 3 Tagen (2–3× pro Woche reicht). Tricks: frischen Brokkoli ~40 Min. vor dem Kochen klein schneiden (aktiviert das Enzym Myrosinase); TK-Brokkoli mit etwas Senfpulver „retten"; am stärksten sind Brokkolisprossen (bis zu 100× mehr).\n\n🧄 Weiß — Knoblauch (Allicin): senkt LDL, wirkt entzündungshemmend und immunstärkend. Trick: mit der flachen Messerseite zerdrücken, ~10 Min. stehen lassen, erst dann erhitzen (das Enzym ist hitzeempfindlich).\n\n🫐 Blau/Violett — Beeren (Anthocyane): besonders gut fürs Gehirn und entzündungshemmend.`,
     tipps: ["🍅 Tomaten in Öl kochen → bis zu 3× mehr Lycopin (fettlöslich)", "🍅 Praktisch: 3 EL Tomatenmark + Olivenöl decken die wirksamen ~10 mg Lycopin (roh bräuchtest du ~9 kg!)", "🥦 Brokkoli ~40 Min. vor dem Kochen schneiden; Sprossen = bis 100× stärker", "🥦 TK-Brokkoli mit einer Prise Senfpulver aufwerten", "🧄 Knoblauch zerdrücken, 10 Min. warten, dann erst erhitzen", "🫐 Beeren fürs Gehirn; 🥕 Orangefarbenes für Haut & Vitamin A (mit etwas Fett essen)", "Ziel: möglichst viele Farben über die Woche"],
   },
   {
-    id: "epi_genuss", nurInfo: true, icon: "🌸", titel: "Genuss als Longevity-Kompass",
+    id: "epi_genuss", kern: "Genuss ist kein Gegenteil von gesund — er ist Teil davon.", relevanz: "Wer mit Freude isst, hält gute Gewohnheiten länger durch als mit Verzicht und Kontrolle.", evidenz: "experten", quelle: "Aronica", nurInfo: true, icon: "🌸", titel: "Genuss als Longevity-Kompass",
     text: `Aronicas vielleicht schönste Botschaft — und sie passt perfekt zur Idee dieser App: Longevity ist nicht nur Biologie, sondern auch Psychologie und Genuss. Ihr Vorbild ist ihre 84-jährige Mutter, die nicht um 5 Uhr ins Eisbad springt und keine 100 Supplemente nimmt, sondern sich elegant kleidet, ihr Essen genießt und voller Freude lebt. „Genuss ist dein Kompass."\n\nDeshalb rät sie: Verzichte nicht nur auf verarbeitetes Essen, sondern ersetze es durch etwas, das du wirklich liebst — die Instant-Nudeln durch ein saftiges Stück Lachs, den Keks durch süße Beeren. Wenn Essen, Bewegung und Verbindung Freude machen, wird Gesundheit so selbstverständlich wie Atmen.\n\nUnd zur Wirkung: Schon in 30 Tagen reicht es nicht, um alte epigenetische „Erinnerungen" komplett umzuschreiben — aber du spürst deutliche Veränderungen: stabilere Energie (der Blutzucker beruhigt sich), besserer Schlaf und Haut (Entzündung sinkt), bessere Verdauung (das Mikrobiom passt sich an). Die eigentliche Veränderung ist zellulär — du beginnst, dich neu zu schreiben.\n\nIhr letzter Rat für andere: Du kannst niemanden zwingen — aber du kannst die Einladung sein. Verändere dich selbst, lebe es vor, dann werden andere neugierig.`,
     tipps: ["Ersetze Verarbeitetes durch etwas, das du wirklich liebst — nicht nur weglassen", "Genuss, Freude & Verbindung gehören zur Langlebigkeit dazu", "Iss achtsam, nimm dir Zeit, genieße", "Schon ~30 Tage bringen mehr Energie, besseren Schlaf & Haut", "Sei die Einladung: verändere dich selbst, statt andere zu drängen"],
   },
@@ -660,13 +660,13 @@ const WEGLASSEN_KATEGORIEN = [
   {
     id: "suessstoffe", name: "Süßstoffe (Light/Zero)", icon: "🧪", quelle: "Li & Pelz",
     warum: "„Zuckerfrei\" ist keine Lösung: Süßstoffe wie Aspartam/Sucralose/Saccharin schaden dem Mikrobiom (senken gute Bakterien wie L. reuteri), können Insulin & Heißhunger anheizen. Pelz zählt sie zu den Excitotoxinen.",
-    weglassen: ["Aspartam / NutraSweet", "Sucralose / Splenda", "Saccharin", "Acesulfam-K", "Light-/Zero-Getränke", "Zuckerfreie Kaugummis & Bonbons", "„Diät\"-Desserts"],
+    weglassen: ["Aspartam (E 951, auch NutraSweet)", "Sucralose (E 955, auch Splenda)", "Saccharin (E 954)", "Acesulfam-K (E 950)", "Light-/Zero-Getränke", "Zuckerfreie Kaugummis & Bonbons", "„Diät\"-Desserts"],
     swap: ["Kleine Mengen echter Zucker", "Etwas Honig oder Ahornsirup", "Mönchsfrucht (Monk Fruit)", "Frische/getrocknete Früchte für Süße"],
   },
   {
     id: "obesogene", name: "Obesogene & Excitotoxine", icon: "⚠️", quelle: "Pelz",
-    warum: "Obesogene verwandeln Stammzellen in Fettzellen und fördern Insulinresistenz; Excitotoxine treiben Cortisol hoch. Ironischerweise stecken viele in „Diät\"-Produkten.",
-    weglassen: ["High-Fructose Corn Syrup", "Mononatriumglutamat (MSG)", "Hydrolysiertes Pflanzenprotein (HVP)", "Autolysierter Hefeextrakt", "Sojaprotein-Isolat/-Konzentrat", "Natriumcaseinat", "Glutaminsäure (als Zusatz)", "Künstliche Farbstoffe (Rot/Blau)"],
+    warum: "Obesogene verwandeln Stammzellen in Fettzellen und fördern Insulinresistenz; Excitotoxine treiben Cortisol hoch. Ironischerweise stecken viele in „Diät\"-Produkten. Wichtig fürs Einkaufen: In Europa steht nie „High Fructose Corn Syrup\" auf dem Etikett — hier heißt derselbe Stoff Glucose-Fructose-Sirup, Fructose-Glucose-Sirup oder Isoglucose.",
+    weglassen: ["Glucose-Fructose-Sirup / Fructose-Glucose-Sirup (= Isoglucose, in den USA HFCS)", "Getarnte Zuckernamen: Dextrose, Maltodextrin, Maissirup, Maltose", "Fruchtig getarnt: Apfelsaftkonzentrat, Agavendicksaft, Dattelsirup", "Mononatriumglutamat (MSG)", "Hydrolysiertes Pflanzenprotein (HVP)", "Autolysierter Hefeextrakt", "Sojaprotein-Isolat/-Konzentrat", "Natriumcaseinat", "Glutaminsäure (als Zusatz)", "Künstliche Farbstoffe (Rot/Blau)"],
     swap: ["Selbst gekocht aus echten Zutaten", "Würzen mit Kräutern & Gewürzen", "Zutatenliste lesen (je kürzer, desto besser)", "Frische statt Fertig"],
   },
   {
@@ -695,8 +695,8 @@ const WEGLASSEN_KATEGORIEN = [
   },
   {
     id: "verarb_fleisch", name: "Verarbeitetes Fleisch", icon: "🥓", quelle: "Li",
-    warum: "Wurst, Speck & Salami sind von der WHO als Klasse-1-Karzinogen eingestuft (Darmkrebs-Risiko), u.a. wegen zugesetzter Nitrate. Selten & bewusst genießen.",
-    weglassen: ["Wurst & Salami", "Speck / Bacon", "Hotdogs", "Aufschnitt (Schinken, Mortadella)", "Beef Jerky", "Chorizo", "Pepperoni", "Fast-Food-Patties"],
+    warum: "Wurst, Speck & Salami sind von der WHO als Klasse-1-Karzinogen eingestuft (Darmkrebs-Risiko). Auf dem Etikett erkennst du es an „Nitritpökelsalz\" oder E 249–E 252 — beim Erhitzen können daraus Nitrosamine entstehen. Auch Bio-Wurst mit Selleriesaft wirkt ähnlich. Die EFSA sieht die erlaubten Einzelmengen als wenig bedenklich, warnt aber vor hoher Gesamtaufnahme. Selten & bewusst genießen.",
+    weglassen: ["Wurst & Salami", "Speck / Bacon", "Hotdogs", "Aufschnitt (Schinken, Mortadella)", "Alles mit „Nitritpökelsalz\" (E 249–E 252)", "Chorizo", "Pepperoni", "Fast-Food-Patties"],
     swap: ["Hülsenfrüchte (Bohnen, Linsen, Kichererbsen)", "Pilze (alle Arten)", "Geflügel ohne Haut", "Fisch & Meeresfrüchte (nicht frittiert)", "Tofu", "Selbstgemachte Bohnen-/Quinoa-Bratlinge"],
   },
   {
@@ -710,19 +710,19 @@ const WEGLASSEN_KATEGORIEN = [
 
 const KREATIN_WISSEN = [
   {
-    id: "kreatin_warum", nurInfo: true, icon: "⚡", titel: "Kreatin — gerade für Frauen ein Gewinn",
+    id: "kreatin_warum", kern: "Kreatin ist eines der am besten untersuchten Supplemente — auch für Frauen.", relevanz: "Es unterstützt Kraft und wird für Knochen und Gehirn diskutiert. Frauen haben oft niedrigere Ausgangswerte.", evidenz: "belegt", quelle: "Patrick / Candow", nurInfo: true, icon: "⚡", titel: "Kreatin — gerade für Frauen ein Gewinn",
     text: `Kreatin ist kein „Bodybuilder-Pulver", sondern eines der am besten erforschten und sichersten Supplemente überhaupt — mit über 500 Studien. Es hilft deinen Zellen, schnell Energie (ATP) bereitzustellen: für Muskeln UND fürs Gehirn. Für Frauen ist es besonders interessant, weil sie von Natur aus rund 70–80 % geringere Kreatinspeicher haben als Männer und deshalb oft deutlich von einer Ergänzung profitieren. Dr. Rhonda Patrick zählt Kreatin zu ihren wichtigsten täglichen Supplementen — nicht für den Muskel allein, sondern ausdrücklich fürs Gehirn.`,
     tipps: ["Liefert schnelle Zellenergie (ATP) für Muskeln und Gehirn", "Frauen haben 70–80 % niedrigere Kreatinspeicher → oft größerer Effekt", "Kann Kraft, Muskelerhalt, Erholung und Denkleistung unterstützen", "Studien zeigen Vorteile bei Gehirnnebel & Schlafmangel (Gehirn unter Stress)", "Über 500 Studien — sehr gut untersucht und sehr sicher", "Besonders wertvoll in Lebensphasen mit niedrigem Östrogen (Perimenopause, Menopause)"],
     menopauseHinweis: "In der Peri- und Menopause ist Kreatin besonders spannend: Mit sinkendem Östrogen häufen sich Brain Fog, Müdigkeit und Muskel-/Knochenabbau — genau hier setzt Kreatin an. Neuere Studien deuten auf Vorteile für Aufmerksamkeit und gegen Erschöpfung bei peri-/postmenopausalen Frauen hin; zusammen mit Krafttraining unterstützt es außerdem Muskeln und Knochengesundheit. Dr. Mindy Pelz führt Kreatin in „Age Like a Girl\" ausdrücklich als Werkzeug gegen Muskelschwäche, Fatigue und geistige Trägheit in dieser Phase. Übliche Menge in den Studien: 3–5 g Kreatin-Monohydrat täglich — die genaue Dosis mit deiner Ärztin abstimmen.",
     schwangerHinweis: "In Schwangerschaft und Stillzeit ist die Studienlage zu Kreatin-Supplementen noch dünn. Es gibt zwar interessante Forschung, aber keine klare Empfehlung — deshalb bitte Kreatin als Nahrungsergänzung in dieser Zeit nur nach Rücksprache mit deiner Ärztin oder Hebamme. Über die Ernährung (Fleisch, Fisch) bekommst du ohnehin Kreatin.",
   },
   {
-    id: "kreatin_mythos", nurInfo: true, icon: "💧", titel: "Der Wassereinlagerungs-Mythos",
+    id: "kreatin_mythos", kern: "Kreatin macht nicht 'aufgeschwemmt' — das ist ein hartnäckiger Mythos.", relevanz: "Es zieht Wasser in die Muskelzelle, nicht unter die Haut. Das ist erwünscht, nicht störend.", evidenz: "belegt", nurInfo: true, icon: "💧", titel: "Der Wassereinlagerungs-Mythos",
     text: `Der häufigste Grund, warum Frauen Kreatin meiden: die Angst vor Aufschwemmung und Gewichtszunahme. Die Studienlage entkräftet das klar. Kreatin zieht Wasser IN die Muskelzelle (wo es nützlich ist) — es bläht nicht den Bauch auf. Das berühmte „Bloating" trat fast nur bei hohen Ladedosen (20 g auf einmal) auf, die du gar nicht brauchst. Wer mit einer normalen Dosis startet, hat in der Regel keine sichtbare Wassereinlagerung. Eine Übersichtsarbeit zeigte sogar: Kreatin hat keine höhere Nebenwirkungsrate als ein Placebo.`,
     tipps: ["Kreatin lagert Wasser in den Muskel ein, nicht in den Bauch — kein „Aufgeblähtsein\"", "Der Bloating-Effekt kommt fast nur von hohen Ladedosen (20 g) — die brauchst du nicht", "Ohne Ladephase starten: gleich mit der normalen Tagesdosis", "Eine kleine Gewichtszunahme auf der Waage ist Wasser im Muskel, KEIN Fett", "Mythen wie Nierenschäden oder Haarausfall sind bei gesunden Menschen nicht belegt", "Genug trinken hilft, falls du dich anfangs etwas voll fühlst"],
   },
   {
-    id: "kreatin_dosis", icon: "🥄", titel: "Dosierung & Praxis",
+    id: "kreatin_dosis", kern: "Übliche Erhaltungsdosis sind etwa 3–5 g täglich, gleichmäßig eingenommen.", relevanz: "Eine Ladephase ist nicht nötig. Für Knochen- und Gehirnfragen werden teils höhere Mengen diskutiert.", evidenz: "belegt", quelle: "Candow", icon: "🥄", titel: "Dosierung & Praxis",
     text: `Kreatin-Monohydrat ist die beste erforschte Form — kein teures „Spezial-Kreatin" nötig. Achte aber auf die Qualität: Das deutsche Rohmaterial Creapure gilt als Reinheits-Goldstandard (geprüft auf Schadstoffe und Verunreinigungen). Patrick nutzt z.B. Marken, die Creapure verwenden (Thorne, Momentous) und NSF-zertifiziert sind. Für den Muskel reichen ~5 g täglich (das sättigt die Muskelspeicher). Für die zusätzlichen Vorteile bei Gehirn und Knochen empfehlen Patrick und der Knochen-Forscher Dr. Darren Candow eher ~8–10 g täglich — denn erst wenn der Muskel gesättigt ist, „fließt" Kreatin auch ins Gehirn, in die Knochen und ins Immunsystem über. Wichtig ist die Regelmäßigkeit, nicht das Timing.`,
     tipps: ["Form: Kreatin-Monohydrat (am besten erforscht)", "Auf Qualität achten: Creapure (deutsches Rohmaterial, Reinheits-Goldstandard) bzw. NSF-/schadstoffgeprüft", "~5 g/Tag sättigen den Muskel; ~8–10 g/Tag für Gehirn- & Knochen-Vorteile", "Etwas Geduld: ~4 Wochen tägliche Einnahme, bis die Muskeln gesättigt sind", "Keine Ladephase nötig — einfach täglich dieselbe Dosis", "Timing egal — Hauptsache konsequent jeden Tag (auch trainingsfrei)", "Patrick nimmt ~10 g/Tag, bei Schlafmangel/Stress kurzzeitig mehr", "Lässt sich in Wasser, Kaffee oder den Smoothie rühren (Hitze schadet nicht)", "Bei Nierenerkrankung oder Schwangerschaft vorher ärztlich abklären"],
   },
@@ -732,7 +732,7 @@ const KREATIN_WISSEN = [
 // Vereinfachte Version; fuer Verstehen-Tab (Zyklus & Menopause).
 const SMOOTHIE_WISSEN = [
   {
-    id: "smoothie", icon: "🥤", titel: "Dr. Patricks Longevity-Smoothie",
+    id: "smoothie", kern: "Patricks Smoothie kombiniert Blattgemüse, Beeren, gute Fette und Protein.", relevanz: "Er ist ein praktischer Weg, viele Mikronährstoffe auf einmal aufzunehmen — kein Wundermittel, aber effizient.", evidenz: "praxis", quelle: "Patrick", icon: "🥤", titel: "Dr. Patricks Longevity-Smoothie",
     text: `Im Mel-Robbins-Podcast hat Dr. Rhonda Patrick den Smoothie gezeigt, den sie fast täglich trinkt — eine bewusst vereinfachte Version ihres berühmten Mikronährstoff-Smoothies. Ihr Leitgedanke ist Effizienz: mehrere Portionen Gemüse plus Protein und Ballaststoffe in einem Glas. Grünkohl liefert Magnesium, Vitamin K, Folat und Lutein/Zeaxanthin (gut für die Augen); die Avocado steigert die Aufnahme dieser Carotinoide um das 3- bis 6-Fache und bringt gesundes Fett; Blaubeeren liefern Polyphenole fürs Gehirn. Als Flüssigkeit reicht Wasser (für mehr Omega-3 geht auch Flachsmilch).`,
     tipps: ["🥬 2 Tassen Grünkohl (ca. 4 Blätter ohne Strunk)", "💧 ca. 360 ml Wasser (oder ungesüßte Flachs-/Mandelmilch)", "🫐 1 Handvoll (ca. 150 g) gefrorene Blaubeeren", "🥑 ½ reife Avocado (macht die Carotinoide besser verfügbar)", "💪 1 EL Proteinpulver (Whey-Isolat oder vegan)", "🌾 optional 1 TL Beta-Glucan-Pulver aus Gerste (Ballaststoffe)", "Zuerst Grünkohl + Wasser glatt mixen, dann den Rest dazu", "Patrick ließ die früher genutzte Banane weg — ihr Enzym baut die Blaubeer-Polyphenole ab", "In der Schwangerschaft: pasteurisiertes Proteinpulver, Pulver vorab ärztlich abklären"],
   },
@@ -741,32 +741,32 @@ const SMOOTHIE_WISSEN = [
 // Perimenopause-Wissen, buchgetreu aus "Age Like a Girl" (Dr. Mindy Pelz)
 const PERIMENOPAUSE_WISSEN = [
   {
-    id: "was", nurInfo: true, icon: "🦋", titel: "Was ist die Perimenopause?",
+    id: "was", kern: "Die Perimenopause beginnt oft Jahre vor der letzten Periode — mit noch bestehendem Zyklus.", relevanz: "Viele Frauen ab 40 erleben Veränderungen und wissen nicht, dass es damit zusammenhängt. Das Wissen darum nimmt viel Verunsicherung.", evidenz: "belegt", nurInfo: true, icon: "🦋", titel: "Was ist die Perimenopause?",
     text: `Die Perimenopause ist die Übergangszeit, die oft schon in den frühen 40ern beginnt — Stacy Sims ("Next Level") nennt als typischen Beginn etwa 45 Jahre, manchmal aber schon ab 36. Sie beschreibt sie treffend als "hormonalen SOS": Dein vorher regelmäßiger Zyklus (25–40 Tage) wird unberechenbar — Perioden fallen aus oder werden stark und langziehen sich. Der Grund: Östrogen und Progesteron, die deinen Zyklus seit der Pubertät gesteuert haben, geraten in Schwankungen. Dr. Pelz ergänzt: Östrogen ist eng mit Botenstoffen wie Dopamin, Serotonin und GABA verknüpft (deine "neurochemische Rüstung") — die beginnt sich nun langsam zu verändern.`,
     tipps: ["Beginnt oft um 45, kann aber schon ab 36 losgehen (Sims)", "Der Zyklus wird unregelmäßig — das ist das Leitsymptom", "Du bildest dir nichts ein — die Veränderungen sind real & biochemisch", "Je früher du den Lebensstil anpasst, desto sanfter der Übergang"],
   },
   {
-    id: "symptome", nurInfo: true, icon: "📋", titel: "Typische erste Anzeichen",
+    id: "symptome", kern: "Erste Anzeichen sind oft unspezifisch: kürzere Zyklen, schlechterer Schlaf, mehr Reizbarkeit.", relevanz: "Weil die Symptome so vielfältig sind, werden sie oft anders erklärt. Ein Zyklustagebuch hilft dir, Muster zu erkennen.", evidenz: "belegt", nurInfo: true, icon: "📋", titel: "Typische erste Anzeichen",
     text: `Weil Östrogen schwankt (mal hoch, mal niedrig), sind die Symptome in der Perimenopause oft unvorhersehbar und wechselhaft. Pelz selbst beschreibt, wie sie sich mit 43 "körperlich und emotional wie ein Wrack" fühlte — ohne zu verstehen, was geschah. Häufige frühe Anzeichen sind unregelmäßigere Zyklen, der berühmte "2-Uhr-nachts-Aufwacher", erste Wortfindungs- und Gedächtnislücken, neue Reizbarkeit oder Ängstlichkeit, und dass Sport (besonders langes Laufen) plötzlich Gelenkprobleme macht.`,
     tipps: ["Zyklus wird unregelmäßiger (kürzer, länger, ausbleibend)", "Schlaf: nächtliches Aufwachen, oft gegen 2 Uhr", "Gehirnnebel: Worte stocken, Namen entfallen", "Stimmung: Reizbarkeit, Ängstlichkeit, \"nicht ich selbst\"", "Gelenke reagieren empfindlicher auf Belastung"],
   },
   {
-    id: "insulin", icon: "🩸", titel: "Blutzucker & Insulin",
+    id: "insulin", kern: "Mit sinkendem Östrogen reagiert dein Körper empfindlicher auf Zucker.", relevanz: "Blutzuckerschwankungen verstärken Hitzewallungen und Energietiefs. Protein zu jeder Mahlzeit und Bewegung nach dem Essen wirken direkt.", evidenz: "belegt", quelle: "Sims", icon: "🩸", titel: "Blutzucker & Insulin",
     text: `Pelz betont, dass schon in der Perimenopause die Insulinempfindlichkeit nachlässt — der Körper reagiert empfindlicher auf Blutzuckerschwankungen. Das ist einer der Gründe für Heißhunger, Energietiefs und die hartnäckige Gewichtszunahme rund um die Lebensmitte. Ein stabiler Blutzucker ist deshalb eine der wirksamsten Stellschrauben, die du jetzt schon hast.`,
     tipps: ["Glukose-Hacks nutzen (siehe Glukose-Bereich)", "Zucker und ultraverarbeitete Lebensmittel reduzieren", "Gemüse/Protein vor Kohlenhydraten essen", "Nach dem Essen kurz bewegen"],
   },
   {
-    id: "bewegung", icon: "💪", titel: "Bewegung anpassen",
+    id: "bewegung", kern: "In der Perimenopause verschiebt sich der Schwerpunkt Richtung Kraft und Erholung.", relevanz: "Sims empfiehlt schwerere Gewichte und kürzere, intensivere Einheiten statt langer Ausdauereinheiten — bei mehr Regeneration dazwischen.", evidenz: "experten", quelle: "Sims, Next Level", icon: "💪", titel: "Bewegung anpassen",
     text: `Pelz' eigene Erfahrung: Als begeisterte Läuferin merkte sie in der Perimenopause, dass schon kurze Läufe zu Schmerzen in Hüften, Knien und Füßen führten — eine Verletzung nach der anderen. Der Grund: Sinkendes Östrogen bedeutet weniger Kollagen, wodurch Bänder, Sehnen und Gelenke an Belastbarkeit verlieren. Bewegungen, die früher mühelos waren, können jetzt zu Verletzungen führen. Die Lösung ist nicht weniger Bewegung, sondern die richtige Art.`,
     tipps: ["Weg vom Dauer-Ausdauersport, hin zu Krafttraining", "Krafttraining schützt Muskeln UND Knochen", "Kollagen ergänzen (mit Vitamin C) für Gelenke", "Kreatin unterstützt Muskeln und Gehirn", "Auf Erholung achten — der Körper braucht jetzt mehr"],
   },
   {
-    id: "vorbereiten", icon: "🌱", titel: "Jetzt schon vorbereiten",
+    id: "vorbereiten", kern: "Was du jetzt für Muskeln und Knochen tust, zahlt sich in den Wechseljahren aus.", relevanz: "Krafttraining, genug Protein und Vitamin-D-Status prüfen sind die drei wirksamsten Vorbereitungen — je früher, desto besser.", evidenz: "belegt", icon: "🌱", titel: "Jetzt schon vorbereiten",
     text: `Die zentrale Botschaft von Pelz: Sie fühlte sich von der Perimenopause "überrumpelt", weil niemand darüber sprach und sie keine Landkarte hatte. Genau das möchte sie Frauen ersparen. Die Gewohnheiten, die du jetzt aufbaust, machen den späteren Übergang in die Menopause viel sanfter. Es geht nicht darum, gegen den Körper zu kämpfen, sondern ihn bei seiner Umstellung zu unterstützen.`,
     tipps: ["Metabolische Flexibilität durch sanftes Fasten aufbauen", "Ursprüngliche, unverarbeitete Ernährung etablieren", "Stressmanagement: Cortisol beeinflusst die Hormone stark", "Ein gutes Ärzt:innen-Team suchen, das Hormone ernst nimmt", "Mit anderen Frauen sprechen — du bist nicht allein"],
   },
   {
-    id: "wann_menopause", icon: "📅", titel: "Wann ist es offiziell Menopause?",
+    id: "wann_menopause", kern: "Offiziell Menopause ist es, wenn die Periode zwölf Monate am Stück ausgeblieben ist.", relevanz: "Bis dahin bist du in der Perimenopause — auch wenn der Zyklus schon sehr unregelmäßig ist. Verhütung bleibt in dieser Zeit ein Thema.", evidenz: "belegt", icon: "📅", titel: "Wann ist es offiziell Menopause?",
     text: `Ein wichtiger Punkt, der oft verwirrt: Die Menopause ist streng genommen nur EIN einziger Zeitpunkt — nämlich der Tag, an dem du (rückblickend) ein volles Jahr, also 12 Monate am Stück, keine Periode mehr hattest (Stacy Sims). Die ganze Zeit davor mit unregelmäßigem Zyklus ist die Perimenopause. Dr. Pelz nennt das letzte Jahr zwischen unregelmäßigem Zyklus und ganz ausbleibendem Zyklus das "Übergangsjahr" — für viele die symptomreichste Zeit. Sims' wichtiger Praxis-Hinweis: Es ist ganz normal, zu denken "geschafft", und dann kommt doch noch eine Blutung — dann beginnt das Zählen von vorn. Erst wenn die vollen 12 Monate wirklich erreicht sind, beginnt die Postmenopause, dein hormoneller Zustand für den Rest des Lebens. Deshalb bleibst du in dieser App im Zyklus-Modus richtig, solange du noch (unregelmäßige) Blutungen hast — und wechselst in den Menopause-Modus, wenn das Jahr voll ist.`,
     tipps: ["Menopause = der Tag, an dem 12 Monate ohne Periode voll sind", "Kommt vorher noch eine Blutung → die 12 Monate zählen neu", "Das \"Übergangsjahr\" ist für viele die intensivste Phase (Pelz)", "Durchschnittsalter 51–52; früh ab ~40, spät bis 55–60 möglich", "Solange du noch blutest: Zyklus-Modus. Jahr voll: Menopause-Modus", "Bei Unsicherheit (z.B. nur noch Schmierblutungen) ärztlich abklären lassen"],
   },
@@ -781,32 +781,32 @@ const PERIMENOPAUSE_WISSEN = [
 // Allgemeine Sexual-Health-Themen (in beiden Modi sichtbar)
 const SEXUAL_HEALTH_ALLGEMEIN = [
   {
-    id: "warum", icon: "💗", titel: "Warum sexuelle Gesundheit = Gesundheit ist",
+    id: "warum", kern: "Sexuelle Gesundheit ist Teil der Allgemeingesundheit — kein Nebenthema.", relevanz: "Rubin betont: Beschwerden werden oft jahrelang nicht angesprochen, obwohl sie gut behandelbar sind. Darüber zu reden ist der erste Schritt.", evidenz: "experten", quelle: "Rubin", icon: "💗", titel: "Warum sexuelle Gesundheit = Gesundheit ist",
     text: `Dr. Rachel Rubin, eine der führenden Spezialistinnen für sexuelle Medizin, bringt es auf den Punkt: "Sexuelle Gesundheit IST Gesundheit." Trotzdem wird sie in der Medizin oft übergangen — viele Ärzt:innen wurden nie darin ausgebildet. Rubin nennt ihre Aufklärung augenzwinkernd "die Sex-Ed, die du nie bekommen hast, aber definitiv gebraucht hättest". Dein Recht: offen über Lust, Schmerzen, Trockenheit oder Blasenprobleme zu sprechen — ohne Scham.`,
     tipps: ["Du darfst deine Ärztin gezielt darauf ansprechen", "Folge Dr. Rubin auf Instagram/YouTube (@drrachelrubin) für fundierte Aufklärung", "Schäme dich nicht — diese Themen betreffen fast alle Frauen"],
   },
   {
-    id: "libido", icon: "🔥", titel: "Libido & Lust verstehen",
+    id: "libido", kern: "Lust entsteht aus Hormonen, Kontext und Kopf zugleich — nicht auf Knopfdruck.", relevanz: "Schwankende Libido ist normal und hängt mit Zyklus, Stress und Schlaf zusammen. Ein Dauertief lohnt aber die ärztliche Abklärung.", evidenz: "belegt", quelle: "Rubin", icon: "🔥", titel: "Libido & Lust verstehen",
     text: `Ein Nachlassen der Lust ist häufig und hat oft hormonelle Ursachen — Testosteron spielt bei Frauen eine größere Rolle für die Libido, als viele denken. Auch Östrogen, Stress, Schlaf, Medikamente (z.B. manche Antidepressiva, die Pille) und die Beziehung wirken mit. Wichtig: Libidoverlust ist kein persönliches Versagen, sondern meist ein lösbares medizinisches Thema.`,
     tipps: ["Prüfe, ob Medikamente (Pille, SSRIs) deine Libido dämpfen", "Achte auf Schlaf, Stress & Beziehung — sie spielen mit", "Eine Sexualmedizinerin kann Hormonwerte gezielt testen"],
   },
   {
-    id: "schmerzen", icon: "🌹", titel: "Schmerzen beim Sex",
+    id: "schmerzen", kern: "Schmerzen beim Sex sind nie normal und fast immer behandelbar.", relevanz: "Rubin sieht darin eines der am häufigsten übersehenen Frauenprobleme. Es gibt viele wirksame Ansätze — du musst das nicht aushalten.", evidenz: "experten", quelle: "Rubin", icon: "🌹", titel: "Schmerzen beim Sex",
     text: `Schmerzen beim Sex (Dyspareunie) sind nie "normal" und du musst sie nicht aushalten. Ursachen können vielfältig sein: Trockenheit durch Hormonmangel, Verspannungen des Beckenbodens, Vestibulodynie (Schmerz am Scheideneingang), oder Hautveränderungen. Rubins Praxis verbindet dafür Urologie, Sexualmedizin, Beckenboden-Physiotherapie und Sexualtherapie. Fast alles ist behandelbar.`,
     tipps: ["Schmerz beim Sex ist immer ein Grund, ärztlichen Rat zu suchen", "Beckenboden-Physiotherapie hilft bei Verspannungen", "Gleitmittel & vaginale Feuchtigkeitspflege als erste Hilfe", "Bei brennendem Schmerz am Eingang: nach Vestibulodynie fragen"],
   },
   {
-    id: "testosteron_therapie", nurInfo: true, icon: "⚡", titel: "Testosteron — das vergessene Frauenhormon",
+    id: "testosteron_therapie", kern: "Testosteron ist auch für Frauen ein wichtiges Hormon — wird aber selten mitgedacht.", relevanz: "Rubin plädiert dafür, es bei Libido- und Energieproblemen mitzuuntersuchen. Eine Therapie gehört in fachärztliche Hände.", evidenz: "experten", quelle: "Rubin", nurInfo: true, icon: "⚡", titel: "Testosteron — das vergessene Frauenhormon",
     text: `Testosteron gilt oft als „Männerhormon" — dabei produzieren auch die Eierstöcke der Frau Testosteron, und es ist wichtig für Libido, Erregung, Orgasmus, Energie und Stimmung. Dr. Rachel Rubin betont einen entscheidenden Punkt, den kaum jemand kennt: Der Testosteronspiegel sinkt schon ab den 30ern — es ist also nicht nur ein Menopausen-Thema, sondern altersbedingt.\n\nDas heißt: Wenn du in deinen 30ern oder später eine nachlassende Libido, veränderte Erregung oder Schwierigkeiten mit dem Orgasmus bemerkst, kann das eine biologische Ursache haben — und muss nicht „einfach so" hingenommen werden. Rubin sagt klar: Niedrige Libido, die dich belastet, ist ein medizinisches Thema, kein Charakterfehler und nichts „nur im Kopf".\n\nZur Behandlung: Es gibt eine weltweite Fachübereinkunft („Global Consensus on Testosterone Therapy in Women"), dass eine Testosterontherapie für Frauen sicher ist und wirkt — vor allem für die Libido. In den USA ist dafür (noch) kein eigenes Frauen-Präparat zugelassen, weshalb niedrig dosiertes Männer-Testosteron genutzt wird (etwa ein Zehntel der Männerdosis). In Ländern wie Großbritannien, Australien, Neuseeland und Südafrika ist es zugelassen. Das gehört immer in fachärztliche Hände.`,
     tipps: ["Testosteron ist auch für Frauen wichtig: Libido, Erregung, Orgasmus, Energie", "Sinkt schon ab den 30ern — nicht erst in der Menopause", "Belastende niedrige Libido ist ein medizinisches Thema, kein „Kopfding\"", "Weltweite Fachübereinkunft: Testosterontherapie für Frauen sicher & wirksam", "Wird niedrig dosiert (~1/10 der Männerdosis) fachärztlich verordnet", "In UK/Australien/NZ/Südafrika zugelassen; in den USA (noch) nicht für Frauen"],
   },
   {
-    id: "klitoris_adhaesionen", nurInfo: true, icon: "🔎", titel: "Klitoris-Verklebungen — kaum bekannt, oft übersehen",
+    id: "klitoris_adhaesionen", kern: "Verklebungen an der Klitoris sind wenig bekannt, aber gut behandelbar.", relevanz: "Sie können Schmerzen und Empfindungsverlust verursachen. Die wenigsten wissen, dass es das gibt — und dass man etwas dagegen tun kann.", evidenz: "experten", quelle: "Rubin", nurInfo: true, icon: "🔎", titel: "Klitoris-Verklebungen — kaum bekannt, oft übersehen",
     text: `Ein Thema, das fast nie besprochen wird: Jede Klitoris hat — wie die Eichel beim Mann eine Vorhaut — eine schützende „Kapuze" (Klitorisvorhaut). Normalerweise lässt sie sich zurückschieben. Bei etwa 23 % der Frauen (rund jede Vierte!) ist sie aber teilweise oder ganz verklebt — man spricht von Klitoris-Adhäsionen. Dr. Rachel Rubin und ihr Team haben das 2017 erstmals wissenschaftlich beschrieben.\n\nWarum das wichtig ist: Solche Verklebungen können Beschwerden machen — ein Gefühl wie „ein Härchen" oder Reizung, Schmerzen oder Empfindlichkeit bei Berührung, und bei manchen Frauen verminderte Erregung oder schwächere Orgasmen. Viele mögen deshalb Berührung an dieser Stelle nicht — ohne zu wissen, warum.\n\nDie gute Nachricht: Es ist behandelbar. Rubin beschreibt einen kleinen Eingriff in der Praxis (kein Schneiden, keine Naht, nur örtliche Betäubung), bei dem die Verklebung sanft gelöst wird — vergleichbar damit, verklebte Augenlider morgens vorsichtig zu öffnen. In ihren Daten berichteten 60–70 % der Betroffenen über bessere Erregung/Orgasmen und rund 70 % über weniger Schmerzen. Wichtig ist vor allem: Es gibt einen Namen dafür, du bist nicht „komisch", und es lohnt sich, es bei einer sexualmedizinisch erfahrenen Ärztin anzusprechen.`,
     tipps: ["Jede Klitoris hat eine „Kapuze\" (Vorhaut) — sie sollte sich zurückschieben lassen", "Bei ~23 % der Frauen ist sie verklebt (Klitoris-Adhäsion)", "Mögliche Zeichen: Reizung, „Härchen-Gefühl\", Schmerz, weniger Erregung/Orgasmus", "Es ist behandelbar — kleiner Praxis-Eingriff, kein Schneiden/Nähen", "Kaum ein:e Ärzt:in untersucht die Klitoris routinemäßig — sprich es aktiv an", "Du bist nicht „komisch\": Das betrifft jede vierte Frau"],
   },
   {
-    id: "vestibuel", nurInfo: true, icon: "🩹", titel: "Wenn es sich wie ein Harnwegsinfekt anfühlt — aber keiner ist",
+    id: "vestibuel", kern: "Manche Beschwerden fühlen sich wie ein Harnwegsinfekt an, sind aber keiner.", relevanz: "Wenn Tests wiederholt negativ sind, lohnt es, an vestibuläre Ursachen zu denken — sonst folgen unnötige Antibiotika.", evidenz: "experten", quelle: "Rubin", nurInfo: true, icon: "🩹", titel: "Wenn es sich wie ein Harnwegsinfekt anfühlt — aber keiner ist",
     text: `Ein sehr häufiges, aber kaum bekanntes Phänomen von Dr. Rubin: Direkt am Scheideneingang, zwischen den inneren Schamlippen, liegt das sogenannte vulväre Vestibül. Das Besondere: Dieses Gewebe stammt entwicklungsbiologisch vom selben Ursprung wie die Blase — es ist dünn, empfindlich und stark hormonabhängig, ganz anders als die robuste Haut der äußeren Schamlippen.\n\nWenn dieses Gewebe zu wenig Hormone bekommt (z. B. durch die Pille, in der Stillzeit, unter Brustkrebs-Therapie oder in der Menopause), wird es dünn und gereizt. Dann kann sich Sex wie „Schmirgelpapier" anfühlen, oder es entsteht ein Brennen, das sich genau wie ein Harnwegsinfekt anfühlt — obwohl gar keine Infektion vorliegt. Viele Frauen bekommen dann wieder und wieder Antibiotika, die nicht helfen, weil es kein Infekt ist.\n\nEs gibt einen einfachen Selbst-Check, den „Q-Tip-Test": Berührst du mit einem Wattestäbchen die äußere Schamlippe, tut das nicht weh. Berührst du damit sanft das Vestibül direkt am Eingang und es brennt oder schmerzt dort deutlich, ist das ein Hinweis auf dieses hormonell empfindliche Gewebe. Die gute Nachricht: Lokale vaginale Hormone helfen genau hier sehr gut. Sprich einen brennenden Schmerz am Eingang gezielt an — und lass abklären, ob es wirklich ein Infekt ist, bevor du erneut Antibiotika nimmst.`,
     tipps: ["Das Vestibül (Scheideneingang) ist Blasengewebe — dünn & hormonempfindlich", "Zu wenig Hormone → Brennen, das sich wie ein Harnwegsinfekt anfühlt (ist aber keiner)", "Q-Tip-Test: äußere Lippe = kein Schmerz; Vestibül brennt = Hinweis", "Häufige Auslöser: Pille, Stillzeit, Brustkrebs-Therapie, Menopause", "Lokale vaginale Hormone helfen hier gut", "Vor erneuten Antibiotika abklären lassen, ob wirklich ein Infekt vorliegt"],
   },
@@ -815,22 +815,22 @@ const SEXUAL_HEALTH_ALLGEMEIN = [
 // Sexual Health im ZYKLUS-Kontext (noch zyklisch, Verhütung, Schwangerschaft)
 const SEXUAL_HEALTH_ZYKLUS = [
   {
-    id: "gsl", icon: "🤱", titel: "Nach der Geburt & beim Stillen",
+    id: "gsl", kern: "Nach der Geburt und beim Stillen ist der Östrogenspiegel niedrig — mit spürbaren Folgen.", relevanz: "Trockenheit und Schmerzen beim Sex sind häufig und vorübergehend. Gleitmittel und Geduld helfen; bei Schmerzen darfst du Hilfe suchen.", evidenz: "belegt", quelle: "Rubin", icon: "🤱", titel: "Nach der Geburt & beim Stillen",
     text: `Wenig bekannt: Auch beim Stillen sinkt der Östrogenspiegel stark — Dr. Rubin spricht vom "Genitourinary Syndrome of Lactation" (GSL), dem Stillzeit-Pendant zu den Wechseljahres-Beschwerden. Trockenheit, Schmerzen beim Sex und Reizungen in der Stillzeit sind also hormonell erklärbar und können mit lokalen vaginalen Hormonen sicher behandelt werden — auch während des Stillens.`,
     tipps: ["Lokale vaginale Hormone sind auch in der Stillzeit eine Option", "Sprich deine Frauenärztin gezielt darauf an", "Gleitmittel als unkomplizierte erste Hilfe"],
   },
   {
-    id: "verhuetung", nurInfo: true, icon: "💊", titel: "Verhütung & ihre Auswirkungen",
+    id: "verhuetung", kern: "Hormonelle Verhütung wirkt auf den ganzen Körper, nicht nur auf die Fruchtbarkeit.", relevanz: "Patrick betont: Nutzen und Risiken abwägen, nicht pauschal verteufeln. Nebenwirkungen ernst nehmen und ansprechen.", evidenz: "hinweise", quelle: "Patrick", nurInfo: true, icon: "💊", titel: "Verhütung & ihre Auswirkungen",
     text: `Hormonelle Verhütung (Pille, Hormonspirale, Implantat, NuvaRing) enthält Östrogen und/oder Gestagene und verhindert den Eisprung. Sie ist für viele Frauen wertvoll — aber nicht nebenwirkungsfrei, und darüber wird zu selten offen gesprochen. Stacy Sims ("ROAR") weist darauf hin, dass die Pille die natürlichen Hormonschwankungen unterdrückt und dadurch z.B. Trainingsanpassungen abschwächen und es schwerer machen kann, Veränderungen im Hormonhaushalt zu bemerken. Wichtig ist, informiert wählen zu können, welche Methode (hormonell oder nicht-hormonell) zu deinem Körper und deiner Lebensphase passt.`,
     tipps: ["Nicht-hormonelle Alternativen: Kupferspirale, Barriere, NFP", "Nach dem Absetzen dem Körper einige Monate Zeit geben", "Triff die Wahl informiert — mit ärztlicher Begleitung"],
   },
   {
-    id: "hwi_vaginal", icon: "🛡️", titel: "Wiederkehrende Blasenentzündungen & vaginale Gesundheit",
+    id: "hwi_vaginal", kern: "Wiederkehrende Blasenentzündungen hängen oft mit der vaginalen Gesundheit zusammen.", relevanz: "Rubin sieht hier einen häufig übersehenen Zusammenhang. Lokale Hormone können bei manchen Frauen viel bewirken.", evidenz: "experten", quelle: "Rubin", icon: "🛡️", titel: "Wiederkehrende Blasenentzündungen & vaginale Gesundheit",
     text: `Das ist Dr. Rachel Rubins Herzensthema — und es betrifft nicht nur ältere Frauen: Wiederkehrende Harnwegsinfekte (Blasenentzündungen) sind weit verbreitet, werden aber oft nur mit immer neuen Antibiotika behandelt, statt die Ursache anzugehen. Rubins zentrale Botschaft: Du musst wiederkehrende Blasenentzündungen nicht einfach hinnehmen, und du sollst sie ernst nehmen — unbehandelt können sie gefährlich werden. Bei vielen Frauen (besonders wenn der Östrogenspiegel niedrig ist — etwa in der Stillzeit, nach Absetzen der Pille oder rund um die Wechseljahre) hilft eine lokale vaginale Hormonbehandlung: Sie stärkt das Gewebe von Scheide und Harnröhre und kann das Risiko für Harnwegsinfekte deutlich senken. Anders als Hormone in Tablettenform wirken sie fast nur örtlich und gelangen kaum ins Blut. Wichtig: Das gehört ärztlich abgeklärt — trau dich, das Thema aktiv anzusprechen.\n\nEin oft übersehener Zusammenhang: Die Scheide hat ein leicht saures Milieu, das ihre gesunde Bakterienflora schützt. Sperma ist dagegen basisch und kann dieses Milieu vorübergehend verschieben. Bei ungeschütztem Verkehr — etwa wenn hormonell verhütet und daher auf ein Kondom verzichtet wird — kann das bei manchen Frauen die Scheidenflora aus dem Gleichgewicht bringen und Infekte wie eine bakterielle Vaginose oder Blasenentzündungen begünstigen. Das ist keine Frage von Hygiene oder Schuld, sondern schlicht Biochemie. Wer dazu neigt, kann das Kondom auch bei hormoneller Verhütung als Schutz für die Scheidenflora nutzen (es schützt zusätzlich vor Infektionen) — und Wasserlassen nach dem Sex hilft, die Harnröhre zu spülen. Ein Detail dazu: Ein einfaches Latexkondom ohne Zusätze schützt die Flora, aber Kondome mit Spermizid (Wirkstoff Nonoxynol-9) können die guten Scheidenbakterien reizen und Infekte eher begünstigen — wer empfindlich ist, greift also besser zu spermizidfreien Kondomen (bei Latexunverträglichkeit zu latexfreien).\n\nWichtig zu wissen, wenn du empfindlich bist: Das „Rausziehen" (Coitus interruptus) schützt deine Scheidenflora nicht zuverlässig. Denn schon vor dem Samenerguss tritt Präejakulat aus — auch das ist basisch und kann das saure Milieu verschieben. Dazu kommt: Der Penis nutzt dieselbe Harnröhre für Urin und Samen, sodann können darüber Keime mitkommen. Und allein der Kontakt beim Sex bringt fremde Bakterien in die Scheide. Das Gute daran: Mit einem Kondom hast du es selbst in der Hand — es ist der einzige Weg, das Milieu zuverlässig zu schützen, ganz unabhängig davon, worauf sich dein Partner verlässt.`,
     tipps: ["Wiederkehrende Blasenentzündungen sind kein Schicksal — sprich sie an", "Lokale vaginale Hormone können das HWI-Risiko deutlich senken", "Wer dazu neigt: ein spermizidfreies Kondom schützt die Scheidenflora — auch bei hormoneller Verhütung", "Kondome mit Spermizid (Nonoxynol-9) meiden, wenn du zu Infekten neigst", "Auch „Rausziehen\" schützt die Flora nicht (Präejakulat ist auch basisch) — nur das Kondom hält es zuverlässig ab", "Nach dem Sex Wasserlassen & genug trinken als einfache Vorbeugung", "Bei häufigen Infekten: nicht nur Antibiotika — nach der Ursache fragen", "Immer ärztlich abklären lassen"],
   },
   {
-    id: "pille_testosteron", nurInfo: true, icon: "💊", titel: "Pille & Akne-Medikamente — wenn Hormone Nebenwirkungen machen",
+    id: "pille_testosteron", kern: "Hormonelle Verhütung kann den freien Testosteronspiegel senken.", relevanz: "Das kann sich auf Libido und Energie auswirken. Wenn du das bemerkst, ist es kein Einbildung — sprich es an.", evidenz: "hinweise", quelle: "Rubin", nurInfo: true, icon: "💊", titel: "Pille & Akne-Medikamente — wenn Hormone Nebenwirkungen machen",
     text: `Ein wichtiger Zusammenhang, den Dr. Rachel Rubin beschreibt und der gerade jüngere Frauen betrifft: Manche häufig verschriebene Medikamente wirken, indem sie Testosteron blockieren — vor allem die Antibabypille und das Aknemittel Spironolacton. Genau deshalb helfen sie gegen hormonell bedingte Akne. Aber: Testosteron ist auch wichtig für Libido, Erregung und ein gesundes, robustes Gewebe im Intimbereich.\n\nBei manchen Frauen kann diese Testosteron-Blockade darum unerwünschte Folgen haben: nachlassende Libido, aber auch vulväre Schmerzen, Schmerzen beim Sex und wiederkehrende Harnwegsinfekte oder ein „Dauer-Reizgefühl" am Scheideneingang. Rubin schildert den Fall einer jungen Frau, deren jahrelange Unterleibsschmerzen sich auf genau diese Kombination (Pille + Spironolacton) zurückführen ließen.\n\nWichtig zur Einordnung: Das heißt NICHT, dass diese Medikamente schlecht sind oder du sie absetzen sollst — für viele sind sie sehr hilfreich. Es heißt nur: Wenn du solche Beschwerden hast, kann ein Zusammenhang mit deiner hormonellen Verhütung oder deinem Aknemittel bestehen — und das ist es wert, ärztlich angesprochen zu werden. Manchmal ist eine Verhütung, die die eigenen Hormone weniger beeinflusst (z. B. eine Kupfer- oder Hormonspirale), eine Überlegung. Diese Entscheidung triffst du gemeinsam mit deiner Ärztin.`,
     tipps: ["Pille & Spironolacton wirken u.a. über eine Testosteron-Blockade (darum gut gegen Akne)", "Mögliche Kehrseite bei manchen: weniger Libido, Schmerzen, mehr Harnwegsinfekte", "Das ist kein Grund zur Panik — aber ein Grund, Beschwerden anzusprechen", "Kein eigenmächtiges Absetzen — immer mit der Ärztin besprechen", "Alternativen, die die eigenen Hormone weniger beeinflussen (z.B. Spirale), erfragen", "Die Pille kann außerdem Nährstoffe zehren → siehe „Die Pille — mehr als lokale Verhütung\" bei den Hormon-Grundlagen", "Du darfst den Zusammenhang aktiv ansprechen — viele Ärzt:innen denken nicht daran"],
   },
@@ -839,27 +839,27 @@ const SEXUAL_HEALTH_ZYKLUS = [
 // Sexual Health im MENOPAUSE-Kontext (GSM, vaginale Hormone, UTIs) — Rubins Kernthema
 const SEXUAL_HEALTH_MENOPAUSE = [
   {
-    id: "gsm", icon: "🌸", titel: "GSM — das unterschätzte Syndrom",
+    id: "gsm", kern: "GSM steht für die Beschwerden, die durch Östrogenmangel im Genitalbereich entstehen.", relevanz: "Trockenheit, Brennen und häufige Infekte gehören dazu. Rubin betont: gut behandelbar, aber selten angesprochen.", evidenz: "belegt", quelle: "Rubin", icon: "🌸", titel: "GSM — das unterschätzte Syndrom",
     text: `GSM steht für "Genitourinary Syndrome of Menopause" — und es ist laut Dr. Rubin viel mehr als "nur ein bisschen Trockenheit". Wenn das Östrogen in den Wechseljahren sinkt, verändern sich Scheide, Harnröhre und Blase: Trockenheit, Brennen, Schmerzen, häufiger Harndrang und wiederkehrende Infekte. Rubins eindringliche Botschaft: "Lokale vaginale Hormone können dein Leben retten." Das eigentliche Risiko liegt darin, GSM NICHT zu behandeln.`,
     tipps: ["Sehr gut behandelbar — bessert sich oft schon in 6–12 Wochen", "Sprich deine Ärztin aktiv auf GSM an", "Lokale vaginale Hormone sind die wirksamste Behandlung"],
   },
   {
-    id: "vaginale_hormone", icon: "🛡️", titel: "Vaginale Hormone & Harnwegsinfekte",
+    id: "vaginale_hormone", kern: "Lokale Hormone in der Scheide wirken gezielt und gelangen kaum in den Blutkreislauf.", relevanz: "Sie können wiederkehrende Harnwegsinfekte deutlich reduzieren. Das Risikoprofil unterscheidet sich stark von systemischer HRT.", evidenz: "belegt", quelle: "Rubin", icon: "🛡️", titel: "Vaginale Hormone & Harnwegsinfekte",
     text: `Das ist Dr. Rubins Herzensthema: Wiederkehrende Harnwegsinfekte (HWI/UTIs) sind im Alter gefährlich — sie können bis zur Blutvergiftung führen und gehören zu den häufigen vermeidbaren Todesursachen bei älteren Frauen. Studien zeigen: Lokale vaginale Hormone senken das Risiko für Harnwegsinfekte um über 50 %. Anders als bei systemischen Hormonen gelangen sie kaum ins Blut — und gelten sogar für viele Brustkrebs-Überlebende als sicher.`,
     tipps: ["Bei wiederkehrenden Blasenentzündungen: nach vaginalen Hormonen fragen", "Auch als vaginales DHEA erhältlich — nach Alternativen fragen", "Für viele Brustkrebs-Überlebende laut Studien geeignet — ärztlich abklären"],
   },
   {
-    id: "mut", icon: "📣", titel: "Sprich es an — fordere Behandlung ein",
+    id: "mut", kern: "Du darfst sexuelle Beschwerden ansprechen und Behandlung einfordern.", relevanz: "Rubin macht Mut: Viele Ärztinnen fragen nicht von sich aus. Sag es aktiv an — es gibt wirksame Hilfe.", evidenz: "experten", quelle: "Rubin", icon: "📣", titel: "Sprich es an — fordere Behandlung ein",
     text: `Dr. Rubin betont: Eine ganze Generation von Ärzt:innen wurde nie darin ausgebildet, GSM zu erkennen oder vaginale Hormone zu verschreiben. Deshalb musst du dich manchmal selbst stark machen. Ihre Praxis hat sogar mitgeholfen, irreführende Warnhinweise auf niedrig dosiertem vaginalem Östrogen entfernen zu lassen. Du darfst und sollst diese Behandlung aktiv einfordern.`,
     tipps: ["Viele Ärzt:innen kennen GSM-Behandlung nicht gut — bleib hartnäckig", "Es gibt einen \"Prescriber Pocket Guide\" von Dr. Rubin zum Mitnehmen", "Die Fachgesellschaften (Menopause Society) empfehlen vaginale Hormone", "Hol dir bei Bedarf eine Zweitmeinung bei einer Spezialistin"],
   },
   {
-    id: "meno_symptome", icon: "🌡️", titel: "Menopause-Symptome verstehen",
+    id: "meno_symptome", kern: "Menopause-Symptome sind vielfältig und betreffen weit mehr als Hitzewallungen.", relevanz: "Schlaf, Stimmung, Gelenke, Haut und Sexualität gehören dazu. Es hilft zu wissen, dass das zusammenhängt.", evidenz: "belegt", icon: "🌡️", titel: "Menopause-Symptome verstehen",
     text: `Wenn die Hormone in der Menopause stark abfallen, fühlt sich das laut Sims an "wie ein Erdbeben" — alles gerät aus dem Gleichgewicht. Typische Symptome: Hitzewallungen und Nachtschweiß (durch gestörte Temperaturregulation bei Östrogenmangel), Schlafprobleme (über 60 % der Frauen nach der Menopause), Blähungen und Verdauungsbeschwerden (Hormone steuern den Wasserhaushalt), nachlassende Libido und Veränderungen der Körperzusammensetzung (mehr Bauchfett). Auch interessant: Jessie Inchauspé zeigt, dass Hitzewallungen und Nachtschweiß bei Frauen mit hohem/instabilem Blutzucker häufiger sind — stabiler Blutzucker kann sie also lindern.`,
     tipps: ["Hitzewallungen: Schlafzimmer kühl, Auslöser (Koffein, Alkohol) meiden", "Schlaf: feste Zeiten, dunkel & kühl, Bildschirme aus", "Blähungen: vollwertige statt ultraverarbeitete Kost reduziert Wasser", "Stabiler Blutzucker kann Hitzewallungen verringern (Inchauspé)", "Krafttraining wirkt gegen Bauchfett & Muskelabbau"],
   },
   {
-    id: "vaginale_dhea", nurInfo: true, icon: "🌿", titel: "Vaginale DHEA — eine Alternative zu vaginalem Östrogen",
+    id: "vaginale_dhea", kern: "Vaginales DHEA ist eine Alternative zu lokalem Östrogen.", relevanz: "Es kann bei Trockenheit und Schmerzen helfen. Welche Option passt, klärst du am besten fachärztlich.", evidenz: "hinweise", quelle: "Rubin", nurInfo: true, icon: "🌿", titel: "Vaginale DHEA — eine Alternative zu vaginalem Östrogen",
     text: `Neben dem vaginalen Östrogen gibt es laut Dr. Rachel Rubin eine weitere sehr gute Option gegen GSM-Beschwerden (Trockenheit, Schmerzen beim Sex, wiederkehrende Harnwegsinfekte): vaginales DHEA. DHEA ist eine Hormon-Vorstufe, die das Gewebe vor Ort selbst in die Hormone umwandelt, die es braucht.\n\nDer Vorteil: Vaginales DHEA liefert dem Gewebe nicht nur Östrogen-Wirkung, sondern zusätzlich Androgene (Testosteron-artige Signale) — und genau beides braucht das Gewebe im Intimbereich, um robust und gesund zu bleiben. Rubin sagt, wenn alle Optionen gleich zugänglich wären, wäre vaginales DHEA oft ihre erste Wahl.\n\nWarum wird dann meist zuerst über vaginales Östrogen gesprochen? Vor allem aus Kostengründen und wegen der besseren Verfügbarkeit — vaginales Östrogen ist oft günstiger und leichter zu bekommen. Beides wird lokal (als Mikrodosis) angewendet, wirkt fast nur örtlich und gelangt kaum ins Blut. Was für dich passt, besprichst du am besten mit einer sexualmedizinisch erfahrenen Ärztin.`,
     tipps: ["Vaginale DHEA ist eine Alternative/Ergänzung zu vaginalem Östrogen", "Liefert dem Gewebe zusätzlich Androgene (nicht nur Östrogen-Wirkung)", "Für Rubin oft erste Wahl — wäre es gleich verfügbar/bezahlbar", "Vaginales Östrogen wird meist zuerst genannt, weil günstiger & verfügbarer", "Beides wirkt lokal, kaum Übertritt ins Blut", "Frag deine Ärztin, welche Option für dich passt"],
   },
@@ -870,66 +870,66 @@ const SEXUAL_HEALTH_MENOPAUSE = [
 // ═══════════════════════════════════════════════════════════════════
 const HORMON_WISSEN = [
   {
-    id: "was_sind_hormone", nurInfo: true, icon: "💡", titel: "Was sind Hormone eigentlich?",
+    id: "was_sind_hormone", kern: "Hormone sind Botenstoffe, die durch dein Blut reisen und deinem Körper sagen, was er tun soll.", relevanz: "Weil Östrogen, Testosteron und Progesteron im Monatsverlauf steigen und fallen, verändern sich Energie, Stimmung und Körpergefühl — das ist normal, kein Fehler.", evidenz: "belegt", nurInfo: true, icon: "💡", titel: "Was sind Hormone eigentlich?",
     text: `Hormone sind winzige Botenstoffe in deinem Körper — man kann sie sich wie kleine Nachrichten vorstellen, die durch dein Blut reisen. Sie werden an einer Stelle gebildet (zum Beispiel in den Eierstöcken) und geben an anderen Stellen im Körper Anweisungen: Sie sagen deinem Körper zum Beispiel, wann er wachsen, wann er sich ausruhen oder wann er Energie bereitstellen soll. Deine Sexualhormone — Östrogen, Testosteron und Progesteron — steuern deinen Zyklus. Weil sie im Laufe des Monats steigen und fallen, verändern sich auch deine Energie, deine Stimmung und dein Körpergefühl. Das ist ganz normal und kein Zeichen, dass etwas nicht stimmt.`,
     tipps: ["Hormone sind Botenstoffe — kleine Nachrichten, die durchs Blut reisen", "Sie geben deinem Körper Anweisungen (wachsen, ruhen, Energie geben)", "Die drei wichtigsten für deinen Zyklus: Östrogen, Testosteron, Progesteron", "Sie steigen und fallen im Monat — das verändert Energie & Stimmung", "Diese Schwankungen sind normal und gesund"],
   },
   {
-    id: "was_ist_zyklus", nurInfo: true, icon: "🔄", titel: "Was ist der Zyklus — und wie funktioniert er?",
+    id: "was_ist_zyklus", kern: "Dein Zyklus ist ein wiederkehrender Rhythmus aus vier Phasen, in dem sich deine Hormone planmäßig verändern.", relevanz: "Wenn du weißt, in welcher Phase du bist, verstehst du besser, warum du dich heute so fühlst — und kannst Essen, Training und Termine danach ausrichten.", evidenz: "belegt", nurInfo: true, icon: "🔄", titel: "Was ist der Zyklus — und wie funktioniert er?",
     text: `Dein Menstruationszyklus ist ein Rhythmus, der sich jeden Monat wiederholt. Er beginnt am ersten Tag deiner Periode und dauert im Schnitt etwa 28 Tage — bei manchen kürzer, bei manchen länger, und am Anfang (in den ersten Jahren) oft unregelmäßig. Das ist normal. Grob gibt es zwei Hälften: In der ersten Hälfte reift in deinem Eierstock eine Eizelle heran, und Östrogen steigt an — du fühlst dich oft energiegeladen. Etwa in der Mitte kommt der Eisprung: Die Eizelle wird freigesetzt (das ist deine fruchtbarste Zeit). In der zweiten Hälfte steigt Progesteron und bereitet den Körper auf eine mögliche Schwangerschaft vor. Wird die Eizelle nicht befruchtet, sinken die Hormone wieder — und die Periode beginnt. Dann startet der Zyklus von vorn.`,
     tipps: ["Tag 1 = erster Tag deiner Periode", "Durchschnittlich ~28 Tage, aber sehr unterschiedlich (und am Anfang oft unregelmäßig)", "1. Hälfte: Eizelle reift, Östrogen steigt → mehr Energie", "Mitte: Eisprung → fruchtbarste Zeit", "2. Hälfte: Progesteron steigt → ruhiger, dann Periode", "Danach beginnt alles von vorne"],
   },
   {
-    id: "oestrogen", nurInfo: true, icon: "🌸", titel: "Östrogen — das Energie-Hormon",
+    id: "oestrogen", kern: "Östrogen steigt in der ersten Zyklushälfte und bringt Energie, Klarheit und Belastbarkeit mit sich.", relevanz: "In dieser Phase fällt dir Intensives leichter: schwerere Gewichte, längeres Fasten, fordernde Gespräche. Nutze das Hoch bewusst, statt gegen deinen Rhythmus zu arbeiten.", evidenz: "belegt", nurInfo: true, icon: "🌸", titel: "Östrogen — das Energie-Hormon",
     text: `Östrogen ist weit mehr als ein Sexualhormon. Es wirkt auf fast jedes Organ: Es hält Haut und Schleimhäute feucht und elastisch, schützt Knochen und Herz, unterstützt das Gehirn (Gedächtnis, Stimmung) und macht dich in der ersten Zyklushälfte energiegeladen und fokussiert. In deinem Zyklus steigt es in der ersten Hälfte an und erreicht rund um den Eisprung seinen Höhepunkt.\n\nEtwas Wichtiges: Östrogen ist eng mit deinen Botenstoffen im Gehirn verbunden. Botenstoffe sind Signale, die zwischen deinen Nervenzellen hin- und herflitzen und deine Stimmung beeinflussen. Zwei davon sind besonders bekannt: Dopamin gibt dir Motivation, Antrieb und dieses gute „Ich hab was geschafft"-Gefühl. Serotonin macht dich zufrieden, ruhig und ausgeglichen. Wenn Östrogen hoch ist, sind auch diese beiden aktiver — deshalb fühlst du dich bei hohem Östrogen oft besonders gut gelaunt und energiegeladen.`,
     tipps: ["Steigt in der ersten Zyklushälfte, Höhepunkt um den Eisprung", "Unterstützt Knochen, Herz, Haut, Gehirn & Stimmung", "Hängt mit Dopamin (Antrieb) & Serotonin (Zufriedenheit) zusammen", "Deshalb fühlt man sich bei hohem Östrogen oft am besten", "Kreuzblütler & Ballaststoffe helfen der Leber beim Östrogen-Abbau"],
     teenText: "Östrogen ist eines deiner wichtigsten Hormone — und es macht viel mehr, als du denkst. Es hält deine Haut und Knochen gesund, unterstützt dein Gehirn und gibt dir in der ersten Hälfte deines Zyklus oft viel Energie und gute Laune. Es steigt in der ersten Zyklushälfte an und ist rund um den Eisprung am höchsten.\n\nIn der Pubertät ist Östrogen das Haupthormon — es steuert die meisten Veränderungen, die du an dir bemerkst: dass deine Brust wächst, dass sich dein Körper rundet (Hüften, Po), dein Wachstumsschub, und dass irgendwann deine erste Periode kommt. All das ist Östrogen bei der Arbeit. Es ist also das Hormon, das dich in dieser Zeit am meisten prägt — völlig normal und ein Zeichen, dass dein Körper gesund heranwächst.\n\nDas Spannende: Östrogen ist eng mit den Botenstoffen in deinem Gehirn verbunden. Botenstoffe sind wie kleine Signale, die zwischen deinen Nervenzellen hin- und herflitzen und deine Stimmung machen. Zwei wichtige sind: Dopamin — das gibt dir Motivation und dieses gute „Yes, geschafft!\"-Gefühl. Und Serotonin — das macht dich zufrieden und ruhig. Wenn Östrogen hoch ist, sind auch diese beiden aktiver. Deshalb fühlst du dich in dieser Zeit oft besonders gut, fröhlich und voller Energie.",
     teenTipps: ["Steigt in der ersten Hälfte deines Zyklus, am höchsten um den Eisprung", "In der Pubertät das Haupthormon: Brustwachstum, Wachstumsschub, erste Periode", "Gut für Haut, Knochen, Gehirn und Stimmung", "Hängt mit Dopamin (Motivation) und Serotonin (Zufriedenheit) zusammen", "Darum fühlt man sich bei hohem Östrogen oft besonders gut"],
   },
   {
-    id: "testosteron", nurInfo: true, icon: "🔥", titel: "Testosteron — auch ein Frauen-Hormon",
+    id: "testosteron", kern: "Testosteron erreicht rund um den Eisprung seinen Höhepunkt und steigert Antrieb, Libido und Muskelaufbau.", relevanz: "Pelz empfiehlt genau dann Protein und schwere Gewichte — und es ist eine gute Zeit, Projekte zu starten oder Neues zu wagen.", evidenz: "experten", quelle: "Pelz, Fast Like a Girl", nurInfo: true, icon: "🔥", titel: "Testosteron — auch ein Frauen-Hormon",
     text: `Testosteron gilt fälschlich als reines Männerhormon — dabei ist es auch für Frauen wichtig: für Libido, Energie, Muskelkraft, Motivation und Selbstvertrauen. Bei Frauen ist es rund um den Eisprung am höchsten. Mit dem Alter (und in den Wechseljahren) sinkt es. Ein Mangel kann sich als Lustlosigkeit, Erschöpfung oder Antriebslosigkeit zeigen — etwas, das in der Medizin bei Frauen oft übersehen wird.`,
     tipps: ["Wichtig für Libido, Energie, Muskeln & Motivation", "Höhepunkt rund um den Eisprung", "Krafttraining unterstützt einen gesunden Testosteronspiegel", "Bei anhaltender Lustlosigkeit: Hormonwerte testen lassen"],
     teenText: "Testosteron kennst du vielleicht als „Männerhormon\" — aber auch dein Körper bildet es, und gerade in der Pubertät wird davon mehr produziert als sonst. Das ist völlig normal und wichtig: Testosteron gibt dir Energie, Muskelkraft, Motivation und Selbstvertrauen. In deinem Zyklus ist es rund um den Eisprung am höchsten.\n\nIn der Pubertät steigt dein Testosteron deutlich an — bei manchen ist das sogar eine der allerersten Veränderungen. Wichtig zur Einordnung: Das Haupthormon der Mädchen-Pubertät ist Östrogen. Aber Testosteron kommt kräftig dazu und macht wichtige Dinge: Es sorgt für deine Scham- und Achselbehaarung, für Körpergeruch (deshalb wird jetzt Deo ein Thema) und dafür, dass deine Haut mehr Fett (Talg) bildet — der Grund, warum in der Pubertät oft Pickel kommen. Das ist völlig normal. Wie du deiner Haut mit Ernährung helfen kannst, steht in der Karte „🌟 Schöne Haut & Ernährung\". Außerdem gibt dir Testosteron Energie, Kraft, Antrieb und Selbstvertrauen.\n\nTestosteron hängt eng mit Dopamin zusammen — dem Botenstoff für Antrieb und Belohnung. Dopamin ist auch der Grund, warum Social Media (TikTok, Instagram & Co.) so anziehend sein kann: Jedes Like, jedes neue Video gibt dir einen kleinen Dopamin-Kick, ein kurzes gutes Gefühl. Dein Gehirn will dann immer mehr davon — deshalb kann man sich so schwer losreißen. Das ist keine Willensschwäche, sondern Biologie.\n\nWichtig zu wissen: Dein Dopamin hat sozusagen einen Vorrat, wie ein Akku. Wenn du ihn mit ganz vielen schnellen Kicks (ein Video nach dem anderen) auf einmal verbrauchst, ist danach weniger übrig. Dann fühlst du dich oft leer oder unruhig, kannst dich schlechter konzentrieren und hast weniger Lust auf normale Dinge — Hausaufgaben, ein Buch oder rausgehen wirken dann langweilig. Das ist kein Zufall, sondern dein leerer Dopamin-Akku. Die gute Nachricht: Er lädt sich wieder auf, wenn du dem Handy mal eine Pause gönnst. Und Dinge wie Sport, Freunde treffen, Musik, kreativ sein oder rausgehen füllen ihn auf eine gesunde Art — das Gefühl hält länger als ein kurzer Scroll-Kick.",
     teenTipps: ["Auch dein Körper bildet Testosteron — in der Pubertät steigt es deutlich an", "Östrogen ist das Haupthormon der Pubertät — Testosteron kommt aber wichtig dazu", "Macht Scham-/Achselbehaarung, Körpergeruch (Deo!) und mehr Talg → Pickel sind normal", "Gibt dir Energie, Kraft, Motivation und Selbstvertrauen", "Am höchsten rund um den Eisprung", "Hängt mit Dopamin zusammen — dem Botenstoff für Antrieb & Belohnung", "Social Media gibt kleine Dopamin-Kicks — darum ist Scrollen so schwer zu stoppen", "Dopamin ist wie ein Akku: zu viele schnelle Kicks leeren ihn → weniger Konzentration & Lust auf anderes", "Handy-Pausen laden ihn wieder auf; Sport, Freunde & Hobbys füllen ihn gesund"],
   },
   {
-    id: "progesteron", nurInfo: true, icon: "🌙", titel: "Progesteron — das Ruhe-Hormon",
+    id: "progesteron", kern: "Progesteron dominiert die zweite Zyklushälfte und wirkt beruhigend — es braucht dafür aber Glukose und wenig Stress.", relevanz: "Deshalb hast du vor der Periode oft Lust auf Kohlenhydrate: Dein Körper fordert den Baustoff ein. Strenge Diäten sind jetzt kontraproduktiv, komplexe Kohlenhydrate helfen.", evidenz: "experten", quelle: "Pelz, Eat Like a Girl", nurInfo: true, icon: "🌙", titel: "Progesteron — das Ruhe-Hormon",
     text: `Progesteron steigt in der zweiten Zyklushälfte (nach dem Eisprung) und bereitet den Körper auf eine mögliche Schwangerschaft vor. Es wirkt beruhigend, fördert den Schlaf und gleicht Östrogen aus. Sinkt es kurz vor der Periode ab, kann das PMS-Symptome auslösen (Reizbarkeit, Schlafprobleme, Stimmungstiefs). Pelz und Sims betonen: In dieser Phase braucht der Körper mehr Selbstfürsorge, etwas mehr Kohlenhydrate und sanfteres Training.`,
     tipps: ["Steigt nach dem Eisprung, wirkt beruhigend & schlaffördernd", "Der Abfall vor der Periode kann PMS auslösen", "In der zweiten Zyklushälfte: mehr Ruhe & komplexe Kohlenhydrate", "Magnesium kann PMS-Symptome lindern"],
     teenText: "Progesteron ist dein „Ruhe-Hormon\". Es steigt in der zweiten Hälfte deines Zyklus an, also nach dem Eisprung. Es wirkt beruhigend und hilft dir beim Schlafen. Kurz vor der Periode sinkt es wieder ab — und genau das ist oft der Grund, warum manche sich in den Tagen davor launisch, empfindlich oder müde fühlen (das nennt man PMS). Auch das ist ganz normal. In dieser Zeit tut dir Ruhe gut, etwas mehr gute Kohlenhydrate (wie Haferflocken oder Süßkartoffeln) und liebevoller Umgang mit dir selbst.\n\nIn der Pubertät ist Progesteron etwas Besonderes: Es ist das Hormon, das am längsten „schläft\" und erst spät richtig dazukommt. Der Grund: Progesteron wird nur gebildet, wenn es einen Eisprung gab. In den ersten ein bis zwei Jahren nach deiner ersten Periode haben aber viele Zyklen noch gar keinen Eisprung — dein Körper übt das erst. Deshalb ist am Anfang oft wenig oder gar kein Progesteron da, während Östrogen schon längst aktiv ist. Und genau das ist meistens der Grund, warum die Periode am Anfang so unregelmäßig ist: mal früher, mal später, mal stärker, mal schwächer. Das ist völlig normal und kein Zeichen, dass etwas nicht stimmt — dein Körper spielt sich einfach erst ein. Mit der Zeit wird alles regelmäßiger.",
     teenTipps: ["Steigt nach dem Eisprung, macht ruhiger und hilft beim Schlafen", "In der Pubertät kommt es am spätesten dazu — nur nach einem Eisprung", "Darum ist die Periode am Anfang oft unregelmäßig — völlig normal, dein Körper übt noch", "Sinkt vor der Periode — das kann PMS auslösen (launisch, müde)", "Jetzt tun dir Ruhe und etwas mehr gute Kohlenhydrate gut", "Sei in dieser Zeit besonders lieb zu dir"],
   },
   {
-    id: "insulin", nurInfo: true, icon: "🍞", titel: "Insulin — dein Blutzucker-Hormon",
+    id: "insulin", kern: "Insulin bringt Zucker aus dem Blut in deine Zellen — je gleichmäßiger es arbeitet, desto stabiler dein Energielevel.", relevanz: "Große Blutzuckerspitzen bedeuten große Insulinausschüttungen und danach Müdigkeit und Heißhunger. Die Reihenfolge deiner Bissen und ein kurzer Gang nach dem Essen glätten das spürbar.", evidenz: "belegt", quelle: "Inchauspé, Glucose Revolution", nurInfo: true, icon: "🍞", titel: "Insulin — dein Blutzucker-Hormon",
     text: `Insulin wird in der Bauchspeicheldrüse gebildet und regelt deinen Blutzucker: Nach dem Essen (besonders nach Kohlenhydraten und Zucker) bringt es den Zucker aus dem Blut in die Zellen. Warum das für Frauen wichtig ist: Insulin und deine Sexualhormone hängen eng zusammen. In der zweiten Zyklushälfte (nach dem Eisprung) reagiert dein Körper oft schlechter auf Insulin — man wird ein bisschen „insulinresistenter". Das erklärt Heißhunger und Energietiefs vor der Periode. Bleibt der Blutzucker durch viel Zucker und schnelle Kohlenhydrate ständig auf Achterbahnfahrt, fördert das Entzündungen, Energielöcher und langfristig Probleme wie PCOS. Die gute Nachricht: Über die Ernährung (Eiweiß und Ballaststoffe zuerst, dann erst Kohlenhydrate — nach Jessie Inchauspé) kannst du deinen Blutzucker und damit dein Insulin stabil halten.\n\nKlingt das widersprüchlich? Wenn der Körper in der zweiten Zyklushälfte empfindlicher auf Blutzucker reagiert — warum empfiehlt Dr. Mindy Pelz dann ausgerechnet jetzt mehr Kohlenhydrate (und in der ersten Hälfte den kohlenhydratärmeren Ketobiotic-Ansatz)? Die Auflösung liegt in der Art der Kohlenhydrate: „Mehr Kohlenhydrate" heißt hier komplexe, langsame Kohlenhydrate (Süßkartoffel, Kürbis, Quinoa, Hülsenfrüchte, Obst) — nicht Zucker und Weißmehl. Diese lassen den Blutzucker gerade nicht Achterbahn fahren. Und sie erfüllen in der zweiten Hälfte eine wichtige Aufgabe: Das dann dominierende Progesteron braucht Kohlenhydrate, um stabil zu bleiben, und zu strenges Fasten oder Keto würde jetzt Cortisol hochtreiben und Progesteron stören (was PMS verschlimmert). In der ersten Hälfte dagegen ist der Körper insulinsensibler und östrogenstark — da kommt er mit weniger Kohlenhydraten und mehr Fasten gut klar. Kurz: In beiden Phasen bleiben schnelle Zucker ungünstig — es geht darum, das erhöhte Kohlenhydrat-Bedürfnis der zweiten Hälfte mit den richtigen, langsamen Kohlenhydraten zu decken. Mehr dazu unter „Essen für deine Hormone".`,
     tipps: ["Insulin regelt den Blutzucker — steigt nach Kohlenhydraten & Zucker", "In der 2. Zyklushälfte oft schlechtere Insulin-Empfindlichkeit → Heißhunger", "Blutzucker-Achterbahn fördert Entzündungen & Energietiefs", "Reihenfolge hilft: erst Gemüse/Eiweiß, dann Kohlenhydrate (Inchauspé)", "„Mehr Kohlenhydrate\" in der 2. Hälfte = komplexe, langsame KH (kein Zucker) — für Progesteron", "Stabiler Blutzucker = stabile Energie & Hormone"],
     teenText: "Insulin ist dein Blutzucker-Hormon. Immer wenn du etwas isst — vor allem Süßes oder Weißmehl (wie Weißbrot, Nudeln, Kekse) — steigt der Zucker in deinem Blut. Insulin sorgt dann dafür, dass dieser Zucker aus dem Blut in deine Zellen kommt, wo er als Energie gebraucht wird. Wenn du sehr viel Zucker auf einmal isst, schießt der Blutzucker aber hoch und fällt danach steil ab — und genau dann fühlst du dich müde, hungrig und reizbar (das ist die „Zucker-Achterbahn\"). Der Trick: Iss zuerst etwas Gemüse oder Eiweiß und dann erst das Süße, dann bleibt dein Blutzucker ruhiger. Du musst nicht auf alles verzichten — es geht nur darum, die Achterbahn zu vermeiden.",
     teenTipps: ["Insulin bringt den Zucker aus dem Blut in deine Zellen", "Viel Süßes auf einmal = Zucker-Achterbahn = müde & reizbar danach", "Tipp: erst Gemüse/Eiweiß essen, dann das Süße", "Du musst nicht verzichten — nur clever kombinieren", "Mehr dazu findest du bei den Blutzucker-Tipps"],
   },
   {
-    id: "insulinresistenz", nurInfo: true, icon: "📉", titel: "Insulinresistenz — der stille Störfaktor",
+    id: "insulinresistenz", kern: "Bei Insulinresistenz reagieren deine Zellen schlechter auf Insulin — der Körper schüttet immer mehr aus, um denselben Effekt zu erreichen.", relevanz: "Sie entwickelt sich still über Jahre und beeinflusst Zyklus, Gewicht und Energie. Bewegung nach dem Essen, genug Protein und Schlaf sind die wirksamsten Hebel.", evidenz: "belegt", nurInfo: true, icon: "📉", titel: "Insulinresistenz — der stille Störfaktor",
     text: `Insulinresistenz bedeutet: Deine Zellen reagieren immer schlechter auf Insulin. Der Körper muss dann immer mehr Insulin ausschütten, um den Blutzucker in die Zellen zu bekommen. Man kann es sich vorstellen wie einen Türsteher, der immer lauter klopfen muss, weil drinnen niemand mehr richtig zuhört. Das Tückische: Das entwickelt sich oft über Jahre, ganz ohne klare Symptome — und ist einer der wichtigsten (und am meisten übersehenen) Faktoren für die Frauengesundheit.\n\nWarum es für Frauen besonders zählt: Zu viel Insulin ist ein zentraler Treiber von PCOS, es fördert hartnäckiges Bauchfett, Heißhunger, Energietiefs und Entzündungen, und es erhöht langfristig das Risiko für Typ-2-Diabetes und Herz-Kreislauf-Erkrankungen. Rund um die Perimenopause nimmt die Insulinempfindlichkeit zusätzlich ab — deshalb wird das Thema mit den Jahren noch wichtiger.\n\nWie erkennt man es? Nicht am normalen Standard-Blutzucker allein — der ist oft lange unauffällig. Aussagekräftiger sind: der Nüchtern-Insulinwert, der HbA1c (dein „Langzeit-Blutzucker" der letzten ~3 Monate) und daraus der HOMA-IR (ein Rechenwert aus Nüchtern-Insulin und Nüchtern-Blutzucker, der die Insulinresistenz abschätzt). Diese Werte gehören nicht zum normalen Kassen-Blutbild, lassen sich aber gezielt testen (mehr dazu bei den Nährstoff- und Test-Infos).\n\nDie gute Nachricht: Insulinresistenz ist in frühen Stadien sehr gut umkehrbar — vor allem durch stabilen Blutzucker (Essreihenfolge, weniger Zucker/schnelle Kohlenhydrate), Krafttraining (Muskeln verbessern die Insulinempfindlichkeit spürbar), Schlaf und Stressabbau.`,
     tipps: ["Zellen reagieren schlechter auf Insulin → der Körper braucht immer mehr davon", "Entwickelt sich oft jahrelang ohne Symptome", "Zentraler Treiber von PCOS, Bauchfett, Heißhunger & Entzündungen", "Marker: Nüchtern-Insulin, HbA1c & HOMA-IR (nicht im Standard-Blutbild)", "Krafttraining verbessert die Insulinempfindlichkeit deutlich", "In frühen Stadien sehr gut umkehrbar — über Ernährung, Bewegung, Schlaf"],
     teenText: "Insulinresistenz heißt: Der Körper reagiert mit der Zeit schlechter auf sein eigenes Insulin (das Hormon, das den Zucker aus dem Blut in die Zellen bringt). Dann muss er immer mehr davon herstellen. Das passiert normalerweise erst bei Erwachsenen und entwickelt sich langsam über viele Jahre — bei dir ist das also noch kein Thema, über das du dir Sorgen machen musst. Aber es ist gut, es zu kennen, weil du jetzt schon die Grundlage legst: Wer sich viel bewegt, nicht ständig große Mengen Zucker isst und gut schläft, hält seinen Körper empfindlich und gesund für sein Insulin. Genau das, was du bei den Blutzucker-Tipps lernst, schützt dich also auch langfristig.",
     teenTipps: ["Der Körper reagiert mit der Zeit schlechter auf Insulin", "Betrifft normalerweise erst Erwachsene — bei dir noch kein Thema", "Bewegung, wenig ständiger Zucker & guter Schlaf schützen langfristig", "Was du bei den Blutzucker-Tipps lernst, hilft dir auch später"],
   },
   {
-    id: "cortisol", nurInfo: true, icon: "⚡", titel: "Cortisol — dein Stress-Hormon",
+    id: "cortisol", kern: "Cortisol ist dein Stresshormon — kurzfristig hilfreich, dauerhaft erhöht bremst es deine Sexualhormone aus.", relevanz: "Der Körper baut Cortisol aus demselben Rohstoff wie Progesteron und Testosteron. Bei Dauerstress gewinnt Cortisol — deshalb ist Erholung keine Kür, sondern Hormonarbeit.", evidenz: "belegt", quelle: "Pelz", nurInfo: true, icon: "⚡", titel: "Cortisol — dein Stress-Hormon",
     text: `Cortisol ist dein wichtigstes Stress-Hormon — es wird in der Nebenniere gebildet und macht dich morgens wach, hilft dir in Stresssituationen und wirkt entzündungshemmend. In gesunder Menge ist es lebenswichtig. Zum Problem wird es, wenn der Stress chronisch wird: Dann bleibt Cortisol dauerhaft erhöht, und das bringt deine Sexualhormone durcheinander. Der Grund ist elegant und tückisch zugleich — Cortisol und Progesteron teilen sich denselben Rohstoff. Bei Dauerstress „klaut" der Körper sozusagen Bausteine für die Stresshormone, und es bleibt weniger für Progesteron übrig. Die Folge können Zyklusstörungen, stärkeres PMS, Schlafprobleme und Heißhunger sein. Gerade in der zweiten Zyklushälfte und in den Wechseljahren ist der Körper empfindlicher für Cortisol. Deshalb sind Schlaf, Erholung, sanfteres Training in der Lutealphase und Stressabbau keine Nettigkeiten, sondern echte Hormon-Pflege.`,
     tipps: ["Cortisol ist lebenswichtig — nur Dauerstress ist das Problem", "Chronisch hohes Cortisol stört Progesteron (gemeinsamer Rohstoff)", "Folgen: Zyklusstörungen, PMS, Schlafprobleme, Heißhunger", "In der 2. Zyklushälfte & Menopause besonders cortisol-empfindlich", "Schlaf, Erholung & Stressabbau sind echte Hormon-Pflege", "Zu hartes Training bei Stress kann mehr schaden als nutzen"],
     teenText: "Cortisol ist dein Stress-Hormon. Es ist eigentlich etwas Gutes: Es macht dich morgens wach und hilft dir, wenn du dich anstrengen musst — zum Beispiel bei einer Prüfung oder im Sport. Schwierig wird es nur, wenn du über lange Zeit sehr gestresst bist (viel Druck in der Schule, Streit, zu wenig Schlaf). Dann ist ständig zu viel Cortisol da, und das kann sich auf deinen Schlaf, deine Stimmung und sogar deinen Zyklus auswirken. Was hilft: genug Schlaf, Bewegung, die dir Spaß macht, Zeit für Dinge, die dir guttun, und mit jemandem reden, wenn dir etwas zu viel wird. Auf dich selbst zu achten ist keine Schwäche — es hält deinen ganzen Körper im Gleichgewicht.",
     teenTipps: ["Cortisol macht dich wach & hilft bei Anstrengung — das ist gut", "Nur Dauerstress ist ungünstig (viel Druck, zu wenig Schlaf)", "Kann Schlaf, Stimmung & Zyklus durcheinanderbringen", "Hilft: genug Schlaf, Bewegung mit Spaß, Pausen", "Reden hilft — bei Stress hol dir Unterstützung"],
   },
   {
-    id: "dopamin", nurInfo: true, icon: "🎯", titel: "Dopamin — dein Motivations-Botenstoff",
+    id: "dopamin", kern: "Dopamin ist dein Motivations-Botenstoff — es treibt dich an, Dinge überhaupt anzufangen.", relevanz: "Es schwankt mit dem Zyklus und reagiert empfindlich auf Zucker, Handy und Schlafmangel. Kleine, echte Erfolgserlebnisse wirken nachhaltiger als schnelle Kicks.", evidenz: "hinweise", nurInfo: true, icon: "🎯", titel: "Dopamin — dein Motivations-Botenstoff",
     text: `Dopamin ist ein Botenstoff im Gehirn, der für Motivation, Belohnung, Fokus und Freude zuständig ist. Es ist der „Ich-will-das-schaffen"- und „Das-hat-sich-gelohnt"-Stoff. Für Frauen spannend: Dopamin schwankt mit dem Zyklus. Wenn Östrogen in der ersten Zyklushälfte steigt, steigt auch die Dopamin-Wirkung — du fühlst dich oft motivierter, selbstbewusster und konzentrierter (rund um den Eisprung ein echtes Hoch). In der zweiten Hälfte, wenn Östrogen sinkt, kann auch der Antrieb nachlassen. Das ist keine Einbildung, sondern Biochemie. Wichtig im Alltag: Ständige kleine „Quick Dopamine"-Kicks (Social Media, Zucker, Dauer-Scrollen) überreizen das System und lassen die alltägliche Motivation abstumpfen. Nachhaltiges Dopamin kommt aus Bewegung, echten Zielen, Sonnenlicht, gutem Schlaf, Eiweiß (liefert den Baustein Tyrosin) und dem Erledigen von Dingen.`,
     tipps: ["Dopamin steuert Motivation, Fokus, Belohnung & Freude", "Steigt mit Östrogen in der 1. Zyklushälfte → mehr Antrieb", "In der 2. Hälfte kann der Antrieb sinken — ganz normal", "„Quick Dopamine\" (Social Media, Zucker) stumpft die Motivation ab", "Nachhaltig: Bewegung, Ziele, Sonne, Schlaf, Eiweiß"],
     teenText: "Dopamin ist ein Botenstoff in deinem Gehirn — er sorgt für Motivation, Konzentration und das gute Gefühl, wenn du etwas geschafft hast. Man nennt ihn oft das „Belohnungs-Hormon\". Wichtig zu wissen: Dinge wie Social Media, ständiges Handy-Scrollen und Zucker geben dir ganz schnelle, kleine Dopamin-Kicks. Das Problem: Wenn dein Gehirn ständig diese schnellen Kicks bekommt, findet es normale Dinge (lernen, ein Buch lesen, mit Freundinnen etwas machen) langweiliger — dein „Motivations-Akku\" stumpft ab. Die gute Nachricht: Du kannst ihn wieder aufladen — durch Bewegung, Zeit draußen im Sonnenlicht, genug Schlaf, echte Ziele und Dinge, die du wirklich schaffst. Das gibt ein viel stärkeres, längeres Gutgefühl als jeder Handy-Kick.",
     teenTipps: ["Dopamin = Motivation, Fokus & Belohnungsgefühl", "Social Media & Zucker geben schnelle Kicks, die abstumpfen", "Dein „Motivations-Akku\" lädt sich durch echte Dinge wieder auf", "Bewegung, Sonne, Schlaf & echte Ziele stärken ihn nachhaltig", "Weniger Dauer-Scrollen tut deiner Motivation gut"],
   },
   {
-    id: "zusammenspiel", nurInfo: true, icon: "🎼", titel: "Das Zusammenspiel im Zyklus",
+    id: "zusammenspiel", kern: "Deine Hormone arbeiten nicht einzeln, sondern in einem festen Zusammenspiel über den Monat.", relevanz: "Deshalb bringt es wenig, ein Hormon isoliert optimieren zu wollen. MoreSync zeigt dir stattdessen, was in der jeweiligen Phase zusammenpasst.", evidenz: "belegt", nurInfo: true, icon: "🎼", titel: "Das Zusammenspiel im Zyklus",
     text: `Dein Zyklus ist ein fein abgestimmtes Hormon-Orchester. Vereinfacht: In der ersten Hälfte (Follikelphase) steigt Östrogen — du fühlst dich energiegeladen. Um den Eisprung sind Östrogen und Testosteron am höchsten — Höhepunkt an Energie. In der zweiten Hälfte (Lutealphase) übernimmt Progesteron — Zeit für mehr Ruhe. Kurz vor der Periode fallen beide ab.\n\nDie Sexualhormone spielen dabei ständig mit deinen Stoffwechsel- und Botenstoff-Hormonen zusammen: Wenn Östrogen in der ersten Hälfte steigt, wirkt auch Dopamin stärker (mehr Antrieb & Fokus) und dein Körper geht besser mit Insulin um (stabilerer Blutzucker). In der zweiten Hälfte kehrt sich das um — die Insulin-Empfindlichkeit sinkt (mehr Heißhunger), Dopamin lässt nach, und der Körper reagiert empfindlicher auf Cortisol (Stress). Deshalb tut in der Lutealphase genau das gut, was Cortisol senkt und den Blutzucker stabil hält: sanfteres Training, mehr Schlaf, Eiweiß und komplexe Kohlenhydrate.\n\nIm Hintergrund steuern zwei weitere Hormone das Ganze: FSH und LH. Sie werden im Gehirn gebildet (in der Hirnanhangdrüse). FSH (das „Follikel-stimulierende Hormon") sorgt am Anfang dafür, dass in deinem Eierstock eine Eizelle heranreift. LH (das „luteinisierende Hormon") schießt etwa in der Zyklusmitte stark nach oben und löst den Eisprung aus — es ist quasi das Startsignal, das die reife Eizelle freigibt. Dieses Auf und Ab ist der Grund, warum es Sinn macht, Ernährung, Fasten und Training an die Phasen anzupassen — der Kerngedanke dieser App.`,
     tipps: ["Erste Hälfte: Östrogen steigt → Energie, Fokus, stabiler Blutzucker, mehr Dopamin", "Eisprung: Östrogen & Testosteron am höchsten → Höchstform", "Zweite Hälfte: Progesteron → Ruhe; Insulin-Empfindlichkeit & Dopamin sinken, Cortisol-Empfindlichkeit steigt", "Darum in der Lutealphase: sanfter trainieren, mehr Schlaf, Eiweiß & komplexe Kohlenhydrate", "FSH lässt am Anfang die Eizelle heranreifen, LH löst in der Mitte den Eisprung aus", "Alle Hormone arbeiten zusammen — darum lohnt sich das Anpassen an die Phasen"],
     teenText: "Dein Zyklus ist wie ein Orchester, in dem mehrere Hormone zusammenspielen. In der ersten Hälfte steigt Östrogen — du hast oft viel Energie, bist motivierter (mehr Dopamin) und dein Blutzucker ist stabiler. Um den Eisprung sind Östrogen und Testosteron am höchsten — deine Hochform. In der zweiten Hälfte übernimmt Progesteron — jetzt wird es ruhiger, du hast vielleicht mehr Heißhunger und reagierst empfindlicher auf Stress. Kurz vor der Periode fallen die Hormone wieder ab.\n\nIm Hintergrund gibt es noch zwei Steuer-Hormone: FSH und LH. Sie werden in deinem Gehirn gebildet. FSH sorgt am Anfang dafür, dass in deinem Eierstock eine Eizelle heranreift. LH steigt etwa in der Mitte deines Zyklus stark an und löst den Eisprung aus. Du musst dir die Namen nicht merken — schön ist nur zu wissen: Dein Körper hat einen klugen Plan, und alle Hormone arbeiten zusammen.",
@@ -943,17 +943,17 @@ const HORMON_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const ZYKLUS_ERKRANKUNGEN = [
   {
-    id: "endometriose", icon: "🩸", titel: "Endometriose",
+    id: "endometriose", kern: "Endometriose bedeutet, dass gebärmutterschleimhautähnliches Gewebe außerhalb der Gebärmutter wächst.", relevanz: "Starke Regelschmerzen sind das Hauptsymptom — und werden oft jahrelang bagatellisiert. Bei Verdacht: fachärztlich abklären.", evidenz: "belegt", icon: "🩸", titel: "Endometriose",
     text: `Bei der Endometriose siedelt sich gebärmutterschleimhaut-ähnliches Gewebe außerhalb der Gebärmutter an (z.B. an Eierstöcken oder Bauchfell). Es reagiert auf die Hormonschwankungen des Zyklus und kann starke Schmerzen, sehr starke oder lange Blutungen und Erschöpfung verursachen. Endometriose ist häufig (etwa jede 10. Frau) und wird oft erst nach Jahren erkannt. Wichtig: Starke Regelschmerzen sind NICHT normal und gehören abgeklärt. Eine entzündungsarme Ernährung kann unterstützend helfen, ersetzt aber keine Behandlung.`,
     tipps: ["Starke Regelschmerzen sind ein Grund zur Abklärung — nicht \"normal\"", "Diagnose oft verzögert — sei hartnäckig bei Verdacht", "Entzündungsarme Ernährung (Omega-3, wenig Zucker) kann unterstützen", "Spezialisierte Endometriose-Zentren bieten beste Hilfe"],
   },
   {
-    id: "pcos", icon: "⚖️", titel: "PCOS (Polyzystisches Ovarialsyndrom)",
+    id: "pcos", kern: "PCOS ist im Kern häufig ein Stoffwechsel- und Insulinthema.", relevanz: "Patrick behandelt es als Insulinresistenz-Syndrom. Bewegung, Protein und stabiler Blutzucker sind wichtige Hebel.", evidenz: "belegt", quelle: "Patrick", icon: "⚖️", titel: "PCOS (Polyzystisches Ovarialsyndrom)",
     text: `PCOS ist eine der häufigsten hormonellen Störungen bei Frauen im gebärfähigen Alter — etwa jede 8. Frau ist betroffen. Jessie Inchauspé ("Glucose Revolution") bringt es deutlich auf den Punkt: PCOS wird maßgeblich durch zu viel Insulin verursacht. Je mehr Insulin im Körper, desto stärker die PCOS-Symptome. Der Grund: Insulin signalisiert den Eierstöcken, mehr Testosteron zu produzieren, und bremst zugleich die Umwandlung von männlichen in weibliche Hormone. Das überschüssige Testosteron führt zu typischen Zeichen: unerwünschte Körperbehaarung (z.B. am Kinn), Akne, unregelmäßige oder ausbleibende Perioden — und die Eierstöcke hören oft auf, einen Eisprung zu haben.\n\nDie gute Nachricht: Nicht jede Frau mit hohem Insulin bekommt PCOS, aber in allen Fällen kann das Stabilisieren des Blutzuckers die Symptome deutlich lindern. In einer Studie der Duke University halbierten Frauen mit einer blutzucker-glättenden Ernährung über sechs Monate ihren Insulinspiegel — und senkten dadurch ihr Testosteron um 25 %. Ihre Hormone kamen ins Gleichgewicht, das Körpergewicht sank, die Körperbehaarung ging zurück, und zwei von zwölf Teilnehmerinnen wurden sogar schwanger.\n\nDr. Rhonda Patrick betont denselben Kern — PCOS als Insulin- und Stoffwechselthema — und hebt zwei weitere Ansätze hervor: ein zeitlich begrenztes Essfenster (bei PCOS wurde z.B. ein ~6-Stunden-Fenster untersucht) und den Pflanzenstoff Berberin, der den Blutzucker senken kann. Wichtig: Berberin ist kein harmloses „Kraut" — es wirkt stark blutzuckersenkend, hat Wechselwirkungen (nicht mit blutzuckersenkenden Medikamenten kombinieren), gehört nicht in die Schwangerschaft und sollte nur nach ärztlicher Rücksprache genommen werden.`,
     tipps: ["Blutzucker glätten (siehe Glukose-Hacks) ist der zentrale Hebel", "Essreihenfolge: erst Gemüse, dann Protein/Fett, Stärke zuletzt", "Krafttraining verbessert die Insulinempfindlichkeit", "Intervallfasten/TRE kann helfen — bei PCOS wurde z.B. ein ~6-Std-Essfenster untersucht", "Berberin kann den Blutzucker senken — aber ⚠️ nur nach ärztlicher Rücksprache (Wechselwirkungen, nicht in der Schwangerschaft)", "Bei Kinderwunsch hilft ein stabiler Blutzucker zusätzlich", "Bei Verdacht: ärztliche Abklärung & Begleitung suchen"],
   },
   {
-    id: "pms", icon: "🌧️", titel: "PMS & PMDS",
+    id: "pms", kern: "PMS betrifft viele Frauen, PMDS ist die schwere Form mit deutlicher Beeinträchtigung.", relevanz: "Wenn dich die Beschwerden regelmäßig aus der Bahn werfen, ist das kein 'Sich-Anstellen' — hol dir Hilfe.", evidenz: "belegt", icon: "🌧️", titel: "PMS & PMDS",
     text: `Das prämenstruelle Syndrom (PMS) umfasst körperliche und seelische Beschwerden in den Tagen vor der Periode: Reizbarkeit, Stimmungstiefs, Brustspannen, Wassereinlagerungen, Heißhunger. Sie entstehen durch den Abfall von Östrogen und Progesteron. Eine schwere Form ist die prämenstruelle dysphorische Störung (PMDS) mit starken psychischen Symptomen — diese gehört unbedingt ärztlich behandelt. Phasengerechte Ernährung, Magnesium und sanfteres Training in der zweiten Zyklushälfte können PMS lindern.`,
     tipps: ["Magnesium, B6 & komplexe Kohlenhydrate können helfen", "In der Lutealphase: sanfteres Training, mehr Ruhe", "Bei starken psychischen Symptomen (PMDS): ärztliche Hilfe suchen"],
   },
@@ -989,32 +989,32 @@ const TRIMESTER_INFO = {
 // Die zentralen Nährstoff-Bausteine (Inchauspé)
 const SCHWANGER_BAUSTEINE = [
   {
-    id: "glukose", icon: "🩸", titel: "Blutzucker — die Basis",
+    id: "glukose", kern: "Stabiler Blutzucker ist in der Schwangerschaft die wichtigste Ernährungsgrundlage.", relevanz: "Große Zuckerspitzen belasten dich und dein Baby. Die Reihenfolge beim Essen und ein Spaziergang danach wirken sofort — ganz ohne Verzicht.", evidenz: "belegt", quelle: "Inchauspé, 9 Months", icon: "🩸", titel: "Blutzucker — die Basis",
     text: `In der Schwangerschaft wird dein Körper schlechter darin, Glukosespitzen zu verarbeiten — sie werden höher und länger. Das ist wichtig, denn dein Blutzucker beeinflusst über die Nabelschnur direkt das Baby und kann seine DNA-Programmierung prägen ("fetale Programmierung"). Inchauspé zeigt: Zu viel Zucker, zu oft, kann den Stoffwechsel des Babys langfristig in Richtung späterer Zuckerlust und Diabetesrisiko schubsen. Die gute Nachricht: Mit den Glukose-Hacks kannst du das aktiv steuern — du bist die "Programmiererin" der DNA-Ausprägung deines Babys. Du musst nicht auf Genuss verzichten — du isst dasselbe, aber mit weniger Folgen.`,
     tipps: ["Reihenfolge: erst Gemüse/Ballaststoffe, dann Protein & Fett, zuletzt Stärke/Zucker — das kann den Spike um bis zu ~73 % senken", "Herzhaftes Frühstück rund um Protein (am besten Eier) statt süß", "Süßes nie auf leeren Magen — lieber als Dessert NACH einer Mahlzeit", "\"Kleidung\" für den Zucker: Süßes nie nackt essen — immer mit Protein, Fett oder Ballaststoffen kombinieren (z.B. Donut + Nüsse oder Joghurt)", "Nach dem Essen bewegen: innerhalb von 90 Min die Muskeln nutzen (Spaziergang, Wadenheben, aufräumen) — sie verbrauchen einen Teil des Zuckers", "Essig-Trick: 1 EL pasteurisierter Essig (weiß/rot, NICHT roher Apfelessig) in Wasser vor dem Essen kann den Spike senken — oder als Vinaigrette zum Salat", "Bei Carbs: Stärke statt Zucker wählen (kein Fruktose-Schaden)", "Ganzes Obst zu Hause haben — stillt Heißhunger mit weniger Spike", "Zugesetzten Zucker so gering wie möglich halten", "Hinweis: \"glutenfrei\", \"vegan\" und \"bio\" heißt NICHT automatisch zuckerarm"],
   },
   {
-    id: "cholin", icon: "🥚", titel: "Cholin — fürs Babygehirn",
+    id: "cholin", kern: "Cholin ist entscheidend für die Gehirnentwicklung deines Babys — und wird oft übersehen.", relevanz: "Eier und Leber sind die besten Quellen. Viele Schwangerschaftsvitamine enthalten wenig oder gar kein Cholin.", evidenz: "belegt", quelle: "Patrick", icon: "🥚", titel: "Cholin — fürs Babygehirn",
     text: `Cholin ist ein unterschätzter Schlüsselnährstoff: Er baut die Gehirnzellen deines Babys auf und kann sein Gedächtnis und seine Aufmerksamkeit positiv prägen. Das Schockierende laut Inchauspé: 90 % der Schwangeren bekommen zu wenig davon! Empfohlen sind mindestens 450 mg/Tag (in der Stillzeit 550 mg). Dr. Rhonda Patrick geht weiter: In einer Studie (Bahnfleth u.a.) hatten Kinder von Müttern, die im 3. Trimester 930 mg/Tag bekamen, später eine bessere Aufmerksamkeit als bei 480 mg — mehr Cholin könnte also zusätzlich nützen. Die mit Abstand beste Quelle ist Leber — wer die (wie Inchauspé selbst) nicht mag, setzt auf Eier: 4 Eier liefern ca. 500 mg.`,
     tipps: ["Ziel: mindestens 450 mg Cholin/Tag (in der Stillzeit 550 mg)", "Patrick: 930 mg/Tag im 3. Trimester war in einer Studie noch günstiger fürs Kind", "Eier sind die praktischste Cholin-Quelle (4 Stück ≈ 500 mg)", "Leber liefert das meiste Cholin pro Portion (falls du sie magst)", "Cholin steckt auch in Fleisch, Fisch & Whey-Protein", "Höhere Cholinzufuhr wurde auch mit weniger Entzündung verknüpft (Patrick)", "Keine Angst vorm Cholesterin im Ei — für die meisten unbedenklich"],
   },
   {
-    id: "protein", icon: "🍗", titel: "Protein — Baumaterial",
+    id: "protein", kern: "Der Proteinbedarf steigt in der Schwangerschaft deutlich an.", relevanz: "Protein ist das Baumaterial für das Gewebe deines Babys. Zu jeder Mahlzeit eine Portion hilft dir auch gegen Heißhunger.", evidenz: "belegt", icon: "🍗", titel: "Protein — Baumaterial",
     text: `Protein liefert die Bausteine für Babys Muskeln und Organe. Inchauspé warnt: 70 % der Frauen bekommen zu wenig — und ein Mangel kann nicht nur die eigene Muskelmasse angreifen, sondern das Baby darauf programmieren, weniger Muskeln und schwächere Organe aufzubauen. Der Bedarf steigt: etwa 1,2 g/kg im 1. Trimester, 1,5 g/kg im 2. und 3.`,
     tipps: ["1. Trimester: ~1,2 g/kg — 2./3.: ~1,5 g/kg Körpergewicht", "Tierische Quellen liefern Protein UND Cholin zugleich", "Pflanzlich: Hülsenfrüchte, Tofu, kombinierte Aminosäuren", "Etwas Protein zu jeder Mahlzeit", "Whey-Protein als praktische Ergänzung"],
   },
   {
-    id: "dha", icon: "🐟", titel: "DHA / Omega-3 — Gehirn-Verdrahtung",
+    id: "dha", kern: "DHA ist eine Omega-3-Fettsäure, die beim Aufbau von Gehirn und Augen deines Babys gebraucht wird.", relevanz: "Fetter Seefisch zwei- bis dreimal pro Woche deckt den Bedarf. Achte auf quecksilberarme Sorten wie Lachs oder Sardinen.", evidenz: "belegt", icon: "🐟", titel: "DHA / Omega-3 — Gehirn-Verdrahtung",
     text: `DHA ist ein Omega-3-Fett, das hilft, die Nervenzellen deines Babys zu verbinden — essenziell für die Gehirnverdrahtung im Mutterleib. Es beeinflusst später IQ, Sehkraft und kann sogar das Frühgeburtsrisiko senken. Weniger als 10 % der Schwangeren erreichen optimale Werte. Ziel: 500–1000 mg DHA täglich, plus fetter Fisch (Lachs, Sardinen, Forelle) etwa 3×/Woche.`,
     tipps: ["500–1000 mg DHA täglich (mit Geburtsteam abstimmen)", "Fetter Fisch 3×/Woche: Lachs, Sardinen, Forelle", "Vegan: Algen-basierte Omega-3-Präparate", "Viele Schwangerschaftsvitamine enthalten zu wenig DHA", "Auch in der Stillzeit wichtig"],
   },
   {
-    id: "mikro", icon: "💊", titel: "Eisen, Folat, Jod & Vitamine",
+    id: "mikro", kern: "Eisen, Folat und Jod sind die Mikronährstoffe mit dem größten Einfluss in der Schwangerschaft.", relevanz: "Folat schützt vor Neuralrohrdefekten, Eisen und Jod sind für Wachstum und Gehirnentwicklung nötig. Werte gehören ärztlich kontrolliert.", evidenz: "belegt", icon: "💊", titel: "Eisen, Folat, Jod & Vitamine",
     text: `Neben den großen Bausteinen steigt der Bedarf an Mikronährstoffen stark: Folat (schützt vor Neuralrohrdefekten — schon vor der Schwangerschaft wichtig), Eisen (für den erhöhten Blutbedarf), Jod (für Schilddrüse & Baby-Gehirn) und Vitamine D und B12. Ein gutes Schwangerschaftsvitamin als "Versicherung" ist sinnvoll — die Basis kommt aber aus echten Lebensmitteln.`,
     tipps: ["Folat: schon bei Kinderwunsch beginnen", "Eisen: Bluttest im Blick behalten", "Jod: jodiertes Salz, Fisch ( also für Schilddrüse & Gehirn)", "Vitamin D & B12 (besonders vegan/vegetarisch)", "Prenatal-Vitamin als Ergänzung, nicht als Ersatz"],
   },
   {
-    id: "meiden", icon: "⚠️", titel: "Koffein & Alkohol",
+    id: "meiden", kern: "Alkohol ist in der Schwangerschaft tabu, Koffein sollte begrenzt bleiben.", relevanz: "Für Alkohol gibt es keine sichere Menge. Bei Koffein gelten etwa 200 mg pro Tag als Obergrenze — das ist ungefähr eine Tasse Kaffee.", evidenz: "belegt", icon: "⚠️", titel: "Koffein & Alkohol",
     text: `Manche Dinge solltest du in der Schwangerschaft begrenzen oder meiden. Bei Alkohol ist die Empfehlung der WHO klar: am sichersten ist komplett verzichten, da kein sicherer Grenzwert bekannt ist. Koffein in Maßen gilt als vertretbar, sollte aber begrenzt werden (gängige Empfehlung: unter ~200 mg/Tag, etwa 1–2 Tassen Kaffee).`,
     tipps: ["Alkohol: am sichersten ganz verzichten (WHO)", "Koffein begrenzen (Richtwert oft ~200 mg/Tag)", "Auch Tee, Cola & Schokolade enthalten Koffein", "Rohe/nicht pasteurisierte Lebensmittel meiden", "Im Zweifel das Geburtsteam fragen"],
   },
@@ -1028,27 +1028,27 @@ const SCHWANGER_BAUSTEINE = [
 // ═══════════════════════════════════════════════════════════════════
 const WARNZEICHEN = [
   {
-    id: "sofort", icon: "🚨", titel: "Sofort in die Klinik / Rettung rufen",
+    id: "sofort", kern: "Bei diesen Zeichen zählt jede Minute — ruf sofort die Rettung oder fahr in die Klinik.", relevanz: "Starke Blutungen, heftige anhaltende Schmerzen, Fruchtwasserabgang oder Krampfanfälle sind Notfälle. Warte nicht ab.", evidenz: "belegt", icon: "🚨", titel: "Sofort in die Klinik / Rettung rufen",
     text: `Bei diesen Zeichen geht es um Minuten — fahr in die nächste Geburtsklinik oder ruf den Notruf 144 (Österreich). Lieber einmal zu viel abklären lassen als zu spät. Vertrau deinem Bauchgefühl: Wenn etwas sich sehr falsch anfühlt, handle.`,
     tipps: ["Starke vaginale Blutung (wie/stärker als eine Regelblutung), besonders mit Schmerzen", "Starke, plötzliche Bauchschmerzen + harter Bauch + plötzlich weniger Kindsbewegungen (mögliche Plazentaablösung)", "Schwallartiger Flüssigkeitsabgang (Blasensprung) — vor allem mit Blutung oder vor der 37. Woche", "Krampfanfall, starke Verwirrtheit oder Bewusstseinstrübung (mögliche Eklampsie)", "Kreislaufzusammenbruch: starker Schwindel, drohende Ohnmacht", "Starke, regelmäßige Wehen lange vor dem Termin"],
   },
   {
-    id: "praeeklampsie", icon: "🩺", titel: "Präeklampsie-Warnzeichen (ernst nehmen!)",
+    id: "praeeklampsie", kern: "Präeklampsie ist eine ernste Schwangerschaftskomplikation, die schnell behandelt werden muss.", relevanz: "Warnzeichen sind starke Kopfschmerzen, Sehstörungen, Oberbauchschmerz und plötzliche Schwellungen. Sofort abklären lassen.", evidenz: "belegt", icon: "🩺", titel: "Präeklampsie-Warnzeichen (ernst nehmen!)",
     text: `Die Präeklampsie ("Schwangerschaftsvergiftung") tritt meist in der zweiten Schwangerschaftshälfte auf und kann gefährlich werden — auch für eine zuvor gesunde Frau. Viele bemerken sie zunächst nicht, deshalb sind die Vorsorgetermine so wichtig. Bei diesen Zeichen rasch ärztlichen Rat suchen:`,
     tipps: ["Starke oder anhaltende Kopfschmerzen, die nicht weggehen", "Sehstörungen: Augenflimmern, Lichtblitze, verschwommenes Sehen", "Schmerzen im Oberbauch (vor allem rechts/mittig) — möglicher Hinweis auf HELLP-Syndrom", "Plötzliche, starke Wassereinlagerungen (Ödeme) an Gesicht, Händen, Füßen", "Plötzliche Gewichtszunahme (z.B. >1 kg in einer Woche im letzten Drittel)", "Übelkeit/Erbrechen neu im späteren Verlauf, Muskelzucken, Verwirrtheit", "Bekannter Bluthochdruck (≥140/90) — engmaschig kontrollieren lassen"],
   },
   {
-    id: "vorzeitige_wehen", icon: "⏱️", titel: "Anzeichen für vorzeitige Wehen",
+    id: "vorzeitige_wehen", kern: "Regelmäßige Wehen vor der 37. Woche gehören sofort untersucht.", relevanz: "Wenn sich der Bauch alle paar Minuten hart macht oder du Druck nach unten spürst: nicht abwarten, sondern anrufen.", evidenz: "belegt", icon: "⏱️", titel: "Anzeichen für vorzeitige Wehen",
     text: `Dass sich die Gebärmutter ab und zu zusammenzieht (Übungswehen/Braxton-Hicks), ist normal — sie sind unregelmäßig und gehen wieder weg. Wenn Kontraktionen aber regelmäßig kommen und nicht verschwinden, kann das auf vorzeitige Wehen hindeuten. Besonders vor der 34. Woche ist das ein Notfall — je früher Hilfe beginnt, desto besser.`,
     tipps: ["Regelmäßige Kontraktionen, die nicht wieder aufhören (oft mit krampfartigem Schmerz)", "Faustregel: bis ~28. Woche mehr als 3, bis ~33. Woche mehr als 4 Wehen pro Stunde → abklären", "Druck-/Völlegefühl im Becken, Rücken oder Oberschenkeln (\"das Baby drückt nach unten\")", "Dauerhaft harter, gespannter Bauch (nicht weich zwischendurch)", "Krampfartige Schmerzen wie bei der Regel, evtl. mit Rückenschmerzen", "Bei Verdacht: rasch Ärztin, Hebamme oder Klinik kontaktieren"],
   },
   {
-    id: "kindsbewegungen", icon: "👣", titel: "Weniger Kindsbewegungen",
-    text: `Kindsbewegungen sind eines der wichtigsten Zeichen für das Wohlbefinden deines Babys. Mit der Zeit bekommst du ein Gefühl für den normalen Rhythmus deines Kindes (oft abends und nach dem Essen aktiver). Ein plötzliches, deutliches Nachlassen ist ein Alarmsignal — warte nicht bis zum nächsten Tag oder Termin.`,
-    tipps: ["Plötzlich deutlich weniger oder gar keine Bewegungen → umgehend in die Klinik", "Deine Sorge ist berechtigt — schnelles Handeln kann einen großen Unterschied machen", "In der Klinik wird mit CTG (Wehenschreiber) und Ultraschall geprüft, ob alles in Ordnung ist", "Tipp: Wenn du unsicher bist, leg dich ruhig hin, trink etwas Kühles und achte 1–2 Std auf Bewegungen — im Zweifel trotzdem abklären lassen"],
+    id: "kindsbewegungen", kern: "Jede deutliche Veränderung der Bewegungen deines Babys gehört sofort abgeklärt.", relevanz: "Du kennst das normale Muster am besten. Kontaktiere Hebamme oder Klinik — warte nicht bis morgen und beobachte nicht erst zu Hause.", evidenz: "belegt", icon: "👣", titel: "Weniger Kindsbewegungen",
+    text: `Kindsbewegungen sind eines der wichtigsten Zeichen für das Wohlbefinden deines Babys. Mit der Zeit bekommst du ein Gefühl für den normalen Rhythmus deines Kindes (oft abends und nach dem Essen aktiver). Ein plötzliches, deutliches Nachlassen ist ein Alarmsignal: Kontaktiere dann sofort deine Hebamme oder Geburtsklinik — warte nicht bis zum nächsten Tag oder Termin und versuche nicht, es zu Hause selbst zu beobachten.`,
+    tipps: ["Plötzlich deutlich weniger oder gar keine Bewegungen → umgehend in die Klinik", "Deine Sorge ist berechtigt — schnelles Handeln kann einen großen Unterschied machen", "In der Klinik wird mit CTG (Wehenschreiber) und Ultraschall geprüft, ob alles in Ordnung ist", "Verlasse dich auf dein Gefühl: Du kennst das normale Bewegungsmuster deines Babys am besten — jede deutliche Veränderung gehört sofort abgeklärt"],
   },
   {
-    id: "weitere", icon: "📋", titel: "Weitere Gründe, abzuklären",
+    id: "weitere", kern: "Auch weniger dramatische Beschwerden dürfen abgeklärt werden.", relevanz: "Fieber, Brennen beim Wasserlassen oder anhaltendes Unwohlsein sind gute Gründe anzurufen. Lieber einmal zu viel.", evidenz: "belegt", icon: "📋", titel: "Weitere Gründe, abzuklären",
     text: `Diese Zeichen sind nicht immer Notfälle, sollten aber zeitnah mit Ärztin oder Hebamme besprochen werden. Im Zweifel gilt immer: lieber nachfragen.`,
     tipps: ["Extremes, anhaltendes Erbrechen (du behältst nichts bei dir — Gefahr von Austrocknung)", "Brennen beim Wasserlassen, häufiger Harndrang (möglicher Harnwegsinfekt — kann Wehen auslösen)", "Jede vaginale Blutung — auch leichte — immer abklären lassen", "Fieber über 38 °C oder grippeähnliche Symptome", "Anhaltender starker Juckreiz (v.a. an Händen/Füßen, im 3. Trimester — möglicher Hinweis auf Schwangerschaftscholestase)", "Starker, ständiger Durst (ärztlich abklären)", "Wenn du einfach das Gefühl hast: \"Etwas stimmt nicht\" — frag nach. Dafür ist dein Team da"],
   },
@@ -1062,32 +1062,32 @@ const WARNZEICHEN = [
 // ═══════════════════════════════════════════════════════════════════
 const BESCHWERDEN_THEMEN = [
   {
-    id: "sodbrennen", icon: "🔥", titel: "Sodbrennen",
+    id: "sodbrennen", kern: "Sodbrennen entsteht, weil Hormone den Magenschließmuskel lockern und das Baby drückt.", relevanz: "Kleinere Mahlzeiten, aufrecht bleiben nach dem Essen und nicht zu spät essen helfen den meisten.", evidenz: "belegt", icon: "🔥", titel: "Sodbrennen",
     text: `Sehr häufig — bis zu 80 % im letzten Drittel. Das Hormon Progesteron lockert den Schließmuskel zwischen Magen und Speiseröhre, und die wachsende Gebärmutter drückt auf den Magen. Beides lässt Magensäure leichter aufsteigen. Für das Baby ist es harmlos, aber lästig. Mit Ernährung und Haltung lässt sich viel verbessern.`,
     tipps: ["Mehrere kleine Mahlzeiten statt weniger großer; langsam essen, gut kauen", "Meiden: Fettiges, Scharfes, Saures, Zitrus, Tomatensaft, Schokolade, Kaffee, Kohlensäure", "Hilft oft: langsam gekaute Mandeln/Haferflocken, ein Glas Milch oder stilles Wasser, Banane", "Nicht spät am Abend essen — letzte große Mahlzeit ein paar Stunden vor dem Schlafen", "💪 Nach dem Essen aufrecht bleiben (mind. 30–60 Min), nicht hinlegen", "💪 Sanfte Bewegung/Spaziergang regt die Verdauung an", "😴 Oberkörper beim Schlafen erhöht lagern (Keilkissen), eher auf der linken Seite liegen", "👚 Lockere Kleidung tragen — kein Druck auf den Bauch", "Bei starken Beschwerden: in der Apotheke gibt es schwangerschaftsgeeignete Mittel — Ärztin/Apotheke fragen"],
   },
   {
-    id: "verdauung", icon: "🌀", titel: "Verstopfung & Blähungen",
+    id: "verdauung", kern: "Verstopfung ist in der Schwangerschaft sehr häufig — Progesteron bremst den Darm.", relevanz: "Ballaststoffe, viel Trinken und Bewegung sind die erste Wahl. Eisenpräparate können es verstärken.", evidenz: "belegt", icon: "🌀", titel: "Verstopfung & Blähungen",
     text: `Auch hier ist Progesteron der Grund: Es entspannt die Darmmuskulatur, der Darm wird träger, der Stuhl verliert mehr Wasser. Eisenpräparate können Verstopfung zusätzlich verstärken. Mit Ballaststoffen, Trinken und Bewegung kommt der Darm meist gut wieder in Schwung.`,
     tipps: ["Ballaststoffreich essen: Vollkorn, viel Obst & Gemüse, Hülsenfrüchte", "Eingeweichte Trockenpflaumen, naturtrüber Apfelsaft, Lein- oder Flohsamen (mit viel Wasser!)", "Pro EL Kleie/Leinsamen ein Glas Wasser — sonst wirkt es gegenteilig", "Viel trinken: 2–3 Liter Wasser oder ungesüßter Tee (Fenchel, Anis, Kümmel, Kamille)", "Bei Blähungen blähende Speisen wie viel Kohl & Hülsenfrüchte etwas reduzieren, Kohlensäure meiden", "💪 Täglich Bewegung — Spaziergänge bringen den Darm in Gang", "Morgens nüchtern ein Glas (Mineral-)Wasser kann anregen", "Keine frei verkäuflichen Abführmittel ohne Rücksprache — viele sind in der Schwangerschaft nicht empfohlen"],
   },
   {
-    id: "oedeme", icon: "🦶", titel: "Wassereinlagerungen (Ödeme)",
+    id: "oedeme", kern: "Wassereinlagerungen in Beinen und Händen sind meist harmlos.", relevanz: "Hochlagern und Bewegung helfen. Plötzliche starke Schwellung im Gesicht ist dagegen ein Warnzeichen.", evidenz: "belegt", icon: "🦶", titel: "Wassereinlagerungen (Ödeme)",
     text: `Rund zwei Drittel bekommen im 3. Trimester Wasser in Beinen oder Füßen: Die Gefäße werden elastischer, Flüssigkeit tritt leichter ins Gewebe. Meist harmlos. Wichtig zu wissen: Trinken hilft hier eher, als zu schaden — und entwässernde Tees oder salzarme Diät sind NICHT empfohlen.`,
     tipps: ["Bewegung, besonders im Wasser (Schwimmen, Wassergymnastik), regt den Rückfluss an", "💪 Beine so oft wie möglich hochlegen, langes Stehen vermeiden", "💪 Fuß- & Beingymnastik: Füße kreisen, Zehen Richtung Nase ziehen", "💪 Beine kalt abspritzen / Wechselduschen bringen den Kreislauf in Schwung", "Ausreichend trinken (NICHT weniger!) — hilft, Flüssigkeit auszuschwemmen", "⚠️ KEINE entwässernden Tees, KEINE salzarme Diät", "Kompressions-/Stützstrümpfe können helfen (am besten morgens im Liegen anziehen)", "⚠️ Plötzliche, starke Schwellung (Gesicht/Hände) + Kopfschmerz → an Präeklampsie denken, abklären (siehe Warnzeichen)"],
   },
   {
-    id: "ruecken", icon: "🤸‍♀️", titel: "Rückenschmerzen",
+    id: "ruecken", kern: "Rückenschmerzen kommen von verändertem Schwerpunkt und weicherem Bindegewebe.", relevanz: "Gezielte Übungen und gute Haltung helfen mehr als Schonung. Physiotherapie ist oft sinnvoll.", evidenz: "belegt", icon: "🤸‍♀️", titel: "Rückenschmerzen",
     text: `Fast jede Schwangere kennt sie, vor allem in den letzten Monaten: Das wachsende Gewicht verlagert den Schwerpunkt, das Hormon Relaxin lockert Bänder und Gelenke. Vorbeugen und lindern geht gut über Haltung, Bewegung und gezieltes Muskeltraining.`,
     tipps: ["💪 Aufrecht bleiben, nicht ins Hohlkreuz fallen — bewusst auf die Haltung achten", "💪 Beckenboden-, Bauch- & Rückenmuskeln stärken: Yoga, Pilates, Schwangerschaftsgymnastik", "💪 Schwimmen, Wassergymnastik, Walking entlasten den Rücken", "Wärme tut gut: Wärmflasche, Körnerkissen, warmes (nicht heißes) Bad", "💆 Sanfte Massage mit Körperöl kann verspannte Stellen lösen", "💪 Schweres Heben vermeiden; beim Aufheben in die Knie gehen, nicht aus dem Rücken", "😴 Seitenlage mit Kissen zwischen den Knien entlastet nachts", "⚠️ Sehr starke, plötzliche Schmerzen oder Taubheit/Kribbeln in den Beinen → ärztlich abklären"],
   },
   {
-    id: "uebelkeit_b", icon: "🤢", titel: "Übelkeit (v.a. 1. Trimester)",
+    id: "uebelkeit_b", kern: "Übelkeit im ersten Trimester ist häufig und meist vorübergehend.", relevanz: "Kleine, häufige Mahlzeiten und Ingwer helfen vielen. Bei anhaltendem Erbrechen ärztliche Hilfe suchen.", evidenz: "belegt", icon: "🤢", titel: "Übelkeit (v.a. 1. Trimester)",
     text: `Die typische Frühschwangerschafts-Übelkeit hängt mit den Hormonumstellungen zusammen und bessert sich meist nach dem 1. Trimester. Kleine Tricks rund ums Essen helfen oft spürbar. (Wenn du gar nichts bei dir behältst, siehe Warnzeichen — das sollte abgeklärt werden.)`,
     tipps: ["Schon vor dem Aufstehen eine Kleinigkeit essen (z.B. Zwieback, ein paar Mandeln am Bett)", "Über den Tag kleine Portionen — ein leerer Magen verstärkt Übelkeit oft", "Protein vor Kohlenhydraten kann den Blutzucker stabiler halten und Übelkeit dämpfen", "Ingwer (Tee, frisch) hilft vielen gegen Übelkeit", "Genug trinken, in kleinen Schlucken; bei Brechreiz kühle, neutrale Getränke", "Stark riechende, fettige oder sehr süße Speisen meiden, wenn sie dir nicht bekommen", "💪 Frische Luft & ruhige Spaziergänge tun oft gut", "1. Trimester & Übelkeit: Iss einfach, was geht — kein schlechtes Gewissen. Die Bausteine baust du auf, wenn es besser wird"],
   },
   {
-    id: "schlaf_b", icon: "😴", titel: "Schlafprobleme & Unruhe",
+    id: "schlaf_b", kern: "Schlafprobleme in der Schwangerschaft haben körperliche und hormonelle Gründe.", relevanz: "Seitenlage mit Kissen, feste Abendroutine und weniger Bildschirm am Abend verbessern die Qualität.", evidenz: "belegt", icon: "😴", titel: "Schlafprobleme & Unruhe",
     text: `Vor allem im letzten Trimester wird Schlaf oft schwierig — der Bauch, häufiger Harndrang, Sodbrennen oder kreisende Gedanken. Ein paar Routinen und die richtige Lage helfen.`,
     tipps: ["😴 Seitenlage (am besten links) mit Stillkissen/Kissen zwischen den Knien und unter dem Bauch", "Abends nicht zu spät & nicht zu schwer essen (auch gegen Sodbrennen)", "Koffein am Nachmittag/Abend meiden (zählt auch bei Tee, Cola, Schokolade)", "💪 Tagsüber Bewegung & frische Luft fördern abends den Schlaf", "🧘 Entspannungsrituale: warmes Bad, Atemübungen, ruhige Routine vor dem Schlafen", "💧 Abends etwas weniger trinken, tagsüber genug — gegen nächtlichen Harndrang", "Bei Wadenkrämpfen nachts: auf Magnesium-/Calciumzufuhr achten (mit Ärztin besprechen)"],
   },
@@ -1098,37 +1098,37 @@ const BESCHWERDEN_THEMEN = [
 // österr. Empfehlungen). Gleiches Karten-Format wie SCHWANGER_BAUSTEINE.
 const SCHWANGER_EXTRA_ERNAEHRUNG = [
   {
-    id: "sichere_lebensmittel", icon: "✅", titel: "Was darf ich essen — was nicht?",
+    id: "sichere_lebensmittel", kern: "Die meisten Lebensmittel sind unbedenklich — die Ausnahmen sind überschaubar.", relevanz: "Es geht vor allem um rohe tierische Produkte und Hygiene. Der Rest darf ganz normal auf den Teller.", evidenz: "belegt", icon: "✅", titel: "Was darf ich essen — was nicht?",
     text: `Die wichtigste Regel ist einfach: keine rohen tierischen Lebensmittel. Hitze (gut durchgaren, ≥70 °C) und Pasteurisierung töten Listerien, Toxoplasmen und Salmonellen ab — diese Infektionen sind selten, können dem Baby aber schaden. Pasteurisierte Milchprodukte und durchgegartes Fleisch/Fisch sind also unbedenklich. Diese Übersicht fasst zusammen, worauf du achten kannst (Quellen: DGE, BZfE, EFSA; österr. Empfehlungen).`,
     tipps: ["✅ ERLAUBT: durchgegartes Fleisch & Fisch, hart gekochte/gut durchgegarte Eier", "✅ Pasteurisierte Milch & Milchprodukte (Joghurt, Hüttenkäse, Frischkäse)", "✅ Hartkäse (auch aus Rohmilch, z.B. Parmesan, Bergkäse, Emmentaler, Gruyère) — Rinde abschneiden", "✅ Überbackener/erhitzter Käse (Auflauf, Pizza, Fondue, Raclette) — heiß bis er Blasen wirft", "✅ Industriell verpackter Mozzarella, Feta, Ricotta aus pasteurisierter Milch (nicht aus offener Theke)", "✅ Gekochte Wurst (Kochschinken, Leberkäse) — frisch und bald verbrauchen", "✅ Fetter Seefisch wie Lachs, Makrele, Hering (gut durchgegart) — wertvolles Omega-3", "✅ Viel gewaschenes Obst & Gemüse, Vollkorn, Hülsenfrüchte, 1,5–2 L Flüssigkeit/Tag"],
   },
   {
-    id: "lebensmittel_meiden", icon: "⛔", titel: "Diese Lebensmittel besser meiden",
+    id: "lebensmittel_meiden", kern: "Rohes Fleisch, roher Fisch, Rohmilchprodukte und rohe Eier gehören in der Schwangerschaft nicht auf den Teller.", relevanz: "Das Risiko sind Listerien und Toxoplasmose. Gut durchgegart oder pasteurisiert ist alles davon in Ordnung.", evidenz: "belegt", icon: "⛔", titel: "Diese Lebensmittel besser meiden",
     text: `Der Grund ist fast immer derselbe: rohe oder nicht ausreichend erhitzte tierische Produkte können Listerien, Toxoplasmen oder Salmonellen enthalten. Das Risiko ist gering, die Folgen fürs Baby aber möglicherweise schwer — daher diese Vorsicht. Im Zweifel gilt: gut durcherhitzen oder weglassen.`,
     tipps: ["⛔ Rohes/halbgares Fleisch: Tatar, Carpaccio, Mett, Steak \"medium/rosa\", Roastbeef", "⛔ Rohwurst & roher Schinken: Salami, Teewurst, Mettwurst, Prosciutto, Räucherspeck", "⛔ Roher Fisch & Meeresfrüchte: Sushi, Sashimi, Austern, rohe Muscheln", "⛔ Geräucherter/gebeizter Fisch: Räucherlachs, Graved Lachs, Räucherforelle, Matjes", "⛔ Rohmilch & Rohmilch-Weichkäse; Weichkäse mit Rinde (Brie, Camembert) & Blauschimmel (Gorgonzola, Roquefort)", "⛔ Rohe Eier: Tiramisu, frische Mayonnaise, weich gekochte Eier, roher Kuchenteig", "⛔ Vorgefertigte Fertigsalate & offene Feinkost-/Fischsalate (Keimgefahr)", "⛔ Alkohol — komplett, in jeder Phase (auch beim Kochen)", "⛔ Energy Drinks (zu viel Koffein, Taurin)"],
   },
   {
-    id: "aufpassen", icon: "⚠️", titel: "In Maßen / mit Vorsicht",
+    id: "aufpassen", kern: "Einige Lebensmittel sind nicht verboten, aber in Maßen sinnvoll.", relevanz: "Dazu zählen große Raubfische wegen Quecksilber und sehr leberhaltige Speisen wegen Vitamin A.", evidenz: "belegt", icon: "⚠️", titel: "In Maßen / mit Vorsicht",
     text: `Manches ist nicht verboten, aber du solltest die Menge im Blick haben — vor allem wegen Quecksilber (Raubfische), Koffein oder wehenfördernder Wirkung.`,
     tipps: ["⚠️ Koffein: max. ~200 mg/Tag (etwa 2 Tassen Kaffee). Auch Schwarz-/Grüntee, Cola & Schokolade zählen mit", "⚠️ Raubfische mit viel Quecksilber meiden/stark begrenzen: Thunfisch, Schwertfisch, Hai, Heilbutt, Steinbeißer", "⚠️ Schwarz-/Grüntee hemmt die Eisenaufnahme — kurz ziehen lassen, zwischen den Mahlzeiten trinken", "⚠️ Manche Kräutertees in großen Mengen meiden (z.B. Himbeerblätter, Süßholz, Schafgarbe) — wehenfördernd", "⚠️ Tonic Water/Bitter Lemon (Chinin) nur zurückhaltend", "⚠️ Unreife Papaya & sehr viel Ananas stehen im Verdacht, Wehen anzuregen", "⚠️ Zucker & gesättigte Fette reduzieren; Fertigprodukte/Fast Food eher selten", "⚠️ TK-Gemüse/-Kräuter & Sprossen vor dem Verzehr auf >70 °C erhitzen"],
   },
   {
-    id: "leber_debatte", icon: "🤔", titel: "Leber — ein umstrittenes Thema",
+    id: "leber_debatte", kern: "Leber ist extrem nährstoffreich, enthält aber sehr viel Vitamin A.", relevanz: "Zu viel Vitamin A kann in der Frühschwangerschaft schaden. Deshalb: höchstens selten und in kleinen Mengen.", evidenz: "hinweise", icon: "🤔", titel: "Leber — ein umstrittenes Thema",
     text: `Hier gehen die Empfehlungen auseinander, deshalb behandeln wir es offen. Jessie Inchauspé empfiehlt Leber ausdrücklich als BESTE Cholin-Quelle (25 g liefern über 100 mg Cholin, plus B12, Folat, Eisen, Vitamin A). Sie argumentiert, das pauschale Leber-Verbot sei überholt: Das natürliche Vitamin A aus Lebensmitteln (Retinol) unterscheide sich von den synthetischen Formen aus alten Studien, und in moderaten Mengen sei Leber sicher — viele Frauen hätten sogar einen Vitamin-A-Mangel. Demgegenüber raten die deutschen/österreichischen Behörden (DGE u.a.) weiter eher ab, wegen des hohen Vitamin-A-Gehalts. Wichtig: Inchauspé selbst nennt das Thema umstritten und sagt, man solle vorher das Okay der Ärztin einholen.`,
     tipps: ["Pro (Inchauspé): Leber ist die cholinreichste Quelle überhaupt — top fürs Babygehirn", "Die sichere Obergrenze für Vitamin A liegt laut Buch bei ~3.000 µg RAE/Tag (≈ 85–115 g Leber täglich — also viel)", "Empfohlene moderate Menge: ~25 g Leber/Tag bzw. ~85–170 g pro Woche (= ~100 mg Cholin/Tag)", "Contra (DGE/Österreich): wegen Vitamin A eher meiden; manche Länder begrenzen auf 50 g/Woche", "⚠️ WICHTIG: Sprich VORHER mit deiner Ärztin/Hebamme, ob und wie viel Leber für dich okay ist", "Gut zu wissen: Cholin geht auch sehr einfach über Eier (4 Eier ≈ 500 mg) — falls du Leber lieber meidest"],
   },
   {
-    id: "kueche_hygiene", icon: "🧼", titel: "Sicher zubereiten & lagern",
+    id: "kueche_hygiene", kern: "Küchenhygiene schützt dich in der Schwangerschaft besser als jede Verbotsliste.", relevanz: "Getrennte Schneidebretter, gründliches Waschen und schnelles Kühlen senken das Infektionsrisiko deutlich.", evidenz: "belegt", icon: "🧼", titel: "Sicher zubereiten & lagern",
     text: `Viele Infektionen lassen sich allein durch gute Küchenhygiene vermeiden. Listerien können sich sogar im Kühlschrank vermehren — deshalb ist Sauberkeit und Frische wichtig.`,
     tipps: ["Obst, Gemüse, Salat & frische Kräuter gründlich waschen (oder schälen)", "Fleisch, Fisch & Eier vollständig durchgaren (Kerntemperatur ≥70 °C)", "Hände, Messer & Brettchen nach rohen Lebensmitteln gründlich reinigen", "Rohe & verzehrfertige Lebensmittel im Kühlschrank getrennt lagern", "Mindesthaltbarkeits-/Verbrauchsdatum beachten, Kühlkette nicht unterbrechen", "Angebrochene Packungen rasch verbrauchen; verschimmelte Lebensmittel wegwerfen", "Bei Katze: Katzenklo nicht selbst reinigen (Toxoplasmose), Gartenarbeit mit Handschuhen"],
   },
   {
-    id: "mikroplastik", icon: "🧴", titel: "Mikroplastik & BPA reduzieren",
-    text: `Ein Thema, das Dr. Rhonda Patrick besonders betont: Kunststoffe enthalten Chemikalien wie BPA, BPS und Phthalate, die wie Hormone (Östrogen) im Körper wirken können — sogenannte „endokrine Disruptoren". In der Schwangerschaft ist das relevant, weil diese Stoffe die Hormonbalance und die Entwicklung des Babys beeinflussen können. Die Beweislage stammt überwiegend aus Beobachtungs- und Tierstudien, also kein Grund zur Panik — aber ein guter Grund für ein paar einfache, wirkungsvolle Gewohnheiten. Der mit Abstand wichtigste Hebel: Plastik niemals erhitzen.\n\nAuch Dr. William Li warnt inzwischen vor Mikroplastik — mit eindrücklichen Zahlen: Wir nehmen im Schnitt etwa die Menge einer Kreditkarte an Plastik pro Woche auf. Ein großer Teil davon stammt aus Plastik-Trinkflaschen, die winzige Partikel ins Wasser abgeben. Neuere Studien konnten Mikroplastik im menschlichen Blut und sogar in verengten Blutgefäßen nachweisen — und fanden dort einen Zusammenhang mit einem deutlich erhöhten Risiko für Herzinfarkt und Schlaganfall. Sein einfachster Rat: Statt Wasser aus Einweg-Plastikflaschen lieber gefiltertes Leitungswasser aus Glas oder Edelstahl.\n\nNeben BPA nennt Patrick eine zweite Gruppe: PFAS, die „Ewigkeits-Chemikalien". Sie stecken u.a. in beschichteten Pfannen, wasserabweisenden Textilien und sogar auf Obst und Gemüse, bauen sich im Körper über Jahre kaum ab und werden mit Krebs in Verbindung gebracht. Ein interessanter Ernährungs-Hebel: Beta-Glucan (ein löslicher Ballaststoff, z.B. aus Gerste oder Hafer) kann laut Studien nicht nur das LDL-Cholesterin senken, sondern auch helfen, PFAS zu binden und auszuscheiden. Patrick gibt es daher ihrer ganzen Familie (z.B. im Smoothie). Für die allgemeine Ausleitung setzt sie zudem auf Kreuzblütler wie Brokkolisprossen (Sulforaphan), viel Ballaststoffe, gutes Wasser und regelmäßiges Schwitzen durch Bewegung und Sauna.`,
-    tipps: ["Wichtigster Punkt: Essen & Getränke NIE in Plastik erhitzen — Hitze kann das Auslaugen von BPA massiv erhöhen (kochendes Wasser in Plastik: bis zu 55× mehr)", "🚰 Wasser lieber gefiltert aus Glas/Edelstahl statt aus Einweg-Plastikflaschen (Li: ~1 Kreditkarte Plastik pro Woche)", "Im Glas oder Edelstahl aufwärmen, nicht in Plastik mikrowellen", "Heiße Getränke nicht aus Einweg-Coffee-to-go-Bechern (innen oft kunststoffbeschichtet)", "Gutes Trinkwasser: ein Filter (z.B. Umkehrosmose) kann Schadstoffe reduzieren", "Dosen-Lebensmittel & -Getränke begrenzen (Innenbeschichtung enthält oft BPA)", "Saure/heiße Speisen nicht in Plastik lagern; zerkratzte Plastikdosen austauschen", "Glas oder Edelstahl statt Plastik für Aufbewahrung & Flaschen", "\"BPA-frei\" heißt nicht automatisch sicher (oft nur durch ähnliche Stoffe wie BPS ersetzt)", "Kassenbons (Thermopapier) enthalten BPA — nicht unnötig anfassen", "🌾 Beta-Glucan (Gerste/Hafer) kann PFAS binden & LDL senken (Patrick)", "🥦 Ausleiten unterstützen: Brokkolisprossen, Ballaststoffe, Wasser, Schwitzen (Sport/Sauna)"],
+    id: "mikroplastik", kern: "Weichmacher und Mikroplastik stehen im Verdacht, die Hormonentwicklung zu beeinflussen — in der EU ist BPA seit 2025 verboten.", relevanz: "Die US-Ratschläge zu Dosen und „BPA-frei\" sind hier weniger dringlich. Was bleibt: Plastik nicht erhitzen, Getränke aus Glas oder Edelstahl.", evidenz: "hinweise", quelle: "Patrick / EFSA & EU-VO 2024/3190", icon: "🧴", titel: "Mikroplastik & BPA reduzieren",
+    text: `Ein Thema, das Dr. Rhonda Patrick besonders betont: Kunststoffe enthalten Chemikalien wie BPA, BPS und Phthalate, die wie Hormone (Östrogen) im Körper wirken können — sogenannte „endokrine Disruptoren". In der Schwangerschaft ist das relevant, weil diese Stoffe die Hormonbalance und die Entwicklung des Babys beeinflussen können. Die Beweislage stammt überwiegend aus Beobachtungs- und Tierstudien, also kein Grund zur Panik — aber ein guter Grund für ein paar einfache, wirkungsvolle Gewohnheiten. Der mit Abstand wichtigste Hebel: Plastik niemals erhitzen.\n\nAuch Dr. William Li warnt inzwischen vor Mikroplastik — mit eindrücklichen Zahlen: Wir nehmen im Schnitt etwa die Menge einer Kreditkarte an Plastik pro Woche auf. Ein großer Teil davon stammt aus Plastik-Trinkflaschen, die winzige Partikel ins Wasser abgeben. Neuere Studien konnten Mikroplastik im menschlichen Blut und sogar in verengten Blutgefäßen nachweisen — und fanden dort einen Zusammenhang mit einem deutlich erhöhten Risiko für Herzinfarkt und Schlaganfall. Sein einfachster Rat: Statt Wasser aus Einweg-Plastikflaschen lieber gefiltertes Leitungswasser aus Glas oder Edelstahl.\n\nNeben BPA nennt Patrick eine zweite Gruppe: PFAS, die „Ewigkeits-Chemikalien". Sie stecken u.a. in beschichteten Pfannen, wasserabweisenden Textilien und sogar auf Obst und Gemüse, bauen sich im Körper über Jahre kaum ab und werden mit Krebs in Verbindung gebracht. Ein interessanter Ernährungs-Hebel: Beta-Glucan (ein löslicher Ballaststoff, z.B. aus Gerste oder Hafer) kann laut Studien nicht nur das LDL-Cholesterin senken, sondern auch helfen, PFAS zu binden und auszuscheiden. Patrick gibt es daher ihrer ganzen Familie (z.B. im Smoothie). Für die allgemeine Ausleitung setzt sie zudem auf Kreuzblütler wie Brokkolisprossen (Sulforaphan), viel Ballaststoffe, gutes Wasser und regelmäßiges Schwitzen durch Bewegung und Sauna.\n\nWichtig für dich in Europa: Diese Empfehlungen stammen aus den USA, wo die Regeln lockerer sind. In der EU hat sich gerade Grundlegendes geändert. Nachdem die EFSA 2023 den tolerierbaren Tagesgrenzwert für BPA um den Faktor 20.000 gesenkt hatte, ist BPA seit Januar 2025 in Lebensmittelkontaktmaterialien verboten — auch in der Innenbeschichtung von Konservendosen. Seit Juli 2026 dürfen keine neuen Verpackungen mit BPA mehr in den Verkauf gebracht werden; bereits produzierte Ware darf abverkauft werden. Erstmals gilt das Verbot ausdrücklich auch für BPS, das oft als Ersatz diente — der alte Einwand „BPA-frei heißt nicht sicher\" verliert damit in Europa an Gewicht.\n\nAuch bei Weichmachern ist Europa strenger: Die fortpflanzungsgefährdenden Phthalate DEHP, DBP und BBP sind seit 2005 in Babyartikeln und Spielzeug verboten und dürfen laut EU-Kosmetikverordnung nicht in Kosmetika enthalten sein. Für Lebensmittelverpackungen gelten Grenzwerte und Verwendungsverbote.\n\nWas heißt das praktisch? Ein paar Ratschläge kannst du entspannter sehen: Dosen sind in Europa deutlich weniger problematisch als früher, und „BPA-frei\" ist hier verlässlicher. Andere bleiben wichtig, weil sie nichts mit Regulierung zu tun haben: Mikroplastik entsteht durch Abrieb und Hitze, nicht durch erlaubte Zusatzstoffe. Plastik nicht erhitzen, Getränke aus Glas oder Edelstahl und weniger Fertigprodukte in Plastikverpackung bleiben also sinnvoll — unabhängig davon, wo du einkaufst.\n\nUnd zur Ehrlichkeit gehört: Selbst die Fachbehörden sind sich nicht einig. Das deutsche BfR hält den EFSA-Grenzwert für zu streng und empfiehlt einen 1.000-fach höheren Wert. Das zeigt, wie schwierig die Bewertung ist — ein Grund mehr, es mit einfachen Gewohnheiten zu halten statt mit Angst.`,
+    tipps: ["Wichtigster Punkt: Essen & Getränke NIE in Plastik erhitzen — Hitze kann das Auslaugen von BPA massiv erhöhen (kochendes Wasser in Plastik: bis zu 55× mehr)", "🚰 Wasser lieber gefiltert aus Glas/Edelstahl statt aus Einweg-Plastikflaschen (Li: ~1 Kreditkarte Plastik pro Woche)", "Im Glas oder Edelstahl aufwärmen, nicht in Plastik mikrowellen", "Heiße Getränke nicht aus Einweg-Coffee-to-go-Bechern (innen oft kunststoffbeschichtet)", "Leitungswasser: In Österreich meist ausgezeichnete Qualität — Filter selten nötig, Glasflasche genügt", "Dosen: In der EU seit 2025 BPA-frei — hier weniger kritisch als in den USA", "Saure/heiße Speisen nicht in Plastik lagern; zerkratzte Plastikdosen austauschen", "Glas oder Edelstahl statt Plastik für Aufbewahrung & Flaschen", "„BPA-frei\": In der EU verlässlicher, weil das Verbot auch BPS umfasst", "Kassenbons (Thermopapier) enthalten BPA — nicht unnötig anfassen", "🌾 Beta-Glucan (Gerste/Hafer) kann PFAS binden & LDL senken (Patrick)", "🥦 Ausleiten unterstützen: Brokkolisprossen, Ballaststoffe, Wasser, Schwitzen (Sport/Sauna)"],
   },
   {
-    id: "tausend_tage", nurInfo: true, icon: "🌱", titel: "Die ersten 1.000 Tage",
+    id: "tausend_tage", kern: "Die ersten 1.000 Tage von der Zeugung bis zum zweiten Geburtstag prägen langfristig.", relevanz: "In dieser Zeit legt Ernährung wichtige Weichen. Das ist ein Grund zur Sorgfalt — kein Grund zur Panik.", evidenz: "belegt", quelle: "Inchauspé, 9 Months", nurInfo: true, icon: "🌱", titel: "Die ersten 1.000 Tage",
     text: `Ein Leitgedanke des Buches (Inchauspé): Die ersten 1.000 Tage — von der Empfängnis bis zum 2. Geburtstag deines Kindes — sind die Zeit, in der die wichtigste "Programmierung" für die lebenslange Gesundheit stattfindet. Schon im Mutterleib formt deine Ernährung über die Epigenetik, welche Gene deines Babys an- oder abgeschaltet werden (fetale Programmierung). Und: Die allermeisten Hirnzellen deines Babys sind bei der Geburt bereits angelegt — die Nährstoffe dieser neun Monate legen das Fundament seines Gehirns für ein ganzes Leben.`,
     tipps: ["Die ~1.000 Tage = Empfängnis bis 2. Geburtstag — die prägendste Phase", "Deine Ernährung beeinflusst per Epigenetik die Genausprägung deines Babys", "Die meisten Neuronen sind bei Geburt schon da — sie werden nicht ersetzt", "Auch die ersten 2 Lebensjahre (Milch, später Beikost) prägen die Gesundheit lebenslang", "Es geht nicht ums Schuldgefühl: Wenn du schon Kinder hast, geht es ihnen gut — dein Körper gleicht vieles aus", "Kernbotschaft: nicht MEHR essen, sondern das Richtige — Protein, Cholin, DHA priorisieren, Zucker zähmen"],
   },
@@ -1137,12 +1137,12 @@ const SCHWANGER_EXTRA_ERNAEHRUNG = [
 // Bewegung in der Schwangerschaft (Sims/ROAR + Inchauspé)
 const SCHWANGER_BEWEGUNG = [
   {
-    id: "warum", icon: "💪", titel: "Warum Bewegung so wertvoll ist",
+    id: "warum", kern: "Bewegung in der Schwangerschaft tut dir und deinem Baby gut.", relevanz: "Sie senkt das Risiko für Schwangerschaftsdiabetes, hilft beim Schlaf und erleichtert oft die Geburt.", evidenz: "belegt", icon: "💪", titel: "Warum Bewegung so wertvoll ist",
     text: `Lange wurden Schwangere als "zerbrechlich" behandelt — Stacy Sims ("ROAR") räumt mit den alten Mythen auf. Bewegung in der Schwangerschaft ist sicher und sehr gesund für dich UND das Baby. Sie senkt das Risiko für Schwangerschaftsdiabetes um rund die Hälfte, reduziert Rückenschmerzen, Müdigkeit und Komplikationen bei der Geburt. Inchauspé ergänzt: Kinder von Müttern, die schwanger trainierten, zeigten in Studien sogar etwas bessere motorische und kognitive Werte. Spannend: Sport in der Schwangerschaft wirkt wie Höhentraining — dein Herz-Kreislauf-System wird fitter.`,
     tipps: ["Senkt Schwangerschaftsdiabetes-Risiko um ~50 %", "Ziel: 30–45 Min moderate Bewegung an den meisten Tagen", "Mythos \"Laufen schüttelt das Baby los\" stimmt nicht", "Höre auf deinen Körper — langsamer werden ist okay", "Bei Komplikationen vorher ärztlich abklären"],
   },
   {
-    id: "wie", icon: "🏃‍♀️", titel: "So trainierst du sicher",
+    id: "wie", kern: "Sicher trainieren heißt: moderat, ohne Sturzrisiko und ohne flache Rückenlage im späteren Verlauf.", relevanz: "Du solltest dich noch unterhalten können. Bei Beschwerden immer ärztlich abklären.", evidenz: "belegt", icon: "🏃‍♀️", titel: "So trainierst du sicher",
     text: `Sims' Empfehlung ist gar nicht so anders als sonst: Cardio (Gehen, Schwimmen, Rad, Crosstrainer) 30–60 Min an den meisten Tagen, plus Krafttraining 2–4×/Woche. Wichtig: Das Ziel des Krafttrainings ist Kraft & Ausdauer fürs Heben des Babys danach — also lieber weniger Gewicht, mehr Wiederholungen. Tabu sind nur Sportarten mit Sturz-/Verletzungsrisiko (Skifahren, Kontaktsport, Tauchen) und Überhitzung.`,
     tipps: ["Cardio 30–60 Min + Kraft 2–4×/Woche (leichter, mehr Reps)", "Ab dem 4. Monat: nicht flach auf dem Rücken trainieren", "Beckenboden früh mit Spezialist:in trainieren", "Keine Crunches — stattdessen Seitstütz & Core-Übungen", "Überhitzung vermeiden, viel trinken", "Kein Valsalva (Pressatmung beim schweren Heben)"],
   },
@@ -1151,7 +1151,7 @@ const SCHWANGER_BEWEGUNG = [
 // Geburt & Stillen (Inchauspé)
 const SCHWANGER_SPAETER = [
   {
-    id: "verlust", icon: "🕊️", titel: "Wenn nicht alles nach Plan läuft",
+    id: "verlust", kern: "Nicht jede Schwangerschaft verläuft wie erhofft — und das ist nie deine Schuld.", relevanz: "Frühe Verluste sind häufiger, als viele denken. Du darfst trauern und dir Unterstützung holen.", evidenz: "belegt", icon: "🕊️", titel: "Wenn nicht alles nach Plan läuft",
     text: `⚠️ Dieser Abschnitt spricht Fehlgeburt an. Inchauspé teilt in ihrem Buch offen ihre eigene Erfahrung mit einer frühen Fehlgeburt — gerade weil sie sich damals so allein fühlte und sich gewünscht hätte, dass mehr Menschen darüber sprechen. Eine Fehlgeburt ist häufig und (in den allermeisten Fällen) NICHT deine Schuld — sie hat nichts mit dem zu tun, was du gegessen oder getan hast. Wenn dich das betrifft: Du darfst trauern, und du bist nicht allein. Sprich mit Menschen, denen du vertraust, oder mit professioneller Begleitung.`,
     tipps: ["Eine Fehlgeburt ist meist nicht beeinflussbar — keine Schuld", "Trauer braucht Raum und Zeit — beides ist erlaubt", "Du musst da nicht allein durch — such dir Unterstützung", "Ärztliche & psychologische Begleitung kann sehr helfen", "Es darf auch wieder Hoffnung geben, wenn du so weit bist"],
   },
@@ -1165,37 +1165,37 @@ const SCHWANGER_SPAETER = [
 // ═══════════════════════════════════════════════════════════════════
 const STILLEN_THEMEN = [
   {
-    id: "naehrstoffe", icon: "🍳", titel: "Dein Nährstoffbedarf beim Stillen",
+    id: "naehrstoffe", kern: "Beim Stillen steigt dein Bedarf an Energie, Flüssigkeit und Mikronährstoffen deutlich.", relevanz: "Jetzt ist nicht die Zeit zum Einschränken. Regelmäßige Mahlzeiten und viel Trinken sind die Basis.", evidenz: "belegt", icon: "🍳", titel: "Dein Nährstoffbedarf beim Stillen",
     text: `Überraschend, aber wahr: Stillen verlangt deinem Körper bei einigen Nährstoffen noch MEHR ab als das dritte Trimester — denn dein Baby ist jetzt größer und lebt vollständig von deiner Milch (Inchauspé). Die Milchbildung kostet rund 500 kcal pro Tag (bei Zwillingen ~1.000). Iss also genug — zu wenig kann dich schwach und stimmungsmäßig tief fühlen lassen. Wichtig: Cholin, Protein und DHA werden weiter direkt an dein Baby weitergegeben, und zwar in dem Maße, wie du sie zu dir nimmst.`,
     tipps: ["Cholin: 550 mg/Tag (mehr als die 450 mg in der Schwangerschaft)", "Protein: ~1,9 g pro kg Körpergewicht täglich", "DHA: mind. 300 mg/Tag — Fisch & Omega-3 weiter wichtig", "Etwa 500 kcal/Tag mehr als sonst — iss ausreichend", "Jod & Vitamin B12 nicht vergessen", "In der Stillzeit sind auch Fischrogen & roher Fisch erlaubt (anders als in der Schwangerschaft) — gute Cholin-Quellen"],
   },
   {
-    id: "oestrogen_tief", icon: "🍽️", titel: "Essen im Östrogen-Tief (wie eine \"Mini-Menopause\")",
+    id: "oestrogen_tief", kern: "Während der Stillzeit ist dein Östrogenspiegel niedrig — ähnlich wie in den Wechseljahren.", relevanz: "Das erklärt Trockenheit, Stimmungsschwankungen und Erschöpfung. Es ist vorübergehend und normal.", evidenz: "belegt", icon: "🍽️", titel: "Essen im Östrogen-Tief (wie eine \"Mini-Menopause\")",
     text: `Hier verbinden sich zwei Themen: Wie Dr. Rachel Rubin beschreibt, ist dein Östrogen beim Stillen sehr niedrig — hormonell ähnelt das einer Mini-Menopause. Bei niedrigem Östrogen lohnt sich ein ähnlicher Ernährungs-Fokus wie in der Menopause: mehr Protein, gute Omega-3-Fette, Knochen-Nährstoffe und sanfte pflanzliche Östrogen-Unterstützung. ABER — und das ist der entscheidende Unterschied — beim Stillen versorgst du gleichzeitig dein Baby. Deshalb gelten manche Menopausen-Strategien hier ausdrücklich NICHT.`,
     tipps: ["Mehr Protein (wie in der Menopause): hilft, Muskeln & Knochen trotz niedrigem Östrogen zu halten — Eier, Joghurt, Fisch, Hülsenfrüchte, Fleisch", "Omega-3/DHA: gut für Entzündung, Gehirn und Stimmung — und geht zusätzlich in die Muttermilch", "Knochen schützen: genug Calcium (Milchprodukte, Sardinen, Blattgemüse) + Vitamin D — bei niedrigem Östrogen besonders wichtig", "Sanfte Phytoöstrogene (z.B. Hülsenfrüchte, etwas Soja) können unterstützen — in normalen Lebensmittelmengen, nicht als hochdosiertes Präparat", "⚠️ NICHT wie oft in der Menopause: kein Intervallfasten und keine Kalorien-Restriktion beim Stillen — das kann die Milchmenge senken", "⚠️ Auch keine strenge Keto-/Low-Carb-Diät beim Stillen — du brauchst eher MEHR Energie (~500 kcal/Tag zusätzlich)", "Anders als in der Menopause gibst du Cholin & DHA direkt ans Baby weiter — der Bedarf ist also höher, nicht niedriger", "Bei vaginaler Trockenheit/Libido (Folge des Östrogen-Tiefs): das ist ein Hormon-Thema (siehe Karte \"Stillen & deine Hormone\"), nicht über Ernährung lösbar"],
   },
   {
-    id: "muttermilch", icon: "🤱", titel: "Was Muttermilch alles kann",
+    id: "muttermilch", kern: "Muttermilch ist weit mehr als Nahrung — sie enthält Immunstoffe und lebende Zellen.", relevanz: "Ihre Zusammensetzung passt sich sogar an die Bedürfnisse deines Babys an. Patrick nennt sie ein biologisches Wunderwerk.", evidenz: "belegt", quelle: "Patrick", icon: "🤱", titel: "Was Muttermilch alles kann",
     text: `Muttermilch ist kein statisches "Essen", sondern ein lebendiges, sich anpassendes System (Inchauspé & Dr. Rhonda Patrick). Sie verändert sich in Echtzeit: Wächst dein Baby, verschiebt sich die Balance aus Fett, Protein, Hormonen und RNAs. Kämpft dein Baby gegen einen Infekt, schießen Immunzellen und Antikörper in die Milch. Besonders faszinierend sind die HMOs (Muttermilch-Oligosaccharide): über 200 verschiedene Zuckerarten, die drittgrößte feste Komponente — sie ernähren NICHT das Baby, sondern die guten Darmbakterien (v.a. Bifidobakterien) und wirken wie "Köder", an die sich Krankheitserreger binden, statt an die Darmwand.`,
     tipps: ["Der DHA-Gehalt deiner Milch hängt direkt von deiner Ernährung ab", "Schon 400 mg DHA-Supplement können den DHA-Gehalt der Milch ~verdoppeln (Patrick)", "Muttermilch überträgt sogar lebende Stammzellen & gute Mikroben ans Baby (Patrick)", "Rauchen senkt die Omega-3-/DHA-Aufnahme in die Milch", "Vitamin D ist in Muttermilch oft zu niedrig — Babys werden meist mit D-Tropfen supplementiert (frag die Kinderärztin)", "Nach längerem Stillen auch auf Eisen achten (Muttermilch ist eisenarm)", "Koffein, Alkohol, Nikotin & Cannabis gehen in die Milch über — bewusst dosieren/meiden", "Längeres Stillen ist mit weniger Übergewicht, Diabetes & Allergien verknüpft", "Jede Milch ist einzigartig — deine ist genau auf dein Baby abgestimmt"],
   },
   {
-    id: "hormone", icon: "💗", titel: "Stillen & deine Hormone (GSL)",
+    id: "hormone", kern: "Stillhormone wie Prolaktin und Oxytocin beeinflussen Stimmung, Schlaf und Zyklus.", relevanz: "Sie können den Eisprung unterdrücken — verlässliche Verhütung ist das aber nicht.", evidenz: "belegt", icon: "💗", titel: "Stillen & deine Hormone (GSL)",
     text: `Ein Thema, über das kaum jemand spricht (Dr. Rachel Rubin): Beim Stillen bist du hormonell betrachtet fast wie in der Menopause. Nach der Geburt fällt das Östrogen schlagartig ab, und solange du voll stillst (und die Periode ausbleibt), bleibt es sehr niedrig. Dr. Rubin nennt die Folgen "Genitourinäres Syndrom der Laktation" (GSL) — dasselbe wie das Menopausen-Syndrom GSM. Das ist keine Einbildung und nichts, womit du dich abfinden musst.`,
     tipps: ["Mögliche Symptome: Scheidentrockenheit, Schmerzen beim Sex, niedrige Libido", "Auch: häufiger/dringender Harndrang, mehr Harnwegsinfekte, manchmal Hitzewallungen", "Wichtig: vaginale Hormone (Mikrodosis Östrogen/DHEA) gelten als sicher beim Stillen und beeinflussen die Milchmenge nicht (Rubin)", "Das ist behandelbar — sprich offen mit einer informierten Ärztin/Urologin", "Die Beschwerden bessern sich meist, wenn nach dem Abstillen das Östrogen zurückkehrt", "Es liegt nicht an dir und ist kein Grund zur Scham"],
   },
   {
-    id: "milchbildung", icon: "🥣", titel: "Essen für die Milchbildung — was wirklich zählt",
+    id: "milchbildung", kern: "Für die Milchbildung zählen Anlegen und Nachfrage mehr als bestimmte Lebensmittel.", relevanz: "Genug essen und trinken ist wichtig. Spezielle Stilltees sind nett, aber kein Ersatz für häufiges Anlegen.", evidenz: "praxis", icon: "🥣", titel: "Essen für die Milchbildung — was wirklich zählt",
     text: `Vorweg ehrlich: Die wissenschaftliche Evidenz für "milchbildende" Lebensmittel (Galaktagoga) ist schwach — die meisten Effekte sind eher Erfahrungswerte als belegt. Was die Milchmenge nachweislich am stärksten steuert, ist häufiges, effektives Entleeren der Brust (Angebot & Nachfrage) plus genug essen, trinken und ruhen. Lebensmittel wie Hafer sind trotzdem sinnvoll, weil sie nahrhaft sind (Eisen, Ballaststoffe) — Eisenmangel kann die Milchmenge senken. Sieh sie also als gesunde Unterstützung, nicht als Wundermittel.`,
     tipps: ["Wichtigster Hebel: oft anlegen/abpumpen, gut entleeren, Brustmassage", "Hafer & Gerste (Beta-Glucan, Eisen) — nahrhaft und beliebt", "Eiweißreiches: Eier, Joghurt, Hülsenfrüchte, Lachs, Hähnchen", "Dunkles Blattgemüse, Nüsse, Sesam/Tahin, Leinsamen", "Genug trinken & regelmäßig essen — Unterversorgung kann die Menge senken", "Vorsicht mit Kräuter-Präparaten (z.B. Bockshornklee): kaum belegt, mögliche Nebenwirkungen — vorher mit Stillberatung/Ärztin sprechen", "Bei echten Sorgen um die Menge: zuerst zertifizierte Stillberatung (IBCLC)"],
   },
   {
-    id: "probleme", icon: "🩹", titel: "Häufige Stillprobleme & was hilft",
+    id: "probleme", kern: "Die meisten Stillprobleme sind lösbar — mit der richtigen Unterstützung.", relevanz: "Schmerzen sind ein Zeichen, dass etwas an Position oder Anlegen nicht stimmt. Stillberaterinnen helfen gezielt.", evidenz: "praxis", icon: "🩹", titel: "Häufige Stillprobleme & was hilft",
     text: `Stillen ist erlernbar — für dich UND dein Baby — und am Anfang kann es holprig sein. Die meisten Probleme lassen sich gut lösen, oft schon durch eine bessere Anlege-Technik. Hol dir früh Unterstützung (Hebamme, Stillberatung/IBCLC), statt dich allein durchzuquälen.`,
     tipps: ["Wunde Brustwarzen: meist Zeichen für falsches Anlegen — Position korrigieren; etwas Muttermilch auftragen und lufttrocknen lassen", "Anlegen lösen: sanft einen Finger in den Mundwinkel des Babys schieben, um das Vakuum zu lösen", "Milchstau (harter, schmerzhafter Knoten): häufig anlegen, mit der betroffenen Seite beginnen, Wärme vor / Kälte nach dem Stillen, sanfte Massage", "Brustentzündung (Mastitis): heiße, gerötete Brust + grippeähnliche Symptome — weiterstillen/abpumpen! Wenn nach 12–24 h keine Besserung: ärztlich abklären (evtl. Antibiotikum)", "Engorgement (pralle Brüste): häufig & nach Bedarf stillen; warme Dusche vor, Kühlung nach dem Stillen; etwas Milch ausstreichen, damit das Baby besser andocken kann", "Cluster-Feeding (sehr häufiges Anlegen, oft abends): völlig normal — so \"bestellt\" dein Baby mehr Milch für die nächsten Tage", "Sorge um zu wenig Milch: oft unbegründet — Anzeichen für genug sind nasse Windeln, Schlucken hörbar, Gewichtszunahme"],
   },
   {
-    id: "formula", icon: "🍼", titel: "Wenn du nicht stillst: Babynahrung gut wählen",
+    id: "formula", kern: "Wenn du nicht stillst, ist gut gewählte Säuglingsnahrung eine sichere Alternative.", relevanz: "Wichtig sind altersgerechte Zusammensetzung und korrekte Zubereitung. Die Entscheidung ist deine — ohne schlechtes Gewissen.", evidenz: "belegt", icon: "🍼", titel: "Wenn du nicht stillst: Babynahrung gut wählen",
     text: `Nicht alle können oder wollen stillen — und das ist völlig in Ordnung. "Fed is best": Ein sattes, versorgtes Baby zählt. Die gute Nachricht: Säuglingsnahrung ist streng reguliert, die Grundnährstoffe (Protein, Fett, Kohlenhydrate, Vitamine, Mineralstoffe) sind über alle zugelassenen Marken hinweg abgedeckt. Achte aber auf ein paar Details — besonders auf die zwei Moleküle, die in diesem Bereich zentral sind: DHA und Cholin (Inchauspé).`,
     tipps: ["DHA: in der EU für Säuglingsnahrung vorgeschrieben — trotzdem auf der Zutatenliste prüfen", "Cholin: NICHT überall ausreichend enthalten — Menge prüfen (Baby braucht ~125 mg/Tag bis 6 Monate, ~150 mg von 7–12 Monaten)", "Eisen-angereicherte (\"fortified\") Säuglingsnahrung wählen — Standard fürs erste Jahr", "Als Hauptkohlenhydrat ist Laktose ideal (wie in Muttermilch) — Maissirup/Maltodextrin eher meiden, außer medizinisch nötig", "Erste Zutaten zählen am meisten — dort auf Milch/Laktose statt Zucker achten", "NIEMALS selbstgemachte Säuglingsnahrung — gefährliche Nährstoff-Fehlmengen (FDA/CDC)", "Nur zugelassene, regulierte Produkte aus vertrauenswürdiger Quelle kaufen", "Spezialnahrung (z.B. bei Kuhmilch-Allergie, Reflux) nur nach ärztlicher Rücksprache", "Im Zweifel: Kinderärztin oder Hebamme fragen — sie helfen bei der Auswahl"],
   },
@@ -1209,47 +1209,47 @@ const STILLEN_THEMEN = [
 // ═══════════════════════════════════════════════════════════════════
 const GEBURT_THEMEN = [
   {
-    id: "phase1", icon: "🌊", titel: "Phase 1: Eröffnung (die längste Phase)",
+    id: "phase1", kern: "Die Eröffnungsphase ist die längste Phase der Geburt — sie braucht vor allem Geduld.", relevanz: "Bewegung, Wärme und Ruhe helfen. Je entspannter du bleiben kannst, desto besser arbeitet dein Körper.", evidenz: "belegt", icon: "🌊", titel: "Phase 1: Eröffnung (die längste Phase)",
     text: `Die erste Phase reicht vom Beginn der Wehen bis der Muttermund vollständig verstrichen und auf 10 cm geöffnet ist. Das kann von 6 Stunden bis zu 3 Tagen dauern (Inchauspé). Die Wehen fühlen sich oft an wie immer stärker werdende Periodenschmerzen, die langsam aufbauen. Eine wichtige Erkenntnis: Oxytocin — das Hormon, das die Geburt vorantreibt — ist "schüchtern". Es fließt am besten, wenn du dich sicher, warm und unbeobachtet fühlst.`,
     tipps: ["Ignoriere die Wehen so lange wie möglich — lebe normal weiter: gehen, essen, kuscheln, schlafen, fernsehen. Nicht auf die Uhr starren", "Wenn die Wehen intensiv werden, geh in deine \"Blase\" (ein sicherer Ort, z.B. Schlafzimmer mit gedämpftem Licht, auf dem Geburtsball)", "Schmerz-Werkzeuge: Geburtskamm, Gegendruck, Hüftpressen, Akupressur", "Atemtechnik: Gesicht entspannt halten (\"lockerer Kiefer, weiche Stirn\"), tiefe, tiefe Töne summen", "Alle 30 Minuten die Position wechseln", "Trinken (Wasser, Kokoswasser) und Snacks (Studentenfutter) helfen", "Bad-Tipp der Hebamme: Ein Bad in der frühen Phase kann die Wehen verlangsamen — bleiben sie im heißen Wasser, bist du schon in der aktiven Phase"],
   },
   {
-    id: "position", icon: "🧍‍♀️", titel: "Position: nicht auf dem Rücken!",
+    id: "position", kern: "Auf dem Rücken zu liegen ist für die Geburt meist die ungünstigste Position.", relevanz: "Aufrechte Positionen nutzen die Schwerkraft und öffnen das Becken weiter. Du darfst dir die Position aussuchen.", evidenz: "belegt", icon: "🧍‍♀️", titel: "Position: nicht auf dem Rücken!",
     text: `Eine der wirkungsvollsten und am wenigsten bekannten Erkenntnisse: Auf dem Rücken zu liegen ist die schwerste Art zu gebären. Es verengt das Becken, macht die Wehen schärfer, verlangsamt die Geburt und erhöht die Wahrscheinlichkeit, dass Instrumente nötig werden. Die Wissenschaft zeigt: Auf dem Rücken liegen macht die erste Geburtsphase im Durchschnitt 1 Stunde und 22 Minuten länger als bei Frauen, die aufrecht sind, gehen und sich bewegen.`,
     tipps: ["Aufrechte Positionen weiten das Becken und nutzen die Schwerkraft: Hocken, Stehen, Knien, Wiegen, sogar auf der Toilette sitzen", "Bewege dich so viel du kannst — auch im Krankenhaus", "Frauen, die sich während der Geburt bewegen, brauchen seltener einen Kaiserschnitt oder eine PDA", "Auf dem Rücken zu liegen tut auch mehr weh als in Bewegung zu bleiben", "Bei Rückenschmerzen während der Wehen: die \"Lift and pelvic tuck\"-Technik kann helfen, das Baby ins Becken zu lenken"],
   },
   {
-    id: "phase2", icon: "💪", titel: "Phase 2 & 3: Pressen & Plazenta",
+    id: "phase2", kern: "In der Pressphase arbeitet dein Körper mit — du musst nicht dagegen ankämpfen.", relevanz: "Nach der Geburt folgt noch die Plazenta. Auch das gehört dazu und dauert meist nur wenige Minuten.", evidenz: "belegt", icon: "💪", titel: "Phase 2 & 3: Pressen & Plazenta",
     text: `Die zweite Phase beginnt, wenn der Muttermund vollständig auf 10 cm geöffnet ist. Dein Baby wandert ins Becken und in den Geburtskanal. Anfangs fühlt es sich wie tiefer Druck im Becken oder Enddarm an. Mit jeder Wehe verschiebt sich das Gefühl von "schmerzhaft" hin zum unwiderstehlichen Drang zu pressen. Vieles davon macht dein Körper von selbst, reflexartig — deine Aufgabe ist, dem Drang zu folgen, zwischen den Wehen zu entspannen und Kraft zu sparen.`,
     tipps: ["Aufrechte Positionen (Hocke, Knien, Vierfüßlerstand) weiten das Becken und nutzen die Schwerkraft", "In tiefen Tönen vokalisieren (stöhnen), rhythmisch atmen, durchgehende Unterstützung", "Dem Reflex vertrauen — vor dem Höhepunkt der Wehe vokalisieren", "Partner:in kann mit erdenden Sätzen unterstützen (\"Eine Minute, wir machen das zusammen\")", "Phase 3 ist die Geburt der Plazenta: Die Gebärmutter zieht sich weiter zusammen — das ist wichtig, um Blutgefäße zu schließen und Blutungen zu verhindern"],
   },
   {
-    id: "golden_hour", icon: "✨", titel: "Die goldene Stunde (Haut-zu-Haut)",
+    id: "golden_hour", kern: "Die erste Stunde nach der Geburt ist besonders wertvoll für Haut-zu-Haut-Kontakt.", relevanz: "Sie unterstützt Bindung, Wärmeregulation und den Stillstart. Untersuchungen können meist warten.", evidenz: "belegt", icon: "✨", titel: "Die goldene Stunde (Haut-zu-Haut)",
     text: `Idealerweise wird dein Baby direkt nach der Geburt auf deine Brust gelegt — Haut an Haut. Diese erste Stunde wird oft die "goldene Stunde" genannt und hat tiefgreifende körperliche Vorteile (Inchauspé). Sie ist nicht nur ein schöner Moment, sondern reguliert messbar wichtige Körperfunktionen deines Babys.`,
     tipps: ["Haut-zu-Haut reguliert Atmung, Temperatur und Herzschlag des Babys", "Es stabilisiert den Blutzucker des Babys", "Es \"impft\" das Mikrobiom des Babys mit deinen Bakterien", "Früher Hautkontakt fördert die Oxytocin-Ausschüttung bei Mutter UND Baby — das stärkt die Bindung und beruhigt Stress", "Es hilft, Flüssigkeit aus der Lunge zu klären, und unterstützt den instinktiven Weg des Babys zur Brust (besserer Stillstart)"],
   },
   {
-    id: "angst", icon: "🕊️", titel: "Die Angst loslassen",
+    id: "angst", kern: "Angst verstärkt Schmerz — Vertrauen und Vorbereitung wirken dagegen.", relevanz: "Zu wissen, was passiert, nimmt viel Anspannung. Atemtechniken und eine vertraute Begleitperson helfen zusätzlich.", evidenz: "belegt", icon: "🕊️", titel: "Die Angst loslassen",
     text: `Es gibt vieles bei der Geburt, das du nicht steuern kannst — aber die durch die Gesellschaft anerzogene Angst vor der Geburt kannst du beeinflussen (Inchauspé). Das ist wichtig, denn Oxytocin fließt am leichtesten, wenn eine Mutter sich sicher, unterstützt und unbeobachtet fühlt — und wird durch Stresshormone wie Adrenalin gehemmt, die ausgeschüttet werden, wenn wir Angst haben.`,
     tipps: ["Filme verzerren die Geburt — sie zeigen sie fast immer als hektische, blutige Krise mit viel Geschrei. Echte Geburten sehen meist ganz anders aus", "Wissen nimmt Angst: Verstehe vorher die Phasen und was passiert", "Eine vertraute Begleitung (Partner:in, Doula) früh einbinden — das reduziert Angst nachweislich", "Das Buch \"The Birth Partner\" half Jessies Mann, sich mit Sätzen und Gegendruck-Techniken vorzubereiten", "Oxytocin braucht: gedämpftes Licht, Wärme, keine Beobachter"],
   },
   {
-    id: "geburtsplan", icon: "📝", titel: "Dein Geburtsplan",
+    id: "geburtsplan", kern: "Ein Geburtsplan hilft dir, deine Wünsche zu klären — er ist kein bindender Vertrag.", relevanz: "Geburten verlaufen selten nach Plan. Der Wert liegt darin, dass du dich vorher mit den Fragen beschäftigt hast.", evidenz: "praxis", icon: "📝", titel: "Dein Geburtsplan",
     text: `Ein Geburtsplan hilft, dass dein Team versteht, was dir wichtig ist. Schreib ihn auf, druck ihn aus und teile ihn vorab mit deinem medizinischen Team (Inchauspé). Ein typisches Krankenhauszimmer mit hellem Licht, ständigem Kommen und Gehen und lauten Stimmen kann die natürliche Geburt ins Stocken bringen — und macht Eingriffe oder synthetisches Oxytocin wahrscheinlicher.`,
     tipps: ["Alles aufnehmen, was dir Sicherheit gibt: gedämpftes Licht, leise Stimmen, keine Updates über vergangene Stunden", "Hinweis, dass du die Zentimeter-Angaben (Muttermund) lieber NICHT hören möchtest, falls das so ist", "Vertraute Dinge mitbringen: Lichterketten, Lieblings-Playlist, Lieblings-Snacks", "Die Menschen, die im Raum sein werden, vorab kennenlernen — ein vertrautes Gesicht erdet", "Auch festhalten, was du NICHT möchtest (z.B. kein Dammschnitt), je nach Klinik", "Tipp: Jessie hat ihren eigenen Geburtsplan online geteilt (glucosegoddess.com/pages/birth-plan)"],
   },
   {
-    id: "eingriffe", icon: "🏥", titel: "Medizinische Eingriffe verstehen",
+    id: "eingriffe", kern: "Medizinische Eingriffe zu verstehen hilft dir, informiert zuzustimmen.", relevanz: "Du darfst immer nachfragen, warum etwas vorgeschlagen wird und welche Alternativen es gibt.", evidenz: "belegt", icon: "🏥", titel: "Medizinische Eingriffe verstehen",
     text: `Medizinische Eingriffe bei der Geburt sind manchmal notwendig und lebensrettend — das steht außer Frage (Inchauspé). Es gibt aber ein paar wissenschaftlich fundierte Punkte, die du mit deinem Team besprechen kannst, um Eingriffe möglichst sanft zu gestalten.`,
     tipps: ["Bei Einleitung: Statt sofort synthetisches Oxytocin kann ein Prostaglandin-Tampon eine Option sein — er macht den Muttermund weich und startet die Wehen oft sanfter. Mit dem Team besprechen", "Bei Kaiserschnitt passiert das Baby nicht den Geburtskanal und kommt nicht mit deinem Mikrobiom in Kontakt", "\"Vaginal Seeding\": Manche Eltern wischen das Baby nach dem Kaiserschnitt mit einem Tupfer aus der Scheide ab, um Mikroben zu übertragen", "Die Evidenz für Vaginal Seeding ist noch nicht ausreichend — bei Interesse vorab mit dem Team besprechen (in manchen Kliniken unter Aufsicht möglich)", "Jede Situation ist anders — der richtige Weg hängt von deinen Umständen ab"],
   },
   {
-    id: "labor_kit", icon: "🎒", titel: "Schmerzmanagement & Geburts-Kit",
+    id: "labor_kit", kern: "Es gibt viele Möglichkeiten der Schmerzlinderung — von Wärme bis zur PDA.", relevanz: "Keine davon ist besser oder schlechter. Du darfst während der Geburt jederzeit deine Meinung ändern.", evidenz: "belegt", icon: "🎒", titel: "Schmerzmanagement & Geburts-Kit",
     text: `Geburt tut weh — das lässt sich nicht schönreden (Inchauspé). Jede empfindet Schmerz anders. Aber dein Körper hat einen eingebauten Mechanismus: Er schüttet Endorphine aus — körpereigene Opioide, die als Antwort auf die Wehen ansteigen. Mit Bewegung, Berührung und Ruhe können Endorphine den Schmerz etwas erträglicher machen. Ein besonders nützliches Werkzeug war für Jessie der Geburtskamm.`,
     tipps: ["Geburtskamm: in der Hand fest umschließen — die Zacken drücken in die Handfläche und aktivieren Druckpunkte (\"Gate-Control-Theorie\": der harmlose Druck überlagert einen Teil der Schmerzsignale)", "Positionen: Vierfüßlerstand, Hängen an einem Tuch im Türrahmen", "Hüftpressen von der Partner:in, Akupressur-Punkte", "Atmung: beim Einatmen an Sauerstoff fürs Baby denken, beim Ausatmen wie ein Ballon \"entleeren\"; tiefe Töne (Moaning)", "Labor-Kit: Lippenpflege, Augenmaske, kleine Lichter, Geburtskamm & Geburtsball", "Außerdem: Wassersprüher, Elektrolyte fürs Wasser, große 2-Liter-Flasche mit Strohhalm (zum Trinken in jeder Position)"],
   },
   {
-    id: "datteln", icon: "🌴", titel: "Datteln, um die Wehen zu beschleunigen?",
+    id: "datteln", kern: "Dass Datteln am Ende der Schwangerschaft die Geburt erleichtern, ist eine schwache, aber verbreitete Annahme.", relevanz: "Kleine Studien deuten auf kürzere Eröffnungsphasen hin. Schaden können sie nicht — verlassen solltest du dich nicht darauf.", evidenz: "hinweise", icon: "🌴", titel: "Datteln, um die Wehen zu beschleunigen?",
     text: `Eine der häufigsten Fragen ans Buch: Soll man gegen Ende der Schwangerschaft Datteln essen, um die Wehen zu beschleunigen? In manchen Kulturen empfehlen Hebammen das traditionell. Die Wissenschaft dazu ist gemischt: Einige (kleine, methodisch schwache) Studien zeigten, dass 6 Datteln/Tag in der Spätschwangerschaft die Geburtsdauer verkürzen könnten. Aber: Diese Studien haben die Kehrseite für den Blutzucker nicht betrachtet (Inchauspé).`,
     tipps: ["6 getrocknete Datteln enthalten 27 g Zucker — mehr als das WHO-Tagesmaximum von 25 g", "Das bedeutet einen massiven Glukose-Spike — und auch dein Baby bekommt diesen Zucker-Schwall ab", "Zucker aus Früchten ist trotzdem Zucker — er bekommt keinen Freifahrtschein", "Wenn du Datteln essen willst: nur NACH einer Mahlzeit, nie auf leeren Magen, und mit \"Kleidung\" (Fett/Protein/Ballaststoffe dazu)", "Es gibt andere belegte Wege, die Geburt zu erleichtern (Bewegung, Position, Entspannung) — ganz ohne Glukose-Spike"],
   },
@@ -1263,37 +1263,37 @@ const GEBURT_THEMEN = [
 // ═══════════════════════════════════════════════════════════════════
 const SUPPLEMENTE_THEMEN = [
   {
-    id: "grundsatz", icon: "💊", titel: "Grundregel: Essen zuerst",
+    id: "grundsatz", kern: "Nahrungsergänzung ergänzt — sie ersetzt keine gute Ernährung.", relevanz: "Patrick empfiehlt: messen statt raten. Die meisten Nährstoffe sind über Lebensmittel besser aufgenommen.", evidenz: "belegt", quelle: "Patrick", icon: "💊", titel: "Grundregel: Essen zuerst",
     text: `Supplemente in der Schwangerschaft sind wie Background-Sänger:innen: Sie sind nicht der Star der Show — du bekommst nicht alles, was dein Baby braucht, allein über Tabletten — aber sie geben wertvolle Unterstützung (Inchauspé). Hol dir Vitamine und Mineralstoffe möglichst über eine nährstoffreiche Ernährung; sieh ein Präparat als kluge "Versicherung". Wichtig: Manche Stoffe (wie Cholin) werden aus Lebensmitteln sogar besser aufgenommen als aus Tabletten.`,
     tipps: ["Grundsatz: Lebensmittel sind die Basis, Supplemente die Ergänzung", "Ein gutes Schwangerschaftsvitamin deckt viele Vitamine (A, B, C, D, E) & Mineralstoffe (Magnesium, Zink, Selen …) ab", "Besprich Auswahl und Dosierung immer mit deiner Ärztin/Hebamme", "Falls du KEIN Kombi-Präparat nimmst: mindestens ein methyliertes Folat-Präparat einnehmen"],
   },
   {
-    id: "folat", icon: "🥬", titel: "Folat (das Wichtigste am Anfang)",
+    id: "folat", kern: "Folat ist der wichtigste Nährstoff vor und in der Frühschwangerschaft.", relevanz: "Es schützt vor Neuralrohrdefekten — und wirkt nur, wenn es schon vor der Empfängnis ausreichend vorhanden ist.", evidenz: "belegt", icon: "🥬", titel: "Folat (das Wichtigste am Anfang)",
     text: `Folat arbeitet Hand in Hand mit Cholin für die Hirnentwicklung deines Babys und senkt das Risiko für Neuralrohrdefekte (Inchauspé). Es ist schon ab dem Moment wichtig, in dem du anfängst, schwanger werden zu wollen — also idealerweise vor der Schwangerschaft.`,
     tipps: ["400 µg Folsäure ab Kinderwunsch (die am besten untersuchte Form)", "In der Schwangerschaft auf 600 µg erhöhen", "In der Stillzeit wieder auf 500 µg senken", "Methyl-Folat ist eine evtl. überlegene Form — sofort vom Körper nutzbar, besonders bei genetischen Varianten, die Folsäure langsamer umwandeln", "Zusätzlich Folat aus grünem Blattgemüse essen"],
   },
   {
-    id: "vitd", icon: "☀️", titel: "Vitamin D",
+    id: "vitd", kern: "Vitamin D ist in unseren Breiten im Winter kaum über die Sonne zu decken.", relevanz: "Ein Bluttest zeigt deinen Status. In der Schwangerschaft gelten eigene Empfehlungen — bitte ärztlich abstimmen.", evidenz: "belegt", icon: "☀️", titel: "Vitamin D",
     text: `Vitamin D unterstützt deine Immunabwehr und die wachsenden Knochen deines Babys (Inchauspé). In der Schwangerschaft brauchst du etwa 600 IU (15 µg) pro Tag. Fetter Fisch ist eine ausgezeichnete natürliche Quelle — und liefert gleichzeitig DHA. Dr. Rhonda Patrick hebt zusätzlich hervor: Ein Vitamin-D-Mangel in der Schwangerschaft wurde in Beobachtungsstudien mit einem höheren Risiko für Autismus und ADHS beim Kind in Verbindung gebracht. Das ist keine Panikmache (es sind Zusammenhänge, keine bewiesene Ursache) — aber ein guter Grund, den Status messen zu lassen statt blind zu raten.`,
     tipps: ["~600 IU (15 µg) pro Tag in der Schwangerschaft", "Lachs liefert ~840 IU pro 100 g, Makrele ~400 IU, Sardinen ~370 IU", "Isst du diesen Fisch, deckst du DHA UND Vitamin D auf einmal", "Da ein Mangel weltweit häufig ist, ist ein Präparat eine kluge Absicherung", "Patrick: Status besser messen lassen als raten — Mangel wurde mit Autismus-/ADHS-Risiko assoziiert (Beobachtungsdaten)"],
   },
   {
-    id: "cholin_supp", icon: "🥚", titel: "Cholin (Bonus, aber Essen ist besser)",
+    id: "cholin_supp", kern: "Viele Schwangerschaftsvitamine enthalten zu wenig Cholin.", relevanz: "Eier sind die einfachste Quelle. Wenn du keine isst, lohnt der Blick aufs Etikett deines Präparats.", evidenz: "hinweise", quelle: "Patrick", icon: "🥚", titel: "Cholin (Bonus, aber Essen ist besser)",
     text: `Wenn dein Schwangerschaftsvitamin Cholin enthält (oft als Cholin-Bitartrat), sieh das als schönen Bonus — aber Lebensmittel sind die bessere Quelle, weil die Aufnahme besser ist (Inchauspé). Beispiel: Jessies Präparat enthielt 300 mg Cholin-Bitartrat, trotzdem zielte sie auf 700 mg Cholin pro Tag aus Lebensmitteln und sah das Präparat nur als Aufstockung.`,
     tipps: ["Ziel: 450 mg+ Cholin täglich, vorrangig über Essen (Eier sind top)", "Präparat als \"Top-up\", nicht als Fundament", "Wenn du gar keine Eier isst: ein Cholin-Präparat kann helfen, die 450 mg+ zu sichern", "Vegan? Dann ist ein Cholin-Präparat aus veganer Quelle besonders sinnvoll"],
   },
   {
-    id: "omega3", icon: "🐟", titel: "Omega-3 / DHA (meist separat nötig)",
+    id: "omega3", kern: "DHA ist in Standard-Schwangerschaftsvitaminen oft nicht enthalten.", relevanz: "Wer wenig fetten Fisch isst, sollte über ein separates Präparat sprechen — Algenöl ist die vegane Variante.", evidenz: "belegt", icon: "🐟", titel: "Omega-3 / DHA (meist separat nötig)",
     text: `DHA hilft, Babys Gehirn und Augen aufzubauen, senkt Entzündungen und das Frühgeburtsrisiko — und 70–96 % der Mütter haben zu wenig davon (Inchauspé). Die meisten Schwangerschaftsvitamine enthalten KEIN Omega-3 (es ist sperrig, teuer und hitzeempfindlich), du brauchst also meist ein separates Präparat. Jessie nahm in Schwangerschaft & Stillzeit 1.020 mg DHA pro Tag.`,
     tipps: ["Mindestens 300 mg DHA/Tag, ideal 500 mg, je nach Omega-3-Index bis 2.000 mg (mit dem Team abstimmen)", "Auf der Packung gezielt den DHA-Gehalt prüfen — viele \"Omega-3\"-Präparate haben viel EPA, wenig DHA. Mind. 500 mg DHA pro Portion suchen", "Form: Triglycerid- oder Phospholipid-Form (z.B. Krillöl) wird besser aufgenommen als die billigere Ethylester-Form", "Auf Schadstoff-Prüfung (Schwermetalle) durch unabhängige Labore achten", "Dunkle Kapseln/Flaschen wählen — Omega-3 oxidiert leicht bei Licht/Wärme", "Hinweis: Sehr hohe Dosen in den letzten Wochen können die Schwangerschaft verlängern — frag dein Team, ob du im letzten Monat pausieren sollst"],
   },
   {
-    id: "eisen", icon: "🩸", titel: "Eisen & Protein-Pulver",
+    id: "eisen", kern: "Eisen sollte nur bei nachgewiesenem Mangel ergänzt werden.", relevanz: "Zu viel Eisen belastet den Darm. Deshalb: Blutwerte prüfen lassen statt vorsorglich einnehmen.", evidenz: "belegt", icon: "🩸", titel: "Eisen & Protein-Pulver",
     text: `Dein Baby zapft besonders im dritten Trimester stark deine Eisenspeicher an (Inchauspé). Sinkt dein Ferritinwert, wird deine Ärztin meist eine Ergänzung empfehlen. Protein-Pulver ist streng genommen kein Supplement, hilft aber, mehr Protein zu erreichen, als über Essen allein machbar wäre.`,
     tipps: ["Eisen aus Lebensmitteln ist die bessere Wahl — aber bei zu niedrigen Werten kann Ergänzung wichtig sein", "Lass deinen Ferritinwert checken, gerade im 3. Trimester", "Protein-Pulver: auf Schadstoff-Prüfung (Schwermetalle) achten, idealerweise ohne Aromastoffe", "Jessie nutzte unaromatisiertes Whey-Isolat von Weidekühen; vegane Protein-Pulver gibt es ebenfalls"],
   },
   {
-    id: "vegan", icon: "🌱", titel: "Vegan? Diese sind nicht optional",
+    id: "vegan", kern: "Bei veganer Ernährung sind einige Nährstoffe nicht optional.", relevanz: "Vitamin B12, DHA, Eisen, Jod und Zink brauchen besondere Aufmerksamkeit — gerade in Schwangerschaft und Stillzeit.", evidenz: "belegt", icon: "🌱", titel: "Vegan? Diese sind nicht optional",
     text: `Bei veganer Ernährung sind Supplemente keine Kür, sondern Pflicht — sonst fehlen deinem Baby wichtige Bausteine (Inchauspé). Einige Nährstoffe sind in rein pflanzlicher Kost schwer oder gar nicht ausreichend zu bekommen.`,
     tipps: ["Vitamin B12 — in rein pflanzlicher Kost praktisch nicht enthalten", "Eisen", "Cholin aus veganer Quelle", "DHA aus Algen (Algenöl statt Fischöl)", "Vitamin D", "Calcium", "Zink", "Beim Stillen: alle Supplemente weiter einnehmen"],
   },
@@ -2024,17 +2024,17 @@ const MENOPAUSE_TRAINING = [
 // ═══════════════════════════════════════════════════════════════════
 const SIMS_FUELING = [
   {
-    id: "nicht_nuechtern", icon: "🍌", titel: "Nicht nüchtern trainieren (für Frauen)",
+    id: "nicht_nuechtern", kern: "Sims rät Frauen davon ab, nüchtern intensiv zu trainieren.", relevanz: "Sie sieht darin ein Stresssignal für den weiblichen Körper. Das steht in Spannung zu Pelz' Fastenansatz — MoreSync folgt hier Sims.", evidenz: "experten", quelle: "Sims, ROAR", icon: "🍌", titel: "Nicht nüchtern trainieren (für Frauen)",
     text: `Ein zentraler Punkt von Dr. Stacy Sims: „Frauen sind keine kleinen Männer." Vieles an Trainings- und Fasten-Ratschlägen stammt aus der Forschung an Männern. Bei Frauen kann hartes Training auf nüchternen Magen kontraproduktiv sein — es erhöht Stress (Cortisol), kann den Fettstoffwechsel sogar bremsen und ins Muskelgewebe „hineinessen". Sims empfiehlt daher, vor intensiven Einheiten etwas zu essen. Ehrlicher Hinweis: Das steht in gewisser Spannung zum nüchternen Fasten-Training, das Pelz beschreibt — beide Ansätze haben ihre Logik. Für harte/lange Belastungen folgt MoreSync hier Sims; ein leichter Spaziergang nüchtern ist davon unberührt.`,
     tipps: ["Vor harten Einheiten essen — nicht nüchtern in intensives Training", "Ca. 30–45 Min vorher ein kleiner Snack (~150–200 kcal) mit Protein & etwas Carbs", "15–20 g Protein vor harten Einheiten (z.B. Whey-Isolat oder Joghurt)", "Beispiel: Banane mit Nussmus, Toast mit Mandelmus + Prise Salz", "Leichte, lockere Bewegung darf weiter nüchtern sein — der Punkt betrifft INTENSIVES Training", "Gilt besonders in der Menopause: unterversorgt zu trainieren erhöht nur den Stress"],
   },
   {
-    id: "recovery", icon: "🥛", titel: "Das Erholungsfenster nach dem Training",
+    id: "recovery", kern: "Nach dem Training zählt das Erholungsfenster — besonders Protein.", relevanz: "Sims empfiehlt Frauen, zeitnah nach der Belastung zu essen statt das Fasten zu verlängern.", evidenz: "experten", quelle: "Sims", icon: "🥛", titel: "Das Erholungsfenster nach dem Training",
     text: `Nach dem Training „repariert" und stärkt sich dein Körper — und genau dann zählt die Eiweißzufuhr. Sims betont: Das Erholungsfenster ist bei Frauen kürzer als bei Männern. Nach harten Einheiten sind wir in einem abbauenden (katabolen) Zustand mit erhöhtem Cortisol — gerade in der Menopause wollen wir da schnell rauskommen, um Muskeln zu erhalten.`,
     tipps: ["Nach harten Einheiten möglichst innerhalb von ~30 Min essen (Frauen-Fenster ist kürzer)", "~30–40 g hochwertiges Protein nach dem Training (Whey-Isolat oder Erbsenprotein)", "Protein über den Tag verteilen: ~30–40 g pro Mahlzeit, 10–15 g pro Snack", "Protein hilft, Muskelmasse zu halten — mit dem Alter besonders wichtig", "BCAAs ersetzen KEIN vollständiges Protein nach dem Sport"],
   },
   {
-    id: "hydration", icon: "💧", titel: "Richtig hydrieren (nicht nur Wasser)",
+    id: "hydration", kern: "Richtig hydrieren heißt nicht nur Wasser — Elektrolyte gehören dazu.", relevanz: "Bei langem oder schweißtreibendem Training braucht der Körper auch Natrium.", evidenz: "belegt", quelle: "Sims", icon: "💧", titel: "Richtig hydrieren (nicht nur Wasser)",
     text: `Sims räumt mit einem Mythos auf: den ganzen Tag pures Wasser zu kippen, „spült" nicht und hydriert oft schlechter als gedacht — vieles wird einfach wieder ausgeschieden. In der Menopause spürt man Durst oft weniger, trinkt also leicht zu wenig. Der Trick: deine Körperflüssigkeit enthält immer Elektrolyte und etwas Zucker — genau das hilft, Wasser über den Darm wirklich in die Zellen zu transportieren.`,
     tipps: ["Pures Wasser zu den Mahlzeiten ist okay (Essen liefert Salz & etwas Zucker dazu)", "Beim Trinken über den Tag: kleine Mengen Elektrolyte helfen der Aufnahme", "Sims' Rezept: ~10 oz (≈ 300 ml) Wasser + 1 TL Ahornsirup + 1/16 TL Salz (leichte ~1%-Lösung)", "Nicht von „Detox\"- oder „Ausschwemmen\"-Werbung leiten lassen", "In der Menopause bewusst trinken — der Durst meldet sich seltener", "Bei langem/intensivem Schwitzen: Elektrolyte gezielt ersetzen"],
   },
@@ -2048,22 +2048,22 @@ const SIMS_FUELING = [
 // ═══════════════════════════════════════════════════════════════════
 const ADAPTOGENE_WISSEN = [
   {
-    id: "adaptogene_basis", nurInfo: true, icon: "🌿", titel: "Was sind Adaptogene?",
+    id: "adaptogene_basis", kern: "Adaptogene sind Pflanzen, die dem Körper helfen sollen, mit Stress umzugehen.", relevanz: "Die Studienlage ist gemischt und die Qualität der Präparate sehr unterschiedlich. Kein Ersatz für Schlaf und Erholung.", evidenz: "hinweise", nurInfo: true, icon: "🌿", titel: "Was sind Adaptogene?",
     text: `Adaptogene sind Pflanzen, die dem Körper helfen, besser mit Stress umzugehen. Dr. Stacy Sims ("Next Level") erklärt: Sie wirken auf die Stressachse (HPA-Achse) und dämpfen einen Teil der Cortisol-Antwort — du erlebst Stress dadurch weniger heftig. Manche wirken eher anregend, andere eher beruhigend. In der Perimenopause und Menopause können sie bei Erschöpfung, Gehirnnebel, innerer Unruhe und Hitzewallungen helfen. Wichtig zur Einordnung: Die Forschung dazu wächst, ist aber teils noch begrenzt — und pflanzlich heißt NICHT automatisch harmlos. Es gibt echte Wechselwirkungen mit Medikamenten. Deshalb gilt: bei Erkrankungen oder Medikamenten vorher ärztlich abklären.`,
     tipps: ["Wirken über die Stressachse (HPA) und dämpfen die Cortisol-Antwort", "Anregend (Rhodiola, Schisandra, Maca) oder beruhigend (Ashwagandha, Holy Basil)", "Wähle nach deinem stärksten Symptom — und gib jedem ~2 Wochen Zeit", "Mehrere lassen sich kombinieren — eins nach dem anderen einführen", "Auf Qualität achten: zertifiziert biologisch, klare Dosis-Angabe auf dem Etikett", "Kuren statt Dauergebrauch: nach ~6–7 Wochen ein paar Tage Pause (Gewöhnung)", "Pflanzlich ≠ harmlos: bei Medikamenten/Erkrankungen vorher ärztlich abklären"],
   },
   {
-    id: "ashwagandha", icon: "😌", titel: "Ashwagandha & Holy Basil (beruhigend)",
+    id: "ashwagandha", kern: "Ashwagandha und Holy Basil gelten als eher beruhigende Adaptogene.", relevanz: "Sie werden bei Stress und Schlafproblemen eingesetzt. Bei Schilddrüsenerkrankungen vorher ärztlich abklären.", evidenz: "hinweise", icon: "😌", titel: "Ashwagandha & Holy Basil (beruhigend)",
     text: `Ashwagandha ist der häufigste Einstieg bei allgemeinen Wechseljahres-Symptomen. Es wirkt beruhigend, kann Stress, Angst und Schlafprobleme lindern und die Erholung unterstützen. Holy Basil (Tulsi) wirkt ähnlich ausgleichend und unterstützt zusätzlich Blutzucker, Immunsystem und Stimmung. Beide eignen sich gut, wenn Anspannung und Schlaf die Hauptthemen sind.`,
     tipps: ["Ashwagandha: guter Startpunkt für allgemeine Symptome & Schlaf", "Holy Basil (Tulsi): 500 mg zweimal täglich; ausgleichend für Stress & Blutzucker", "Kombi-Idee (Sims): mit Holy Basil starten, nach ~3 Wochen ggf. Ashwagandha ergänzen", "⚠️ Holy Basil senkt die Blutgerinnung — NICHT bei Blutverdünnern", "⚠️ Ashwagandha bei Schilddrüsenerkrankungen/Autoimmun nur nach ärztlicher Rücksprache", "Beide eher abends, da beruhigend"],
   },
   {
-    id: "rhodiola", icon: "⚡", titel: "Rhodiola & Schisandra (anregend)",
+    id: "rhodiola", kern: "Rhodiola und Schisandra gelten als eher anregende Adaptogene.", relevanz: "Sie werden bei Erschöpfung eingesetzt — besser morgens als abends einnehmen.", evidenz: "hinweise", icon: "⚡", titel: "Rhodiola & Schisandra (anregend)",
     text: `Wenn Müdigkeit, Gehirnnebel und fehlender Antrieb im Vordergrund stehen, sind die anregenden Adaptogene interessant. Rhodiola („goldene Wurzel") kann Konzentration und Stimmung verbessern, Reizbarkeit und Erschöpfung senken und sogar Häufigkeit/Stärke von Hitzewallungen verringern — oft schon in der ersten Woche. Schisandra unterstützt Energie, Ausdauer und mentale Klarheit. Beide haben eine leicht östrogenartige (phytoöstrogene) Wirkung.`,
     tipps: ["Rhodiola: 150 mg zweimal täglich; früh am Tag (leicht stimulierend)", "Schisandra: 500 mg–2 g täglich; passt gut in den Kaffee — aber nicht spät (koffeinartig)", "Kombi (Sims): mit Schisandra starten, nach ~2 Wochen ggf. Rhodiola ergänzen", "⚠️ Rhodiola kann den Blutdruck senken — Vorsicht bei niedrigem Blutdruck/Blutdruck-Medikamenten", "⚠️ NICHT bei MAO-Hemmern, Immunsuppressiva — und meiden, wenn Östrogen für dich kontraindiziert ist", "Wegen östrogenartiger Wirkung bei hormonsensiblen Erkrankungen ärztlich abklären"],
   },
   {
-    id: "maca", icon: "🌅", titel: "Maca (Sexhormon-Unterstützung)",
+    id: "maca", kern: "Maca wird traditionell zur Unterstützung von Energie und Libido verwendet.", relevanz: "Die Datenlage ist begrenzt, aber die Verträglichkeit meist gut. Ausprobieren ist vertretbar.", evidenz: "hinweise", icon: "🌅", titel: "Maca (Sexhormon-Unterstützung)",
     text: `Maca (peruanischer Ginseng) ist ein guter „Allrounder", wenn du EIN Adaptogen ausprobieren möchtest. Es kann Stimmung und Energie heben, Gehirnnebel lindern und Libido unterstützen. Früh in der Perimenopause eingesetzt, kann Maca laut Sims bei Hitzewallungen und Nachtschweiß ähnlich wirksam sein wie eine Hormontherapie — durch die Regulierung von Nebennieren- und Schilddrüsenfunktion.`,
     tipps: ["~2,0 g/Tag bei Hitzewallungen & hormonellen Symptomen", "~3,5 g/Tag für Stimmung & psychisches Wohlbefinden", "Kann Libido & Energie unterstützen — auch bei Antidepressiva-bedingter sexueller Unlust", "⚠️ NICHT bei Schilddrüsen-Medikamenten (enthält Goitrogene)", "⚠️ Manche Maca-Produkte stehen auf der WADA-Dopingliste (relevant für getestete Sportlerinnen)", "Lässt sich gut in Smoothies oder Kaffee rühren"],
   },
@@ -2075,17 +2075,17 @@ const ADAPTOGENE_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const BECKENBODEN_WISSEN = [
   {
-    id: "beckenboden_menopause", nurInfo: true, icon: "🌸", titel: "Beckenboden & Wechseljahre — der Östrogen-Zusammenhang",
+    id: "beckenboden_menopause", kern: "Sinkendes Östrogen verändert auch das Gewebe von Blase und Scheide.", relevanz: "Das erklärt Trockenheit, Harndrang und häufigere Infekte in den Wechseljahren. Lokale Behandlungen wirken gut und sind risikoarm.", evidenz: "belegt", quelle: "Rubin", nurInfo: true, icon: "🌸", titel: "Beckenboden & Wechseljahre — der Östrogen-Zusammenhang",
     text: `In den Wechseljahren bekommt der Beckenboden aus einem klaren Grund neue Bedeutung: Dr. Stacy Sims erklärt, dass sinkendes Östrogen dem Bindegewebe Elastizität raubt und die Beckenbodenmuskeln schwächt. Die Folge ist oft ungewollter Harnverlust — beim Heben, Springen, Lachen, Husten oder beim Sport. Fast die Hälfte der Frauen über 50 verliert zumindest manchmal etwas Urin. Aber — und das ist Sims' wichtigste Botschaft — häufig heißt nicht unvermeidlich: Das ist weitgehend behandelbar.\n\nEin verbreiteter Irrtum ist, dass Kegel-Übungen allein reichen. Sie sind wichtig, aber nur der Anfang. Der Beckenboden ist Teil deiner Körpermitte („Core") — er arbeitet wie ein Kanister mit dem Zwerchfell und den tiefen Bauch- und Rückenmuskeln zusammen. Wenn Bauch oder Rücken schwach sind, muss der Beckenboden Arbeit übernehmen, für die er nicht gebaut ist — und dann kommt es zum Auslaufen. Deshalb geht es darum, den ganzen Kanister zu stärken, nicht nur den Beckenboden isoliert.\n\nEs gibt noch einen zweiten Grund, warum das jetzt zählt: Östrogen lockert das Bindegewebe, Progesteron gibt Sehnen und Bändern Spannung. Wenn beide Hormone in der Menopause wegfallen, verlieren wir Bindegewebs-Integrität und Muskelmasse — wir werden buchstäblich instabiler. Ein starker Core und Beckenboden schützt also nicht nur vor Harnverlust, sondern auch vor Instabilität und Stürzen im späteren Leben. Sehr traurig ist laut Sims, dass bis zu 20 % der Frauen wegen Harnverlust ganz mit dem Sport aufhören — das ist völlig unnötig.`,
     tipps: ["Sinkendes Östrogen schwächt Beckenboden & Bindegewebe → häufiger Harnverlust", "Häufig ist nicht unvermeidlich — es ist weitgehend behandelbar (Sims)", "Kegels allein reichen nicht: den ganzen „Kanister“ (Beckenboden + Core + Zwerchfell) stärken", "Zwerchfell-Atmung (tief in den Bauch) trainiert Beckenboden mit & senkt Stress", "Beckenboden schützt auch vor Instabilität & Stürzen (Bindegewebs- & Muskelverlust)", "Blasenreizstoffe reduzieren: Koffein & sehr scharfes Essen können die Blase reizen", "Rund um die Menopause können auch lokale vaginale Hormone Symptome lindern (siehe Sexuelle Gesundheit)", "Wenn Übungen nicht reichen: Beckenboden-Physiotherapie — es ist behandelbar"],
   },
   {
-    id: "beckenboden_warum", nurInfo: true, icon: "💧", titel: "Ungewollter Harnverlust — du bist nicht allein",
+    id: "beckenboden_warum", kern: "Ungewollter Harnverlust betrifft sehr viele Frauen — und ist behandelbar.", relevanz: "Er ist kein unvermeidliches Schicksal nach Geburten oder in den Wechseljahren. Gezieltes Training bessert die meisten Fälle deutlich.", evidenz: "belegt", nurInfo: true, icon: "💧", titel: "Ungewollter Harnverlust — du bist nicht allein",
     text: `Ungewollter Harnverlust — beim Heben, Springen, Lachen oder Husten — ist weit verbreitet, und er betrifft längst nicht nur Frauen über 50. Auch viele jüngere Frauen sind betroffen, besonders nach einer Schwangerschaft und Geburt: Das Austragen des Babys und die Geburt selbst dehnen und belasten den Beckenboden stark, und es kann eine Weile dauern, bis er sich erholt. Später kommt bei vielen der Östrogenabfall rund um die Wechseljahre dazu — dann verliert das Bindegewebe zusätzlich an Elastizität und die Beckenbodenmuskeln werden schwächer. Dr. Stacy Sims macht Mut: Häufig heißt nicht unvermeidlich. Wichtig zu wissen: Bis zu 20 % der Frauen hören deshalb mit dem Sport auf — das ist unnötig, denn der Beckenboden lässt sich in fast jedem Alter trainieren, und das Thema ist weitgehend behandelbar. Gerade nach der Geburt lohnt sich gezielte Rückbildung (idealerweise mit Beckenboden-Physiotherapie), bevor man wieder voll ins Training einsteigt.`,
     tipps: ["Betrifft nicht nur Frauen über 50 — auch viele jüngere Frauen, vor allem nach einer Geburt", "Nach der Schwangerschaft: gezielte Rückbildung, bevor du wieder voll trainierst", "Blasenreizstoffe reduzieren: Koffein & sehr scharfes Essen können die Blase reizen", "Übergangslösung beim Sport: spezielle saugfähige „pee-proof\"-Unterwäsche/Einlagen", "Wenn Übungen nicht reichen: Beckenboden-Physiotherapie aufsuchen — es ist behandelbar", "Rund um die Menopause: auch lokale vaginale Hormone können Symptome lindern (siehe Sexuelle Gesundheit)"],
   },
   {
-    id: "beckenboden_uebungen", icon: "🧘‍♀️", titel: "Beckenboden stärken: so geht's",
+    id: "beckenboden_uebungen", kern: "Beckenbodentraining wirkt am besten regelmäßig und richtig ausgeführt.", relevanz: "Wichtig ist die bewusste Entspannung nach jeder Anspannung. Bei Unsicherheit lohnt eine Anleitung durch Physiotherapie.", evidenz: "belegt", icon: "🧘‍♀️", titel: "Beckenboden stärken: so geht's",
     text: `Kegel-Übungen sind der Klassiker — aber laut Sims nur der Anfang. Genauso wichtig ist ein starker Rumpf: Wenn Bauch- und Rückenmuskeln schwach sind, muss der Beckenboden mehr tragen, als er kann. Deshalb trainiert man die ganze „Dose" (Beckenboden + Bauch + Rücken + Zwerchfell-Atmung). Ein einfacher Selbsttest: ein Unterarm-Plank — bleibt der Unterbauch flach, oder wölbt er sich nach unten? Wölbt er sich, ist die tiefe Bauchmuskulatur noch nicht aktiv genug; dann den Plank leichter machen (Knie ablegen oder erhöht an der Couch).`,
     tipps: ["Kegel-Übung: Beckenboden anspannen, als wolltest du den Urin zurückhalten", "Sims' Rezept: 10× lang halten (je 10 Sek) + 10× kurz & kräftig anspannen", "Schaffst du keine 20 — kein Problem: mit weniger starten, langsam steigern", "Täglich möglich: der Beckenboden darf jeden Tag trainiert werden", "Ganze „Dose\" stärken: Plank (ohne Doming), Rumpf- & Rückenübungen", "Zwerchfell-Atmung einbauen (tiefe Bauchatmung unterstützt den Beckenboden)", "Beim schweren Heben/Springen bewusst Rumpf & Beckenboden aktivieren"],
   },
@@ -2098,22 +2098,22 @@ const BECKENBODEN_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const RECOVERY_WISSEN = [
   {
-    id: "recovery_schlaf", icon: "😴", titel: "Erholung ist Training",
+    id: "recovery_schlaf", kern: "Erholung ist kein Gegenteil von Training — sie ist Teil davon.", relevanz: "Im Schlaf passiert die Anpassung. Ohne ausreichende Erholung bringt mehr Training weniger.", evidenz: "belegt", quelle: "Sims", icon: "😴", titel: "Erholung ist Training",
     text: `Dr. Stacy Sims betont: Fortschritt entsteht nicht im Training selbst, sondern in der Erholung danach — und Schlaf ist das wirksamste Erholungswerkzeug überhaupt. Gerade in der Menopause, wenn Schlaf schwieriger wird, lohnt es sich, Erholung bewusst zu planen statt sie dem Zufall zu überlassen.`,
     tipps: ["Schlaf priorisieren — hier passieren Reparatur & Anpassung", "Kühl schlafen (hilft auch gegen nächtliche Hitzewallungen)", "Aktive Erholung (lockeres Gehen, sanftes Yoga) an Ruhetagen", "Genug Protein über den Tag unterstützt die Muskelreparatur", "Auf Erholungssignale achten statt stur durchzuziehen (Ruhepuls, Stimmung, Schlaf)"],
   },
   {
-    id: "recovery_tools", icon: "🛠️", titel: "Erholungs-Helfer: was wirkt",
+    id: "recovery_tools", kern: "Die wirksamsten Erholungshelfer sind Schlaf, Essen und Pausen — nicht Geräte.", relevanz: "Massagepistolen und Faszienrollen fühlen sich gut an, ersetzen aber keine echte Regeneration.", evidenz: "belegt", quelle: "Sims", icon: "🛠️", titel: "Erholungs-Helfer: was wirkt",
     text: `Nicht alles, was beworben wird, hält, was es verspricht — Sims schaut auf die Evidenz. Faszienrolle und Massage können verspannte Muskeln lockern und das Wohlbefinden verbessern. Sauerkirschsaft (Montmorency) hat in Studien Muskelkater gemildert und kann durch sein natürliches Melatonin auch den Schlaf unterstützen.`,
     tipps: ["Faszienrolle/Lacrosse-Ball: sanft über verspannte Stellen rollen", "Leichte Massage zur Lockerung & Entspannung", "Sauerkirschsaft (Montmorency) gegen Muskelkater & für besseren Schlaf", "Wichtigste Basis bleibt: Schlaf, Protein, ausreichend Essen", "Manchmal ist weniger mehr: dem Körper echte Ruhetage gönnen"],
   },
   {
-    id: "recovery_hitze", icon: "🔥", titel: "Sauna & Hitze gezielt nutzen",
+    id: "recovery_hitze", kern: "Sauna kann Erholung und Herz-Kreislauf-Gesundheit unterstützen.", relevanz: "Patrick hält die Datenlage für gut. In der Schwangerschaft und bei Kreislaufproblemen vorher abklären.", evidenz: "hinweise", quelle: "Patrick", icon: "🔥", titel: "Sauna & Hitze gezielt nutzen",
     text: `Hitze ist nicht nur Belastung, sondern kann ein Trainingsreiz sein. Regelmäßiges Saunieren (oder Hitze-Exposition) löst die Bildung von Hitzeschock-Proteinen aus, kann Herz-Kreislauf-Anpassungen fördern und tut vielen einfach gut. Sims weist auf einen frauenspezifischen Punkt hin: Die Thermoregulation funktioniert bei Frauen etwas anders, und in der Menopause kommen Hitzewallungen dazu — Hitze-Anwendungen also dosiert und gut hydriert angehen.`,
     tipps: ["Sauna kann Herz-Kreislauf & Erholung unterstützen (Hitzeschock-Proteine)", "Immer gut hydriert in die Hitze — und Elektrolyte nicht vergessen", "Langsam herantasten, nicht überfordern", "Nicht direkt vor dem Schlafen stark erhitzen (kann den Schlaf stören)", "Bei Hitzewallungen/Kreislaufproblemen vorsichtig dosieren — im Zweifel ärztlich abklären"],
   },
   {
-    id: "recovery_kaelte", icon: "❄️", titel: "Kälte: Dusche, Bad & Co.",
+    id: "recovery_kaelte", kern: "Kälte kann Erholung unterstützen — aber nicht direkt nach dem Krafttraining.", relevanz: "Unmittelbar nach dem Training kann Kälte den Muskelaufbau dämpfen. Zeitlicher Abstand ist sinnvoll.", evidenz: "hinweise", quelle: "Sims", icon: "❄️", titel: "Kälte: Dusche, Bad & Co.",
     text: `Kälte-Exposition (kalte Duschen, kühle Bäder) ist ein populäres Erholungs- und Wohlbefindens-Tool. Sie kann den Kreislauf anregen und sich belebend anfühlen. Ein wichtiger Hinweis von Sims zum Timing: Direkt nach Krafttraining kann sehr starke Kälte den Muskelaufbau-Reiz etwas abschwächen — wer auf Muskel-/Kraftzuwachs zielt, legt das Eisbad also lieber nicht unmittelbar nach dem Krafttraining.`,
     tipps: ["Kalte Dusche/Wechseldusche regt Kreislauf an und belebt", "Timing: sehr starke Kälte NICHT direkt nach dem Krafttraining (dämpft den Aufbaureiz)", "An anderen Tagen/Zeiten ist Kälte als Erholungstool in Ordnung", "Langsam herantasten; bei Herz-Kreislauf-Problemen vorher ärztlich abklären", "Auf den eigenen Körper hören — es muss sich gut anfühlen, kein Zwang"],
   },
@@ -2125,7 +2125,7 @@ const RECOVERY_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const EXERCISE_SNACKS_WISSEN = [
   {
-    id: "es_breathless", nurInfo: true, icon: "⚡", titel: "10 atemlose Minuten — Dr. Patricks wichtigster Tipp",
+    id: "es_breathless", kern: "Schon zehn atemlose Minuten am Tag wirken messbar auf die Gesundheit.", relevanz: "Patrick nennt das eine der wirksamsten niedrigschwelligen Maßnahmen. Treppen steigen zählt.", evidenz: "belegt", quelle: "Patrick", nurInfo: true, icon: "⚡", titel: "10 atemlose Minuten — Dr. Patricks wichtigster Tipp",
     text: `Als Dr. Rhonda Patrick gefragt wurde, was die EINE wichtigste Sache für ein längeres, gesünderes Leben ist, war ihre Antwort klar: rund 10 Minuten „atemlose" Bewegung am Tag. Das Schöne daran — es muss kein Fitnessstudio sein und keine halbe Stunde am Stück.\n\nDie Idee heißt „Exercise Snacks" (Bewegungs-Snacks): kurze Häppchen intensiver Bewegung, verteilt über den Tag. Drei Minuten nach dem Frühstück, drei nach dem Mittag, drei nach dem Abendessen — schon bist du bei neun bis zehn Minuten. „Atemlos" heißt: so intensiv, dass du nur noch ein paar Worte am Stück sagen kannst.\n\nDie Forschung dazu ist beeindruckend: Menschen, die täglich solche kurzen intensiven Bewegungshäppchen einbauen (in Studien „VILPA" genannt — vigorous intermittent lifestyle physical activity), hatten rund 40 % weniger Krebs-Sterblichkeit, 40 % weniger Gesamt-Sterblichkeit und bis zu 50 % weniger Herz-Kreislauf-Sterblichkeit. Das Erstaunliche: Diese Menschen würden auf die Frage „Treibst du Sport?" oft „nein" sagen — weil sie diese Alltagsmomente gar nicht mitzählen. Aber der Körper zählt sie.`,
     tipps: ["Ziel: ~10 Minuten „atemlose\" Bewegung am Tag — reicht schon", "3 Min. nach dem Frühstück, 3 nach dem Mittag, 3 nach dem Abendessen", "„Atemlos\" = du kannst nur noch ein paar Worte am Stück sagen", "Kein Fitnessstudio nötig — Alltag nutzen", "Studien: bis zu 40 % weniger Sterblichkeit — es zählt wirklich", "Kleiner Trick: dein Lieblingslied (~3 Min.) als Timer nehmen"],
     teenText: "Dr. Rhonda Patrick sagt: Das Wichtigste für einen gesunden Körper ist gar nicht kompliziert — nur etwa 10 Minuten Bewegung am Tag, bei der du richtig außer Atem kommst. Und du musst dafür nicht ins Fitnessstudio!\n\nDie Idee heißt „Bewegungs-Snacks\": kurze Bewegungs-Häppchen über den Tag verteilt. Zum Beispiel die Treppe hochrennen statt Aufzug, mit dem Hund toben, tanzen, oder ein paar Minuten Hampelmänner/Kniebeugen. „Außer Atem\" heißt: so schnell, dass du nur noch ein paar Wörter sagen kannst.\n\nDas Coole: Selbst diese kurzen Momente machen dich fitter, stärker und wacher — und heben deine Laune. Du musst kein „Sportprofi\" sein. Einfach über den Tag ein bisschen Schwung reinbringen zählt schon.",
@@ -2133,14 +2133,14 @@ const EXERCISE_SNACKS_WISSEN = [
     schwangerHinweis: "In der Schwangerschaft ist Bewegung grundsätzlich gut — aber Intensität und Art solltest du anpassen und mit deiner Ärztin/Hebamme abstimmen. „Atemlos\" bis an die Grenze ist jetzt nicht das Ziel; moderate, regelmäßige Bewegung, bei der du dich noch unterhalten kannst, ist meist die bessere Richtschnur.",
   },
   {
-    id: "es_longevity", nurInfo: true, icon: "🌱", titel: "80 % hast du selbst in der Hand",
+    id: "es_longevity", kern: "Ein großer Teil deiner Gesundheitsspanne liegt in deinem Verhalten, nicht in den Genen.", relevanz: "Bewegung, Schlaf, Ernährung und soziale Bindungen sind die stärksten Hebel.", evidenz: "belegt", quelle: "Patrick", nurInfo: true, icon: "🌱", titel: "80 % hast du selbst in der Hand",
     text: `Ein Gedanke von Dr. Patrick, der Mut macht: Viele glauben, wie lange und wie gesund wir leben, sei vor allem eine Frage der Gene. Tatsächlich ist es umgekehrt — nur etwa 20–25 % liegen an den Genen, rund 80 % an Lebensstil und Alltag.\n\nSie verweist auf eine große Harvard-Studie: Wer fünf einfache Lebensstil-Faktoren beherzigt, kann seine Lebenserwartung um 12–14 Jahre verlängern. Die Frauen in der Studie, die alle fünf umsetzten, lebten im Schnitt etwa 14 Jahre länger. Die fünf Faktoren sind keine Geheimwissenschaft: nicht rauchen, sich regelmäßig bewegen, gesund essen, ein gesundes Gewicht halten und Alkohol nur maßvoll (oder gar nicht).\n\nPatricks beruhigende Kernbotschaft für die ganze Folge: Du musst nicht 50 verschiedene „Health Hacks" machen. Ein paar wenige, robuste Gewohnheiten — Bewegung, Schlaf, gutes Essen — machen den größten Unterschied. Und du hast sie selbst in der Hand.`,
     tipps: ["Nur ~20–25 % sind Gene — ~80 % Lebensstil", "5 Faktoren (Harvard): nicht rauchen, bewegen, gut essen, gesundes Gewicht, wenig/kein Alkohol", "Das kann 12–14 Jahre Lebenszeit ausmachen", "Du brauchst keine 50 „Hacks\" — wenige robuste Gewohnheiten reichen", "Bewegung, Schlaf & gutes Essen sind die größten Hebel"],
     teenText: "Dr. Patrick sagt etwas richtig Ermutigendes: Wie gesund und fit du bist, hängt nur zu etwa einem Fünftel von deinen Genen ab — der große Rest (rund 80 %) kommt von dem, was du tust. Also von Bewegung, Schlaf, Essen und wie du mit Stress umgehst.\n\nDas heißt: Du hast richtig viel selbst in der Hand. Und du brauchst keine 50 komplizierten Regeln — ein paar einfache, gute Gewohnheiten machen den größten Unterschied: dich bewegen, gut schlafen, bunt essen. Das ist keine Wissenschaft für Profis, das kann jede:r.",
     teenTipps: ["Nur ~1/5 sind Gene — den großen Rest hast du selbst in der Hand", "Keine 50 Regeln nötig — ein paar gute Gewohnheiten reichen", "Größte Hebel: Bewegung, Schlaf, gutes Essen", "Es ist nie zu früh, gute Gewohnheiten aufzubauen"],
   },
   {
-    id: "es_schlaf_dna", nurInfo: true, icon: "😴", titel: "Schlaf — wenn dein Körper sich repariert",
+    id: "es_schlaf_dna", kern: "Im Schlaf repariert dein Körper Zellschäden und festigt Gelerntes.", relevanz: "Dauerhafter Schlafmangel beschleunigt Alterungsprozesse. Schlaf ist keine verlorene Zeit.", evidenz: "belegt", quelle: "Patrick", nurInfo: true, icon: "😴", titel: "Schlaf — wenn dein Körper sich repariert",
     text: `Dr. Patrick betont einen oft unterschätzten Punkt: Schlaf ist keine „verlorene Zeit", sondern aktive Reparatur. Jeden Tag entstehen in deinen Zellen tausende DNA-Schäden — durch UV-Licht, Stress, Umweltstoffe, normalen Stoffwechsel. Im Schlaf wird ein großer Teil davon repariert. Schlecht oder zu wenig zu schlafen heißt, diese nächtliche Reparatur zu verkürzen.\n\nStatt sich im Detail zu verlieren, empfiehlt sie einen einfachen „Schlaf-Check" mit fünf Fragen: Wie viele Stunden schläfst du? Bekommst du morgens helles (Tages-)Licht? Stehst du jeden Tag etwa zur gleichen Zeit auf? Wie nah an der Schlafenszeit isst du deine letzte Mahlzeit? Und trinkst du abends Alkohol? Diese fünf Fragen sind wie eine Schatzsuche — die Antworten zeigen dir genau, wo du ansetzen kannst.`,
     tipps: ["Im Schlaf repariert dein Körper die täglichen DNA-Schäden", "Frage 1: Genug Stunden? (für die meisten ~7–9)", "Frage 2: Morgens helles Tageslicht? (stellt die innere Uhr)", "Frage 3: Jeden Tag ähnliche Aufstehzeit?", "Frage 4: Letzte Mahlzeit nicht zu kurz vor dem Schlaf", "Frage 5: Abends Alkohol? (stört den Tiefschlaf)"],
     teenText: "Dr. Patrick erklärt etwas Cooles: Schlaf ist keine verlorene Zeit — in der Nacht repariert dein Körper sich selbst. Jeden Tag entstehen in deinen Zellen winzige Schäden (durch Sonne, Stress, Umwelt). Im Schlaf werden ganz viele davon wieder repariert. Gerade in deinem Alter braucht dein Körper (und dein Gehirn!) richtig guten Schlaf, um zu wachsen und zu lernen.\n\nEin einfacher Schlaf-Check mit ein paar Fragen: Schläfst du genug (als Teenager eher 8–10 Stunden)? Bekommst du morgens helles Licht? Stehst du meist zur gleichen Zeit auf? Und — ganz wichtig heute — wie viel Handy/Bildschirm direkt vorm Einschlafen? Das blaue Licht und die aufregenden Videos machen es dem Gehirn schwer, runterzufahren.",
@@ -2181,16 +2181,19 @@ const FASTEN_TYPEN = [
 
 // Was im Körper während des Fastens passiert (Stunden-Zeitleiste, aus Fast Like a Girl)
 const FASTEN_ZEITLEISTE = [
-  { ab: 4, titel: "Blutzucker sinkt", icon: "🩸", text: "Dein Körper hat die letzte Mahlzeit verdaut. Der Blutzucker normalisiert sich und der Insulinspiegel beginnt zu fallen." },
-  { ab: 8, titel: "Zucker-Speicher leeren sich", icon: "📉", text: "Die Glykogenspeicher (gespeicherter Zucker) in der Leber gehen zur Neige. Der Körper bereitet sich vor, auf Fettverbrennung umzuschalten." },
-  { ab: 12, titel: "Fettverbrennung startet", icon: "🔥", text: "Der Stoffwechsel schaltet um: Statt Zucker verbrennt dein Körper jetzt Fett. Die Ketonproduktion beginnt — du wirst zum 'Fat Burner'." },
-  { ab: 15, titel: "Autophagie beginnt", icon: "♻️", text: "Der zelluläre Selbstreinigungsprozess startet: Beschädigte Zellbestandteile werden recycelt. Das ist Anti-Aging auf Zellebene." },
-  { ab: 17, titel: "Wachstumshormon steigt", icon: "💪", text: "Das Wachstumshormon (HGH) steigt deutlich an. Es schützt deine Muskeln, strafft die Haut und unterstützt die Regeneration." },
-  { ab: 24, titel: "Darm-Reset & Stammzellen", icon: "🌿", text: "Darm-Stammzellen werden aktiviert und erneuern die Darmschleimhaut. Dein Mikrobiom wird zurückgesetzt — der 'Gut-Reset'." },
-  { ab: 36, titel: "Tiefe Zellheilung", icon: "💫", text: "Maximale Fettverbrennung und tiefe Autophagie. Beschädigte Zellen werden abgebaut, das Immunsystem regeneriert sich grundlegend." },
-  { ab: 48, titel: "Immunsystem-Reset", icon: "🛡️", text: "Nach 48 Stunden werden alte Immunzellen abgebaut und neue gebildet — eine tiefgreifende Erneuerung des Immunsystems (nur für sehr Erfahrene)." },
-  { ab: 72, titel: "Dopamin-Reset", icon: "✨", text: "Nach etwa 72 Stunden setzt sich das Dopamin-System zurück, was Stimmung und Belohnungsempfinden neu kalibriert (nur unter Begleitung)." },
+  { ab: 4, evidenz: "belegt", titel: "Blutzucker beruhigt sich", icon: "🩸", text: "Die letzte Mahlzeit ist verdaut. Blutzucker und Insulin sinken allmählich — das spürst du oft als ruhigeren Magen." },
+  { ab: 8, evidenz: "belegt", titel: "Zucker-Speicher gehen zur Neige", icon: "📉", text: "Die Glykogenspeicher in der Leber leeren sich langsam. Der Körper bereitet die Umstellung auf Fettverbrennung vor." },
+  { ab: 12, evidenz: "belegt", titel: "Umstellung auf Fett", icon: "🔥", text: "Bei vielen beginnt der Stoffwechsel jetzt, verstärkt Fett zu nutzen, und die Ketonproduktion steigt. Wann genau das passiert, hängt stark von deiner letzten Mahlzeit, deiner Bewegung und deinem Stoffwechsel ab." },
+  { ab: 15, evidenz: "hinweise", titel: "Zelluläre Aufräumprozesse", icon: "♻️", text: "In diesem Bereich nehmen Selbstreinigungsprozesse in den Zellen (Autophagie) vermutlich zu. Beim Menschen gibt es dafür bisher keine exakte Stundenmarke — die Forschung steht hier noch am Anfang." },
+  { ab: 17, evidenz: "hinweise", titel: "Wachstumshormon", icon: "💪", text: "Das Wachstumshormon (HGH) steigt beim Fasten typischerweise an. Es hilft, Muskeln und Gewebe zu schützen. Wie stark, ist individuell verschieden." },
+  { ab: 24, evidenz: "hinweise", titel: "Darm & Regeneration", icon: "🌿", text: "Längere Fasten scheinen die Erneuerung der Darmschleimhaut und Veränderungen im Mikrobiom zu begünstigen. Die meisten Daten dazu stammen aus Tierstudien." },
+  { ab: 36, evidenz: "hinweise", titel: "Tiefere Stoffwechselveränderung", icon: "💫", text: "Der Körper ist tief im Fettstoffwechsel. Regenerative Prozesse laufen wahrscheinlich verstärkt — belastbare Humandaten zu genauen Zeitpunkten fehlen aber." },
+  { ab: 48, evidenz: "hinweise", titel: "Immunsystem (nur für sehr Erfahrene)", icon: "🛡️", text: "Sehr lange Fasten werden mit einer Erneuerung von Immunzellen in Verbindung gebracht. Das ist Fasten für Fortgeschrittene und gehört ärztlich begleitet." },
+  { ab: 72, evidenz: "experten", titel: "Sehr langes Fasten (nur begleitet)", icon: "✨", text: "Fasten über mehrere Tage verändert Stoffwechsel und Belohnungssystem deutlich. Bitte nur mit ärztlicher Begleitung — nicht im Alleingang." },
 ];
+
+// Ehrlichkeitshinweis zur Zeitleiste: Die Stundenangaben sind Orientierung, keine Garantie.
+const FASTEN_ZEITLEISTE_HINWEIS = "Diese Stunden sind Orientierungswerte, keine exakte Biologie. Wann bei dir was passiert, hängt von deiner letzten Mahlzeit, deinem Schlaf, deiner Bewegung und deinem Stoffwechsel ab. Für den Menschen gibt es bislang keine minutengenaue Zeitleiste — vieles stammt aus Tierstudien. Nimm es als grobe Landkarte, nicht als Fahrplan.";
 
 // ═══════════════════════════════════════════════════════════════════
 // FASTEN-WISSEN — die positiven Wirkungen & das Praxiswissen aus
@@ -2199,52 +2202,52 @@ const FASTEN_ZEITLEISTE = [
 // ═══════════════════════════════════════════════════════════════════
 const FASTEN_WISSEN = [
   {
-    id: "nicht_deine_schuld", nurInfo: true, icon: "💛", titel: "Warum Diäten gescheitert sind (nicht du!)",
+    id: "nicht_deine_schuld", kern: "Dass Diäten bei dir nicht funktioniert haben, liegt am Konzept — nicht an deiner Disziplin.", relevanz: "Klassische Diäten ignorieren, dass sich der weibliche Hormonhaushalt monatlich verändert. Was in einer Zyklusphase leichtfällt, ist in einer anderen sinnlos hart.", evidenz: "experten", quelle: "Pelz, Fast Like a Girl", nurInfo: true, icon: "💛", titel: "Warum Diäten gescheitert sind (nicht du!)",
     text: `Dr. Mindy Pelz beginnt „Fast Like a Girl" mit einer befreienden Botschaft: Wenn klassische Diäten bei dir nicht funktioniert haben, liegt das nicht an fehlender Disziplin — sondern daran, dass die meisten Diäten gegen den weiblichen Körper arbeiten. Sie nennt fünf typische Gründe, „die gescheiterten Fünf". Sie zu kennen, nimmt Druck und Selbstvorwürfe raus: Dein Körper arbeitet FÜR dich, nicht gegen dich.`,
     tipps: ["1. Kalorienzählen: „weniger essen, mehr bewegen\" senkt den Stoffwechsel-Sollwert — danach kommt das Gewicht leichter zurück", "2. Schlechte Lebensmittelqualität: die Low-Fat-Falle (Fett raus, Zucker rein) fördert Insulinresistenz", "3. Ständiger Stress: Dauer-Diäten treiben Cortisol hoch und bringen die Hormone durcheinander", "4. Steigende Giftstoff-Last: bestimmte Zusatzstoffe (Obesogene) stören den Hormonhaushalt", "5. „Eine Lösung für alle\": ignoriert deinen Zyklus & verleitet zum Vergleich mit anderen", "Kernbotschaft: Schluss mit Schuldgefühlen — es geht um Rhythmus, nicht um Verzicht"],
   },
   {
-    id: "warum_fasten", nurInfo: true, icon: "✨", titel: "Was Fasten im Körper bewirkt",
+    id: "warum_fasten", kern: "Beim Fasten schaltet dein Stoffwechsel von Zuckerverbrennung auf Fettverbrennung um.", relevanz: "Sinkt der Insulinspiegel lange genug, kommt der Körper an seine Fettreserven. Das ist der Kernmechanismus — nicht die Kalorienmenge allein.", evidenz: "belegt", nurInfo: true, icon: "✨", titel: "Was Fasten im Körper bewirkt",
     text: `Fasten ist mehr als „nicht essen" — es schaltet den Körper von Zucker- auf Fettverbrennung um und startet eine Reihe von Reparaturprozessen. Dr. Mindy Pelz beschreibt es als die Zeit, in der dein Körper aufräumt, heilt und sich erneuert. Schon ab etwa 8 Stunden beginnt die Leber, Ketone zu bilden; mit längeren Fastenfenstern kommen immer tiefere Heilungsebenen dazu. Wichtig: Mehr ist nicht automatisch besser — die Kunst liegt darin, die Fastenlänge zur Zyklusphase und zum eigenen Leben passen zu lassen.`,
     tipps: ["Umschalten von Zucker- auf Fettverbrennung = stabile, „saubere\" Energie", "Ketone sind Treibstoff fürs Gehirn — oft klarer Kopf & weniger Heißhunger", "Verbessert mit der Zeit Blutdruck, Nüchternblutzucker, Insulin & Entzündungswerte", "Längere Fasten = tiefere Reparatur (siehe die einzelnen Stufen unten)", "Kein Wettbewerb: die richtige Länge zur Phase schlägt „möglichst lang\""],
   },
   {
-    id: "metabolische_flexibilitaet", nurInfo: true, icon: "🔄", titel: "Metabolische Flexibilität",
+    id: "metabolische_flexibilitaet", kern: "Metabolische Flexibilität heißt: Dein Körper kann problemlos zwischen Zucker und Fett als Brennstoff wechseln.", relevanz: "Wer flexibel ist, hat stabile Energie und weniger Heißhunger. Regelmäßige Essenspausen und weniger Zwischensnacks trainieren diese Fähigkeit.", evidenz: "belegt", nurInfo: true, icon: "🔄", titel: "Metabolische Flexibilität",
     text: `Pelz nennt das den oft übersehenen Schlüssel: Ein gesunder Körper kann mühelos zwischen zwei Energiequellen wechseln — Zucker (Glukose) und Fett (Ketone). Genau dieses Hin- und Herwechseln zwischen Fasten und Essen löst die Heilungsreaktion aus. Der Trick liegt in der Abwechslung: Bleibt man immer beim gleichen Fastenrhythmus, lässt der positive Reiz (eine milde, gute Stress-Anpassung, „Hormesis") mit der Zeit nach. Deshalb empfiehlt Pelz, die Fastenlängen zu variieren — mal kürzer, mal länger — statt jeden Tag exakt gleich zu fasten.`,
     tipps: ["Ziel: flexibel zwischen Zucker- und Fettverbrennung wechseln können", "Der Wechsel selbst (Fasten ↔ Essen) löst die Heilung aus", "Fastenlängen variieren, damit der positive Reiz erhalten bleibt", "Immer gleich = der Effekt flacht ab; Abwechslung hält ihn lebendig", "Milder Stress, der den Körper stärker macht — nicht Dauer-Hungern", "In der Praxis: kürzere & längere Fasten über den Zyklus/Monat mischen"],
   },
   {
-    id: "hormon_hierarchie", nurInfo: true, icon: "🪜", titel: "Die Hormon-Hierarchie — warum Frauen anders fasten",
+    id: "hormon_hierarchie", kern: "Frauen sollten anders fasten als Männer, weil ihre Hormone einem monatlichen Rhythmus folgen.", relevanz: "In der zweiten Zyklushälfte braucht Progesteron Glukose und wenig Stress — langes Fasten passt dort schlecht. In der ersten Hälfte ist es meist gut verträglich.", evidenz: "experten", quelle: "Pelz, Fast Like a Girl", nurInfo: true, icon: "🪜", titel: "Die Hormon-Hierarchie — warum Frauen anders fasten",
     text: `Das ist laut Pelz der wichtigste Grund, warum Frauen Fasten anders angehen sollten als Männer. Die Hormone hängen in einer Kette zusammen: Oxytocin (das „Verbundenheits-Hormon") beruhigt Cortisol (Stress). Cortisol-Spitzen treiben Insulin hoch. Und hohes Insulin bringt die Sexualhormone (Östrogen, Progesteron, Testosteron) durcheinander. Praktisch heißt das: Wer ständig gestresst und insulinresistent ist, kann seine Sexualhormone kaum ins Gleichgewicht bringen — egal wie sehr man es direkt versucht. Der Hebel liegt oben in der Kette: Stress senken & insulinsensibel werden zuerst.`,
     tipps: ["Kette: Oxytocin beruhigt → Cortisol → treibt Insulin → beeinflusst Sexualhormone", "Erst Stress senken & Insulin stabilisieren, dann ordnen sich die Sexualhormone", "Oxytocin (Nähe, Umarmungen, Lachen, Tiere, Verbundenheit) ist ein echter Hebel", "Deshalb: nicht in der Woche vor der Periode hart fasten (schützt Progesteron)", "Chronischer Stress + Insulinresistenz = Sexualhormone bleiben aus dem Lot", "Fasten ist ein Werkzeug, um Insulin zu senken — aber Stressmanagement gehört dazu"],
   },
   {
-    id: "autophagie_wissen", nurInfo: true, icon: "♻️", titel: "Autophagie — die Zell-Müllabfuhr",
+    id: "autophagie_wissen", kern: "Autophagie ist die Selbstreinigung deiner Zellen — sie recyceln beschädigte Bestandteile.", relevanz: "Sie nimmt beim Fasten wahrscheinlich zu, aber beim Menschen gibt es keine exakte Stundenmarke. Vieles stammt aus Tierstudien — nimm Zeitangaben als grobe Orientierung.", evidenz: "hinweise", nurInfo: true, icon: "♻️", titel: "Autophagie — die Zell-Müllabfuhr",
     text: `Ab etwa 17 Stunden Fasten verstärkt sich die Autophagie (wörtlich „sich selbst essen"). Die Zellen bauen alte, defekte Bestandteile ab und recyceln sie — wie eine innere Müllabfuhr und Werkstatt zugleich. Pelz vergleicht es mit einem „magischen Radiergummi", der Zellschäden rückgängig macht. Das verlangsamt Zellalterung, stärkt die Immunabwehr und unterstützt klare Gehirnfunktion. Eine Sonderform, die Mitophagie, erneuert sogar die Kraftwerke der Zellen (Mitochondrien).`,
     tipps: ["Setzt langsam ab ~17 h ein, Höhepunkt bei sehr langen Fasten", "Räumt defekte Zellteile weg → Anti-Aging-Effekt auf Zellebene", "Mitophagie erneuert die Mitochondrien (Zell-Kraftwerke)", "Unterstützt Immunsystem & Gehirn", "Wichtig: Autophagie entgiftet KEINE Schwermetalle/Plastik — dafür braucht es andere Wege", "Gut platziert in der Power Phase 1 (siehe Zyklus-Phasen)"],
   },
   {
-    id: "stammzellen_hormone", nurInfo: true, icon: "🌱", titel: "Stammzellen, Mikrobiom & Hormone",
+    id: "stammzellen_hormone", kern: "Längeres Fasten scheint Regenerationsprozesse und das Mikrobiom günstig zu beeinflussen.", relevanz: "Die meisten Daten dazu kommen aus Tierversuchen oder kleinen Studien. Interessant, aber kein Grund, sich zu langen Fasten zu zwingen.", evidenz: "hinweise", nurInfo: true, icon: "🌱", titel: "Stammzellen, Mikrobiom & Hormone",
     text: `Längere Fasten setzen weitere Heilungsstufen frei. Ab etwa 24 Stunden bildet der Körper Stammzellen, die abgenutzte Zellen erneuern — besonders wertvoll für die Darmschleimhaut (Gut-Reset). Das Mikrobiom verschiebt sich Richtung „guter" Bakterien, was Stimmung, Blutdruck und Blutzucker zugutekommt. Und: Die Eierstöcke reagieren gut auf Autophagie — weshalb längere Fasten in der Perimenopause, bei PCOS oder Kinderwunsch helfen können, die Hormonproduktion zu unterstützen.`,
     tipps: ["Ab ~24 h: Stammzellen erneuern u.a. die Darmschleimhaut (Gut-Reset)", "Gesünderes Mikrobiom → bessere Stimmung, Blutdruck & Blutzucker", "Wachstumshormon steigt beim Fasten (schützt Muskeln & Gewebe)", "Eierstöcke profitieren von Autophagie — relevant bei PCOS & Perimenopause", "Hormon-stützende Fasten am besten in den Power Phasen platzieren"],
   },
   {
-    id: "fasten_brechen", icon: "🍽️", titel: "Was bricht das Fasten — und wie brichst du es richtig?",
+    id: "fasten_brechen", kern: "Wie du das Fasten brichst, entscheidet mit darüber, wie du dich danach fühlst.", relevanz: "Beginne mit Protein und guten Fetten statt mit Zucker oder Weißmehl — das verhindert eine Blutzuckerachterbahn und den Absturz danach.", evidenz: "praxis", quelle: "Pelz", icon: "🍽️", titel: "Was bricht das Fasten — und wie brichst du es richtig?",
     text: `Eine häufige Frage: Was darf ich im Fastenfenster trinken? Faustregel von Pelz: Alles, was eine nennenswerte Insulin- oder Blutzuckerreaktion auslöst, bricht das Fasten. Wasser, schwarzer Kaffee und ungesüßter Tee sind in Ordnung. Beim Brechen des Fastens zählt die Reihenfolge: sanft starten, nicht mit Zucker oder einer riesigen Mahlzeit. So bleibt der Blutzucker stabil und der Magen-Darm-Trakt kommt gut wieder in Gang.`,
     tipps: ["Erlaubt im Fasten: Wasser, schwarzer Kaffee, ungesüßter Tee", "Bricht das Fasten: alles mit Zucker, Milch, Süßstoff-Reaktion, BCAAs, viele Kalorien", "Sanft brechen: mit Protein & gesundem Fett, nicht mit Zucker/Stärke", "Ein fermentiertes Lebensmittel (z.B. Sauerkraut) tut dem Darm gut", "Keine riesige Mahlzeit direkt nach langem Fasten", "Genug Mineralien/Elektrolyte über den Tag (siehe Fasten-Hacks)"],
   },
   {
-    id: "fasten_hormone", nurInfo: true, icon: "💬", titel: "Macht Fasten die Frauenhormone kaputt?",
+    id: "fasten_hormone", kern: "Moderates Fasten schadet den weiblichen Hormonen nach heutigem Stand nicht — extreme Unterernährung schon.", relevanz: "Rhonda Patrick betont: Es gibt keine Belege, dass intermittierendes Fasten die Fruchtbarkeit stört. Aber Fasten und dauerhaftes Kaloriendefizit sind nicht dasselbe.", evidenz: "hinweise", quelle: "Patrick / Mattson", nurInfo: true, icon: "💬", titel: "Macht Fasten die Frauenhormone kaputt?",
     text: `Ein hartnäckiger Mythos lautet: Fasten zerstöre bei Frauen die Hormone und die Fruchtbarkeit. Die ehrliche Antwort (u.a. von Dr. Rhonda Patrick und dem Fasten-Forscher Dr. Mark Mattson): Dafür gibt es keinen Beleg — moderates Intervallfasten/TRE stört bei gesunden Frauen weder Zyklus noch Fruchtbarkeit. Wichtig ist die Unterscheidung: Fasten ist NICHT dasselbe wie extreme Unterernährung. Tierdaten zeigen zwar, dass starke, dauerhafte Kalorienrestriktion den Zyklus stoppen kann — aber das ist Hungern, nicht ein vernünftiges Essfenster. Humanstudien sind noch begrenzt, deshalb bleibt die Linie: moderat ja, extrem nein.`,
     tipps: ["Kein Beleg, dass moderates Fasten/TRE die weiblichen Hormone oder Fruchtbarkeit stört", "Fasten ≠ Hungern: extreme Dauer-Kalorienrestriktion KANN den Zyklus stören", "Zirkadian günstig: Essfenster eher früher am Tag legen, nicht spät abends", "In der 2. Zyklushälfte & bei viel Stress lieber sanfter fasten (Pelz' Phasen)", "Vorsicht bei sehr schlanken Frauen, Jugendlichen, Kinderwunsch, Schwangerschaft/Stillzeit — Datenlage dünn", "Wenn Periode ausbleibt, Haare ausfallen oder du ständig frierst: Fasten zurückfahren & ärztlich abklären"],
   },
   {
-    id: "nachtfasten_brustkrebs", icon: "🌙", titel: "Nächtliches Fasten & Brustgesundheit",
+    id: "nachtfasten_brustkrebs", kern: "In einer Beobachtungsstudie war eine nächtliche Essenspause von etwa 13 Stunden mit niedrigerem Rezidivrisiko verbunden.", relevanz: "Praktisch heißt das: nach dem Abendessen nichts mehr. Das ist leichter umsetzbar als komplizierte Diäten — bleibt aber eine Beobachtung, kein Beweis.", evidenz: "hinweise", quelle: "Patterson, via Patrick", icon: "🌙", titel: "Nächtliches Fasten & Brustgesundheit",
     text: `Dr. Rhonda Patrick (FoundMyFitness) hebt ein Forschungsfeld hervor, das gut zum Fasten passt: das nächtliche Essfenster und Brustgesundheit. In einer vielbeachteten Studie (Marinac u.a., 2016) war ein nächtliches Fasten von mindestens ~13 Stunden bei Frauen mit früherer Brustkrebsdiagnose mit einer besseren Prognose assoziiert. Patricks Erklärungsmodell: spätes Essen hält Insulin und Blutzucker nachts hoch und stört den Tag-Nacht-Rhythmus — und hohe Insulin- und Östrogenspiegel werden mit Brustkrebs-Wachstum in Verbindung gebracht. Wichtig zur Einordnung: Das ist eine Beobachtungsstudie, kein Beweis für Ursache und Wirkung. Aber ~13 Stunden nachts nichts essen ist einfach, sicher und gut umsetzbar.`,
     tipps: ["Ziel: mindestens ~13 Stunden nachts nichts essen (z.B. 19:00 bis 8:00)", "Früher am Abend zu Ende essen wirkt zirkadian günstig", "Mechanismus: nachts niedrigeres Insulin & stabiler Blutzucker", "Hohe Insulin- & Östrogenspiegel werden mit Brustkrebs-Wachstum verknüpft", "Evidenz: Beobachtungsstudie (Assoziation, kein Kausalbeweis) — aber risikoarm", "Ersetzt keine Vorsorge/Behandlung — bei Brustkrebs ärztlich begleiten"],
   },
   {
-    id: "li_essfenster", icon: "⏰", titel: "Lis Essfenster — wann essen fürs Fettverbrennen",
+    id: "li_essfenster", kern: "Dr. Li empfiehlt, das Essfenster eher in die erste Tageshälfte zu legen.", relevanz: "Früh essen passt besser zum zirkadianen Rhythmus als spätes Abendessen — der Körper verarbeitet Nahrung morgens effizienter.", evidenz: "experten", quelle: "Li, Eat to Beat Your Diet", icon: "⏰", titel: "Lis Essfenster — wann essen fürs Fettverbrennen",
     text: `Dr. William Li empfiehlt in „Eat to Beat Your Diet" eine sanfte Form des Intervallfastens, die sich am Tag-Nacht-Rhythmus orientiert. Seine einfache Regel: Öffne dein Essfenster etwa 1 Stunde nach dem Aufwachen und schließe es 2–3 Stunden vor dem Schlafengehen. Bei einem typischen Tag ergibt das ein Essfenster von etwa 8 bis 20 Uhr — also rund 12 Stunden essen, 12 Stunden Pause.\n\nWarum das wirkt: Über Nacht sinkt dein Insulinspiegel, der Körper schaltet vom Speichern aufs Verbrennen um. Wer spät abends noch isst, hält Insulin und Blutzucker hoch und stört diesen Rhythmus. Ein frühes Abendessen ist deshalb günstiger als ein spätes.\n\nLi kombiniert das mit seinem Tipp, ruhig auch mal eine Mahlzeit auszulassen (1–2× pro Woche) — beides senkt Insulin und unterstützt den Fettabbau, ohne strenge Regeln. Wichtig: Es geht um ein angenehmes Fenster, nicht um möglichst langes Hungern.`,
     tipps: ["Essfenster ~1 h nach dem Aufwachen öffnen", "2–3 h vor dem Schlafengehen schließen (z.B. 8–20 Uhr)", "Frühes Abendessen ist günstiger als spätes", "Über Nacht sinkt Insulin → Körper verbrennt statt speichert", "Sanft kombinierbar mit „ab und zu eine Mahlzeit auslassen\"", "Kein Hunger-Wettbewerb — ein angenehmes Fenster reicht"],
   },
@@ -2253,27 +2256,27 @@ const FASTEN_WISSEN = [
 // ─────────── FASTEN-HACKS (praktische Tipps fürs Durchhalten) ───────────
 const FASTEN_HACKS = [
   {
-    id: "hack_hunger", icon: "🌊", titel: "Hunger überbrücken — bist du hungrig oder gelangweilt?",
+    id: "hack_hunger", kern: "Echter Hunger und Gewohnheitshunger fühlen sich unterschiedlich an.", relevanz: "Warte zehn Minuten und trink etwas — Gewohnheitshunger vergeht meist. Echter Hunger bleibt und darf gestillt werden.", evidenz: "praxis", quelle: "Pelz", icon: "🌊", titel: "Hunger überbrücken — bist du hungrig oder gelangweilt?",
     text: `Hunger ist laut Pelz „der Elefant im Fasten-Raum" — die häufigste Frage überhaupt. Ihr wichtigster erster Trick: Frag dich ehrlich „Bin ich hungrig oder gelangweilt?". Essen ist ein emotionaler Stimmungswechsler, und oft ist es gar kein echter Hunger. Pelz' Rat: Heb zuerst deine Stimmung mit etwas anderem als Essen — und schau, ob der Hunger dann verschwindet. Und: Hunger kommt in Wellen. Wenn du eine Welle überstehst, wird die nächste Phase meist wieder leichter.`,
     tipps: ["Frag dich zuerst: bin ich wirklich hungrig — oder nur gelangweilt?", "Heb deine Stimmung ohne Essen: Lieblingssong, in der Küche tanzen", "Ruf eine Freundin an (Oxytocin hebt die Stimmung) oder mach ein kurzes Nickerchen", "Ein Glas Wasser oder ungesüßter Tee überbrückt eine Hungerwelle", "Denk dran: Hunger kommt in Wellen und flacht wieder ab"],
   },
   {
-    id: "hack_mineralien", icon: "🧂", titel: "Mineralien zugeben",
+    id: "hack_mineralien", kern: "Beim Fasten verliert dein Körper Mineralien — Salz und Magnesium helfen.", relevanz: "Kopfschmerzen und Schwindel beim Fasten kommen oft von Mineralienmangel, nicht von Kalorienmangel.", evidenz: "praxis", quelle: "Pelz", icon: "🧂", titel: "Mineralien zugeben",
     text: `Wenn beim Fasten Symptome wie Heißhunger, Kopfweh oder Schwäche auftreten, empfiehlt Pelz einen einfachen Trick: Mineralien zugeben. Wir leben in einer Zeit stark ausgelaugter Böden — unsere Lebensmittel enthalten dadurch weniger Mineralstoffe, und genau dieser Mangel kann viele der Fasten-Symptome auslösen. Mineralien ins Wasser zu geben stillt nicht nur das Verlangen nach etwas anderem als Wasser, sondern kann diese Symptome auch abmildern. Wichtig: Diese Symptome sind meist vorübergehend — wie wenn der Körper von einer Erkältung heilt.`,
     tipps: ["Bei Heißhunger, Kopfweh oder Schwäche: Mineralien ins Wasser geben", "Ungesüßte Mineral-/Elektrolytpäckchen oder Salzwasser eignen sich gut", "Auch Zitrone-Ingwer-Saft oder Apfelessig im Wasser sind erlaubt", "Symptome sind meist vorübergehend — kein Grund, gleich abzubrechen"],
   },
   {
-    id: "hack_bricht_nicht", icon: "☕", titel: "Was dich aus dem Fasten holt — und was nicht",
+    id: "hack_bricht_nicht", kern: "Wasser, schwarzer Kaffee und ungesüßter Tee brechen das Fasten praktisch nicht.", relevanz: "Alles mit Kalorien beendet ein striktes Fasten. Kleine Mengen Fett stören die Ketose weniger als Zucker.", evidenz: "hinweise", quelle: "Pelz", icon: "☕", titel: "Was dich aus dem Fasten holt — und was nicht",
     text: `Die häufigste Frage laut Pelz: „Bricht das mein Fasten?" Jeder reagiert etwas anders, aber es gibt klare Muster. Manche Dinge, von denen viele glauben, sie seien harmlos, holen einen doch aus dem Fastenzustand — andere sind zuverlässig okay und machen das Fasten sogar leichter (Kaffee mit einem Schuss MCT-Öl ist ein Klassiker gegen Hunger).`,
     tipps: ["Bleibt meist im Fasten: Wasser, Sprudelwasser, schwarzer Bio-Kaffee, ungesüßter Tee", "Auch okay: MCT-Öl, Salzwasser, Zitrone-Ingwer, Apfelessig, Zimt/Muskat im Kaffee", "Holt dich oft raus (obwohl viele es glauben): Diätdrinks, Kaugummi, Frucht- & Grünsäfte", "Ebenfalls: Obers/Milch im Kaffee, Mushroom-Coffee, Kombucha, Proteindrinks, gesüßte Tees", "Sicher testen: Blutzucker messen, Getränk trinken, nach 30 Min. erneut messen — steigt er, hat es dich rausgeholt", "Teste zuerst deinen Morgenkaffee — Kaffee wirkt bei jeder anders"],
   },
   {
-    id: "hack_snacks", icon: "🥑", titel: "Fasted Snacks als Krücke",
+    id: "hack_snacks", kern: "Fasted Snacks sind eine Brücke, wenn ein langes Fasten sonst nicht klappt.", relevanz: "Ehrlich: Sie beenden ein striktes Fasten. Aber eine Brücke ist besser als ganz aufzugeben.", evidenz: "experten", quelle: "Pelz", icon: "🥑", titel: "Fasted Snacks als Krücke",
     text: `Ein „Fasted Snack" ist ein kleiner, fast reiner Fett-Snack, der die meisten Menschen NICHT aus dem Fastenzustand holt — weil Fett den Blutzucker kaum bewegt. Pelz nutzt das als Trick, um Anfängerinnen an längere Fasten heranzuführen: Statt sich durch einen langen Fasten zu quälen, überbrückt ein Fett-Snack den Hunger. Die Forschung zeigt sogar, dass Menschen mit einem Fasted Snack ihr Fastenfenster verlängern und mehr abnehmen. Wichtig: nur als Krücke nutzen und weglassen, sobald du sie nicht mehr brauchst.`,
     tipps: ["Nur als Einstiegshilfe fürs Verlängern nutzen — dann wieder weglassen", "Gute Optionen: 1 EL MCT-Öl, 2 EL Nussbutter, etwas Knochenbrühe", "Auch Kaffee mit einem Löffel Obers/Butter überbrückt Hunger", "Am besten mit Blutzucker-Test prüfen, ob er dich im Fasten hält"],
   },
   {
-    id: "hack_brechen", icon: "🥣", titel: "Das Fasten richtig brechen",
+    id: "hack_brechen", kern: "Wie du das Fasten brichst, entscheidet über dein Wohlbefinden danach.", relevanz: "Beginne mit Protein und Fett statt mit Zucker — das verhindert die Blutzuckerachterbahn.", evidenz: "praxis", quelle: "Pelz", icon: "🥣", titel: "Das Fasten richtig brechen",
     text: `Wie du dein Fasten brichst, entscheidet mit, wie gut du dich danach fühlst — die erste Mahlzeit ist laut Pelz besonders wichtig. Bei kürzeren Fasten (unter 48 h) helfen Ballaststoffe und Fett zuerst: Ballaststoffe wirken wie ein Netz für Glukose, Fett wie eine Bremse — beides hält den Blutzucker-Anstieg flach. Nach langen Fasten (über 48 h) hat sich die Verdauung stark verlangsamt, dann brauchst du einen behutsamen Wiedereinstieg in mehreren Schritten.`,
     tipps: ["Kürzere Fasten: mit Ballaststoffen & Fett brechen (z.B. Salat + gutes Öl), nicht mit Zucker/Stärke", "Ballaststoffe fangen Glukose ab, Fett bremst den Anstieg", "Lange Fasten (>48 h) in Schritten brechen: 1. Tasse Knochenbrühe", "2. probiotisch & mit Fett (fermentierter Joghurt, Sauerkraut, Oliven)", "3. gedünstetes (nicht rohes) Gemüse", "Keine riesige Mahlzeit direkt nach langem Fasten — sonst Völlegefühl & Müdigkeit"],
   },
@@ -2290,27 +2293,27 @@ const FASTEN_HACKS = [
 // ═══════════════════════════════════════════════════════════════════
 const MENOPAUSE_FASTEN = [
   {
-    id: "meno_fasten_warum", icon: "🧠", titel: "Warum Fasten in der Menopause anders wirkt",
+    id: "meno_fasten_warum", kern: "Ohne Zyklus fällt die hormonelle Rücksichtnahme weg — Fasten wird planbarer.", relevanz: "Du musst nicht mehr auf die Lutealphase Rücksicht nehmen. Trotzdem gilt: auf Schlaf, Stress und Energie achten.", evidenz: "experten", quelle: "Pelz, Age Like a Girl", icon: "🧠", titel: "Warum Fasten in der Menopause anders wirkt",
     text: `Dr. Mindy Pelz macht in „Age Like a Girl“ einen wichtigen Punkt: Mit dem Östrogenabfall kann das Gehirn Glukose schlechter nutzen — und genau hier kommen Ketone ins Spiel. Beim Fasten bildet der Körper Ketone, die für das menopausale Gehirn ein idealer Ersatztreibstoff sind (Pelz nennt es „wie Schloss und Schlüssel“). Das erklärt, warum viele Frauen in den Wechseljahren beim Fasten von klarerem Kopf, besserer Stimmung und mehr Energie berichten. Wichtig bleibt: Das ist Pelz' Lesart aus klinischer Erfahrung; Fasten ist ein Werkzeug, kein Muss — und bei Erkrankungen/Medikamenten vorher ärztlich abklären.`,
     tipps: ["Weniger Östrogen → Gehirn nutzt Glukose schlechter → Ketone helfen", "Ketone wirken beruhigend & klärend aufs menopausale Gehirn", "Schon kleine tägliche Keton-Mengen können Energie & Fokus geben", "Vier Keton-Quellen: Fasten, Primal Menopausal Diet, MCT-Öl, (exogene Ketone)", "Kein Zwang: Fasten ist ein Werkzeug — hör auf deinen Körper"],
   },
   {
-    id: "meno_fasten_freiheit", icon: "🌙", titel: "Mehr Freiheit ohne Zyklus",
+    id: "meno_fasten_freiheit", kern: "In der Menopause kannst du dein Fastenfenster freier wählen als mit Zyklus.", relevanz: "Der Mondrhythmus gibt dir trotzdem eine Struktur, damit nicht jeder Tag gleich aussieht — Rhythmus tut dem Körper gut.", evidenz: "experten", quelle: "Pelz", icon: "🌙", titel: "Mehr Freiheit ohne Zyklus",
     text: `Während eine Frau mit Zyklus ihre Fasten genau an die Hormonphasen timen muss, hast du nach der Menopause mehr Freiheit — du bist nicht mehr an den 30-Tage-Rhythmus gebunden. Pelz beobachtet, dass gerade post-menopausale Frauen mit längeren Fasten (24 Stunden und mehr) oft besonders gut zurechtkommen und davon profitieren. Wer noch in der Perimenopause ist und unregelmäßige Zyklen hat, kann sich am Mondzyklus orientieren (Neumond = Tag 1).`,
     tipps: ["Postmenopausal: keine strikte Zyklus-Bindung mehr nötig", "Bei Gehirnnebel/Wortfindung: längere Fasten (24 h+) geben mehr Ketone", "Perimenopause mit unregelmäßigem Zyklus: am Mondzyklus orientieren (Neumond = Tag 1)", "Kürzere Fasten täglich, längere Fasten eher quartalsweise/gezielt", "Längere Fasten nur für Erfahrene & mit guter Mineral-/Elektrolytversorgung", "Bei Schilddrüse, Diabetes, Untergewicht o.ä.: vorher ärztlich abklären"],
   },
   {
-    id: "meno_fasten_3tage", icon: "💧", titel: "Der 3-Tage-Wasserfast — transformativ für die Menopause",
+    id: "meno_fasten_3tage", kern: "Pelz beschreibt einen dreitägigen Wasserfast als besonders wirkungsvoll in der Menopause.", relevanz: "Das ist Fasten für Erfahrene und gehört gut vorbereitet. Bei Vorerkrankungen oder Medikamenten vorher ärztlich abklären.", evidenz: "experten", quelle: "Pelz", icon: "💧", titel: "Der 3-Tage-Wasserfast — transformativ für die Menopause",
     text: `Dr. Pelz beschreibt den 3-Tage-Wasserfast als eine besondere Kraftquelle für Frauen in den Wechseljahren. Die meisten denken bei Fasten nur an den Körper — doch für Frauen in dieser Lebensphase bietet ein längeres Fasten mehr: Ab etwa 72 Stunden beginnt dein Körper, vermehrt Stammzellen zu produzieren. Alte, alternde Zellen werden abgebaut (ein Prozess namens Apoptose), und neue, jüngere Zellen entstehen — ein Geschenk an deinen Körper, das ihn regenerieren hilft.\n\nPelz beobachtet, dass mit dem körperlichen Aufräumen oft auch mentaler und emotionaler Ballast fällt. Viele Frauen berichten von überraschender Klarheit und Einsicht während dieses Fastens. Es ist kein Fasten der Entbehrung, sondern des Zuhörens — eine Zeit, in der große Fragen auftauchen dürfen: „Wer bin ich jetzt? Was dient mir nicht mehr? Wie soll dieser neue Lebensabschnitt aussehen?" Wenn die Menopause das Loslassen des Alten ist, kann dieser Fast das Ritual sein, das den Weg für Neues frei macht.`,
     tipps: ["Ab ~72 Stunden beginnt die Stammzellproduktion (Regeneration & Anti-Aging)", "Alte Zellen werden abgebaut (Apoptose), neue jüngere entstehen", "Oft begleitet von mentaler Klarheit & emotionalem Loslassen", "Pelz veranstaltet 2×/Jahr einen weltweiten 3-Tage-Wasserfast", "NUR für erfahrene Fasterinnen — mit Elektrolyten & idealerweise Begleitung", "Nicht bei Untergewicht, Essstörung, Diabetes-Medikamenten, Schwangerschaft/Stillzeit"],
   },
   {
-    id: "meno_fasten_ketone", icon: "🔥", titel: "4 Wege zu Ketonen — Treibstoff gegen den Gehirnnebel",
+    id: "meno_fasten_ketone", kern: "Ketone können deinem Gehirn als alternativer Brennstoff dienen.", relevanz: "Es gibt mehrere Wege dorthin: längeres Fasten, wenig Kohlenhydrate, MCT-Öl oder Bewegung. Was für dich passt, darfst du ausprobieren.", evidenz: "hinweise", quelle: "Pelz", icon: "🔥", titel: "4 Wege zu Ketonen — Treibstoff gegen den Gehirnnebel",
     text: `Ketone sind wie Raketentreibstoff für dein Gehirn — besonders wertvoll, wenn in der Menopause der „Gehirnnebel“ zuschlägt. Weil dein Gehirn durch den Östrogenabfall schlechter Glukose verwerten kann, sind Ketone eine willkommene alternative Energiequelle für mehr Klarheit und Fokus. Dr. Pelz nennt vier Wege, deinen Körper in die Ketose zu bringen — du musst also nicht nur über langes Fasten dorthin.\n\nSo hast du an „Nebeltagen“ immer eine Option: Wenn das Fasten gerade nicht passt, bringen dich Primal-Ernährung, MCT-Öl oder exogene Ketone ebenfalls in den Genuss dieser mentalen Klarheit.`,
     tipps: ["1. Fasten — ab ca. 12–16 h beginnt der Körper, Ketone zu bilden", "2. Primal/ketobiotische Ernährung — wenig Kohlenhydrate, viel gutes Fett", "3. MCT-Öl — ein Löffel im Morgenkaffee liefert schnelle Ketone", "4. Exogene Ketone / Ketonester — direkte Ketonquelle für akute Nebeltage", "Alle vier führen zum selben Ziel: Ketone als sauberer Gehirn-Treibstoff", "Ideal kombiniert mit der Primal Menopausal Diet"],
   },
   {
-    id: "meno_fasten_hadza", icon: "🌍", titel: "Das Großmütter-Vorbild — warum längeres Fasten natürlich ist",
+    id: "meno_fasten_hadza", kern: "Längere Essenspausen entsprechen eher dem, wie Menschen lange gelebt haben.", relevanz: "Pelz nutzt das als Argument, dass Fasten nichts Unnatürliches ist. Es bleibt aber ein Analogieschluss, kein Studienbeweis.", evidenz: "experten", quelle: "Pelz", icon: "🌍", titel: "Das Großmütter-Vorbild — warum längeres Fasten natürlich ist",
     text: `Warum vertragen Frauen nach der Menopause oft gerade längere Fasten so gut? Ein Blick auf unsere Vorfahrinnen hilft. Bei Naturvölkern wie den Hadza sind es traditionell die älteren Frauen, die Großmütter, die stundenlang unterwegs sind, um Knollen und Wurzeln zu sammeln — oft den halben Tag ohne zu essen. Dieses lange Fasten beim „Sammeln“, gefolgt von einer nährstoffreichen, unverarbeiteten Mahlzeit, entspricht genau unserem ursprünglichen Design.\n\nDiese „Großmutter-Hypothese“ erinnert daran: Die Menopause ist kein Defekt, sondern eine sinnvolle Lebensphase. Dein Körper ist evolutionär darauf ausgelegt, auch nach den fruchtbaren Jahren stark, aktiv und wertvoll zu sein — und längere Fastenperioden gehören ganz natürlich dazu.`,
     tipps: ["Ältere Frauen bei Naturvölkern fasten beim Sammeln oft viele Stunden", "Langes Fasten + nährstoffreiche Naturkost = unser ursprüngliches Design", "Die „Großmutter-Hypothese“: Menopause hat einen evolutionären Sinn", "Kein Defekt — dein Körper ist für diese Phase gemacht", "Passt perfekt zur Primal Menopausal Diet (Knollen & Wurzeln)"],
   },
@@ -2325,31 +2328,31 @@ const MENOPAUSE_FASTEN = [
 // ═══════════════════════════════════════════════════════════════════
 const FASTEN_PROTOKOLLE = [
   {
-    id: "prot_pcos", icon: "🌸", titel: "PCOS & Kinderwunsch",
+    id: "prot_pcos", kern: "Pelz' Protokoll bei PCOS zielt darauf, über Insulin die Hormone wieder ins Gleichgewicht zu bringen.", relevanz: "Der Ansatz ist plausibel, weil PCOS oft ein Insulinthema ist. Bei Kinderwunsch gehört das ärztlich begleitet — nicht im Alleingang.", evidenz: "experten", quelle: "Pelz", icon: "🌸", titel: "PCOS & Kinderwunsch",
     intro: "Pelz entwickelte dieses Protokoll für Frauen mit Insulinresistenz, PCOS und unerfülltem Kinderwunsch. Der Hebel: Insulin senken, damit sich die Sexualhormone wieder einpendeln. Geduld — es kann mehrere Zyklen dauern.",
     plan: ["Tag 1–3: 15 Std Intervallfasten (ketobiotic)", "Tag 4–10: 17 Std Autophagie-Fasten (ketobiotic)", "Tag 11–15: 13 Std Intervallfasten (hormone feasting)", "Tag 16–19: 13 Std Intervallfasten (ketobiotic)", "Tag 20–Periode: nicht fasten (hormone feasting)"],
     hinweis: `Bei Kinderwunsch/PCOS bitte ärztlich begleiten. NICHT anwenden bei bestehender Schwangerschaft.`,
   },
   {
-    id: "prot_schilddruese", icon: "🦋", titel: "Schilddrüse (z.B. Hashimoto)",
+    id: "prot_schilddruese", kern: "Bei Schilddrüsenerkrankungen ist Fasten nur mit ärztlicher Begleitung sinnvoll.", relevanz: "Die Schilddrüse reagiert empfindlich auf Energiemangel. Medikamente und Werte müssen im Blick bleiben.", evidenz: "experten", quelle: "Pelz", icon: "🦋", titel: "Schilddrüse (z.B. Hashimoto)",
     intro: "Bei Schilddrüsenthemen denkt Pelz an das Zusammenspiel von Gehirn, Leber und Darm. Autophagie-Fasten steht im Mittelpunkt, kombiniert mit leberfreundlichen, bitteren & Kreuzblütler-Lebensmitteln in den Feasting-Tagen.",
     plan: ["Tag 1–5: 15 Std Intervallfasten (ketobiotic)", "Tag 6–8: 17 Std Autophagie-Fasten (ketobiotic)", "Tag 9–10: 24 Std Darm-Reset-Fasten (ketobiotic)", "Tag 11–15: 15 Std Intervallfasten (hormone feasting)", "Tag 16–19: 17 Std Autophagie-Fasten (ketobiotic)", "Tag 20–Periode: 13 Std Intervallfasten (hormone feasting)"],
     hinweis: `Schilddrüsenerkrankungen unbedingt ärztlich begleiten — Fasten kann den Medikamentenbedarf beeinflussen.`,
   },
   {
-    id: "prot_autoimmun", icon: "🛡️", titel: "Autoimmun (z.B. Rheuma, Lupus)",
+    id: "prot_autoimmun", kern: "Bei Autoimmunerkrankungen wird Fasten als möglicher Entzündungsmodulator diskutiert.", relevanz: "Die Datenlage ist dünn und die Erkrankungen sehr unterschiedlich. Nur in Absprache mit deiner Ärztin.", evidenz: "hinweise", quelle: "Pelz", icon: "🛡️", titel: "Autoimmun (z.B. Rheuma, Lupus)",
     intro: "Pelz sieht Darm und Giftstoff-Last im Zentrum von Autoimmunthemen. Zwei Fasten helfen besonders: Darm-Reset (24 Std) und Autophagie (17 Std). Wer neu ist, sollte erst ein paar Monate den sanften 30-Tage-Einstieg machen.",
     plan: ["Tag 1–5: 17 Std Autophagie-Fasten (ketobiotic)", "Tag 6–7: 24 Std Darm-Reset-Fasten (ketobiotic)", "Tag 8–10: 17 Std Autophagie-Fasten (ketobiotic)", "Tag 11–15: 15 Std Intervallfasten (hormone feasting)", "Tag 16–17: 24 Std Darm-Reset-Fasten (ketobiotic)", "Tag 18–19: 17 Std Autophagie-Fasten (ketobiotic)", "Tag 20–Periode: 13 Std Intervallfasten (hormone feasting)"],
     hinweis: `Autoimmunerkrankungen gehören in ärztliche Hand — dieses Protokoll ist ergänzend, kein Ersatz für Therapie.`,
   },
   {
-    id: "prot_gehirn", icon: "🧠", titel: "Gehirn & Stimmung (Fokus, Gedächtnis, Stimmung)",
+    id: "prot_gehirn", kern: "Ketone als alternativer Gehirnbrennstoff sind die Idee hinter diesem Protokoll.", relevanz: "Für Fokus und Stimmung gibt es Hinweise, aber keine belastbaren Humanstudien zu diesem konkreten Ablauf.", evidenz: "hinweise", quelle: "Pelz", icon: "🧠", titel: "Gehirn & Stimmung (Fokus, Gedächtnis, Stimmung)",
     intro: "Für Gehirnnebel, Konzentrations- und Stimmungsthemen setzt Pelz auf Ketone (heilsam für Nervenzellen) und Autophagie (räumt dysfunktionale Neuronen auf). Enthält ein längeres 48-Std-Fasten — nur für Erfahrene. Mineralstoffe sind hier besonders wichtig.",
     plan: ["Tag 1–5: 17 Std Autophagie-Fasten", "Tag 6–7: 48 Std Dopamin-Fasten (nur erfahren!)", "Tag 8–10: 15 Std Intervallfasten", "Tag 11–15: 13 Std Intervallfasten", "Tag 16–19: 17 Std Autophagie-Fasten", "Tag 20–Periode: 13 Std Intervallfasten"],
     hinweis: `Bei Depression/Angst/anhaltenden Gedächtnisproblemen bitte professionelle Hilfe suchen. Das 48-Std-Fasten nur mit Erfahrung & ärztlicher Rücksprache.`,
   },
   {
-    id: "prot_nebennieren", icon: "🔋", titel: "Erschöpfung & Nebennieren (sanfter Einstieg)",
+    id: "prot_nebennieren", kern: "Bei Erschöpfung ist ein sanfter Einstieg wichtiger als ein langes Fasten.", relevanz: "Wer schon erschöpft ist, braucht zuerst Schlaf, Essen und Erholung — nicht zusätzlichen Stress durch Fasten.", evidenz: "experten", quelle: "Pelz", icon: "🔋", titel: "Erschöpfung & Nebennieren (sanfter Einstieg)",
     intro: "Bei Erschöpfung/Nebennieren-Stress gilt das Gegenteil von „viel hilft viel\": ganz langsam ins Fasten reinwachsen, mehr gute Fette, Blutzucker stabil halten. Pelz rät, diesen Plan über bis zu sechs Monate sanft aufzubauen — milde Reize, nicht zu viel Stress.",
     plan: ["Tag 1–10: 10 Std Intervallfasten (sanfter Einstieg)", "Tag 11–15: nicht fasten (hormone feasting)", "Tag 16–19: 13 Std Intervallfasten (sanfter Einstieg)", "Tag 20–28: nicht fasten (hormone feasting)"],
     hinweis: `Bei Erschöpfung/Burnout zuerst ärztlich abklären. Wenig fasten, viel nähren — kein Leistungsdruck.`,
@@ -2363,32 +2366,190 @@ const FASTEN_PROTOKOLLE = [
 // ═══════════════════════════════════════════════════════════════════
 const ESSEN_WISSEN = [
   {
-    id: "food_rules_basis", nurInfo: true, icon: "🍽️", titel: "Die 3 Ernährungsregeln (Überblick)",
+    id: "food_rules_basis", kern: "Hormone brauchen drei Dinge: Bausteine zum Bilden, Wege zum Verstoffwechseln und Ausscheidungswege.", relevanz: "Die meisten Hormonprobleme lassen sich einer dieser drei Ebenen zuordnen. Das macht die Sache übersichtlicher als jede Symptomliste.", evidenz: "experten", quelle: "Pelz", nurInfo: true, icon: "🍽️", titel: "Die 3 Ernährungsregeln (Überblick)",
     text: `Das Herzstück von „Eat Like a Girl": Essen ist der wichtigste Treibstoff für deine Hormone. Pelz fasst es in drei einfachen Regeln zusammen, die du dir bei jeder Mahlzeit als Leitstern denken kannst — Hormone BILDEN, VERSTOFFWECHSELN und ENTGIFTEN. Wenn du danach isst, arbeiten deine Hormone für dich statt gegen dich. Das gilt in jeder Lebensphase, mit oder ohne Zyklus.`,
     tipps: ["Regel 1: Essen, um Hormone zu BILDEN (die Bausteine liefern)", "Regel 2: Essen, um Hormone zu VERSTOFFWECHSELN (Leber & Darm)", "Regel 3: Essen, um Hormone zu ENTGIFTEN (Mikrobiom/Östrobolom)", "Eine einfache Faustregel: bei jeder Mahlzeit etwas aus jeder Gruppe", "Vielfalt schlägt Perfektion — bunt & abwechslungsreich essen"],
     teenText: "Essen ist der wichtigste Treibstoff für deine Hormone. Aus dem Buch „Eat Like a Girl\" gibt es drei einfache Regeln, die dir helfen, gut für deinen Körper zu sorgen. Kurz gesagt: Dein Körper braucht gutes Essen, um Hormone zu bauen, sie wieder abzubauen und Reste loszuwerden. Das Wichtigste dabei ist Vielfalt — also viele verschiedene, bunte Lebensmittel. Du musst nicht perfekt essen! Es geht darum, dass insgesamt viel Gutes und Abwechslung dabei ist.",
     teenTipps: ["Regel 1: essen, um Hormone zu bauen", "Regel 2: essen, damit Leber & Darm gut arbeiten", "Regel 3: essen, damit dein Darm Reste loswird", "Faustregel: bei jeder Mahlzeit etwas aus jeder Gruppe (Gemüse, Eiweiß, gute Fette, Vollkorn)", "Vielfalt ist wichtiger als Perfektion — iss bunt"],
   },
   {
-    id: "food_rule_bilden", nurInfo: true, icon: "🧱", titel: "Regel 1: Hormone bilden — die Bausteine",
+    id: "food_rule_bilden", kern: "Hormone werden aus Cholesterin und guten Fetten gebaut — ohne Rohstoff keine Hormone.", relevanz: "Sehr fettarme Ernährung kann deshalb den Hormonhaushalt stören. Eier, Fisch, Olivenöl und Avocado liefern die Bausteine.", evidenz: "belegt", quelle: "Pelz", nurInfo: true, icon: "🧱", titel: "Regel 1: Hormone bilden — die Bausteine",
     text: `Sexualhormone werden aus Nährstoffen gebaut — wie ein Rezept feste Zutaten braucht. Pelz nennt 24 Schlüssel-Nährstoffe (die „Key 24") in vier Gruppen: Vitamine, Mineralstoffe, Fettsäuren und Aminosäuren. Fehlt einer davon dauerhaft, leidet die Hormonproduktion. Der einfachste Weg, alle zu bekommen: Vielfalt. Hochverarbeitete Lebensmittel liefern sie nicht — sie ziehen sogar Nährstoffe aus dem Körper.\n\nKurz erklärt, was diese vier Gruppen sind: Vitamine sind kleine Helfer, die unzählige Vorgänge im Körper anschieben (z.B. Vitamin C, D, die B-Vitamine). Mineralstoffe sind Bausteine aus der Erde, die dein Körper braucht, aber nicht selbst herstellen kann (z.B. Eisen, Magnesium, Zink, Jod). Fettsäuren sind die Bausteine von Fetten — gute Fette wie Omega-3 (aus Fisch, Nüssen) sind wichtig fürs Gehirn und für Hormone. Aminosäuren sind die Bausteine von Eiweiß (Protein) — dein Körper baut daraus Muskeln, Enzyme und auch Hormone.`,
     tipps: ["Vitamine (kleine Helfer): v.a. B6, B9 (Folat), B12, C, D, E", "Mineralstoffe (Bausteine aus der Erde): Magnesium, Zink, Selen, Jod, Eisen", "Fettsäuren (Bausteine von Fett): Omega-3 (DHA/EPA) & gesunde Fette, auch Cholesterin als Baustein", "Aminosäuren (Bausteine von Eiweiß): Eier, Fisch, Fleisch, Hülsenfrüchte", "Schlüssel ist Vielfalt — viele verschiedene nährstoffreiche Lebensmittel"],
     teenText: "Deine Hormone werden aus dem gebaut, was du isst — wie ein Kuchen, für den man bestimmte Zutaten braucht. Es gibt vier wichtige Gruppen von Bausteinen, und dein Körper braucht von allen etwas:\n\n1. Vitamine — kleine Helfer, die viele Dinge im Körper in Gang bringen (z.B. Vitamin C, D und die B-Vitamine).\n2. Mineralstoffe — Bausteine aus der Erde, die dein Körper nicht selbst machen kann (z.B. Eisen, Magnesium, Zink).\n3. Fettsäuren — die Bausteine von guten Fetten, wichtig fürs Gehirn (z.B. Omega-3 aus Fisch, Nüssen, Leinsamen).\n4. Aminosäuren — die Bausteine von Eiweiß, also von Muskeln und vielem mehr (aus Eiern, Fisch, Fleisch, Hülsenfrüchten).\n\nDas Beste: Du musst dir das nicht merken! Wenn du bunt und abwechslungsreich isst, bekommst du automatisch von allem etwas.",
     teenTipps: ["Vitamine = kleine Helfer (Obst, Gemüse, Vollkorn)", "Mineralstoffe = Bausteine aus der Erde (z.B. Eisen aus Hülsenfrüchten & Fleisch)", "Fettsäuren = gute Fette (Fisch, Nüsse, Leinsamen, Avocado)", "Aminosäuren = Eiweiß-Bausteine (Eier, Fisch, Fleisch, Hülsenfrüchte)", "Bunt essen = du kriegst automatisch von allem etwas", "Fertigprodukte liefern wenig davon — lieber frische Sachen"],
   },
   {
-    id: "food_rule_verstoffwechseln", icon: "🫀", titel: "Regel 2: Hormone verstoffwechseln — Leber & Darm",
+    id: "food_rule_verstoffwechseln", kern: "Leber und Darm bauen verbrauchte Hormone ab — sind sie überlastet, staut sich etwas.", relevanz: "Kreuzblütler, Bitterstoffe und Ballaststoffe unterstützen die Leber. Ein träger Darm bedeutet, dass abgebaute Hormone länger im Körper bleiben.", evidenz: "belegt", quelle: "Pelz", icon: "🫀", titel: "Regel 2: Hormone verstoffwechseln — Leber & Darm",
     text: `Damit Hormone wirken und danach sauber abgebaut werden, müssen Leber und Darm gut arbeiten. „Verstoffwechseln" heißt: Hormone in nutzbare Teile zerlegen und auf die Ausscheidung vorbereiten. Beide Organe lieben ballaststoffreiche Bittergrüns. Was diesen Prozess bremst, ist vor allem Alkohol — gerade in der Perimenopause kann das abendliche Glas Wein den Hormonabbau für Stunden lahmlegen.`,
     tipps: ["Iss täglich Bittergrüns & Ballaststoffe (Rucola, Löwenzahn, Chicorée, Radicchio, Grünkohl)", "Nimm bei jeder Mahlzeit einen kleinen Salat dazu (Idee aus dem Buch)", "Bau regelmäßig Kreuzblütler (Brokkoli & Co.) ein — sie unterstützen den Östrogen-Abbau", "Halte Alkohol gering (in der Menopause max. ~2 Gläser/Woche) — er bremst den Hormonabbau", "Reduziere Zucker, raffiniertes Mehl & entzündliche Fette (sie belasten die Leber)", "Trink genug Wasser — das hilft der Ausscheidung"],
     teenText: "Damit deine Hormone gut arbeiten und Reste sauber abgebaut werden, brauchen deine Leber und dein Darm Unterstützung. Beide lieben Gemüse und Ballaststoffe — vor allem grünes und bitteres Gemüse wie Rucola, Grünkohl oder Brokkoli. Was ihnen dagegen schwerfällt: zu viel Zucker. Gerade zuckerhaltige Getränke und Süßigkeiten belasten deine Leber. Am besten hilfst du deinem Körper mit viel buntem Gemüse, genug Wasser und wenig Zucker.",
     teenTipps: ["Viel Gemüse essen — besonders grünes (Brokkoli, Grünkohl, Salat)", "Idee: bei jeder Mahlzeit ein bisschen Gemüse oder Salat", "Wenig Zucker — vor allem zuckerhaltige Getränke belasten die Leber", "Genug Wasser trinken hilft deinem Körper beim Aufräumen"],
   },
   {
-    id: "food_rule_entgiften", icon: "🦠", titel: "Regel 3: Hormone entgiften — das Östrobolom",
+    id: "food_rule_entgiften", kern: "Das Östrobolom ist der Teil deines Mikrobioms, der Östrogen mit abbaut.", relevanz: "Ein vielfältiges Mikrobiom hilft beim Ausscheiden überschüssigen Östrogens. Fermentiertes und Ballaststoffe füttern genau diese Bakterien.", evidenz: "hinweise", quelle: "Pelz", icon: "🦠", titel: "Regel 3: Hormone entgiften — das Östrobolom",
     text: `Der letzte Schritt: verbrauchtes Östrogen muss den Körper verlassen. Dabei hilft ein spezieller Teil deines Darmmikrobioms — das „Östrobolom". Ist es gut gepflegt, wird Östrogen sauber ausgeschieden. Ist es aus dem Gleichgewicht, kann Östrogen „hängen bleiben" — was zu Blähbauch nach dem Eisprung und hartnäckigem Bauchfett beitragen kann. Bauchfett ist laut Pelz oft ein Lager für Hormone, die der Körper nicht ausscheiden konnte (v.a. Cortisol & Östrogen).`,
     tipps: ["Iss regelmäßig Fermentiertes (Sauerkraut, Kimchi, Joghurt) für gute Darmbakterien", "Füttere sie mit Ballaststoffen (Präbiotika) aus Gemüse, Hülsenfrüchten & Vollkorn", "Bau Polyphenole ein: bunte Beeren, Olivenöl, dunkle Pflanzenfarben", "Nimm Leinsamen dazu — sie unterstützen die Östrogen-Balance", "Blähbauch nach dem Eisprung? Stärke gezielt Darm & Leber (siehe oben)", "Betrachte Bauchfett hormonell, nicht nur über Kalorien"],
     teenText: "Der letzte Schritt: Dein Körper muss verbrauchte Hormone wieder loswerden. Dabei hilft dein Mikrobiom. Das klingt kompliziert, ist aber einfach: In deinem Darm leben Billionen von winzigen Bakterien — stell sie dir wie viele kleine Helfer vor. Die allermeisten sind richtig nützlich: Sie helfen dir beim Verdauen, stärken dein Immunsystem (also deine Abwehr gegen Krankheiten) und beeinflussen sogar deine Stimmung. Ein bestimmter Teil dieser Helfer kümmert sich darum, altes Östrogen abzubauen. Damit es deinen kleinen Helfern gut geht, gibst du ihnen gutes Futter: Ballaststoffe (aus Gemüse, Obst, Vollkorn) und ab und zu fermentierte Sachen wie Joghurt. Und Vielfalt — je bunter du isst, desto mehr verschiedene gute Bakterien hast du.",
     teenTipps: ["In deinem Darm leben Billionen guter Bakterien = dein Mikrobiom", "Sie helfen beim Verdauen, stärken die Abwehr und beeinflussen die Stimmung", "Gutes Futter für sie: Ballaststoffe aus Gemüse, Obst, Vollkorn", "Ab und zu Joghurt oder anderes Fermentiertes gibt gute Bakterien dazu", "Bunt essen = mehr verschiedene gute Helfer im Darm"],
+  },  {
+    id: "etiketten_lesen",
+    kern: "Steht „Zucker\" nicht in der Zutatenliste, heißt das noch lange nicht, dass keiner drin ist.",
+    relevanz: "Hersteller dürfen viele Zuckerarten verwenden und müssen das Wort „Zucker\" nur schreiben, wenn Haushaltszucker drin ist. Die Endung „-ose\" und alles mit „Sirup\" oder „Konzentrat\" sind Hinweise.",
+    evidenz: "praxis", quelle: "foodwatch Österreich",
+    icon: "🔍", titel: "Zutatenlisten lesen — die Tricks der Industrie",
+    text: `Viele Menschen fürchten sich vor E-Nummern. Dabei sind die meisten harmlos: E 300 ist Vitamin C, E 440 ist Apfelpektin, E 160a ist Beta-Carotin aus Karotten. Der Blick auf einzelne Nummern bringt dich also kaum weiter — der Blick auf die Struktur der Zutatenliste schon.
+
+Trick 1: Zucker hat viele Namen. Laut foodwatch müssen Hersteller das Wort „Zucker" nur draufschreiben, wenn tatsächlich Haushaltszucker drin ist. Alle anderen Zuckerarten dürfen unter ihrem Fachnamen stehen: Dextrose (Traubenzucker), Glucosesirup, Maissirup, Maltodextrin, Maltose, Laktose, Isoglucose. Eine gute Faustregel: Die Endung „-ose" deutet fast immer auf eine Zuckerform hin.
+
+Trick 2: Fruchtige Namen für konzentrierten Zucker. Apfelsaftkonzentrat, Agavendicksaft oder Dattelsirup klingen gesünder als „Zucker" — sind aber genau das. foodwatch beschreibt es treffend: Dampft man Äpfel zur Unkenntlichkeit ein, bleiben kaum wertvolle Nährstoffe übrig, dafür viel Zucker. „Ohne Zuckerzusatz" auf der Packung kann bedeuten, dass stattdessen mit Fruchtsaftkonzentrat gesüßt wurde.
+
+Trick 3: Viele kleine Mengen statt einer großen. Zutaten stehen nach Menge sortiert. Wer fünf verschiedene Zuckerarten in kleinen Mengen verwendet statt einer großen, schiebt alle nach hinten in der Liste — obwohl in Summe viel Zucker drin ist.
+
+Und was du gar nicht erfährst: Die Nährwerttabelle nennt nur den Gesamtzucker. Wie viel davon natürlich enthalten ist (etwa aus Rosinen im Müsli) und wie viel zugesetzt wurde, steht nirgends. foodwatch fordert genau das seit Jahren.
+
+Was hilft dir also wirklich?
+
+Wie lang ist die Liste? Ein Naturjoghurt hat zwei Zutaten, ein Fruchtjoghurt oft fünfzehn. Je länger, desto verarbeiteter — und das ist der Faktor, der in Studien mit Stoffwechselproblemen zusammenhängt.
+
+Erkennst du die Zutaten als Lebensmittel? „Milch, Erdbeeren, Zucker" verstehst du. „Modifizierte Maisstärke, Mono- und Diglyceride von Speisefettsäuren, Aroma" nicht.
+
+Wo stehen die Süßungsmittel? Die ersten drei Positionen machen den Großteil aus.
+
+Ein paar Zusätze verdienen tatsächlich Aufmerksamkeit: Nitritpökelsalz (E 249–E 252) in Wurstwaren, künstliche Süßstoffe wie Aspartam (E 951) oder Sucralose (E 955), sowie Phosphate (E 338–E 341, E 450–E 452) in großen Mengen. Titandioxid (E 171) ist in der EU seit 2022 verboten und darf dir nicht mehr begegnen.
+
+Und noch etwas, das nicht auf dem Etikett steht: Acrylamid entsteht beim starken Erhitzen stärkehaltiger Lebensmittel — in dunklen Pommes oder sehr braunem Toast. Die Faustregel der Behörden lautet „vergolden statt verkohlen".
+
+Und wenn du die Nährwerttabelle liest: Achte auf die Spalte pro 100 g. Warum, steht in der Karte „Der Portionstrick".`,
+    tipps: [
+      "Die Endung „-ose\" deutet fast immer auf Zucker hin",
+      "Fruchtsaftkonzentrat und Dattelsirup sind Zucker — trotz gesundem Klang",
+      "Fünf kleine Zuckerarten rutschen in der Liste nach hinten als eine große",
+      "Kurze Zutatenliste schlägt jede E-Nummern-Tabelle",
+      "Beim Backen und Frittieren: vergolden statt verkohlen (Acrylamid)",
+    ],
+  },  {
+    id: "glukose_fructose",
+    kern: "Zucker ist nicht gleich Zucker: Glukose braucht dein Körper — Fructose braucht er nicht.",
+    relevanz: "Glukose kann als Glykogen in Muskeln und Leber gespeichert werden. Fructose nicht — sie kann nur als Fett gespeichert werden. Deshalb ist bei gleicher Kalorienzahl das Süße ungünstiger als das Herzhafte.",
+    evidenz: "belegt", quelle: "Inchauspé, Glucose Revolution",
+    icon: "🧪", titel: "Glukose und Fructose — warum der Unterschied zählt",
+    text: `Haushaltszucker (Saccharose) besteht je zur Hälfte aus Glukose und Fructose. Im Körper gehen die beiden aber sehr verschiedene Wege — und Inchauspé bringt es auf einen einfachen Punkt: Glukose braucht dein Körper als Treibstoff. Fructose braucht er nicht.
+
+Glukose kann praktisch jede Zelle direkt verwerten. Was du nicht sofort brauchst, wird als Glykogen gespeichert: rund 100 Gramm passen in die Leber, etwa 400 Gramm in die Muskeln. Erst wenn diese Speicher voll sind, wandelt der Körper den Rest in Fett um.
+
+Fructose — im Alltag Fruchtzucker genannt — hat diese Möglichkeit nicht. Sie lässt sich nicht als Glykogen speichern. Das Einzige, als das dein Körper überschüssige Fructose speichern kann, ist Fett. Dieses Fett hat laut Inchauspé drei ungünstige Wege: Es sammelt sich in der Leber und begünstigt eine Fettleber, es füllt Fettzellen an Hüften, Oberschenkeln und zwischen den Organen, und es gelangt als Blutfett in den Kreislauf.
+
+Daraus folgt eine praktische Regel von ihr: Wenn zwei Speisen gleich viele Kalorien haben, wähle lieber das Herzhafte als das Süße. Ohne Fructose landen weniger Moleküle als Fett.
+
+Und das Sättigungsgefühl? Inchauspé erklärt es über den Insulinspiegel: Wenn über Jahre viele Glukosespitzen entstehen, gerät die Hormonlage durcheinander. Leptin — das Hormon, das „ich bin satt“ meldet — wird in seinem Signal blockiert, während Ghrelin, das Hungerhormon, die Oberhand behält. Obwohl genug Energie da ist, meldet der Körper Hunger. Ihre Schlussfolgerung ist bemerkenswert: Die Lösung sei nicht, weniger zu essen, sondern die Glukosekurven zu glätten — was oft bedeutet, mehr zu essen.
+
+Ein Beispiel, das viele überrascht: Agavendicksaft gilt als gesündere Alternative, weil er den Blutzucker weniger stark hebt. Der Grund dafür ist aber, dass er zu etwa 80 Prozent aus Fructose besteht — Haushaltszucker nur zu 50 Prozent. Die Glukosespitze ist kleiner, die Fructoselast dafür größer. Inchauspé nennt Agave deshalb sogar ungünstiger als normalen Zucker.
+
+Und Obst? Das ist etwas anderes. Ganzes Obst enthält Fructose, aber eingebettet in Ballaststoffe und Wasser. Die Ballaststoffe bremsen die Aufnahme, das Volumen sättigt. Trockenfrüchte dagegen behandelt sie kritisch: Dort ist der Zucker konzentriert und trifft den Körper wie eine Welle.
+
+Wo dieser Zucker überall versteckt ist, liest du in der Karte „Zutatenlisten lesen — die Tricks der Industrie".`,
+    tipps: [
+      "Glukose braucht dein Körper — Fructose nicht",
+      "Glukose kann als Glykogen gespeichert werden, Fructose nur als Fett",
+      "Bei gleichen Kalorien: lieber herzhaft als süß",
+      "Agave hat rund 80% Fructose — trotz niedrigem glykämischem Index ungünstig",
+      "Ganzes Obst ist in Ordnung — Trockenfrüchte und Säfte sind konzentrierter Zucker",
+    ],
+  },  {
+    id: "portionstrick",
+    kern: "Schau immer auf die Spalte „pro 100 g\" — die Portionsangabe daneben darf der Hersteller frei erfinden.",
+    relevanz: "Portionsgrößen sind in der EU nicht standardisiert. Wer eine unrealistisch kleine Portion angibt, lässt Zucker- und Fettwerte harmlos aussehen — obwohl niemand so wenig isst.",
+    evidenz: "belegt", quelle: "foodwatch",
+    icon: "⚖️", titel: "Der Portionstrick — warum du auf 100 g schauen solltest",
+    text: `Auf jeder Verpackung stehen zwei Spalten mit Nährwerten: eine „pro 100 g" und oft eine zweite „pro Portion". Die zweite ist der eigentliche Trick.
+
+Der Grund: Portionsgrößen sind in der EU nicht standardisiert. Jeder Hersteller darf selbst festlegen, was eine Portion sein soll. Und je kleiner er sie ansetzt, desto harmloser sehen die Zahlen aus.
+
+Das bekannteste Beispiel ist Nutella. Ferrero gibt als Portion 15 Gramm an — etwa ein gestrichener Teelöffel. In der Portionsspalte stehen dann rund 8 Gramm Zucker, was nach wenig klingt. Pro 100 Gramm sind es aber etwa 56 Gramm Zucker: Der Aufstrich besteht zu über der Hälfte aus Zucker. Wer sich morgens ein Brot streicht, nimmt selten 15 Gramm.
+
+foodwatch hat mit diesem Beispiel gezeigt, wie mächtig der Trick ist: Bei einem von der Industrie vorgeschlagenen Ampel-Modell, das nach Portionen rechnete, hätte Nutella keine rote Ampel bekommen — es hätte dafür zu über 90 Prozent aus Zucker bestehen müssen. Beim Modell, das nach 100 Gramm rechnet, springt die Ampel dagegen schon bei 15 Prozent Zucker auf Rot.
+
+Dasselbe Prinzip findest du bei Frühstücksflocken (Portion oft 30 g, obwohl die meisten mehr in die Schüssel schütten), bei Chips (Portion 25 g statt der halben Tüte) und bei Tiefkühlpizza (Portion manchmal ein Drittel, obwohl kaum jemand ein Drittel isst).
+
+Auch der Prozentsatz „% der Referenzmenge" bezieht sich auf diese selbstgewählte Portion — und auf einen erwachsenen Menschen mit 2.000 Kalorien Tagesbedarf. Für dich kann das völlig danebenliegen.
+
+Deshalb: Vergleiche Produkte immer über die 100-Gramm-Spalte. Nur so sind sie überhaupt vergleichbar. Und wenn du wissen willst, wie viel du wirklich zu dir nimmst, schätze deine eigene Portion ehrlich ab — nicht die auf der Packung.
+
+Der Nutri-Score, der in Österreich zunehmend auf Verpackungen auftaucht, rechnet aus genau diesem Grund immer pro 100 Gramm. Er ist freiwillig, aber wo er steht, hilft er beim Vergleich innerhalb einer Produktgruppe.
+
+Warum solche Tricks überhaupt erlaubt sind, erklärt die Karte „Legale Täuschung".`,
+    tipps: [
+      "Immer die Spalte „pro 100 g\" lesen — nur die ist vergleichbar",
+      "Portionsgrößen darf jeder Hersteller selbst festlegen",
+      "Nutella: 15 g Portion klingt harmlos, pro 100 g sind es über 56 g Zucker",
+      "„% der Referenzmenge\" bezieht sich auf die erfundene Portion",
+      "Nutri-Score rechnet immer pro 100 g — deshalb ist er ehrlicher",
+    ],
+  },  {
+    id: "legale_taeuschung",
+    kern: "Das meiste, was auf Verpackungen täuscht, ist völlig legal — genau das nennt foodwatch „legale Täuschung\".",
+    relevanz: "Die Regeln verbieten falsche Angaben, lassen aber viel Spielraum bei Bildern, Namen und Gesundheitsversprechen. Vertrau der Zutatenliste, nicht der Vorderseite.",
+    evidenz: "belegt", quelle: "foodwatch",
+    icon: "📋", titel: "Legale Täuschung — was auf der Vorderseite steht, ist Werbung",
+    text: `Ein Grundsatz macht das Einkaufen leichter: Die Vorderseite einer Verpackung ist Werbefläche. Die Rückseite ist Information. Wenn beide sich widersprechen, hat die Rückseite recht.
+
+foodwatch hat für dieses Phänomen 2007 den Begriff „legale Täuschung" geprägt: Hersteller tricksen, weil es die Wettbewerber auch tun — und weil es häufig ganz legal ist, sodass keine Behörde einschreiten kann. Es geht also meist nicht um Betrug, sondern um Lücken in den Regeln.
+
+Ein paar Muster, die dir immer wieder begegnen:
+
+Alibi-Zutaten. Der Name verspricht eine Zutat, die kaum enthalten ist. Ein Bio-Joghurt „Matcha Mango" enthielt laut foodwatch 0,1 Prozent Matcha — die grüne Farbe kam vom Algenpulver Spirulina. Bei einem Pesto waren Pinienkerne und Olivenöl nur in kleinen Mengen drin, billigere Zutaten machten den Hauptteil aus.
+
+Vitamine als Heiligenschein. Süßigkeiten und Zuckergetränke dürfen mit Gesundheit werben, wenn ihnen Vitamine zugesetzt werden. foodwatch nennt das Gesundheitsschwindel — und in einer Umfrage lehnten 82 Prozent der Befragten Gesundheitswerbung für ungesunde Produkte ab.
+
+Bilder ohne Inhalt. Saftige Früchte auf der Packung, obwohl nur Spuren davon enthalten sind. „Ohne Zuckerzusatz" auf Produkten, die mit Fruchtsaftkonzentrat gesüßt wurden.
+
+Wörter ohne feste Bedeutung. „Natürlich", „wie hausgemacht", „ohne künstliche Zusätze" sind rechtlich kaum definiert. Sie klingen gut und sagen wenig.
+
+Shrinkflation. Die Packung wird kleiner, der Preis bleibt — eine versteckte Preiserhöhung.
+
+Was in der EU tatsächlich streng geregelt ist: Gesundheitsbezogene Angaben wie „stärkt das Immunsystem" muss die EFSA vorher wissenschaftlich prüfen und zulassen. Über 2.300 Anträge wurden bewertet, viele abgelehnt. Das ist ein echter Schutz — nur greift er auf Verpackungen besser als in sozialen Medien, wo Hersteller freier werben und Behörden selten einschreiten.
+
+Deine wirksamsten Werkzeuge bleiben deshalb einfach: Dreh die Packung um. Lies die Zutatenliste. Schau auf die 100-Gramm-Spalte. Und miss ein Produkt nicht an dem, was es verspricht, sondern an dem, woraus es besteht.
+
+Ob dir eine Scanner-App dabei hilft, liest du in der Karte „Scanner-Apps — wofür sie taugen und wofür nicht".`,
+    tipps: [
+      "Vorderseite ist Werbung — Rückseite ist Information",
+      "Namensgebende Zutaten sind oft nur in Spuren enthalten",
+      "Zugesetzte Vitamine machen ein Süßgetränk nicht gesund",
+      "„Natürlich\" und „wie hausgemacht\" sind rechtlich kaum definiert",
+      "Im Zweifel: Zutatenliste schlägt jedes Werbeversprechen",
+    ],
+  },  {
+    id: "scanner_apps",
+    kern: "Scanner-Apps helfen bei Fertigprodukten — bei unverarbeiteten Lebensmitteln führen sie eher in die Irre.",
+    relevanz: "Faustregel: Scanne, was eine lange Zutatenliste hat. Was nur aus sich selbst besteht — Butter, Eier, Käse, Olivenöl — braucht keinen Scan.",
+    evidenz: "praxis", quelle: "Verbraucherzentrale 2024",
+    icon: "📱", titel: "Scanner-Apps — wofür sie taugen und wofür nicht",
+    text: `Apps wie Yuka, Open Food Facts oder CodeCheck scannen den Barcode und zeigen dir Zusatzstoffe, Nährwerte und eine Gesamtbewertung. Sie können beim Einkaufen wirklich helfen — wenn du weißt, wo ihre Grenzen liegen.
+
+Yuka ist die bekannteste. Sie bewertet zu 60 Prozent nach dem Nutri-Score, zu 30 Prozent nach Zusatzstoffen und zu 10 Prozent nach ökologischen Faktoren. Die Verbraucherzentrale hat sie 2024 getestet und positiv bewertet: hohe Trefferquote, werbefrei, datensparsam. Sie finanziert sich über die Nutzerinnen, nicht über die Industrie — das ist für eine kritische Bewertung wichtig.
+
+Open Food Facts ist eine freie, gemeinschaftlich gepflegte Datenbank: kostenlos, werbefrei, mit Nutri-Score und E-Nummern. Die Datenqualität schwankt, weil sie von Freiwilligen eingetragen wird.
+
+CodeCheck liefert oft mehr Hintergrund zu einzelnen Zusatzstoffen, finanziert sich aber zum Teil über Werbung — und ist damit weniger unabhängig von der Industrie.
+
+Wo diese Apps stark sind: Sie entlarven, was in Fertigprodukten steckt. Versteckte Zuckerarten, lange Zusatzstofflisten, Werbeversprechen ohne Substanz. Für Getränke, Müsli, Fertigsaucen, Snacks und Süßwaren sind sie ein gutes Werkzeug.
+
+Wo du vorsichtig sein solltest: Die Bewertung erfolgt nach isolierten Kriterien — Fett, Zucker, Salz, Kalorien — ohne Kontext. Dadurch schneiden naturbelassene Lebensmittel oft schlecht ab. Butter, Eigelb, Rohmilchkäse oder Olivenöl bekommen rote Bewertungen, während ein stark verarbeitetes Light-Produkt mit Süßstoffen grün leuchtet.
+
+Das steht im Widerspruch zu vielem, was du in MoreSync liest. Pelz empfiehlt gute Fette und Eier als Bausteine für deine Hormone. Sims rät aktiven Frauen zu vollwertigen Milchprodukten. Eine App, die Fett grundsätzlich abstraft, kommt hier zu anderen Ergebnissen.
+
+Und noch etwas: Ein Score kann das eigene Körpergefühl verdrängen. Wenn du beginnst, jedes Lebensmittel nur noch über eine Punktzahl zu bewerten, verlierst du den Blick fürs Ganze — dafür, wie deine Mahlzeit insgesamt zusammengesetzt ist und wie es dir damit geht.
+
+Die einfachste Regel: Scanne, was eine lange Zutatenliste hat. Bei allem, was nur aus sich selbst besteht, hilft dir die App nicht weiter — da weißt du schon, was drin ist.`,
+    tipps: [
+      "Yuka: von der Verbraucherzentrale positiv getestet, werbefrei, unabhängig",
+      "Open Food Facts: kostenlos und werbefrei, Datenqualität schwankt",
+      "CodeCheck: mehr Details, aber teilweise werbefinanziert",
+      "Gut für Fertigprodukte — irreführend bei Butter, Eiern, Käse, Öl",
+      "Ein Score ersetzt nicht dein Körpergefühl und den Blick auf die ganze Mahlzeit",
+    ],
   },
 ];
 
@@ -2402,22 +2563,22 @@ const ESSEN_WISSEN = [
 const GENUG_ESSEN_WISSEN = [
 
   {
-    id: "protein_wieviel", nurInfo: true, icon: "🥩", titel: "Wie viel Protein brauchst du wirklich?",
+    id: "protein_wieviel", kern: "Die verbreiteten 0,8 g Protein pro Kilo sind ein Minimum gegen Mangel — kein Optimum für aktive Frauen.", relevanz: "Sims empfiehlt aktiven Frauen 1,7–2,4 g/kg, in der zweiten Zyklushälfte und in der Menopause eher am oberen Ende. Pelz nennt 0,8 g im Kontext von Ketose.", evidenz: "experten", quelle: "Sims, ROAR vs. Pelz", nurInfo: true, icon: "🥩", titel: "Wie viel Protein brauchst du wirklich?",
     text: `Wenn du in dieser App unterschiedliche Protein-Zahlen liest, ist das kein Fehler — sondern erklärungsbedürftig. Hier die Auflösung:\n\nDie offizielle Empfehlung von 0,8 g pro kg Körpergewicht (die auch Dr. Mindy Pelz für ihre ketobiotischen Tage nennt) hat einen engen Zweck: Sie reicht gerade, um bei einer wenig aktiven Frau keinen Mangel entstehen zu lassen — und wenig Protein hilft, in der Ketose zu bleiben. Dr. Stacy Sims wird hier sehr deutlich: Diese Menge sei „dafür da, die Stickstoffbilanz zu halten und Muskelverlust bei sitzenden Frauen zu verhindern" — und deutlich weniger, als aktive Frauen wirklich brauchen.\n\nSims' eigene Empfehlung liegt darum viel höher: 1,7–2,4 g pro kg Körpergewicht täglich. In der Lutealphase (nach dem Eisprung) etwa 12 % mehr, weil Progesteron Protein abbaut. Und in der Peri-/Postmenopause eher am oberen Ende (2,2–2,4 g/kg), weil ohne Östrogen der muskelaufbauende Reiz fehlt.\n\nWie passt das zusammen? So: Pelz' niedrige Zahl gilt für den Ketose-Effekt an Fastentagen. Sims' hohe Zahl gilt für Muskeln, Knochen und Kraft — besonders wenn du trainierst und je älter du wirst. MoreSync folgt beim Thema Muskelerhalt Sims: Wenn du aktiv bist, orientiere dich an ihren Werten und nutze Pelz' Ketobiotic-Tage bewusst als zeitlich begrenzte Phasen, nicht als Dauerzustand.`,
     tipps: ["0,8 g/kg = Mangel-Vermeidung für inaktive Frauen — kein Ziel für aktive", "Sims: 1,7–2,4 g/kg täglich, gleichmäßig über den Tag verteilt", "Lutealphase (nach Eisprung): ~12 % mehr — Progesteron baut Protein ab", "Peri-/Postmenopause: oberes Ende (2,2–2,4 g/kg) — Östrogen fehlt als Muskelreiz", "Pro Mahlzeit ~30–35 g, pro Snack 15–20 g", "Nach hartem Training: 25–30 g (peri-/postmenopausal 40 g) innerhalb von 30 Min.", "Bei Nierenerkrankung: Proteinmenge ärztlich abklären"],
   },
   {
-    id: "genug_essen", nurInfo: true, icon: "🍽️", titel: "Iss genug! (das unterschätzte Risiko)",
+    id: "genug_essen", kern: "Zu wenig zu essen ist für aktive Frauen ein größeres Risiko als zu viel.", relevanz: "Chronische Unterversorgung stört Zyklus, Knochen und Schilddrüse — oft schleichend. Sims nennt das relative Energiedefizit im Sport.", evidenz: "belegt", quelle: "Sims", nurInfo: true, icon: "🍽️", titel: "Iss genug! (das unterschätzte Risiko)",
     text: `Dr. Stacy Sims' wohl wichtigste Botschaft an aktive Frauen: Die meisten essen zu WENIG, nicht zu viel. „Weniger essen + mehr trainieren" ist die Standard-Botschaft für inaktive Menschen — für aktive Frauen ist sie ein Rezept für Probleme. Wenn dauerhaft weniger Energie reinkommt, als Training + Körperfunktionen brauchen, schaltet der Körper auf Sparmodus: Er baut Muskeln ab, lagert Fett ein und fährt den Stoffwechsel herunter. Fachbegriff: niedrige Energieverfügbarkeit (LEA), in schwer als RED-S. Das ist ein wichtiges Gegengewicht zum Fasten — beides muss zusammenpassen.`,
     tipps: ["Mythos: „weniger essen + mehr Sport = abnehmen\" — bei aktiven Frauen oft das Gegenteil", "Zu wenig Energie → Körper geht in Spar-/Überlebensmodus", "Schon ~4 Tage zu wenig Energie können Schilddrüse & Knochenaufbau stören", "Fasten UND ausreichend essen sind kein Widerspruch: im Essfenster richtig nähren", "Besonders kritisch bei viel Training, Stress & in der Perimenopause", "Genug Protein & insgesamt genug Energie schützen Muskeln, Knochen, Hormone"],
   },
   {
-    id: "reds_warnzeichen", nurInfo: true, icon: "🚩", titel: "Warnzeichen: zu wenig Energie",
+    id: "reds_warnzeichen", kern: "Ausbleibende Periode, ständiges Frieren und häufige Infekte können Zeichen von Energiemangel sein.", relevanz: "Diese Signale gehören ernst genommen, nicht weggetrainiert. Bei mehreren Anzeichen ist ärztliche Abklärung sinnvoll.", evidenz: "belegt", quelle: "Sims", nurInfo: true, icon: "🚩", titel: "Warnzeichen: zu wenig Energie",
     text: `Trainer:innen schreiben diese Zeichen oft dem „Übertraining" zu — dabei sind es häufig Signale, dass du zu wenig isst. Bei Frauen mit Zyklus ist die Periode das beste Frühwarnsystem: Wird sie leichter, kürzer oder bleibt aus, ist das ein ernstes Zeichen. In der Peri-/Menopause fehlt dieses Signal, deshalb auf die anderen Zeichen achten. Wenn mehrere zutreffen, ist mehr (und besser) essen der erste Schritt — nicht weniger.`,
     tipps: ["Zyklus verändert sich: leichter, kürzer, oder bleibt aus", "Leistung stagniert/fällt: weniger Kraft, schlechtere Erholung", "Häufige Infekte (Immunsystem geschwächt)", "Knochen-/Stressreaktionen oder -brüche", "Stimmung: reizbar, ängstlich, niedergeschlagen, Gehirnnebel", "Verdauungsprobleme (Blähungen, Unwohlsein nach dem Essen)", "Bei mehreren Zeichen: mehr essen — und ärztlich abklären"],
   },
   {
-    id: "darm_sport", icon: "🦠", titel: "Darmgesundheit für aktive Frauen",
+    id: "darm_sport", kern: "Ein stabiler Darm ist für aktive Frauen entscheidend — er entscheidet mit über Energie und Erholung.", relevanz: "Ballaststoffe und fermentierte Lebensmittel unterstützen ihn. Vor harten Einheiten sind sehr faserreiche Mahlzeiten aber ungünstig.", evidenz: "hinweise", quelle: "Sims", icon: "🦠", titel: "Darmgesundheit für aktive Frauen",
     text: `Ein gesunder Darm ist die Basis dafür, dass du Nährstoffe aus dem Essen überhaupt aufnimmst — und er beeinflusst Immunsystem, Stimmung und Hormonabbau. Sims rät, das Mikrobiom über echte Lebensmittel zu pflegen statt über teure Pulver. Künstliche Süßstoffe und stark verarbeitete Lebensmittel können das Gleichgewicht stören; Antibiotika nur, wenn wirklich nötig.`,
     tipps: ["Vielfalt auf dem Teller füttert ein vielfältiges Mikrobiom", "Fermentiertes (Sauerkraut, Kimchi, Joghurt, Kefir) liefert gute Bakterien", "Ballaststoffe & Polyphenole (buntes Gemüse, Beeren) als Bakterienfutter", "Künstliche Süßstoffe & stark Verarbeitetes eher meiden", "Antibiotika nur wenn nötig (sie dezimieren die Darmflora)", "Bei Magen-Darm-Problemen im Sport: auch an zu wenig Energie denken"],
   },
@@ -2430,12 +2591,12 @@ const GENUG_ESSEN_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const MENO_PERFORMANCE_WISSEN = [
   {
-    id: "cardio_richtig", icon: "🏃‍♀️", titel: "Cardio richtig: raus aus der „Grau-Zone\"",
+    id: "cardio_richtig", kern: "Die meiste Ausdauer sollte entweder wirklich locker oder wirklich intensiv sein.", relevanz: "Die mittlere 'Grau-Zone' kostet Erholung, ohne viel zu bringen. Sims empfiehlt klare Trennung.", evidenz: "experten", quelle: "Sims", icon: "🏃‍♀️", titel: "Cardio richtig: raus aus der „Grau-Zone\"",
     text: `Eine der klarsten Botschaften aus „Next Level": In der Menopause bringt stundenlanges moderates Dauer-Cardio (die „Grau-Zone" — zu hart zum Erholen, zu leicht für echten Reiz) wenig und ermüdet nur. Sims empfiehlt stattdessen zwei Pole: entweder richtig locker (Zone 2, lockeres Plaudertempo) ODER richtig hart in sehr kurzen Spitzen. Besonders wirksam ist Sprint-Intervall-Training (SIT): super-kurze, knackige Sprints von 10–30 Sekunden. Studien zeigen schon nach wenigen Wochen mehr Muskelmasse, weniger Fett und bessere Ausdauer — bei minimalem Zeitaufwand.`,
     tipps: ["Meide die „Grau-Zone\": ewig moderates Cardio bringt in der Menopause wenig", "SIT: 10–30 Sek so hart wie möglich, dann volle Erholung — 2–3×/Woche", "Anfangs reichen 2–3 Sprints; mit der Zeit auf 8–10 steigern", "Lockeres Zone-2 (Plaudertempo) für die Grundlage & Erholung", "Wenn du gern lange Ausdauer machst: eine richtig lange Einheit/Woche genügt", "Intensität schützt die schnellen Muskelfasern, die sonst zuerst altern"],
   },
   {
-    id: "mental_game", icon: "🧠", titel: "Das mentale Spiel & Motivation",
+    id: "mental_game", kern: "Motivation folgt oft dem Handeln, nicht umgekehrt.", relevanz: "Kleine feste Routinen tragen dich durch Phasen, in denen die Lust fehlt.", evidenz: "praxis", quelle: "Sims", icon: "🧠", titel: "Das mentale Spiel & Motivation",
     text: `Die Menopause fordert auch mental: schwankende Stimmung, Gehirnnebel und ein sich veränderndes Körperbild können am Selbstwert nagen. Sims macht Mut — du kannst dein „Mojo" zurückholen. Bewegung, besonders kurze intensive Einheiten (SIT), hebt nachweislich die Stimmung, ebenso Krafttraining. Wichtig ist Selbstmitgefühl statt Selbstkritik: der Körper verändert sich, und das ist keine persönliche Niederlage. Ehrlicher Hinweis: Bei anhaltender Depression, lähmender Angst oder Essstörung bitte professionelle Hilfe suchen — diese Tipps ersetzen keine Therapie.`,
     tipps: ["Kurze intensive Einheiten (SIT) heben nachweislich die Stimmung", "Krafttraining wirkt auch gegen Stimmungstiefs", "Selbstmitgefühl statt Selbstkritik — der Wandel ist keine Niederlage", "Realistische, kleine Ziele setzen und Erfolge feiern", "Soziale Verbindung & Bewegung in Gemeinschaft stärken die Motivation", "Bei anhaltender Depression/Angst/Essstörung: professionelle Hilfe suchen"],
   },
@@ -2450,17 +2611,17 @@ const MENO_PERFORMANCE_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const PATRICK_WISSEN = [
   {
-    id: "patrick_supplements", icon: "💊", titel: "Die 5 Basis-Supplements (für fast alle)",
+    id: "patrick_supplements", kern: "Patrick nennt eine kleine Basis, die für die meisten sinnvoll ist.", relevanz: "Dazu zählen Vitamin D, Omega-3 und Magnesium — aber immer nach Messung, nicht auf Verdacht.", evidenz: "hinweise", quelle: "Patrick", icon: "💊", titel: "Die 5 Basis-Supplements (für fast alle)",
     text: `Dr. Rhonda Patrick betont: Die meisten Nahrungsergänzungsmittel sind überflüssig — Essen kommt zuerst. Im Mel-Robbins-Podcast (Folge 408, Juni 2026) nannte sie aber fünf, die sie fast allen empfiehlt, weil die Studienlage solide ist und viele Menschen Lücken haben. Wichtig: Sie ist Biochemikerin (PhD), keine Ärztin — das ist Bildung, keine medizinische Beratung. Bei Vitamin D und Omega-3 am besten die Blutwerte testen lassen, statt blind zu dosieren.`,
-    tipps: ["1. Omega-3 (Fischöl): ~2 g/Tag — Ziel ist ein Omega-3-Index ≥ 8 %", "2. Multivitamin: 1 Portion/Tag — füllt typische Nährstofflücken", "3. Vitamin D: 4.000 IU/Tag — Zielwert im Blut ~40–60 ng/mL, am besten mit Vitamin K2 (100 µg MK-7) & zu einer fetthaltigen Mahlzeit", "4. Magnesium: ~250–350 mg/Tag, abends (sie bevorzugt Magnesiumglycinat, kein Oxid) — Cofaktor für >300 Prozesse, hilft beim Schlaf", "5. Kreatin: 10 g/Tag (2× 5 g) — für Muskeln UND Gehirn (siehe Kreatin-Karten)", "Diät zuerst, Supplemente füllen Lücken — Dosen individuell, Blutwerte testen", "Stand Mitte 2026 — Patricks Dosen ändern sich mit ihren Blutwerten"],
+    tipps: ["1. Omega-3 (Fischöl): ~2 g/Tag — Ziel ist ein Omega-3-Index ≥ 8 %", "2. Multivitamin: 1 Portion/Tag — füllt typische Nährstofflücken", "3. Vitamin D: 4.000 IE/Tag — das ist genau die von der EFSA festgelegte sichere Obergrenze; DGE und ÖGE empfehlen als Richtwert 800 IE. Vor höheren Dosen den Blutwert messen lassen. Am besten mit Vitamin K2 (100 µg MK-7) zu einer fetthaltigen Mahlzeit", "4. Magnesium: ~250–350 mg/Tag, abends (sie bevorzugt Magnesiumglycinat, kein Oxid) — Cofaktor für >300 Prozesse, hilft beim Schlaf", "5. Kreatin: 10 g/Tag (2× 5 g) — für Muskeln UND Gehirn (siehe Kreatin-Karten)", "Diät zuerst, Supplemente füllen Lücken — Dosen individuell, Blutwerte testen", "Stand Mitte 2026 — Patricks Dosen ändern sich mit ihren Blutwerten"],
   },
   {
-    id: "patrick_hrt", nurInfo: true, icon: "💉", titel: "Hormontherapie (HRT) & Gehirn",
+    id: "patrick_hrt", kern: "Patrick diskutiert HRT vor allem im Zusammenhang mit Gehirngesundheit und Timing.", relevanz: "Sie bewertet nicht pauschal, sondern nach Zeitpunkt und Risikoprofil. Entscheidung gehört ärztlich begleitet.", evidenz: "hinweise", quelle: "Patrick", nurInfo: true, icon: "💉", titel: "Hormontherapie (HRT) & Gehirn",
     text: `Dr. Patrick denkt das Thema Hormontherapie in den Wechseljahren vor allem über Gehirn, Timing und Genetik — nicht nur über Symptome. Ein wiederkehrendes Motiv: Östrogen scheint das Gehirn zu schützen, und es gibt Hinweise (Beobachtungsdaten), dass eine früh um den Menopause-Beginn begonnene Östrogentherapie mit besserem Gedächtnis und weniger Hippocampus-Schrumpfung verknüpft sein könnte („Timing-Hypothese"). Bei Trägerinnen der Genvariante APOE4 (erhöhtes Alzheimer-Risiko) ist das Thema besonders relevant. Ehrliche Einordnung: vieles davon ist Beobachtungs- und Diskussionsmaterial, keine Leitlinie. HRT ist eine sehr individuelle Entscheidung.`,
     tipps: ["Östrogen wirkt u.a. schützend auf Gehirn & Gedächtnis", "„Timing-Hypothese\": früher Start (um den Menopause-Beginn) könnte günstiger sein", "Bei APOE4-Genvariante besonders relevant — Nutzen/Risiko individuell abwägen", "Auch Schlaf wird durch die Menopause gestört, was die Alterung beschleunigen kann", "Evidenz teils Beobachtung/Story — kein Automatismus", "HRT immer individuell mit einer erfahrenen Ärztin/einem Arzt entscheiden"],
   },
   {
-    id: "patrick_statine", nurInfo: true, icon: "💗", titel: "Statine bei Frauen (kritisch betrachtet)",
+    id: "patrick_statine", kern: "Bei Frauen ist das Diabetesrisiko unter Statinen ein eigenes Thema.", relevanz: "Patrick ist nicht pauschal dagegen, mahnt aber zur individuellen Nutzen-Risiko-Abwägung.", evidenz: "hinweise", quelle: "Patrick / Krauss", nurInfo: true, icon: "💗", titel: "Statine bei Frauen (kritisch betrachtet)",
     text: `Patrick weist auf einen frauenspezifischen Punkt hin: Frauen, die Statine (Cholesterinsenker) nehmen, haben ein etwas höheres Risiko, einen Typ-2-Diabetes zu entwickeln. Sie thematisiert auch die Frage, ob Statine teils überverordnet werden. Das ist ausdrücklich KEIN Aufruf, Medikamente abzusetzen — sondern eine Einladung, Nutzen und Risiko gemeinsam mit der Ärztin/dem Arzt zu besprechen, gerade bei Frauen ohne hohes Herz-Kreislauf-Risiko. Niemals eigenmächtig ein verschriebenes Medikament absetzen.`,
     tipps: ["Frauen unter Statinen: leicht erhöhtes Risiko für Typ-2-Diabetes", "Frage nach Über-/Unterverordnung — individuell abwägen", "Nutzen-Risiko hängt stark vom persönlichen Herz-Kreislauf-Risiko ab", "⚠️ Niemals eigenmächtig absetzen — immer mit dem Arzt besprechen", "Lebensstil (Bewegung, Omega-3, Ernährung) ergänzt die Therapie"],
   },
@@ -2472,12 +2633,12 @@ const PATRICK_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const PATRICK_ZYKLUS_WISSEN = [
   {
-    id: "patrick_pille", nurInfo: true, icon: "💊", titel: "Die Pille — mehr als lokale Verhütung",
+    id: "patrick_pille", kern: "Hormonelle Verhütung wirkt systemisch, nicht nur lokal.", relevanz: "Patrick betont mögliche Effekte auf Stress und Stimmung — ohne die Pille pauschal zu verurteilen.", evidenz: "hinweise", quelle: "Patrick", nurInfo: true, icon: "💊", titel: "Die Pille — mehr als lokale Verhütung",
     text: `Dr. Patrick macht deutlich: Die Pille (orale Kontrazeption) verhütet nicht nur „lokal" eine Schwangerschaft, sondern hat systemische Effekte im ganzen Körper. Sie bespricht das ohne Alarmismus, aber klar: Es gibt Nutzen UND Risiken. Diskutiert werden u.a. ein verändertes Stresserleben und Hinweise auf neuroendokrine Effekte, sowie bekannte Risiken wie Blutgerinnsel und Bluthochdruck. Außerdem kann die Pille bestimmte Nährstoffe zehren — relevant, weil diese Bausteine für die Hormonbildung sind. Ehrliche Einordnung: Manches stammt aus Beobachtungsstudien. Die Pille ist für viele Frauen die richtige Wahl — es geht um informierte Entscheidungen, nicht um Angst.`,
     tipps: ["Wenn du die Pille nimmst: auf B-Vitamine, C, E, Magnesium, Zink & Selen achten", "Diese Nährstoffe gezielt über die Ernährung abdecken (siehe „Key 24\")", "Risiken (Blutgerinnsel, Bluthochdruck) individuell ärztlich abklären", "Bei Stimmungsveränderungen: ansprechen und beobachten", "Die Pille kann auch Testosteron senken → mehr dazu weiter unten bei „Sexuelle Gesundheit\" (Pille & Akne-Medikamente)", "Kein Grund zur Panik — informiert mit der Ärztin/dem Arzt entscheiden"],
   },
   {
-    id: "patrick_fertilitaet", icon: "🌱", titel: "Fruchtbarkeit, Kinderwunsch & IVF",
+    id: "patrick_fertilitaet", kern: "Fruchtbarkeit hängt an mehr als Alter — Stoffwechsel und Umweltfaktoren spielen mit.", relevanz: "Patrick betont Nährstoffstatus und Reduktion von Weichmachern. Vieles davon ist beeinflussbar.", evidenz: "hinweise", quelle: "Patrick", icon: "🌱", titel: "Fruchtbarkeit, Kinderwunsch & IVF",
     text: `Bei Kinderwunsch und IVF betrachtet Patrick drei Stellschrauben als besonders wichtig: Umweltchemikalien (vor allem BPA/Plastik), Alkohol und den Nährstoffstatus. Ein drastischer Befund, den sie hervorhebt: Frauen mit hohen BPA-Werten im Urin hatten in einer Studie etwa halb so viele lebensfähige Eizellen wie Frauen mit niedrigen Werten. Ihr praktischer Rat: Wenn eine Schwangerschaft geplant ist, sind Plastik-/BPA-Reduktion, Alkoholverzicht und eine gute Nährstoffversorgung keine Nischenthemen, sondern direkt relevant. Einordnung: vieles aus Beobachtungs- und IVF-Kohorten, nicht aus großen randomisierten Studien.`,
     tipps: ["BPA/Plastik reduzieren (siehe Mikroplastik-Checkliste im Schwanger-Bereich)", "Bei Kinderwunsch: Alkohol meiden", "Nährstoffstatus optimieren (u.a. Folat, Vitamin D, Omega-3)", "Auch der Partner sollte auf Umweltgifte achten (Spermienqualität)", "Bei unerfülltem Kinderwunsch: ärztliche/reproduktionsmedizinische Begleitung"],
   },
@@ -2492,67 +2653,67 @@ const PATRICK_ZYKLUS_WISSEN = [
 // ═══════════════════════════════════════════════════════════════════
 const TEENAGER_WISSEN = [
   {
-    id: "teen_erste_periode", nurInfo: true, icon: "🌸", titel: "Deine erste Periode — alles ganz normal",
+    id: "teen_erste_periode", kern: "Deine erste Periode kommt meist zwischen 10 und 16 — jeder Zeitpunkt darin ist normal.", relevanz: "Am Anfang ist der Zyklus oft unregelmäßig, das legt sich mit der Zeit. Du musst nichts falsch gemacht haben, wenn es bei dir anders läuft als bei deinen Freundinnen.", evidenz: "belegt", nurInfo: true, icon: "🌸", titel: "Deine erste Periode — alles ganz normal",
     text: `Deine erste Regelblutung nennt man Menarche. Sie gehört zum Erwachsenwerden dazu und ist etwas ganz Normales. Bei den meisten kommt sie zwischen 10 und 15 Jahren. Am Anfang ist deine Periode oft unregelmäßig: mal früher, mal später, mal stärker, mal schwächer. Das kann ein bis zwei Jahre so gehen, bis dein Körper einen Rhythmus findet — auch das ist normal. Meistens dauert die Blutung 3 bis 7 Tage. Die Farbe geht von hellrot bis bräunlich. Dein Körper zeigt dir damit einfach, dass er gesund wächst. Dafür musst du dich nie schämen.\n\nÜbrigens: Auch wenn dein Zyklus am Anfang noch unregelmäßig ist, kannst du dich in dieser App schon an den Phasen orientieren und schauen, wie du dich fühlst. Aber mach dir keinen Stress damit — das Allerwichtigste in deinem Alter ist einfach, regelmäßig und ausgewogen zu essen und gut auf dich zu achten. Die Phasen sind eine Hilfe, keine strenge Regel.`,
     tipps: ["Meist zwischen 10 und 15 Jahren — jeder Körper hat sein eigenes Tempo", "Am Anfang oft unregelmäßig — das ist ganz normal", "Die Blutung dauert meist 3 bis 7 Tage", "Hab immer ein paar Binden oder Tampons in der Tasche", "Ein Perioden-Kalender hilft dir, deinen Rhythmus kennenzulernen", "Orientier dich ruhig an den Phasen — aber ohne Stress, ausgewogen essen ist das Wichtigste", "Rede mit jemandem, dem du vertraust (Mama, große Schwester, Schulärztin) — du bist nicht allein"],
   },
   {
-    id: "teen_produkte", icon: "🩹", titel: "Binden, Tampons & Co. — was passt zu mir?",
+    id: "teen_produkte", kern: "Binde, Tampon, Cup oder Periodenunterwäsche — es gibt kein Richtig oder Falsch.", relevanz: "Probier aus, womit du dich wohlfühlst. Am Anfang sind Binden oft am einfachsten, aber du kannst jederzeit wechseln.", evidenz: "praxis", icon: "🩹", titel: "Binden, Tampons & Co. — was passt zu mir?",
     text: `Es gibt verschiedene Sachen, die dir bei der Periode helfen. Probier ruhig aus, was sich für dich am besten anfühlt. Binden klebst du in die Unterhose, sie liegen also außen. Tampons und Menstruationstassen kommen in die Scheide — praktisch beim Sport oder Schwimmen. Periodenunterwäsche sieht aus wie eine normale Unterhose, saugt die Blutung aber auf. Ganz wichtig bei Tampons: Wechsle sie regelmäßig, etwa alle 4 bis 8 Stunden. So bleibt alles sauber und gesund.`,
     tipps: ["Binden: liegen außen, super für den Anfang und für die Nacht", "Tampons: kommen innen rein, gut beim Sport — alle 4 bis 8 Stunden wechseln", "Menstruationstasse: aus weichem Silikon, kannst du immer wieder verwenden", "Periodenunterwäsche: bequem und waschbar, sieht man nicht", "Ein Tampon kann nicht in dir verloren gehen — weiter als bis zur Scheide kommt er nicht", "Tampons regelmäßig wechseln, nachts lieber eine Binde (schützt vor einer seltenen, aber ernsten Infektion namens TSS)"],
   },
   {
-    id: "teen_schmerzen", icon: "💗", titel: "Regelschmerzen — was hilft?",
+    id: "teen_schmerzen", kern: "Leichte Regelschmerzen sind normal — starke Schmerzen, die dich ausbremsen, gehören abgeklärt.", relevanz: "Wärme, Bewegung und Magnesium helfen vielen. Wenn du wegen der Schmerzen regelmäßig die Schule verpasst, sprich mit einer Ärztin.", evidenz: "belegt", icon: "💗", titel: "Regelschmerzen — was hilft?",
     text: `Viele haben rund um die Periode Bauchweh, Rückenschmerzen oder fühlen sich müde und gereizt. Leichte bis mittlere Schmerzen sind normal — sie kommen daher, dass sich deine Gebärmutter zusammenzieht. Das hilft: Wärme (zum Beispiel eine Wärmflasche), ein bisschen Bewegung, genug trinken und Ruhe. Aber: Wenn die Schmerzen so stark sind, dass du nicht in die Schule kannst, oder wenn Schmerzmittel gar nicht helfen, dann geh zur Ärztin. Starke Schmerzen musst du nicht einfach aushalten.`,
     tipps: ["Wärme (Wärmflasche oder warmes Bad) entspannt den Bauch", "Ein bisschen Bewegung und leichtes Dehnen tun gut", "Genug trinken und dir Ruhe gönnen", "Schmerzmittel können helfen — frag deine Eltern oder in der Apotheke, welches passt", "⚠️ Sehr starke Schmerzen, die dich ausbremsen? Geh zur Ärztin", "Auch wenn du sehr stark oder sehr lange blutest: ab zur Ärztin"],
   },
   {
-    id: "teen_koerper", icon: "🦋", titel: "Dein Körper gehört dir — Selbstbestimmung",
+    id: "teen_koerper", kern: "Dein Körper gehört dir — du entscheidest, wer ihn berührt und wer nicht.", relevanz: "Das gilt immer und ohne Begründung. Wenn sich etwas komisch anfühlt, darfst du Nein sagen und dir Hilfe holen.", evidenz: "belegt", icon: "🦋", titel: "Dein Körper gehört dir — Selbstbestimmung",
     text: `Das Wichtigste zuerst: Dein Körper gehört dir ganz allein. Du entscheidest, wer dir nahekommen darf und wann. Und du darfst immer „nein" sagen — auch dann noch, wenn du vorher „ja" gesagt hast. Niemand darf dich zu etwas drängen. Wer dich wirklich mag, macht keinen Druck. Alles, was mit Nähe und Sex zu tun hat, ist nur dann okay, wenn beide es wollen und sich wohlfühlen. Das nennt man Einverständnis. Wenn sich etwas komisch oder falsch anfühlt: Vertrau diesem Gefühl und hol dir Hilfe.\n\nZum Thema Alter: In Österreich sagt das Gesetz, dass Sex grundsätzlich ab 14 Jahren erlaubt ist (mit besonderen Schutzregeln, die junge Menschen vor älteren und vor Ausnutzung schützen sollen). Aber ganz wichtig: Dass etwas erlaubt ist, heißt überhaupt nicht, dass du es tun musst. Es gehört sich nicht in einem bestimmten Alter und ist nichts, was man „schaffen" oder abhaken müsste — und ganz sicher kein Wettrennen. Es gibt kein „richtiges" Alter — der einzige richtige Zeitpunkt ist der, an dem DU dich wirklich bereit fühlst, dich wohl und sicher fühlst und der andere Mensch dich respektiert. Viele warten länger, und das ist völlig normal und klug. Lass dich von niemandem drängen — auch nicht von dem Gefühl, dass „alle anderen" das schon tun (das stimmt meistens gar nicht).\n\nUnd noch etwas Wichtiges, das zu deiner Selbstbestimmung gehört: Verlass dich beim Thema Verhütung nie allein auf den Jungen. Hab am besten immer selbst ein Kondom dabei — dann bist du unabhängig. Das ist kein Misstrauen, sondern klug und stark. Ein dickes Warnsignal ist, wenn jemand kein Kondom benutzen will (egal mit welcher Ausrede) oder behauptet, er „passe schon auf" und „ziehe rechtzeitig raus". Das ist keine echte Verhütung und schützt nicht vor Krankheiten. Wer nicht verhüten will, respektiert dich und deinen Körper nicht — dann ist die Antwort einfach: dann eben nicht.`,
     tipps: ["Dein Körper gehört dir — du bestimmst über Nähe und deine Grenzen", "„Nein\" ist immer okay — auch später, auch mittendrin", "Beide müssen es wirklich wollen, ganz ohne Druck", "Wer dich mag, drängt dich nicht und wartet, bis du bereit bist", "Erlaubt (ab 14 in Österreich) heißt NICHT, dass du es tun musst — es ist keine Aufgabe", "Der richtige Zeitpunkt ist, wenn DU dich bereit & sicher fühlst — viele warten länger, das ist klug", "Verlass dich bei Verhütung nie auf den Jungen — hab selbst ein Kondom dabei", "🚩 Warnsignal: „kein Kondom\" oder „ich zieh rechtzeitig raus\" ist keine Verhütung — dann eben nicht", "Fühlt sich etwas falsch an? Sprich mit jemandem, dem du vertraust (siehe Hilfe-Karte)"],
   },
   {
-    id: "teen_verhuetung", icon: "🛡️", titel: "Verhütung & Schutz",
+    id: "teen_verhuetung", kern: "Sicher verhüten heißt: vor ungewollter Schwangerschaft und vor Infektionen schützen.", relevanz: "Kondome sind das Einzige, was beides gleichzeitig kann. Über alles Weitere berät dich vertraulich eine Frauenärztin.", evidenz: "belegt", icon: "🛡️", titel: "Verhütung & Schutz",
     text: `Wenn du irgendwann Sex hast, gehört Verhütung dazu — und darum kümmern sich immer beide zusammen. Es geht um zwei Dinge gleichzeitig: nicht ungewollt schwanger zu werden UND sich vor Krankheiten zu schützen, die man beim Sex bekommen kann (sexuell übertragbare Infektionen, kurz STI).\n\nDas Kondom ist dabei das Wichtigste, weil es als Einziges vor beidem schützt — vor Schwangerschaft und vor Krankheiten. Alle anderen Methoden (wie die Pille) schützen nur vor einer Schwangerschaft, nicht vor Krankheiten. Deshalb ist das Kondom für junge Menschen fast immer die beste Wahl — oft in Kombination mit einer zweiten Methode.\n\nMerk dir am besten diese eine Regel: Bei dir immer mit Kondom. Auch wenn du zusätzlich die Pille nimmst — das Kondom kommt trotzdem dazu, weil nur es dich gleichzeitig vor Krankheiten und (als doppelter Schutz) vor einer Schwangerschaft bewahrt. Und ganz wichtig: „Rausziehen" (wenn der Junge verspricht, rechtzeitig aufzuhören) ist KEINE Verhütung. Es ist eine der unsichersten Methoden überhaupt — schon vor dem Samenerguss können Samenzellen austreten, und man kann sich nicht darauf verlassen. Es schützt weder vor einer Schwangerschaft noch vor Krankheiten. Verlass dich nie darauf. Wenn jemand kein Kondom benutzen will, ist die Antwort einfach: dann eben nicht.\n\nWelche Methoden gibt es? Man teilt sie grob in zwei Gruppen:\n\nMit Hormonen: die bekannteste ist die Pille (man nimmt sie täglich). Es gibt auch Hormonpflaster, Hormonring, Hormonspirale oder ein Stäbchen im Arm. Sie verhindern zuverlässig eine Schwangerschaft, schützen aber NICHT vor Krankheiten — also nur zusammen mit Kondom.\n\nOhne Hormone: das Kondom (schützt als Einziges auch vor Krankheiten), die Kupferspirale, oder das Diaphragma. Für ganz junge Menschen sind Kondom (immer!) und je nach Situation die Pille die häufigsten Empfehlungen — aber was zu DIR passt, entscheidest du gemeinsam mit einer Frauenärztin.\n\nWenn du dich für die Pille entscheidest, gut zu wissen: Die klassische Pille (und ähnlich die Kombi-Methoden Pflaster und Ring) kann deinem Körper bestimmte Nährstoffe entziehen — vor allem B-Vitamine, Vitamin C und E, Magnesium und Zink. Der Grund: Diese Methoden enthalten Östrogen und werden über die Leber verarbeitet. Bei reinen Gestagen-Methoden (Hormonspirale, Stäbchen, Minipille) ist dieser Effekt vermutlich kleiner. Wenn du die Pille nimmst, achte einfach besonders auf ausgewogenes Essen mit viel Gemüse, Vollkorn und Eiweiß — und sprich mit deiner Ärztin, ob für dich etwas zu ergänzen sinnvoll ist.\n\nWelche Verhütung zu dir passt, besprichst du am besten mit einer Frauenärztin oder einer Beratungsstelle. Die haben Schweigepflicht — sie dürfen niemandem etwas verraten, auch deinen Eltern nicht, wenn du das nicht möchtest.`,
     tipps: ["Deine Regel: bei dir immer mit Kondom — auch zusätzlich zur Pille", "Nur das Kondom schützt vor Schwangerschaft UND vor Krankheiten", "🚫 „Rausziehen\" ist KEINE Verhütung — eine der unsichersten Methoden, verlass dich nie darauf", "Verhütung ist Sache von beiden — aber du hast es mit dem Kondom selbst in der Hand", "Mit Hormonen: Pille, Pflaster, Ring, Spirale, Stäbchen (schützen nicht vor Krankheiten)", "Ohne Hormone: Kondom, Kupferspirale, Diaphragma", "Wenn du die Pille (oder Pflaster/Ring) nimmst: auf B-Vitamine, C, E, Magnesium & Zink achten (gut essen)", "Was zu dir passt: mit der Frauenärztin klären (Schweigepflicht!)"],
   },
   {
-    id: "teen_pille_danach", icon: "🆘", titel: "Die „Pille danach\" — was du wissen musst",
+    id: "teen_pille_danach", kern: "Die Pille danach wirkt umso besser, je früher du sie nimmst.", relevanz: "Sie ist in Österreich rezeptfrei in der Apotheke erhältlich. Sie ist eine Notfalllösung, keine regelmäßige Verhütung.", evidenz: "belegt", icon: "🆘", titel: "Die „Pille danach\" — was du wissen musst",
     text: `Wenn beim Sex etwas schiefgegangen ist (zum Beispiel das Kondom gerissen ist oder ihr nicht verhütet habt), gibt es die „Pille danach" als Notfall-Lösung. Sie ist keine normale Verhütung, sondern nur für den Notfall — und du bekommst sie ohne Rezept in jeder Apotheke.\n\nDas Allerwichtigste zu verstehen: Die „Pille danach" verschiebt den Eisprung nach hinten. Sie sorgt dafür, dass die Eizelle später freigesetzt wird, damit die Samenzellen sie nicht mehr erreichen. Das heißt aber auch: Sie wirkt nur, wenn du sie VOR dem Eisprung nimmst. Wenn dein Eisprung schon war (oder ganz kurz bevorsteht), kann sie nicht mehr helfen — dann kommt sie zu spät. Deshalb gilt: je früher, desto besser. Nimm sie so schnell wie möglich nach dem Missgeschick, am besten innerhalb von 24 Stunden.\n\nWichtig: Die „Pille danach" ist kein Schwangerschaftsabbruch — sie beendet keine Schwangerschaft, sondern versucht, sie von vornherein zu verhindern. Und sie schützt nicht vor Krankheiten. Wenn deine Periode danach mehr als eine Woche zu spät kommt, mach einen Schwangerschaftstest und geh zur Ärztin. Und trau dich, in der Apotheke oder bei einer Beratungsstelle zu fragen — die helfen dir, ganz ohne Vorwürfe.`,
     tipps: ["Nur für den Notfall (z.B. Kondom gerissen) — keine normale Verhütung", "Ohne Rezept in jeder Apotheke erhältlich", "Wirkt, indem sie den Eisprung nach hinten verschiebt", "❗ Wirkt NICHT mehr, wenn der Eisprung schon war oder kurz bevorsteht", "Deshalb: so früh wie möglich nehmen (am besten innerhalb von 24 Stunden)", "Kein Schwangerschaftsabbruch — und kein Schutz vor Krankheiten", "Periode über 1 Woche zu spät? → Test machen & zur Ärztin"],
   },
   {
-    id: "teen_scheidenflora", icon: "🌸", titel: "Deine Scheidenflora — falls du Sex hast",
+    id: "teen_scheidenflora", kern: "Deine Scheide reinigt sich selbst — Seife und Intimsprays stören sie eher.", relevanz: "Klares Wasser reicht völlig. Wenn sich Ausfluss oder Geruch deutlich verändern, lass es ärztlich anschauen.", evidenz: "belegt", icon: "🌸", titel: "Deine Scheidenflora — falls du Sex hast",
     text: `Falls du irgendwann Sex hast, ist das hier gut zu wissen — egal ob das Thema für dich schon aktuell ist oder erst später kommt. Gut informiert zu sein, ist immer stark.\n\nDeine Scheide hat ein leicht saures Milieu. Das ist kein Zufall, sondern ein cleverer Schutz: Die Säure sorgt dafür, dass gute Bakterien sich wohlfühlen und schlechte ferngehalten werden — wie ein natürlicher Schutzschild. Dieses Gleichgewicht nennt man Scheidenflora.\n\nBeim Sex kann dieses Gleichgewicht durcheinanderkommen. Sperma ist zum Beispiel basisch (das Gegenteil von sauer) und kann den Schutzschild kurz schwächen. Auch schon die Flüssigkeit, die vor dem Samenerguss austritt (der „Lusttropfen"), ist basisch. Und beim Sex kommen immer fremde Bakterien mit dazu — der Penis benutzt ja dieselbe Öffnung für Urin und Sperma. Bei manchen Mädchen kann das die Scheidenflora aus dem Gleichgewicht bringen und zu Beschwerden führen: Jucken, komischer Ausfluss oder eine Blasenentzündung (dann brennt das Urinieren).\n\nDas Gute: Du hast es selbst in der Hand. Ein Kondom hält all das ab und schützt deine Scheidenflora — und zusätzlich vor Krankheiten und einer Schwangerschaft. „Rausziehen" schützt die Flora NICHT (der Lusttropfen reicht schon). Wenn du merkst, dass bei dir öfter was aus dem Gleichgewicht ist, ist das nichts Peinliches — geh einfach zur Frauenärztin, das ist gut behandelbar.`,
     tipps: ["Deine Scheidenflora ist ein natürlicher Schutzschild (saures Milieu)", "Beim Sex kann sie kurz aus dem Gleichgewicht kommen (Sperma & Lusttropfen sind basisch)", "Ein Kondom schützt die Flora — und zusätzlich vor Krankheiten & Schwangerschaft", "„Rausziehen\" schützt die Flora nicht — der Lusttropfen reicht schon", "Nach dem Sex urinieren hilft, die Harnröhre zu spülen", "Zeichen für ein Ungleichgewicht: Jucken, komischer Ausfluss, Brennen beim Urinieren", "Das ist nichts Peinliches und gut behandelbar — geh zur Frauenärztin"],
   },
   {
-    id: "teen_haut", icon: "🌟", titel: "Schöne Haut & Ernährung — was hilft bei Pickeln?",
+    id: "teen_haut", kern: "Pickel in der Pubertät kommen von Hormonen — nicht von schlechter Hygiene.", relevanz: "Zucker und viele Milchprodukte können bei manchen die Haut verschlechtern. Ausprobieren lohnt sich, aber sei geduldig mit dir.", evidenz: "hinweise", icon: "🌟", titel: "Schöne Haut & Ernährung — was hilft bei Pickeln?",
     text: `In der Pubertät bildet dein Körper mehr von bestimmten Hormonen. Dadurch produziert deine Haut mehr Fett (Talg), und Pickel entstehen leichter. Das ist total normal und kein Grund, sich zu schämen — fast alle kennen das. Essen kann ein bisschen mithelfen: Am besten weiß man, dass Sachen, die den Blutzucker schnell hochtreiben (viel Zucker, Weißmehl, Softdrinks, Süßigkeiten), die Haut reizen können. Da helfen dieselben Tipps wie im Ernährungs-Bereich. Bei Milch — vor allem fettarmer Milch und Eiweiß-Shakes (Whey) — gibt es Hinweise, aber die sind nicht so sicher. Ehrlich gesagt: Essen ist nur ein kleiner Teil. Pickel sind normal. Und wenn deine Haut dich richtig stört, hilft dir die Hautärztin am besten.`,
     tipps: ["Blutzucker ruhig halten: weniger Zucker, Softdrinks und Weißmehl", "Lieber Vollkorn statt Weißmehl, dazu Gemüse und Eiweiß", "Omega-3 (Lachs, Walnüsse, Leinsamen) kann der Haut guttun", "Bei fettarmer Milch und Eiweiß-Shakes: schau, ob deine Haut darauf reagiert", "Schokolade ist nicht automatisch schuld — eher der viele Zucker darin", "Genug Wasser trinken, Haut sanft pflegen und Pickel nicht ausdrücken", "Merke: Essen ist nur ein Teil — bei stärkeren Pickeln zur Hautärztin"],
   },
   {
-    id: "teen_zucker", icon: "🥤", titel: "Zuckerhaltige Getränke — der größte Fallstrick",
+    id: "teen_zucker", kern: "Süße Getränke lassen deinen Blutzucker besonders schnell hochschießen.", relevanz: "Sie machen müde und hungrig statt satt. Wasser oder ungesüßter Tee sind die einfachste Umstellung mit dem größten Effekt.", evidenz: "belegt", quelle: "Inchauspé", icon: "🥤", titel: "Zuckerhaltige Getränke — der größte Fallstrick",
     text: `Wenn du deinem Körper und deiner Haut etwas Gutes tun willst, fang bei den Getränken an. Softdrinks, Eistee, Energydrinks und Fruchtsäfte sind flüssiger Zucker. Sie treiben deinen Blutzucker blitzschnell hoch — das macht müde, kostet Energie und kann die Haut reizen. Verrückt, aber wahr: Eine Flasche Orangensaft hat ungefähr so viel Zucker wie eine Dose Cola, obwohl Saft „gesund" wirkt. Energydrinks sind wegen Zucker plus viel Koffein besonders ungünstig für junge Körper. Die gute Nachricht: Wasser ist das beste Getränk — und du kannst es ganz leicht lecker machen.`,
     tipps: ["Softdrinks, Eistee und Energydrinks sind flüssiger Zucker — lieber selten", "Fruchtsaft zählt auch dazu (1 Glas Orangensaft ≈ 1 Dose Cola)", "Energydrinks: viel Zucker plus viel Koffein — nicht gut für junge Körper", "Bestes Getränk: Wasser — mit Zitrone, Gurke, Beeren oder Minze schmeckt es super", "Lust auf was Süßes? Iss lieber ein Stück Obst, statt es zu trinken", "Weniger süße Getränke = mehr Energie, bessere Laune und oft klarere Haut"],
   },
   {
-    id: "teen_eisen", icon: "🩸", titel: "Eisen — besonders wichtig ab der ersten Periode",
+    id: "teen_eisen", kern: "Mit der ersten Periode steigt dein Eisenbedarf deutlich.", relevanz: "Eisenmangel macht müde und unkonzentriert. Fleisch, Hülsenfrüchte und dunkelgrünes Gemüse liefern Eisen — Vitamin C hilft bei der Aufnahme.", evidenz: "belegt", icon: "🩸", titel: "Eisen — besonders wichtig ab der ersten Periode",
     text: `Seit du deine Periode hast, verlierst du jeden Monat ein bisschen Blut — und damit auch Eisen. Deshalb brauchen Mädchen mehr Eisen als Jungs. Eisen ist wichtig, weil dein Blut damit Sauerstoff durch den Körper transportiert. Fehlt Eisen, bist du oft müde, blass oder kannst dich schlecht konzentrieren. Die gute Nachricht: Das kriegst du super übers Essen hin — ganz ohne Tabletten. Ein cooler Trick: Iss etwas mit Vitamin C dazu (zum Beispiel Paprika, Orange oder Beeren). Dann kann dein Körper das Eisen aus pflanzlichem Essen viel besser aufnehmen.`,
     tipps: ["Eisen aus Fleisch (gut aufnehmbar): rotes Fleisch, Geflügel", "Eisen aus Pflanzen: Linsen, Kichererbsen, Haferflocken, Kürbiskerne, Vollkorn, dunkelgrünes Gemüse", "Trick: Vitamin C dazu (Paprika, Orange, Beeren) — dann klappt die Aufnahme viel besser", "Kaffee und schwarzer Tee zum Essen bremsen die Eisenaufnahme — lieber später trinken", "Zeichen für zu wenig Eisen: oft müde, blass, schwindelig, unkonzentriert", "Wenn du länger müde bist: lass es bei der Ärztin checken (einfacher Bluttest), statt selbst Tabletten zu nehmen"],
   },
   {
-    id: "teen_knochen", icon: "🦴", titel: "Starke Knochen fürs ganze Leben",
+    id: "teen_knochen", kern: "Bis etwa 25 baust du die Knochendichte auf, von der du dein Leben lang zehrst.", relevanz: "Bewegung mit Belastung — springen, laufen, Krafttraining — ist dafür das stärkste Signal. Zusammen mit Calcium und Vitamin D.", evidenz: "belegt", icon: "🦴", titel: "Starke Knochen fürs ganze Leben",
     text: `Wusstest du, dass du genau JETZT die Grundlage für starke Knochen legst? In deinem Alter baut dein Körper so viel Knochen auf wie nie wieder später. Diese Chance nutzt du mit zwei Dingen: genug Kalzium und Vitamin D — plus Bewegung. Kalzium kriegst du gut übers Essen. Vitamin D ist ein Sonderfall: Es steckt kaum in Lebensmitteln. Dein Körper macht es vor allem selbst, wenn Sonne auf deine Haut scheint. Im österreichischen Winter (etwa Oktober bis März) ist die Sonne aber zu schwach dafür. Deshalb raten Fachleute in Österreich, im Winter Vitamin D zusätzlich zu nehmen. Das ist der eine Nährstoff, bei dem Essen allein meist nicht reicht — sprich am besten mit deiner Ärztin darüber.`,
     tipps: ["Kalzium: Milch und Joghurt, aber auch Brokkoli, Grünkohl, Mandeln, angereicherte Pflanzendrinks", "Vitamin D im Essen: fetter Fisch (Lachs, Hering) und Eigelb — aber nur wenig", "Im Sommer täglich kurz raus in die Sonne (Gesicht und Arme)", "Im Winter reicht die Sonne in Österreich nicht — dann ist Vitamin D als Ergänzung sinnvoll", "Vitamin D am besten mit der Ärztin besprechen (sie kann den Wert im Blut checken)", "Bewegung wie Springen, Laufen oder Tanzen macht deine Knochen zusätzlich stark"],
   },
   {
-    id: "teen_genug_essen", icon: "🍽️", titel: "Iss genug — dein Körper braucht Energie",
+    id: "teen_genug_essen", kern: "Dein Körper wächst noch und braucht dafür verlässlich Energie.", relevanz: "Zu wenig zu essen bremst Wachstum, Konzentration und den Zyklus. Wenn Essen für dich zum Stressthema wird, sprich mit jemandem, dem du vertraust.", evidenz: "belegt", icon: "🍽️", titel: "Iss genug — dein Körper braucht Energie",
     text: `Zum Schluss das Wichtigste: Dein Körper wächst gerade — dafür braucht er regelmäßig genug Energie und gutes Essen. Diäten, Mahlzeiten auslassen oder sehr wenig essen sind jetzt keine gute Idee. Das kann deine Periode durcheinanderbringen, deine Knochen schwächen und dich müde und unkonzentriert machen. Genug zu essen ist stark und gut für dich — nicht das Gegenteil. Dein Körper kann gerade Großes leisten, wenn du gut für ihn sorgst.\n\nEin leckerer Trick, um viele Nährstoffe auf einmal zu bekommen, ist ein selbstgemachter Smoothie. Die Forscherin Dr. Rhonda Patrick trinkt fast täglich einen — und du kannst ihn einfach nachmachen: eine Handvoll grünes Blattgemüse (z.B. Spinat oder Grünkohl), eine Handvoll gefrorene Beeren, eine halbe Avocado (macht satt und hilft dem Körper, die Nährstoffe aufzunehmen), etwas Naturjoghurt oder Milch und Wasser. Alles zusammen mixen — fertig. Das schmeckt süß, gibt dir Energie und steckt voller guter Sachen für Haut, Gehirn und Knochen. Perfekt fürs Frühstück oder als Snack.`,
     tipps: ["Iss regelmäßig: Frühstück, Mittagessen, Abendessen und Snacks, wenn du Hunger hast", "Lass das Frühstück nicht aus — es gibt dir Energie für die Schule", "Iss bunt und abwechslungsreich: Gemüse, Obst, Eiweiß, Vollkorn, gute Fette", "Nährstoff-Smoothie: grünes Blattgemüse + Beeren + ½ Avocado + Joghurt/Milch + Wasser mixen", "Hör auf deinen Körper: Iss, wenn du Hunger hast, und hör auf, wenn du satt bist", "Kein Kalorienzählen und keine Diäten, solange du wächst", "Wenn dich das Thema Essen sehr beschäftigt oder belastet: Sprich mit jemandem, dem du vertraust (siehe Hilfe-Karte)"],
   },
   {
-    id: "teen_hilfe", icon: "🤝", titel: "Wo du Hilfe & Rat bekommst (Österreich/Steiermark)",
+    id: "teen_hilfe", kern: "Du musst mit Fragen zu deinem Körper nicht alleine bleiben.", relevanz: "Frauenärztinnen beraten dich vertraulich, auch ohne Eltern. In Österreich gibt es außerdem kostenlose Beratungsstellen und Notrufnummern.", evidenz: "praxis", icon: "🤝", titel: "Wo du Hilfe & Rat bekommst (Österreich/Steiermark)",
     text: `Mit deinen Fragen bist du nie allein. Es gibt Stellen, die extra für junge Menschen da sind — kostenlos, und du musst deinen Namen nicht sagen. Dort kannst du alles fragen: zur Periode, zum ersten Mal, zu Verhütung, oder wenn dich einfach etwas bedrückt. Die Menschen dort dürfen nichts weitererzählen. Oft kannst du einfach anrufen oder chatten.`,
     tipps: ["📞 Rat auf Draht: Notruf 147 (rund um die Uhr, kostenlos & anonym, auch Chat auf rataufdraht.at)", "First Love (ÖGF): kostenlose & anonyme Beratung für Jugendliche, firstlove.at", "👧 MAFALDA Graz: Mädchenberatung (13–21 J.), Arche Noah 11, 8020 Graz, Tel. 0316 33730015, mafalda.at", "💜 Frauengesundheitszentrum Graz: Joanneumring 3, 8010 Graz, Tel. 0316 837998, fgz.co.at", "Hotline für Essstörungen: 0800 20 11 20 (anonym & kostenlos)", "🩺 Gesundheitsberatung: 1450 (bei medizinischen Fragen, rund um die Uhr)", "Du darfst auch zu einer Vertrauensperson gehen: Eltern, Schulärztin, Lehrerin, Vertrauenslehrer"],
   },
@@ -7281,7 +7442,7 @@ const KATEGORIE_NAMEN = {
 };
 
 const KATEGORIE_INFO = {
-  fasted_snack: "Diese Snacks haben so wenig Kalorien und Kohlenhydrate, dass sie deinen Fastenzustand kaum unterbrechen. Sie eignen sich, wenn du während eines längeren Fastens etwas Kleines brauchst — ohne die Vorteile des Fastens (Autophagie, Fettverbrennung) ganz zu verlieren.",
+  fasted_snack: "Ehrlich gesagt: Alles mit Kalorien beendet ein striktes Fasten — auch diese Snacks. Sie sind sehr kohlenhydratarm und halten den Blutzucker ruhig, stören ein ketose-orientiertes Vorgehen also weniger als eine normale Mahlzeit. Pelz erlaubt sie in ihrem Protokoll ausdrücklich. Wenn du streng kalorisch fastest, gehören sie ins Essfenster. Wenn dir ein langes Fasten sonst zu schwer fällt, sind sie eine gute Brücke — das ist besser, als ganz aufzugeben.",
   break_fast: "Gerichte, mit denen du dein Fasten sanft brichst. Nach längerem Fasten ist der Körper empfindlich — diese Rezepte sind leicht verdaulich und bauen die Verdauung behutsam wieder auf.",
   hormone_feasting: "Nährstoffreiche Hauptmahlzeiten für die Hormone-Feasting-Phasen (Manifestation & Nurture). Mehr komplexe Kohlenhydrate und Protein, um Östrogen und Progesteron zu unterstützen.",
   ketobiotic: "Kohlenhydratarme, fettreiche Gerichte für die Power-Phasen. Wenig Zucker, viel gesundes Fett und Protein — ideal um Östrogen aufzubauen und in der Fettverbrennung zu bleiben.",
@@ -7317,61 +7478,61 @@ const KATEGORIE_INFO_TEEN = {
 
 const GLUKOSE_HACKS = [
   {
-    nr: 1, icon: "🥗", titel: "Iss in der richtigen Reihenfolge",
+    nr: 1, id: "hack_1", evidenz: "belegt", quelle: "Inchauspé, Glucose Revolution", icon: "🥗", titel: "Iss in der richtigen Reihenfolge",
     kurz: "Erst Gemüse, dann Protein & Fett, zuletzt Kohlenhydrate & Zucker.",
     detail: "Die Reihenfolge beim Essen verändert die Blutzuckerreaktion enorm. Wenn du zuerst Ballaststoffe (Gemüse) isst, dann Proteine und Fette, und Stärke/Zucker zuletzt, reduzierst du deine Glukosespitze um bis zu 73% und deine Insulinspitze um 48%. Die Ballaststoffe bilden ein Netz im Darm, das die Zuckeraufnahme verlangsamt.",
     beleg: "73% niedrigere Glukosespitze, 48% niedrigere Insulinspitze",
   },
   {
-    nr: 2, icon: "🥬", titel: "Beginne mit einer grünen Vorspeise",
+    nr: 2, id: "hack_2", evidenz: "belegt", quelle: "Inchauspé", icon: "🥬", titel: "Beginne mit einer grünen Vorspeise",
     kurz: "Ein kleiner Salat oder gedünstetes Gemüse vor der Hauptmahlzeit.",
     detail: "Eine ballaststoffreiche Vorspeise (z.B. Blattsalat mit Olivenöl-Dressing) legt eine schützende Schicht im Verdauungstrakt an. Die Ballaststoffe verlangsamen die Aufnahme der Kohlenhydrate, die danach kommen. Je mehr Ballaststoffe, desto besser der Effekt.",
     beleg: "Ballaststoffe verlangsamen die Glukoseaufnahme",
   },
   {
-    nr: 3, icon: "🔢", titel: "Höre auf, Kalorien zu zählen",
+    nr: 3, id: "hack_3", evidenz: "belegt", quelle: "Inchauspé", icon: "🔢", titel: "Höre auf, Kalorien zu zählen",
     kurz: "Nicht die Menge zählt, sondern die Qualität & Molekülart.",
     detail: `100 Kalorien Fruktose wirken im Körper völlig anders als 100 Kalorien Glukose oder Fett. Kalorien sind nicht gleich Kalorien — die Art des Moleküls bestimmt, was im Körper passiert. Konzentriere dich auf die Zusammensetzung statt auf Zahlen.\n\nWie passt das zu Dr. Stacy Sims, die zu genug Protein und ausreichend Energie rät? Sehr gut sogar: Beide sagen im Kern dasselbe — es kommt auf die Qualität an, nicht aufs Kalorienzählen. Inchauspé warnt davor, Kalorien zu zählen und dabei Zucker für „gleich gut" wie Eiweiß zu halten. Sims will, dass du genug Nährstoffe (v.a. Protein) bekommst und dich nicht kaputt-sparst. Zusammengenommen heißt das: Nicht Zahlen jagen, sondern nährstoffreich und ausreichend essen.`,
     beleg: "Die Molekülart bestimmt die Wirkung, nicht die Kalorienzahl",
   },
   {
-    nr: 4, icon: "🍳", titel: "Wähle ein herzhaftes Frühstück",
+    nr: 4, id: "hack_4", evidenz: "belegt", quelle: "Inchauspé", icon: "🍳", titel: "Wähle ein herzhaftes Frühstück",
     kurz: "Salzig statt süß — mit Protein, Fett und Ballaststoffen.",
     detail: `Ein süßes Frühstück (Müsli, Saft, Croissant) verursacht morgens auf nüchternen Magen die größte Glukosespitze des Tages — gefolgt von einem Crash und Heißhunger. Ein herzhaftes Frühstück mit Eiern, Avocado oder griechischem Joghurt hält den Blutzucker flach und sättigt länger.\n\nUnd wenn du fastest und das Frühstück auslässt? Kein Widerspruch — im Gegenteil: Das ist genau derselbe Gedanke. Beim Fasten vermeidest du die morgendliche Zuckerspitze, indem du noch gar nichts isst. Dieser Hack gilt für den Moment, in dem du dein Fasten brichst: Dann ist eine herzhafte erste Mahlzeit ideal — nicht süß. Ob du also früh herzhaft frühstückst oder erst mittags herzhaft dein Fasten brichst, beides schützt deinen Blutzucker.`,
     beleg: "Süßes Frühstück = größte Glukosespitze + Crash + Heißhunger",
   },
   {
-    nr: 5, icon: "🍬", titel: "Zucker & Blutzucker — und der feine Unterschied für Hormone",
-    kurz: "Für den Blutzucker fast gleich — für Hormone & Stoffwechsel nicht.",
-    detail: `Für deinen Blutzucker gilt (nach Jessie Inchauspé): Ob Honig, brauner Zucker oder Kokosblütenzucker — es ist alles Glukose und Fruktose und lässt den Blutzucker ähnlich steigen. „Natürlich" heißt hier nicht automatisch „harmlos". Wähle die Süße, die dir wirklich schmeckt, und genieße sie bewusst und in Maßen.\n\nFür deine Hormone und deinen Stoffwechsel lohnt sich aber ein differenzierterer Blick — und hier gibt es echte Unterschiede:\n\n• Am ungünstigsten sind ultraverarbeitete Süßungen und „Obesogene" wie High-Fructose Corn Syrup und viele künstliche Süßstoffe (z.B. Aspartam/NutraSweet). Sie können laut Dr. Mindy Pelz Insulinresistenz fördern und Heißhunger anheizen — schlecht für dein Hormongleichgewicht.\n• Auch Agavendicksaft ist mit Vorsicht zu genießen: Er ist stark verarbeitet und besonders fruktosereich (ähnlich wie HFCS). Fruktose belastet vor allem die Leber und fördert Insulinresistenz.\n• Etwas besser schneiden weniger verarbeitete Naturvarianten ab: Dr. Stacy Sims nennt Honig (enthält Polyphenole) und vor allem Ahornsirup (kaum verarbeitet) als die besseren Optionen — nicht als „gesund", aber als das kleinere Übel.\n\nDas Beste bleibt für beide Ziele gleich: Wenn du etwas Süßes möchtest, greif zu ganzer Frucht — die Süße kommt hier mit Ballaststoffen, die den Blutzucker abpuffern und dein Mikrobiom (und damit dein Estrobolom) füttern.`,
+    nr: 5, id: "hack_5", evidenz: "belegt", quelle: "Inchauspé", icon: "🍬", titel: "Zucker & Blutzucker — und der feine Unterschied für Hormone",
+    kurz: "Für den Blutzucker fast gleich — für Leber, Hormone & Sättigung nicht.",
+    detail: `Für deinen Blutzucker gilt (nach Jessie Inchauspé): Ob Honig, brauner Zucker oder Kokosblütenzucker — alle bestehen aus Glukose und Fruktose und lassen den Blutzucker ähnlich steigen. Wie sich das Verhältnis der beiden auswirkt, liest du in der Karte „Glukose und Fructose — warum der Unterschied zählt\". „Natürlich" heißt hier nicht automatisch „harmlos". Wähle die Süße, die dir wirklich schmeckt, und genieße sie bewusst und in Maßen.\n\nFür deine Hormone und deinen Stoffwechsel lohnt sich aber ein differenzierterer Blick — und hier gibt es echte Unterschiede:\n\n• Am ungünstigsten sind ultraverarbeitete Süßungen und „Obesogene" wie Isoglucose (auf europäischen Etiketten: Glucose-Fructose-Sirup oder Fructose-Glucose-Sirup) und viele künstliche Süßstoffe (z.B. Aspartam/NutraSweet). Sie können laut Dr. Mindy Pelz Insulinresistenz fördern und Heißhunger anheizen — schlecht für dein Hormongleichgewicht.\n• Auch Agavendicksaft ist mit Vorsicht zu genießen: Er ist stark verarbeitet und besonders fruktosereich (ähnlich wie Isoglucose). Fruktose belastet vor allem die Leber und fördert Insulinresistenz.\n• Etwas besser schneiden weniger verarbeitete Naturvarianten ab: Dr. Stacy Sims nennt Honig (enthält Polyphenole) und vor allem Ahornsirup (kaum verarbeitet) als die besseren Optionen — nicht als „gesund", aber als das kleinere Übel.\n\nDas Beste bleibt für beide Ziele gleich: Wenn du etwas Süßes möchtest, greif zu ganzer Frucht — die Süße kommt hier mit Ballaststoffen, die den Blutzucker abpuffern und dein Mikrobiom (und damit dein Estrobolom) füttern.`,
     beleg: "Blutzucker: alle ähnlich (Inchauspé) — für Hormone: verarbeitet & fruktosereich meiden (Pelz, Sims)",
   },
   {
-    nr: 6, icon: "🍰", titel: "Iss Süßes als Dessert, nicht als Snack",
+    nr: 6, id: "hack_6", evidenz: "hinweise", quelle: "Inchauspé", icon: "🍰", titel: "Iss Süßes als Dessert, nicht als Snack",
     kurz: "Nach der Mahlzeit statt auf leeren Magen zwischendurch.",
     detail: `Süßes auf nüchternen Magen (als Snack zwischendurch) verursacht eine heftige Glukosespitze. Wenn du dasselbe Süße direkt nach einer vollständigen Mahlzeit isst, sind bereits Ballaststoffe, Protein und Fett im Magen, die die Zuckeraufnahme abpuffern. Spare dir Süßes also für direkt nach dem Essen auf.\n\nDas ist kein Freifahrtschein für täglich Dessert — sondern die klügste Art, Süßes zu genießen, wenn du es magst. Es passt zum Zucker-Hack (wähle bewusst und in Maßen) und zum Fasten (Süßes gehört in dein Essfenster, nicht in die Fastenzeit). Kurz: Wenn Süßes, dann nach dem Essen statt zwischendurch.`,
     beleg: "Süßes nach der Mahlzeit = abgepufferte Glukoseaufnahme",
   },
   {
-    nr: 7, icon: "🍶", titel: "Greife vor dem Essen zum Essig",
+    nr: 7, id: "hack_7", evidenz: "belegt", quelle: "Inchauspé", icon: "🍶", titel: "Greife vor dem Essen zum Essig",
     kurz: "1 EL Essig in einem großen Glas Wasser, kurz vor dem Essen.",
     detail: "Ein bis zwei Esslöffel Essig (z.B. Apfelessig) in einem großen Glas Wasser, getrunken kurz vor einer kohlenhydratreichen Mahlzeit, senkt die Glukosespitze deutlich. Essigsäure verlangsamt die Aufspaltung von Stärke in Zucker und verbessert die Aufnahme von Glukose in die Muskeln. Mit Strohhalm trinken schützt die Zähne.",
     beleg: "Essigsäure verlangsamt Stärke-Aufspaltung & senkt Glukosespitze",
   },
   {
-    nr: 8, icon: "🚶", titel: "Bewege dich nach dem Essen",
+    nr: 8, id: "hack_8", evidenz: "belegt", quelle: "Inchauspé", icon: "🚶", titel: "Bewege dich nach dem Essen",
     kurz: "10 Minuten Bewegung innerhalb von 70 Min. nach der Mahlzeit.",
     detail: "Schon 10 Minuten moderate Bewegung nach einer Mahlzeit (Spaziergang, Treppensteigen — oder dein Fitness-Trampolin!) glätten die Glukosespitze deutlich. Deine arbeitenden Muskeln verbrauchen die Glukose direkt, sodass sie gar nicht erst als Spitze im Blut landet. Ideal innerhalb von 70 Minuten nach dem Essen.",
     beleg: "10 Min. Bewegung = arbeitende Muskeln verbrauchen die Glukose direkt",
   },
   {
-    nr: 9, icon: "🧀", titel: "Wenn du snackst, dann herzhaft",
+    nr: 9, id: "hack_9", evidenz: "hinweise", quelle: "Inchauspé", icon: "🧀", titel: "Wenn du snackst, dann herzhaft",
     kurz: "Lieber herzhafte Snacks als süße zwischendurch.",
     detail: "Wenn dich zwischen den Mahlzeiten der Hunger packt, wähle etwas Herzhaftes statt Süßes: eine Handvoll Nüsse, ein gekochtes Ei, Gemüsesticks mit Hummus, ein Stück Käse. Herzhafte Snacks halten deinen Blutzucker stabil, während süße Snacks auf leeren Magen eine Spitze auslösen.",
     beleg: "Herzhafte Snacks halten den Blutzucker stabil",
   },
   {
-    nr: 10, icon: "👗", titel: "Ziehe deine Kohlenhydrate an",
+    nr: 10, id: "hack_10", evidenz: "praxis", quelle: "Inchauspé", icon: "👗", titel: "Ziehe deine Kohlenhydrate an",
     kurz: "Kohlenhydrate nie 'nackt' — immer mit Fett, Protein oder Ballaststoffen.",
     detail: "Lass Stärke und Zucker nie allein ('nackt'). Kombiniere sie immer mit Fett, Protein oder Ballaststoffen — das 'kleidet sie an' und verlangsamt die Glukoseaufnahme. Beispiele: Toast mit Avocado statt pur, Reis mit Gemüse und Protein, Obst mit einer Handvoll Nüssen. So bleibt die Glukosereaktion flach.",
     beleg: "Kohlenhydrate + Fett/Protein/Ballaststoffe = flachere Glukosekurve",
@@ -7644,7 +7805,7 @@ function SchwangerRezepteTab() {
       <div style={{ display: "flex", gap: 6, marginBottom: 14, flexWrap: "wrap" }}>
         {SCHWANGER_REZEPT_KATEGORIEN.map(k => (
           <button key={k.id} onClick={() => { setKategorie(k.id); setOffen(null); }}
-            style={{ background: kategorie === k.id ? accent : "#F1EDE6", color: kategorie === k.id ? "#fff" : "#666", border: "none", borderRadius: 9, padding: "8px 12px", cursor: "pointer", fontSize: 11.5, fontWeight: 700 }}>
+            style={{ background: kategorie === k.id ? accent : "#F1EDE6", color: kategorie === k.id ? "#fff" : "#666", border: "none", borderRadius: 9, padding: "8px 12px", cursor: "pointer", fontSize: 12.5, fontWeight: 700 }}>
             {k.label}
           </button>
         ))}
@@ -7660,15 +7821,15 @@ function SchwangerRezepteTab() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 10 }}>
                 <div style={{ flex: 1 }}>
                   <p style={{ margin: "0 0 4px", fontSize: 14.5, fontWeight: 700, color: "#222" }}>{r.name}</p>
-                  <p style={{ margin: 0, fontSize: 11, color: "#999" }}>{r.portionen}</p>
+                  <p style={{ margin: 0, fontSize: 12, color: "#999" }}>{r.portionen}</p>
                 </div>
                 <span style={{ fontSize: 16, color: accent, flexShrink: 0 }}>{auf ? "−" : "+"}</span>
               </div>
               {/* Nährwert-Badges */}
               <div style={{ display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }}>
-                <span style={{ fontSize: 10.5, background: "#F3E8EC", color: "#8B4A5C", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.protein} g Protein</span>
-                <span style={{ fontSize: 10.5, background: "#F0EAEF", color: "#7B1FA2", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.cholin} mg Cholin</span>
-                {r.dha > 0 && <span style={{ fontSize: 10.5, background: "#E1F5FE", color: "#4A6478", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.dha} mg DHA</span>}
+                <span style={{ fontSize: 12.5, background: "#F3E8EC", color: "#8B4A5C", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.protein} g Protein</span>
+                <span style={{ fontSize: 12.5, background: "#F0EAEF", color: "#7B1FA2", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.cholin} mg Cholin</span>
+                {r.dha > 0 && <span style={{ fontSize: 12.5, background: "#E1F5FE", color: "#4A6478", borderRadius: 7, padding: "3px 8px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.dha} mg DHA</span>}
               </div>
             </button>
             {auf && (
@@ -7677,7 +7838,7 @@ function SchwangerRezepteTab() {
                   <p style={{ margin: "0 0 12px", fontSize: 12, color: "#777", lineHeight: 1.6, fontStyle: "italic" }}>{r.info}</p>
                 )}
                 {r.ca && (
-                  <p style={{ margin: "0 0 10px", fontSize: 10.5, color: "#999", lineHeight: 1.5 }}>ℹ️ Nährwerte geschätzt (im Originalbuch nicht angegeben). Quelle: {r.quelle}.</p>
+                  <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#999", lineHeight: 1.5 }}>ℹ️ Nährwerte geschätzt (im Originalbuch nicht angegeben). Quelle: {r.quelle}.</p>
                 )}
                 <p style={{ margin: "0 0 6px", fontSize: 12.5, fontWeight: 700, color: accent }}>Zutaten</p>
                 <div style={{ marginBottom: 14 }}>
@@ -7691,7 +7852,7 @@ function SchwangerRezepteTab() {
                 <div>
                   {r.zubereitung.map((s, i) => (
                     <div key={i} style={{ display: "flex", gap: 9, marginBottom: 8 }}>
-                      <span style={{ flexShrink: 0, width: 20, height: 20, borderRadius: "50%", background: `${accent}22`, color: accent, fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>{i + 1}</span>
+                      <span style={{ flexShrink: 0, width: 20, height: 20, borderRadius: "50%", background: `${accent}22`, color: accent, fontSize: 12, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>{i + 1}</span>
                       <p style={{ margin: 0, fontSize: 12.5, color: "#555", lineHeight: 1.6 }}>{s}</p>
                     </div>
                   ))}
@@ -7704,7 +7865,7 @@ function SchwangerRezepteTab() {
 
       {/* Disclaimer */}
       <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginTop: 8, marginBottom: 80 }}>
-        <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
+        <p style={{ margin: 0, fontSize: 12, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
           Rezepte aus „9 Months That Count Forever“ von Jessie Inchauspé sowie ausgewählte proteinreiche Rezepte aus „Eat Like a Girl“ von Dr. Mindy Pelz und den beiden Büchern von Dr. William Li (für die Schwangerschaft kuratiert & angepasst; die dort ergänzten Nährwerte sind geschätzt). Bewusst weggelassen wurden Gerichte mit rohem Fisch, quecksilberreichen Fischen (z.B. Thunfisch) und Alkohol. Achte generell auf pasteurisierte Milchprodukte sowie durchgegartes Fleisch, Fisch & Meeresfrüchte. Fetter Fisch (z.B. Lachs, Sardinen) liefert wertvolles DHA — 1–2 Portionen pro Woche werden in der Schwangerschaft empfohlen.
         </p>
       </div>
@@ -7756,7 +7917,7 @@ function SchwangerBabyTab({ ssw }) {
 
       {/* Was sich entwickelt */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", borderLeft: `4px solid ${accent}` }}>
-        <p style={{ margin: "0 0 6px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Das tut sich gerade</p>
+        <p style={{ margin: "0 0 6px", fontSize: 12, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Das tut sich gerade</p>
         <p style={{ margin: 0, fontSize: 13.5, color: "#444", lineHeight: 1.7 }}>{baby.text}</p>
       </div>
 
@@ -7774,7 +7935,7 @@ function SchwangerBabyTab({ ssw }) {
                 <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: istAktuell ? accent : "#666" }}>
                   bis Woche {e.bisWoche === 99 ? "40+" : e.bisWoche} · {e.groesse} {istAktuell && "← du bist hier"}
                 </p>
-                <p style={{ margin: "2px 0 0", fontSize: 11.5, color: "#888", lineHeight: 1.5 }}>{e.text}</p>
+                <p style={{ margin: "2px 0 0", fontSize: 12.5, color: "#888", lineHeight: 1.5 }}>{e.text}</p>
               </div>
             </div>
           );
@@ -7838,7 +7999,7 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
             <div style={{ background: "rgba(255,255,255,0.3)", borderRadius: 8, height: 8, overflow: "hidden", marginBottom: 6 }}>
               <div style={{ background: "#fff", height: "100%", width: `${Math.min(100, (ssw.woche / 40) * 100)}%`, borderRadius: 8 }} />
             </div>
-            <p style={{ margin: 0, fontSize: 11.5, opacity: 0.9 }}>
+            <p style={{ margin: 0, fontSize: 12.5, opacity: 0.9 }}>
               {ssw.ueberfaellig ? "Dein Baby kann jederzeit kommen! 🌸" : `Noch ca. ${40 - ssw.woche} Wochen bis zum Termin`}
             </p>
           </>
@@ -7852,7 +8013,7 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
 
       {/* Tipp des Tages */}
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", borderLeft: `4px solid ${accent}` }}>
-        <p style={{ margin: "0 0 6px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Tipp des Tages</p>
+        <p style={{ margin: "0 0 6px", fontSize: 12, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Tipp des Tages</p>
         <p style={{ margin: 0, fontSize: 13.5, color: "#333", lineHeight: 1.6 }}>{tagesTipp.text}</p>
       </div>
 
@@ -7861,7 +8022,7 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
         <button onClick={() => onTab("schwanger")} style={{ width: "100%", background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", borderLeft: `4px solid ${accent}`, cursor: "pointer", textAlign: "left" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div>
-              <p style={{ margin: "0 0 3px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Dein Fokus jetzt</p>
+              <p style={{ margin: "0 0 3px", fontSize: 12, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Dein Fokus jetzt</p>
               <p style={{ margin: 0, fontSize: 14, fontWeight: 800, color: "#333" }}>{tri.fokus}</p>
             </div>
             <span style={{ fontSize: 18, color: accent }}>→</span>
@@ -7872,10 +8033,10 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
       {/* Rezept-Ideen für heute — interaktiv aus den Schwangerschafts-Rezepten */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 18, marginBottom: 12, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-          <p style={{ margin: 0, fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Rezept-Ideen für heute</p>
+          <p style={{ margin: 0, fontSize: 12, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>Rezept-Ideen für heute</p>
           <button onClick={() => onTab("rezepte")} style={{ background: "none", border: "none", color: accent, fontSize: 12, cursor: "pointer", fontWeight: 600 }}>Alle →</button>
         </div>
-        <p style={{ margin: "0 0 12px", fontSize: 11.5, color: "#888", lineHeight: 1.5 }}>Vorschläge aus deinen Schwangerschafts-Rezepten — reich an Protein, Cholin & DHA. Tippe für Details oder wechsle mit 🔄.</p>
+        <p style={{ margin: "0 0 12px", fontSize: 12.5, color: "#888", lineHeight: 1.5 }}>Vorschläge aus deinen Schwangerschafts-Rezepten — reich an Protein, Cholin & DHA. Tippe für Details oder wechsle mit 🔄.</p>
         {["Frühstück","Mittagessen","Abendessen","Snack"].map(mahlzeit => {
           const versatz = srVersatz[mahlzeit] || 0;
           const r = getSchwangerVorschlag(mahlzeit, srTag, versatz);
@@ -7887,12 +8048,12 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
               <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                 <span style={{ fontSize: 20, flexShrink: 0 }}>{mIcon}</span>
                 <div style={{ flex: 1, cursor: "pointer" }} onClick={() => setSrOffen(auf ? null : mahlzeit + r.id)}>
-                  <p style={{ margin: "0 0 2px", fontSize: 10.5, fontWeight: 700, color: accent }}>{mahlzeit}</p>
+                  <p style={{ margin: "0 0 2px", fontSize: 12.5, fontWeight: 700, color: accent }}>{mahlzeit}</p>
                   <p style={{ margin: "0 0 4px", fontSize: 13, color: "#333", lineHeight: 1.4, fontWeight: 600 }}>{r.name}</p>
                   <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-                    <span style={{ fontSize: 9.5, background: "#F3E8EC", color: "#8B4A5C", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.protein}g</span>
-                    <span style={{ fontSize: 9.5, background: "#F0EAEF", color: "#7B1FA2", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.cholin}mg</span>
-                    {r.dha > 0 && <span style={{ fontSize: 9.5, background: "#E1F5FE", color: "#4A6478", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.dha}mg</span>}
+                    <span style={{ fontSize: 12.5, background: "#F3E8EC", color: "#8B4A5C", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.protein}g</span>
+                    <span style={{ fontSize: 12.5, background: "#F0EAEF", color: "#7B1FA2", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.cholin}mg</span>
+                    {r.dha > 0 && <span style={{ fontSize: 12.5, background: "#E1F5FE", color: "#4A6478", borderRadius: 6, padding: "2px 6px", fontWeight: 600 }}>{r.ca ? "ca. " : ""}{r.dha}mg</span>}
                   </div>
                 </div>
                 <button onClick={() => setSrVersatz(v => ({ ...v, [mahlzeit]: (v[mahlzeit] || 0) + 1 }))}
@@ -7901,20 +8062,20 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
               </div>
               {auf && (
                 <div style={{ marginTop: 8, paddingLeft: 30 }}>
-                  {r.info && <p style={{ margin: "0 0 8px", fontSize: 11.5, color: "#777", lineHeight: 1.55, fontStyle: "italic" }}>{r.info}</p>}
-                  <p style={{ margin: "0 0 4px", fontSize: 11.5, fontWeight: 700, color: accent }}>Zutaten</p>
+                  {r.info && <p style={{ margin: "0 0 8px", fontSize: 12.5, color: "#777", lineHeight: 1.55, fontStyle: "italic" }}>{r.info}</p>}
+                  <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: accent }}>Zutaten</p>
                   <div style={{ marginBottom: 10 }}>
                     {r.zutaten.map((z, i) => (
-                      <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.55, paddingLeft: 12, position: "relative" }}>
+                      <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.55, paddingLeft: 12, position: "relative" }}>
                         <span style={{ position: "absolute", left: 0, color: accent }}>•</span>{z}
                       </div>
                     ))}
                   </div>
-                  <p style={{ margin: "0 0 4px", fontSize: 11.5, fontWeight: 700, color: accent }}>Zubereitung</p>
+                  <p style={{ margin: "0 0 4px", fontSize: 12.5, fontWeight: 700, color: accent }}>Zubereitung</p>
                   {r.zubereitung.map((s, i) => (
                     <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6 }}>
-                      <span style={{ flexShrink: 0, width: 18, height: 18, borderRadius: "50%", background: `${accent}22`, color: accent, fontSize: 10, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>{i + 1}</span>
-                      <p style={{ margin: 0, fontSize: 11.5, color: "#555", lineHeight: 1.55 }}>{s}</p>
+                      <span style={{ flexShrink: 0, width: 18, height: 18, borderRadius: "50%", background: `${accent}22`, color: accent, fontSize: 12, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>{i + 1}</span>
+                      <p style={{ margin: 0, fontSize: 12.5, color: "#555", lineHeight: 1.55 }}>{s}</p>
                     </div>
                   ))}
                 </div>
@@ -7926,14 +8087,14 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
 
       {/* Heute essen — Tagesplan aus dem Buch */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 18, marginBottom: 80, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-        <p style={{ margin: "0 0 4px", fontSize: 11, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>So kann dein Tag aussehen</p>
-        <p style={{ margin: "0 0 12px", fontSize: 11.5, color: "#888", lineHeight: 1.5 }}>Ein Beispieltag von Jessie Inchauspé aus "9 Months That Count Forever" — alle Bausteine abgedeckt.</p>
+        <p style={{ margin: "0 0 4px", fontSize: 12, color: accent, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5 }}>So kann dein Tag aussehen</p>
+        <p style={{ margin: "0 0 12px", fontSize: 12.5, color: "#888", lineHeight: 1.5 }}>Ein Beispieltag von Jessie Inchauspé aus "9 Months That Count Forever" — alle Bausteine abgedeckt.</p>
 
         {/* Varianten-Umschalter */}
         <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
           {Object.entries(SCHWANGER_TAGESPLAN).map(([key, v]) => (
             <button key={key} onClick={() => setPlanVariante(key)}
-              style={{ flex: 1, background: planVariante === key ? accent : "#F1EDE6", color: planVariante === key ? "#fff" : "#666", border: "none", borderRadius: 9, padding: "8px 6px", cursor: "pointer", fontSize: 11.5, fontWeight: 700 }}>
+              style={{ flex: 1, background: planVariante === key ? accent : "#F1EDE6", color: planVariante === key ? "#fff" : "#666", border: "none", borderRadius: 9, padding: "8px 6px", cursor: "pointer", fontSize: 12.5, fontWeight: 700 }}>
               {v.name}
             </button>
           ))}
@@ -7944,22 +8105,23 @@ function SchwangerHome({ ssw, onTab, begruessung }) {
           <div key={i} style={{ display: "flex", gap: 11, marginBottom: 12, paddingBottom: 12, borderBottom: i < plan.mahlzeiten.length - 1 ? "1px solid #EEEAE3" : "none" }}>
             
             <div style={{ flex: 1 }}>
-              <p style={{ margin: "0 0 2px", fontSize: 11, fontWeight: 700, color: accent }}>{m.zeit}</p>
+              <p style={{ margin: "0 0 2px", fontSize: 12, fontWeight: 700, color: accent }}>{m.zeit}</p>
               <p style={{ margin: "0 0 4px", fontSize: 13, color: "#333", lineHeight: 1.5 }}>{m.essen}</p>
-              <p style={{ margin: 0, fontSize: 10.5, color: "#999", lineHeight: 1.4 }}>{m.werte}</p>
+              <p style={{ margin: 0, fontSize: 12.5, color: "#999", lineHeight: 1.4 }}>{m.werte}</p>
             </div>
           </div>
         ))}
         <div style={{ background: `${accent}15`, borderRadius: 10, padding: "10px 12px", marginTop: 4 }}>
-          <p style={{ margin: 0, fontSize: 11.5, color: "#555", fontWeight: 600, lineHeight: 1.5 }}>✓ {plan.summe}</p>
+          <p style={{ margin: 0, fontSize: 12.5, color: "#555", fontWeight: 600, lineHeight: 1.5 }}>✓ {plan.summe}</p>
         </div>
       </div>
     </div>
   );
 }
 
-function SchwangerTab({ ssw, geburtstermin }) {
-  const [offen, setOffen] = useState(null);
+function SchwangerTab({ ssw, geburtstermin , zielKarte }) {
+  const [offen, setOffen] = useState(zielKarte || null);
+  useEffect(() => { if (zielKarte) setOffen(zielKarte); }, [zielKarte]);
   const [bereich, setBereich] = useState("ernaehrung"); // ernaehrung | bewegung | spaeter
 
   const tri = ssw && !ssw.vorGeburt ? TRIMESTER_INFO[ssw.trimester] : TRIMESTER_INFO[1];
@@ -7978,19 +8140,38 @@ function SchwangerTab({ ssw, geburtstermin }) {
       <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
         <button onClick={() => setOffen(auf ? null : w.id)}
           style={{ width: "100%", background: auf ? "#F1E9EE" : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-          <span style={{ flex: 1, fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
-          <span style={{ fontSize: 15, color: accent }}>{auf ? "−" : "+"}</span>
+          <div style={{ flex: 1 }}>
+            <span style={{ display: "block", fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
+            {!auf && w.kern && (
+              <span style={{ display: "block", fontSize: 12, color: "#7A7278", lineHeight: 1.45, marginTop: 3 }}>{w.kern}</span>
+            )}
+          </div>
+          <span style={{ fontSize: 15, color: accent, flexShrink: 0 }}>{auf ? "−" : "+"}</span>
         </button>
         {auf && (
           <div style={{ padding: "0 15px 15px" }}>
-            <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{w.text}</p>
+            {w.kern && (
+              <p style={{ margin: "0 0 10px", fontSize: 13.5, fontWeight: 600, color: "#242124", lineHeight: 1.55 }}>{w.kern}</p>
+            )}
+            {w.relevanz && (
+              <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.6 }}>{w.relevanz}</p>
+            )}
+            {w.kern ? (
+              <details style={{ marginBottom: 10 }}>
+                <summary style={{ fontSize: 12, fontWeight: 700, color: accent, cursor: "pointer", padding: "6px 0" }}>Ausführlich lesen</summary>
+                <p style={{ margin: "8px 0 0", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{w.text}</p>
+              </details>
+            ) : (
+              <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{w.text}</p>
+            )}
             <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px" }}>
-              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
+              <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: accent }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
               {w.tipps.map((t, i) => (
-                <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+                <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                   <span style={{ position: "absolute", left: 0, color: accent }}>•</span>{t}
                 </div>
               ))}
+              {w.evidenz && <EvidenzZeile stufe={w.evidenz} quelle={w.quelle} />}
             </div>
           </div>
         )}
@@ -8011,7 +8192,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
             <div style={{ background: "rgba(255,255,255,0.3)", borderRadius: 8, height: 8, overflow: "hidden", marginBottom: 6 }}>
               <div style={{ background: "#fff", height: "100%", width: `${Math.min(100, (ssw.woche / 40) * 100)}%`, borderRadius: 8 }} />
             </div>
-            <p style={{ margin: 0, fontSize: 11.5, opacity: 0.9 }}>
+            <p style={{ margin: 0, fontSize: 12.5, opacity: 0.9 }}>
               {ssw.ueberfaellig ? "Dein Baby kann jederzeit kommen! 🌸" : `Noch ca. ${40 - ssw.woche} Wochen bis zum Termin`}
             </p>
           </>
@@ -8029,9 +8210,9 @@ function SchwangerTab({ ssw, geburtstermin }) {
         <p style={{ margin: "0 0 8px", fontSize: 16, fontWeight: 800, color: "#333" }}>{tri.fokus}</p>
         <p style={{ margin: 0, fontSize: 12.5, color: "#555", lineHeight: 1.7 }}>{tri.text}</p>
         <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px", marginTop: 10 }}>
-          <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>Für dieses Trimester:</p>
+          <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: accent }}>Für dieses Trimester:</p>
           {tri.tipps.map((t, i) => (
-            <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+            <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
               <span style={{ position: "absolute", left: 0, color: accent }}>•</span>{t}
             </div>
           ))}
@@ -8042,7 +8223,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
       <div style={{ display: "flex", gap: 6, marginBottom: 12, flexWrap: "wrap" }}>
         {[["ernaehrung","Ernährung"],["bewegung","Bewegung"],["beschwerden","🤍 Beschwerden"],["stillen","🤱 Stillen"],["supplemente","Supplemente"],["spaeter","Geburt & mehr"],["warnzeichen","⚠️ Warnzeichen"]].map(([id, label]) => (
           <button key={id} onClick={() => { setBereich(id); setOffen(null); }}
-            style={{ flex: "1 1 40%", background: bereich === id ? (id === "warnzeichen" ? "#A34A44" : accent) : (id === "warnzeichen" ? "#F3E8EC" : "#F1EDE6"), color: bereich === id ? "#fff" : (id === "warnzeichen" ? "#A34A44" : "#666"), border: "none", borderRadius: 9, padding: "9px 6px", cursor: "pointer", fontSize: 11.5, fontWeight: 700 }}>
+            style={{ flex: "1 1 40%", background: bereich === id ? (id === "warnzeichen" ? "#A34A44" : accent) : (id === "warnzeichen" ? "#F3E8EC" : "#F1EDE6"), color: bereich === id ? "#fff" : (id === "warnzeichen" ? "#A34A44" : "#666"), border: "none", borderRadius: 9, padding: "9px 6px", cursor: "pointer", fontSize: 12.5, fontWeight: 700 }}>
             {label}
           </button>
         ))}
@@ -8071,7 +8252,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
           {renderKarten(SCHWANGER_BEWEGUNG)}
           <div style={{ background: "#FFF3F3", borderRadius: 12, padding: "12px 14px", marginTop: 6, marginBottom: 4, border: "1px solid #EDD8DA" }}>
             <p style={{ margin: "0 0 6px", fontSize: 12.5, fontWeight: 800, color: "#A34A44" }}>⛔ Wann du pausieren / ärztlich abklären solltest</p>
-            <p style={{ margin: 0, fontSize: 11.5, color: "#8B3A3A", lineHeight: 1.6 }}>
+            <p style={{ margin: 0, fontSize: 12.5, color: "#8B3A3A", lineHeight: 1.6 }}>
               Bei Blutungen, vorzeitigen Wehen, Fruchtwasserabgang, Schwindel, Schmerzen, Bluthochdruck/Präeklampsie oder wenn deine Ärztin/Hebamme dir davon abgeraten hat. Im Zweifel immer zuerst Rücksprache halten.
             </p>
           </div>
@@ -8147,7 +8328,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
             );
           })}
           <div style={{ background: "#F3E8EC", borderRadius: 10, padding: "11px 13px", marginTop: 8, marginBottom: 4 }}>
-            <p style={{ margin: 0, fontSize: 11, color: "#B71C1C", lineHeight: 1.55 }}>
+            <p style={{ margin: 0, fontSize: 12, color: "#B71C1C", lineHeight: 1.55 }}>
               Quellen u.a.: IQWiG (gesundheitsinformation.de), Apotheken Umschau, Helios, AOK, DocMedicus. Diese Inhalte ersetzen keine ärztliche oder hebammenkundliche Betreuung — bei Beschwerden immer das Betreuungsteam kontaktieren.
             </p>
           </div>
@@ -8156,7 +8337,7 @@ function SchwangerTab({ ssw, geburtstermin }) {
 
       {/* Disclaimer */}
       <div style={{ background: "#F4EEE2", borderRadius: 12, padding: "12px 14px", marginTop: 6, marginBottom: 80, border: "1px solid #D8C8B5" }}>
-        <p style={{ margin: 0, fontSize: 11.5, color: "#8A6D2E", lineHeight: 1.6 }}>
+        <p style={{ margin: 0, fontSize: 12.5, color: "#8A6D2E", lineHeight: 1.6 }}>
           ⚠️ Diese Inhalte dienen der Information (Quellen u.a.: "9 Months That Count Forever" von Jessie Inchauspé, "ROAR" von Stacy Sims, Dr. Rhonda Patrick zur Muttermilch, Dr. Rachel Rubin zu Hormonen/GSL, sowie NHS/ACOG/CDC zu Stillproblemen & Babynahrung) und ersetzen keine ärztliche, hebammenkundliche oder Stillberatung. Jede Schwangerschaft und Stillzeit ist anders — besprich Ernährung, Bewegung, Nahrungsergänzung und Beschwerden mit deinem Betreuungsteam.
         </p>
       </div>
@@ -8209,12 +8390,12 @@ function EqologyEmpfehlung({ modus, istJugendlich }) {
           {liste.map((prod, i) => (
             <div key={i} style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px", marginBottom: 7 }}>
               <p style={{ margin: "0 0 2px", fontSize: 12.5, fontWeight: 700, color: "#7D3B52" }}>{prod.name}</p>
-              <p style={{ margin: "0 0 3px", fontSize: 11.5, color: "#666", lineHeight: 1.45 }}>{prod.was}</p>
-              <p style={{ margin: 0, fontSize: 10.5, color: "#999", lineHeight: 1.4, fontStyle: "italic" }}>{prod.note}</p>
+              <p style={{ margin: "0 0 3px", fontSize: 12.5, color: "#666", lineHeight: 1.45 }}>{prod.was}</p>
+              <p style={{ margin: 0, fontSize: 12.5, color: "#999", lineHeight: 1.4, fontStyle: "italic" }}>{prod.note}</p>
             </div>
           ))}
           {istSchwanger && (
-            <p style={{ margin: "8px 0 0", fontSize: 11, color: "#8B4A5C", lineHeight: 1.5 }}>
+            <p style={{ margin: "8px 0 0", fontSize: 12, color: "#8B4A5C", lineHeight: 1.5 }}>
               In der Schwangerschaft gilt besonders: Nimm Nahrungsergänzung nur in Absprache mit deiner Ärztin oder Hebamme.
             </p>
           )}
@@ -8224,12 +8405,12 @@ function EqologyEmpfehlung({ modus, istJugendlich }) {
                 style={{ display: "block", textAlign: "center", background: "#B07689", color: "#fff", borderRadius: 10, padding: "11px", marginTop: 12, textDecoration: "none", fontSize: 13, fontWeight: 700 }}>
                 Zu den Produkten →
               </a>
-              <p style={{ margin: "8px 0 0", fontSize: 10, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>
+              <p style={{ margin: "8px 0 0", fontSize: 12, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>
                 Als unabhängige Eqology-Partnerin erhalte ich ggf. eine Provision, wenn du über diesen Link bestellst. Für dich ändert sich am Preis nichts.
               </p>
             </>
           ) : (
-            <p style={{ margin: "10px 0 0", fontSize: 10.5, color: "#aaa", textAlign: "center", lineHeight: 1.5 }}>
+            <p style={{ margin: "10px 0 0", fontSize: 12.5, color: "#aaa", textAlign: "center", lineHeight: 1.5 }}>
               Dies ist meine persönliche Empfehlung aus eigener Erfahrung — ich verdiene aktuell nichts daran. Nahrungsergänzung ersetzt keine ausgewogene Ernährung; bei Fragen wende dich an dein Behandlungsteam.
             </p>
           )}
@@ -8278,7 +8459,7 @@ function EatToBeat5x5x5({ onAnzahl }) {
         <p style={{ margin: 0, fontSize: 15, fontWeight: 800, color: "#5E6E5C" }}>Dein 5×5×5 heute</p>
         <span style={{ fontSize: 13, fontWeight: 700, color: allesGeschafft ? "#5E6E5C" : "#999" }}>{erledigt} / 5</span>
       </div>
-      <p style={{ margin: "0 0 12px", fontSize: 11.5, color: "#888", lineHeight: 1.5 }}>
+      <p style={{ margin: "0 0 12px", fontSize: 12.5, color: "#888", lineHeight: 1.5 }}>
         Wähle für jedes der 5 Verteidigungssysteme ein Lebensmittel, das du heute isst. Tippe auf ein System, um zu wählen.
       </p>
 
@@ -8319,7 +8500,7 @@ function EatToBeat5x5x5({ onAnzahl }) {
           </div>
         );
       })}
-      <p style={{ margin: "10px 0 0", fontSize: 10.5, color: "#bbb", lineHeight: 1.5 }}>
+      <p style={{ margin: "10px 0 0", fontSize: 12.5, color: "#bbb", lineHeight: 1.5 }}>
         ⭐ = Grand Slammer: Diese Lebensmittel aktivieren laut Dr. William Li alle fünf Verteidigungssysteme auf einmal. Sie zählen trotzdem nur als eines deiner fünf — such dir also weiterhin vier andere dazu. Manche Lebensmittel zählen für mehrere Systeme. Die Auswahl wird pro Tag gespeichert.
       </p>
     </div>
@@ -8365,15 +8546,15 @@ function FatFightingFoodsTab({ alter }) {
           placeholder="Suchen … Lebensmittel suchen (z.B. Beeren, Tee, Lachs)…"
           style={{ width: "100%", boxSizing: "border-box", padding: "12px 14px", fontSize: 14, borderRadius: 12, border: "1px solid #ddd", outline: "none", background: "#fff" }}
         />
-        <p style={{ margin: "8px 2px 0", fontSize: 11, color: "#999", lineHeight: 1.5 }}>Lebensmittel mit einem Stern-Symbol haben einen Zubereitungs-Trick (nach Dr. Aronica) — antippen.</p>
-        {q && <p style={{ margin: "8px 2px 0", fontSize: 11.5, color: "#888" }}>{trefferGesamt + grandGefiltert.length} Treffer für „{suche}“</p>}
+        <p style={{ margin: "8px 2px 0", fontSize: 12, color: "#999", lineHeight: 1.5 }}>Lebensmittel mit einem Stern-Symbol haben einen Zubereitungs-Trick (nach Dr. Aronica) — antippen.</p>
+        {q && <p style={{ margin: "8px 2px 0", fontSize: 12.5, color: "#888" }}>{trefferGesamt + grandGefiltert.length} Treffer für „{suche}“</p>}
       </div>
 
       {/* Grand Slammers */}
       {grandGefiltert.length > 0 && (
         <div style={{ background: "linear-gradient(135deg, #F4EEE2, #FFECB3)", borderRadius: 14, padding: "14px 16px", marginBottom: 14, border: "1px solid #C9B48A" }}>
           <p style={{ margin: "0 0 4px", fontSize: 14, fontWeight: 800, color: "#C39A3A" }}>⭐ Grand Slammers</p>
-          <p style={{ margin: "0 0 10px", fontSize: 11.5, color: "#9E7B18", lineHeight: 1.5 }}>Lis Favoriten — sie treffen alle 5 Verteidigungssysteme auf einmal. Wenn du dich auf ein paar Lebensmittel konzentrieren willst, dann auf diese.</p>
+          <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#9E7B18", lineHeight: 1.5 }}>Lis Favoriten — sie treffen alle 5 Verteidigungssysteme auf einmal. Wenn du dich auf ein paar Lebensmittel konzentrieren willst, dann auf diese.</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {grandGefiltert.map(f => (
               <span key={f} style={{ background: "#fff", color: "#C39A3A", border: "1px solid #C9B48A", borderRadius: 20, padding: "5px 11px", fontSize: 12, fontWeight: 600 }}>{f}</span>
@@ -8394,7 +8575,7 @@ function FatFightingFoodsTab({ alter }) {
                 style={{ width: "100%", background: auf ? "#EEF0EC" : "none", border: "none", padding: "13px 15px", cursor: q ? "default" : "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
                 
                 <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: "#222" }}>{kat.name}</span>
-                <span style={{ fontSize: 11, color: "#999", fontWeight: 600 }}>{kat.foods.length}</span>
+                <span style={{ fontSize: 12, color: "#999", fontWeight: 600 }}>{kat.foods.length}</span>
                 {!q && <span style={{ fontSize: 15, color: "#5E6E5C", marginLeft: 6 }}>{auf ? "−" : "+"}</span>}
               </button>
               {auf && (
@@ -8415,7 +8596,7 @@ function FatFightingFoodsTab({ alter }) {
                   {kat.foods.map(f => (
                     (offenerTipp === f && FFF_TIPPS[f]) ? (
                       <div key={"tipp_" + f} style={{ background: "#F1F8E9", borderRadius: 10, padding: "10px 12px", marginTop: 8, border: "1px solid #AED581" }}>
-                        <p style={{ margin: 0, fontSize: 11.5, color: "#33691E", lineHeight: 1.6 }}><b>{f}:</b> {FFF_TIPPS[f]}</p>
+                        <p style={{ margin: 0, fontSize: 12.5, color: "#33691E", lineHeight: 1.6 }}><b>{f}:</b> {FFF_TIPPS[f]}</p>
                       </div>
                     ) : null
                   ))}
@@ -8427,7 +8608,7 @@ function FatFightingFoodsTab({ alter }) {
       )}
 
       {/* Quelle */}
-      <p style={{ margin: "14px 2px 0", fontSize: 10.5, color: "#bbb", lineHeight: 1.5 }}>
+      <p style={{ margin: "14px 2px 0", fontSize: 12.5, color: "#bbb", lineHeight: 1.5 }}>
         Quelle: Dr. William Li, „Eat to Beat Your Diet“ (2023), Tabelle der MediterAsian Fat-Fighting Foods. Bildung, kein Ersatz für ärztlichen Rat.
       </p>
       <div style={{ height: 80 }} />
@@ -8490,7 +8671,7 @@ function WeglassenTab({ alter }) {
                 
                 <span style={{ flex: 1 }}>
                   <span style={{ display: "block", fontSize: 14, fontWeight: 700, color: "#222" }}>{kat.name}</span>
-                  <span style={{ display: "block", fontSize: 10.5, color: "#aaa", marginTop: 1 }}>nach {kat.quelle}</span>
+                  <span style={{ display: "block", fontSize: 12.5, color: "#aaa", marginTop: 1 }}>nach {kat.quelle}</span>
                 </span>
                 {!q && <span style={{ fontSize: 15, color: "#A34A44" }}>{auf ? "−" : "+"}</span>}
               </button>
@@ -8502,13 +8683,13 @@ function WeglassenTab({ alter }) {
                       <p style={{ margin: 0, fontSize: 12, color: "#B5652F", lineHeight: 1.6, fontWeight: 600 }}>{kat.teenWarnung}</p>
                     </div>
                   )}
-                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#A34A44" }}>🚫 Besser weglassen:</p>
+                  <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: "#A34A44" }}>🚫 Besser weglassen:</p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 12 }}>
                     {kat.weglassen.map(f => (
                       <span key={f} style={{ background: "#F3E8EC", color: "#A34A44", borderRadius: 20, padding: "5px 11px", fontSize: 12 }}>{f}</span>
                     ))}
                   </div>
-                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#5E6E5C" }}>✅ Besser stattdessen:</p>
+                  <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: "#5E6E5C" }}>✅ Besser stattdessen:</p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                     {kat.swap.map(f => (
                       <span key={f} style={{ background: "#EEF0EC", color: "#5E6E5C", borderRadius: 20, padding: "5px 11px", fontSize: 12 }}>{f}</span>
@@ -8521,7 +8702,7 @@ function WeglassenTab({ alter }) {
         })
       )}
 
-      <p style={{ margin: "14px 2px 0", fontSize: 10.5, color: "#bbb", lineHeight: 1.5 }}>
+      <p style={{ margin: "14px 2px 0", fontSize: 12.5, color: "#bbb", lineHeight: 1.5 }}>
         Quellen: Dr. William Li („Eat to Beat Your Diet“), Dr. Mindy Pelz („Fast Like a Girl“), Dr. Stacy Sims. Bildung, kein Ersatz für ärztlichen Rat.
       </p>
       <div style={{ height: 80 }} />
@@ -8529,8 +8710,9 @@ function WeglassenTab({ alter }) {
   );
 }
 
-function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
-  const [offen, setOffen] = useState(null);
+function ErnaehrungTab({ phase, modus, alter, onNavigate, zielKarte }) {
+  const [offen, setOffen] = useState(zielKarte || null);
+  useEffect(() => { if (zielKarte) setOffen(zielKarte); }, [zielKarte]);
   const istMeno = modus === "menopause";
   const istJugendlich = alter != null && alter >= 11 && alter <= 19;
   const accentLila = "#6B5470";
@@ -8545,30 +8727,49 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
       <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
         <button onClick={() => setOffen(auf ? null : w.id)}
           style={{ width: "100%", background: auf ? hellBg : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-          <span style={{ flex: 1, fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
-          <span style={{ fontSize: 15, color: accent }}>{auf ? "−" : "+"}</span>
+          <div style={{ flex: 1 }}>
+            <span style={{ display: "block", fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
+            {!auf && (istJugendlich && w.teenKern ? w.teenKern : w.kern) && (
+              <span style={{ display: "block", fontSize: 12, color: "#7A7278", lineHeight: 1.45, marginTop: 3 }}>{istJugendlich && w.teenKern ? w.teenKern : w.kern}</span>
+            )}
+          </div>
+          <span style={{ fontSize: 15, color: accent, flexShrink: 0 }}>{auf ? "−" : "+"}</span>
         </button>
         {auf && (
           <div style={{ padding: "0 15px 15px" }}>
-            <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{anzeigeText}</p>
+            {(istJugendlich && w.teenKern ? w.teenKern : w.kern) && (
+              <p style={{ margin: "0 0 10px", fontSize: 13.5, fontWeight: 600, color: "#242124", lineHeight: 1.55 }}>{istJugendlich && w.teenKern ? w.teenKern : w.kern}</p>
+            )}
+            {w.relevanz && (
+              <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.6 }}>{w.relevanz}</p>
+            )}
+            {(istJugendlich && w.teenKern ? w.teenKern : w.kern) ? (
+              <details style={{ marginBottom: 10 }}>
+                <summary style={{ fontSize: 12, fontWeight: 700, color: accent, cursor: "pointer", padding: "6px 0" }}>Ausführlich lesen</summary>
+                <p style={{ margin: "8px 0 0", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{anzeigeText}</p>
+              </details>
+            ) : (
+              <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{anzeigeText}</p>
+            )}
             <div style={{ background: hellBg, borderRadius: 10, padding: "10px 12px" }}>
-              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
+              <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: accent }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
               {anzeigeTipps.map((t, i) => (
-                <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+                <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                   <span style={{ position: "absolute", left: 0, color: accent }}>•</span>{t}
                 </div>
               ))}
+              {w.evidenz && <EvidenzZeile stufe={w.evidenz} quelle={w.quelle} />}
             </div>
             {modus === "schwanger" && w.schwangerHinweis && (
               <div style={{ background: "#FFF0F5", borderRadius: 10, padding: "11px 13px", marginTop: 10, border: "1px solid #E6D0D8" }}>
-                <p style={{ margin: "0 0 4px", fontSize: 11, fontWeight: 700, color: "#8B4A5C" }}>Für dich in der Schwangerschaft</p>
-                <p style={{ margin: 0, fontSize: 11.5, color: "#555", lineHeight: 1.6, whiteSpace: "pre-line" }}>{w.schwangerHinweis}</p>
+                <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#8B4A5C" }}>Für dich in der Schwangerschaft</p>
+                <p style={{ margin: 0, fontSize: 12.5, color: "#555", lineHeight: 1.6, whiteSpace: "pre-line" }}>{w.schwangerHinweis}</p>
               </div>
             )}
             {modus === "menopause" && w.menopauseHinweis && (
               <div style={{ background: "#F0EAEF", borderRadius: 10, padding: "11px 13px", marginTop: 10, border: "1px solid #C0A8BC" }}>
-                <p style={{ margin: "0 0 4px", fontSize: 11, fontWeight: 700, color: "#6A1B9A" }}>Für dich in der Menopause</p>
-                <p style={{ margin: 0, fontSize: 11.5, color: "#555", lineHeight: 1.6, whiteSpace: "pre-line" }}>{w.menopauseHinweis}</p>
+                <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#6A1B9A" }}>Für dich in der Menopause</p>
+                <p style={{ margin: 0, fontSize: 12.5, color: "#555", lineHeight: 1.6, whiteSpace: "pre-line" }}>{w.menopauseHinweis}</p>
               </div>
             )}
           </div>
@@ -8594,20 +8795,20 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
           </p>
           <div style={{ background: "rgba(255,255,255,0.15)", borderRadius: 10, padding: "10px 12px", marginBottom: 8 }}>
             <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700 }}>✅ Reichlich essen</p>
-            <p style={{ margin: 0, fontSize: 11.5, lineHeight: 1.55, opacity: 0.95 }}>Mageres Fleisch (Wild, Weidetier), Fisch & Meeresfrüchte, Gemüse & Obst, Nüsse & Samen, Eier — und besonders Knollen (Süßkartoffel, Pastinake) & Hülsenfrüchte.</p>
+            <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, opacity: 0.95 }}>Mageres Fleisch (Wild, Weidetier), Fisch & Meeresfrüchte, Gemüse & Obst, Nüsse & Samen, Eier — und besonders Knollen (Süßkartoffel, Pastinake) & Hülsenfrüchte.</p>
           </div>
           <div style={{ background: "rgba(255,255,255,0.15)", borderRadius: 10, padding: "10px 12px", marginBottom: 12 }}>
             <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700 }}>🚫 Meiden oder reduzieren</p>
-            <p style={{ margin: 0, fontSize: 11.5, lineHeight: 1.55, opacity: 0.95 }}>Getreide (Weizen, Reis, Mais), Milchprodukte, raffinierter Zucker, verarbeitete Lebensmittel & Öle. Wichtige Ausnahme: fermentierte Milchprodukte wie Naturjoghurt & Kefir zählt Dr. Pelz zu den stärksten probiotischen Lebensmitteln — sie füttern dein Estrobolom und dürfen bleiben.</p>
+            <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, opacity: 0.95 }}>Getreide (Weizen, Reis, Mais), Milchprodukte, raffinierter Zucker, verarbeitete Lebensmittel & Öle. Wichtige Ausnahme: fermentierte Milchprodukte wie Naturjoghurt & Kefir zählt Dr. Pelz zu den stärksten probiotischen Lebensmitteln — sie füttern dein Estrobolom und dürfen bleiben.</p>
           </div>
-          <p style={{ margin: "0 0 12px", fontSize: 11.5, opacity: 0.92, lineHeight: 1.55, fontStyle: "italic" }}>
+          <p style={{ margin: "0 0 12px", fontSize: 12.5, opacity: 0.92, lineHeight: 1.55, fontStyle: "italic" }}>
             Warum Knollen & Hülsenfrüchte? Sie stabilisieren den Blutzucker, füttern das Mikrobiom (wichtig fürs Estrobolom, das den Östrogen-Stoffwechsel reguliert) und liefern B6 & Magnesium für beruhigendes GABA und Serotonin.
           </p>
           <button onClick={() => onNavigate && onNavigate("rezepte")}
             style={{ width: "100%", background: "#fff", color: "#8B6B84", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
             🍽️ Passende Rezepte ansehen →
           </button>
-          <p style={{ margin: "8px 0 0", fontSize: 10.5, opacity: 0.85, lineHeight: 1.4, textAlign: "center" }}>
+          <p style={{ margin: "8px 0 0", fontSize: 12.5, opacity: 0.85, lineHeight: 1.4, textAlign: "center" }}>
             Im Rezepte-Bereich zeigt dir der Schalter „Nur Primal Menopausal Diet" gezielt passende Gerichte.
           </p>
         </div>
@@ -8631,7 +8832,7 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
           Stabiler Blutzucker = stabile Energie, Hormone & Stimmung. Die Hacks aus „Glucose Revolution“ von Jessie Inchauspé.
         </p>
       </div>
-      <GlukoseTab phase={phase} modus={modus} istJugendlich={istJugendlich} eingebettet={true} />
+      <GlukoseTab phase={phase} modus={modus} istJugendlich={istJugendlich} eingebettet={true} zielKarte={zielKarte} />
 
       {/* Verweis auf den Weglassen-Tab — für alle (auch Teenager) */}
       <button onClick={() => onNavigate && onNavigate("weglassen")}
@@ -8639,7 +8840,7 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
         <span style={{ fontSize: 24 }}>🚫</span>
         <span style={{ flex: 1 }}>
           <span style={{ display: "block", fontSize: 14, fontWeight: 800, color: "#A34A44" }}>Was du besser weglässt</span>
-          <span style={{ display: "block", fontSize: 11.5, color: "#B71C1C", lineHeight: 1.4, marginTop: 2 }}>Süße Getränke, schlechte Öle, Alkohol & Co. — mit „Besser stattdessen“-Tipps. Tippen zum Öffnen →</span>
+          <span style={{ display: "block", fontSize: 12.5, color: "#B71C1C", lineHeight: 1.4, marginTop: 2 }}>Süße Getränke, schlechte Öle, Alkohol & Co. — mit „Besser stattdessen“-Tipps. Tippen zum Öffnen →</span>
         </span>
       </button>
 
@@ -8662,7 +8863,7 @@ function ErnaehrungTab({ phase, modus, alter, onNavigate }) {
         style={{ width: "100%", background: "linear-gradient(135deg, #F4EEE2, #FFECB3)", border: "1px solid #C9B48A", borderRadius: 14, padding: "14px 16px", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
         <span style={{ flex: 1 }}>
           <span style={{ display: "block", fontSize: 14, fontWeight: 800, color: "#C39A3A" }}>{istJugendlich ? "Über 150 Power-Lebensmittel" : "Über 150 Fett-Killer-Lebensmittel"}</span>
-          <span style={{ display: "block", fontSize: 11.5, color: "#9E7B18", lineHeight: 1.4, marginTop: 2 }}>{istJugendlich ? "Lebensmittel, die dich gesund & stark machen — zum Durchsuchen. Tippen zum Öffnen →" : "Lis komplette Liste zum Durchsuchen — inkl. der Grand Slammers. Tippen zum Öffnen →"}</span>
+          <span style={{ display: "block", fontSize: 12.5, color: "#9E7B18", lineHeight: 1.4, marginTop: 2 }}>{istJugendlich ? "Lebensmittel, die dich gesund & stark machen — zum Durchsuchen. Tippen zum Öffnen →" : "Lis komplette Liste zum Durchsuchen — inkl. der Grand Slammers. Tippen zum Öffnen →"}</span>
         </span>
       </button>
 
@@ -8708,8 +8909,10 @@ function supplementeKarten2() {
   return PATRICK_WISSEN.filter(k => k.id !== "patrick_hrt");
 }
 
-function VerstehenTab({ phase, modus, alter }) {
-  const [offen, setOffen] = useState(null);
+function VerstehenTab({ phase, modus, alter, zielKarte }) {
+  const [offen, setOffen] = useState(zielKarte || null);
+  // Wenn von außen eine bestimmte Karte gewünscht ist, diese aufklappen
+  useEffect(() => { if (zielKarte) setOffen(zielKarte); }, [zielKarte]);
   const istMeno = modus === "menopause";
   const istJugendlich = alter != null && alter >= 11 && alter <= 19;
   // Themengruppen je nach Modus
@@ -8729,19 +8932,38 @@ function VerstehenTab({ phase, modus, alter }) {
       <div key={w.id} style={{ background: "#fff", borderRadius: 14, marginBottom: 8, boxShadow: "0 2px 14px rgba(42,31,45,0.06)", overflow: "hidden" }}>
         <button onClick={() => setOffen(auf ? null : w.id)}
           style={{ width: "100%", background: auf ? hellBg : "none", border: "none", padding: "13px 15px", cursor: "pointer", textAlign: "left", display: "flex", gap: 11, alignItems: "center" }}>
-          <span style={{ flex: 1, fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
-          <span style={{ fontSize: 15, color: accent }}>{auf ? "−" : "+"}</span>
+          <div style={{ flex: 1 }}>
+            <span style={{ display: "block", fontSize: 14.5, fontWeight: 700, color: "#242124", letterSpacing: -0.1 }}>{w.titel}</span>
+            {!auf && (istJugendlich && w.teenKern ? w.teenKern : w.kern) && (
+              <span style={{ display: "block", fontSize: 12, color: "#7A7278", lineHeight: 1.45, marginTop: 3 }}>{istJugendlich && w.teenKern ? w.teenKern : w.kern}</span>
+            )}
+          </div>
+          <span style={{ fontSize: 15, color: accent, flexShrink: 0 }}>{auf ? "−" : "+"}</span>
         </button>
         {auf && (
           <div style={{ padding: "0 15px 15px" }}>
-            <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{anzeigeText}</p>
+            {(istJugendlich && w.teenKern ? w.teenKern : w.kern) && (
+              <p style={{ margin: "0 0 10px", fontSize: 13.5, fontWeight: 600, color: "#242124", lineHeight: 1.55 }}>{istJugendlich && w.teenKern ? w.teenKern : w.kern}</p>
+            )}
+            {w.relevanz && (
+              <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.6 }}>{w.relevanz}</p>
+            )}
+            {(istJugendlich && w.teenKern ? w.teenKern : w.kern) ? (
+              <details style={{ marginBottom: 10 }}>
+                <summary style={{ fontSize: 12, fontWeight: 700, color: accent, cursor: "pointer", padding: "6px 0" }}>Ausführlich lesen</summary>
+                <p style={{ margin: "8px 0 0", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{anzeigeText}</p>
+              </details>
+            ) : (
+              <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{anzeigeText}</p>
+            )}
             <div style={{ background: hellBg, borderRadius: 10, padding: "10px 12px" }}>
-              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: accent }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
+              <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: accent }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
               {anzeigeTipps.map((t, i) => (
-                <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+                <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                   <span style={{ position: "absolute", left: 0, color: accent }}>•</span>{t}
                 </div>
               ))}
+              {w.evidenz && <EvidenzZeile stufe={w.evidenz} quelle={w.quelle} />}
             </div>
           </div>
         )}
@@ -8816,7 +9038,7 @@ function VerstehenTab({ phase, modus, alter }) {
             <p style={{ margin: 0, fontSize: 12, color: "#777", lineHeight: 1.5 }}>Dein 4-Stufen-Trainingsprotokoll für die Menopause findest du im <strong>Training-Tab</strong> (siehe untere Leiste). Krafttraining ist jetzt dein wichtigster Schutz für Knochen und Muskeln.</p>
           </div>
           <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginBottom: 18 }}>
-            <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
+            <p style={{ margin: 0, fontSize: 12, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
               Quellen: „Age Like a Girl" von Dr. Mindy Pelz, ergänzt um Erkenntnisse von Dr. Rhonda Patrick (FoundMyFitness) zu Knochen/Krafttraining, Schlaf, Gehirn & Hormontherapie.
             </p>
           </div>
@@ -8940,7 +9162,7 @@ function VerstehenTab({ phase, modus, alter }) {
 
       {/* Hinweis / Disclaimer */}
       <div style={{ background: "#F4EEE2", borderRadius: 12, padding: "12px 14px", marginBottom: 80, border: "1px solid #D8C8B5" }}>
-        <p style={{ margin: 0, fontSize: 11.5, color: "#8A6D2E", lineHeight: 1.6 }}>
+        <p style={{ margin: 0, fontSize: 12.5, color: "#8A6D2E", lineHeight: 1.6 }}>
           ⚠️ Diese Inhalte dienen der Aufklärung und ersetzen keine ärztliche Beratung oder Diagnose. Bei anhaltenden oder starken Beschwerden wende dich an eine Ärztin oder einen Arzt — idealerweise mit Erfahrung in Gynäkologie, sexueller Medizin oder Menopause. Hormontherapien sind verschreibungspflichtig. Quellen: Dr. Rachel Rubin, Stacy Sims ("ROAR"), Jessie Inchauspé ("Glucose Revolution"), Dr. Mindy Pelz.
         </p>
       </div>
@@ -8992,14 +9214,14 @@ function MenopauseTrainingTab({ phase }) {
       {MENOPAUSE_TRAINING.filter(l => l.level === offenLevel).map(lvl => (
         <div key={lvl.level} style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: `2px solid ${lvl.farbe}` }}>
           <p style={{ margin: "0 0 2px", fontSize: 16, fontWeight: 800, color: lvl.farbe }}>Level {lvl.level}: {lvl.name}</p>
-          <p style={{ margin: "0 0 10px", fontSize: 11, color: "#999", fontWeight: 600 }}>{lvl.stufe}</p>
+          <p style={{ margin: "0 0 10px", fontSize: 12, color: "#999", fontWeight: 600 }}>{lvl.stufe}</p>
           <div style={{ background: lvl.farbe + "18", borderRadius: 10, padding: "10px 12px", marginBottom: 12 }}>
             <p style={{ margin: "0 0 4px", fontSize: 12, color: "#555", lineHeight: 1.5 }}><strong>Ziel:</strong> {lvl.ziel}</p>
-            <p style={{ margin: 0, fontSize: 11.5, color: "#777", lineHeight: 1.5 }}><strong>Fokus:</strong> {lvl.fokus}</p>
+            <p style={{ margin: 0, fontSize: 12.5, color: "#777", lineHeight: 1.5 }}><strong>Fokus:</strong> {lvl.fokus}</p>
           </div>
           {lvl.plan.map(([tag, uebung], i) => (
             <div key={i} style={{ display: "flex", gap: 10, padding: "8px 0", borderBottom: i < lvl.plan.length - 1 ? "1px solid #F1EDE6" : "none" }}>
-              <span style={{ fontSize: 11, fontWeight: 700, color: lvl.farbe, background: lvl.farbe + "18", borderRadius: 6, padding: "2px 0", width: 32, textAlign: "center", flexShrink: 0, height: "fit-content" }}>{tag}</span>
+              <span style={{ fontSize: 12, fontWeight: 700, color: lvl.farbe, background: lvl.farbe + "18", borderRadius: 6, padding: "2px 0", width: 32, textAlign: "center", flexShrink: 0, height: "fit-content" }}>{tag}</span>
               <span style={{ fontSize: 12, color: "#555", lineHeight: 1.5 }}>{uebung}</span>
             </div>
           ))}
@@ -9013,7 +9235,7 @@ function MenopauseTrainingTab({ phase }) {
           Stacy Sims bringt es auf den Punkt: In der Peri- und Postmenopause ist Krafttraining keine Option, sondern entscheidend. Nach der Menopause kann die Knochendichte in 5–7 Jahren um bis zu 20 % sinken — und etwa jede zweite Frau über 50 bricht sich wegen Osteoporose einmal einen Knochen. Krafttraining (ruhig auch schwer, mit guter Technik) schützt Knochen UND Muskeln. Sims' Botschaft: Trainiere nicht weiter wie mit 30, sondern arbeite mit deiner neuen Physiologie.
         </p>
         <div style={{ background: "#F0EAEF", borderRadius: 10, padding: "10px 12px" }}>
-          <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#8B6B84" }}>Sims' Kernpunkte:</p>
+          <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: "#8B6B84" }}>Sims' Kernpunkte:</p>
           {[
             "Schweres Krafttraining schützt vor Knochenschwund (keine Angst davor)",
             "Knochendichte-Scan ab der Menopause sinnvoll (nicht erst mit 65)",
@@ -9021,7 +9243,7 @@ function MenopauseTrainingTab({ phase }) {
             "Vitamin K (grünes Blattgemüse) & Magnesium für die Knochen",
             "Hitze macht Training schwerer: vorab kühl & salzig trinken (Precooling)",
           ].map((t, i) => (
-            <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+            <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
               <span style={{ position: "absolute", left: 0, color: "#8B6B84" }}>•</span>{t}
             </div>
           ))}
@@ -9035,7 +9257,7 @@ function MenopauseTrainingTab({ phase }) {
           In "Next Level" (ihr Buch speziell für Peri-/Menopause) ist Sims' Botschaft klar: Weniger lange, moderate Einheiten — mehr Intensität, die zählt. Statt endloser Ausdauer empfiehlt sie kurze, knackige Sprint-Intervalle (SIT) und echtes schweres Krafttraining. Das setzt genau die Reize, die früher die Hormone von selbst gegeben haben.
         </p>
         <div style={{ background: "#F0EAEF", borderRadius: 10, padding: "10px 12px" }}>
-          <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#8B6B84" }}>Konkret nach "Next Level":</p>
+          <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: "#8B6B84" }}>Konkret nach "Next Level":</p>
           {[
             "Sprint-Intervalle (SIT): kurze, sehr intensive Bursts statt Dauerlauf",
             "Schwer heben: kurz & kräftig — kurbelt Stoffwechsel & Fettverbrennung an",
@@ -9044,7 +9266,7 @@ function MenopauseTrainingTab({ phase }) {
             "Kreuzblütler (Kohl, Karfiol) & fermentierte Kost für den Darm",
             "Cortisol senken: nicht mehr ist besser, sondern gezielter",
           ].map((t, i) => (
-            <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+            <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
               <span style={{ position: "absolute", left: 0, color: "#8B6B84" }}>•</span>{t}
             </div>
           ))}
@@ -9054,7 +9276,7 @@ function MenopauseTrainingTab({ phase }) {
       {/* Sims: Essen & Trinken rund ums Training */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Essen & Trinken rund ums Training</p>
-        <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Frauenspezifisch nach Dr. Stacy Sims (ROAR) — in der Menopause besonders wichtig.</p>
+        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Frauenspezifisch nach Dr. Stacy Sims (ROAR) — in der Menopause besonders wichtig.</p>
         {SIMS_FUELING.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenFueling(offenFueling === idx ? null : idx)}
@@ -9083,7 +9305,7 @@ function MenopauseTrainingTab({ phase }) {
       {/* Erholung, Hitze & Kälte */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Erholung, Hitze & Kälte</p>
-        <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Was wirklich bei der Regeneration hilft — nach Dr. Stacy Sims (ROAR). In der Menopause besonders wertvoll.</p>
+        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Was wirklich bei der Regeneration hilft — nach Dr. Stacy Sims (ROAR). In der Menopause besonders wertvoll.</p>
         {RECOVERY_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenRecovery(offenRecovery === idx ? null : idx)}
@@ -9112,7 +9334,7 @@ function MenopauseTrainingTab({ phase }) {
       {/* Genug essen / RED-S & Darmgesundheit */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Genug essen & Darmgesundheit</p>
-        <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Das wichtige Gegengewicht zum Fasten — nach Dr. Stacy Sims. In der Menopause besonders wichtig.</p>
+        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Das wichtige Gegengewicht zum Fasten — nach Dr. Stacy Sims. In der Menopause besonders wichtig.</p>
         {GENUG_ESSEN_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenGenugEssen(offenGenugEssen === idx ? null : idx)}
@@ -9141,7 +9363,7 @@ function MenopauseTrainingTab({ phase }) {
       {/* Menopause-Performance: Cardio & Mental (Next Level) */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 14, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Cardio & mentale Stärke</p>
-        <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Menopause-spezifisch nach Dr. Stacy Sims (Next Level).</p>
+        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Menopause-spezifisch nach Dr. Stacy Sims (Next Level).</p>
         {MENO_PERFORMANCE_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenMenoPerf(offenMenoPerf === idx ? null : idx)}
@@ -9169,7 +9391,7 @@ function MenopauseTrainingTab({ phase }) {
 
       {/* Quelle */}
       <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginBottom: 80 }}>
-        <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
+        <p style={{ margin: 0, fontSize: 12, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
           Quellen: "Age Like a Girl" von Dr. Mindy Pelz & "ROAR" und "Next Level" von Stacy Sims. Diese Inhalte ersetzen keine medizinische Beratung. Bei starken Beschwerden in den Wechseljahren bitte ärztliche Begleitung suchen.
         </p>
       </div>
@@ -9178,10 +9400,10 @@ function MenopauseTrainingTab({ phase }) {
 }
 
 
-function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, ssw, onSetEintrag, onToggleSymptom, onSetWasser }) {
+function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, ssw, onSetEintrag, onToggleSymptom, onSetWasser, onWissenOeffnen }) {
   const eintrag = tagebuch[heuteKey] || {};
   const wasser = wasserLog[heuteKey] || 0;
-  const eintraege = Object.entries(tagebuch).filter(([k, v]) => v && (v.stimmung || (v.symptome && v.symptome.length) || v.notiz || v.energie || v.schlaf || v.kindsbewegungen || v.gewicht)).sort((a, b) => new Date(b[0]) - new Date(a[0]));
+  const eintraege = Object.entries(tagebuch).filter(([k, v]) => v && (v.stimmung || (v.symptome && v.symptome.length) || v.notiz || v.energie || v.schlaf || v.stress || v.trainingsbereitschaft || v.kindsbewegungen || v.gewicht)).sort((a, b) => new Date(b[0]) - new Date(a[0]));
 
   const heuteDatum = new Date().toLocaleDateString("de-AT", { weekday: "long", day: "2-digit", month: "long" });
 
@@ -9211,15 +9433,15 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
                 const istWarnung = wert === "wenige" || wert === "keine";
                 return (
                   <button key={wert} onClick={() => onSetEintrag(heuteKey, "kindsbewegungen", aktiv ? null : wert)}
-                    style={{ flex: 1, background: aktiv ? (istWarnung ? "#F3E8EC" : phase.hellFarbe) : "#FAF8F4", border: aktiv ? `2px solid ${istWarnung ? "#B5514B" : phase.farbe}` : "2px solid transparent", borderRadius: 10, padding: "8px 4px", cursor: "pointer", fontSize: 10.5, fontWeight: 600, color: aktiv ? (istWarnung ? "#A34A44" : phase.farbe) : "#666" }}>
+                    style={{ flex: 1, background: aktiv ? (istWarnung ? "#F3E8EC" : phase.hellFarbe) : "#FAF8F4", border: aktiv ? `2px solid ${istWarnung ? "#B5514B" : phase.farbe}` : "2px solid transparent", borderRadius: 10, padding: "8px 4px", cursor: "pointer", fontSize: 12.5, fontWeight: 600, color: aktiv ? (istWarnung ? "#A34A44" : phase.farbe) : "#666" }}>
                     {label}
                   </button>
                 );
               })}
             </div>
             {(eintrag.kindsbewegungen === "wenige" || eintrag.kindsbewegungen === "keine") && (
-              <p style={{ margin: "8px 0 0", fontSize: 11, color: "#A34A44", lineHeight: 1.5, background: "#F3E8EC", borderRadius: 8, padding: "8px 10px" }}>
-                ⚠️ Wenn dein Baby plötzlich deutlich weniger oder gar nicht mehr tritt: leg dich ruhig hin, trink etwas Kühles und achte 1–2 Std auf Bewegungen. Im Zweifel umgehend in die Klinik — warte nicht bis morgen.
+              <p style={{ margin: "8px 0 0", fontSize: 12, color: "#A34A44", lineHeight: 1.5, background: "#F3E8EC", borderRadius: 8, padding: "8px 10px" }}>
+                ⚠️ Wenn die Bewegungen deines Babys deutlich weniger, ganz ausbleiben oder anders als sonst sind: kontaktiere sofort deine Hebamme, deine Geburtsklinik oder die geburtshilfliche Ambulanz. Warte nicht bis morgen und versuche nicht, dich erst durch Hinlegen oder kalte Getränke zu beruhigen. Lieber einmal zu viel abklären lassen.
               </p>
             )}
           </div>
@@ -9234,7 +9456,7 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
                 style={{ flex: 1, borderRadius: 10, border: "1px solid #ddd", padding: "9px 12px", fontSize: 13, fontFamily: "inherit", boxSizing: "border-box" }} />
               <span style={{ fontSize: 13, color: "#888", fontWeight: 600 }}>kg</span>
             </div>
-            <p style={{ margin: "7px 0 0", fontSize: 10.5, color: "#999", lineHeight: 1.4 }}>Nur als persönlicher Verlauf gedacht — es gibt keine perfekte Zahl. Deine Ärztin/Hebamme schaut auf die Gesamtentwicklung.</p>
+            <p style={{ margin: "7px 0 0", fontSize: 12.5, color: "#999", lineHeight: 1.4 }}>Nur als persönlicher Verlauf gedacht — es gibt keine perfekte Zahl. Deine Ärztin/Hebamme schaut auf die Gesamtentwicklung.</p>
           </div>
         </div>
       )}
@@ -9247,7 +9469,7 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
             <button key={s.wert} onClick={() => onSetEintrag(heuteKey, "stimmung", eintrag.stimmung === s.wert ? null : s.wert)}
               style={{ flex: 1, background: eintrag.stimmung === s.wert ? phase.hellFarbe : "#FAF8F4", border: eintrag.stimmung === s.wert ? `2px solid ${phase.farbe}` : "2px solid transparent", borderRadius: 12, padding: "10px 2px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
               
-              <span style={{ fontSize: 9.5, color: "#666", fontWeight: 600 }}>{s.label}</span>
+              <span style={{ fontSize: 12.5, color: "#666", fontWeight: 600 }}>{s.label}</span>
             </button>
           ))}
         </div>
@@ -9279,6 +9501,32 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
             ))}
           </div>
         </div>
+        <div>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>Stress</span>
+            <span style={{ fontSize: 12, color: phase.farbe, fontWeight: 700 }}>{eintrag.stress ? `${eintrag.stress}/5` : "—"}</span>
+          </div>
+          <div style={{ display: "flex", gap: 6 }}>
+            {[1,2,3,4,5].map(n => (
+              <button key={n} onClick={() => onSetEintrag(heuteKey, "stress", eintrag.stress === n ? 0 : n)}
+                style={{ flex: 1, height: 32, borderRadius: 8, border: "none", cursor: "pointer", background: (eintrag.stress || 0) >= n ? phase.farbe : "#EEEAE3" }} />
+            ))}
+          </div>
+          <p style={{ margin: "4px 0 0", fontSize: 12.5, color: "#A8A2A6" }}>1 = ganz ruhig · 5 = sehr angespannt</p>
+        </div>
+        <div>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>Lust auf Bewegung</span>
+            <span style={{ fontSize: 12, color: phase.farbe, fontWeight: 700 }}>{eintrag.trainingsbereitschaft ? `${eintrag.trainingsbereitschaft}/5` : "—"}</span>
+          </div>
+          <div style={{ display: "flex", gap: 6 }}>
+            {[1,2,3,4,5].map(n => (
+              <button key={n} onClick={() => onSetEintrag(heuteKey, "trainingsbereitschaft", eintrag.trainingsbereitschaft === n ? 0 : n)}
+                style={{ flex: 1, height: 32, borderRadius: 8, border: "none", cursor: "pointer", background: (eintrag.trainingsbereitschaft || 0) >= n ? phase.farbe : "#EEEAE3" }} />
+            ))}
+          </div>
+          <p style={{ margin: "4px 0 0", fontSize: 12.5, color: "#A8A2A6" }}>Wie viel Energie hast du heute für Bewegung?</p>
+        </div>
       </div>
 
       {/* Wasser */}
@@ -9287,7 +9535,7 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
           <span style={{ fontSize: 14, fontWeight: 700 }}>Wasser</span>
           <span style={{ fontSize: 13, color: "#5E7A90", fontWeight: 700 }}>{wasser * 200} / 2000 ml</span>
         </div>
-        <p style={{ margin: "0 0 10px", fontSize: 11, color: "#bbb" }}>1 Glas ≈ 200 ml · tippe die Gläser an, die du getrunken hast</p>
+        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#bbb" }}>1 Glas ≈ 200 ml · tippe die Gläser an, die du getrunken hast</p>
         <div style={{ display: "flex", gap: 5, marginBottom: 10, flexWrap: "wrap" }}>
           {[1,2,3,4,5,6,7,8,9,10].map(n => (
             <button key={n} onClick={() => onSetWasser(heuteKey, wasser >= n ? n - 1 : n)}
@@ -9296,7 +9544,7 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
             </button>
           ))}
         </div>
-        <p style={{ margin: 0, fontSize: 11, color: "#999", lineHeight: 1.4 }}>{modus === "schwanger" ? "In der Schwangerschaft wichtig: rund 2 L am Tag. Hilft auch gegen Verstopfung & Wassereinlagerungen." : "Richtwert: ~2 L am Tag. Beim Fasten besonders wichtig: ausreichend trinken und Elektrolyte ergänzen. Mehr im Verstehen-Tab."}</p>
+        <p style={{ margin: 0, fontSize: 12, color: "#999", lineHeight: 1.4 }}>{modus === "schwanger" ? "In der Schwangerschaft wichtig: rund 2 L am Tag. Hilft auch gegen Verstopfung & Wassereinlagerungen." : "Richtwert: ~2 L am Tag. Beim Fasten besonders wichtig: ausreichend trinken und Elektrolyte ergänzen. Mehr im Verstehen-Tab."}</p>
       </div>
 
       {/* Symptome */}
@@ -9313,6 +9561,29 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
             );
           })}
         </div>
+        {/* Passendes Wissen zu den eingetragenen Symptomen */}
+        {(() => {
+          const gewaehlt = eintrag.symptome || [];
+          if (gewaehlt.length === 0 || !onWissenOeffnen) return null;
+          const idxT = baueSuchIndex({ modus, istJugendlich: false, zustand: null });
+          const passend = findeWissenZuSymptomen(gewaehlt, idxT);
+          if (passend.length === 0) return null;
+          return (
+            <div style={{ marginTop: 14, paddingTop: 13, borderTop: "1px solid #E9E3DB" }}>
+              <p style={{ margin: "0 0 9px", fontSize: 12, fontWeight: 600, color: phase.farbe, textTransform: "uppercase", letterSpacing: 0.7 }}>Dazu passt</p>
+              {passend.map(w => (
+                <button key={w.id} onClick={() => onWissenOeffnen(w.tab, w.id)}
+                  style={{ width: "100%", display: "flex", alignItems: "center", gap: 9, background: "#FAF8F4", border: "1px solid #E9E3DB", borderRadius: 10, padding: "10px 12px", marginBottom: 6, cursor: "pointer", textAlign: "left" }}>
+                  <span style={{ flex: 1 }}>
+                    <span style={{ display: "block", fontSize: 12.5, fontWeight: 700, color: "#242124" }}>{w.titel}</span>
+                    <span style={{ display: "block", fontSize: 12, color: "#7A7278", lineHeight: 1.4, marginTop: 1 }}>{String(w.kurz).slice(0, 90)}{String(w.kurz).length > 90 ? "…" : ""}</span>
+                  </span>
+                  <span style={{ color: "#A8A2A6", fontSize: 15 }}>›</span>
+                </button>
+              ))}
+            </div>
+          );
+        })()}
       </div>
 
       {/* Notiz */}
@@ -9335,18 +9606,18 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
                   <span style={{ fontSize: 12.5, fontWeight: 600, color: "#444" }}>{new Date(key).toLocaleDateString("de-AT", { weekday: "short", day: "2-digit", month: "short" })}</span>
                   <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                     {stim && <span style={{ fontSize: 16 }}>{stim.icon}</span>}
-                    {v.energie ? <span style={{ fontSize: 10, color: "#888" }}>⚡{v.energie}</span> : null}
-                    {v.schlaf ? <span style={{ fontSize: 10, color: "#888" }}>😴{v.schlaf}</span> : null}
-                    {v.kindsbewegungen ? <span style={{ fontSize: 10, color: (v.kindsbewegungen === "wenige" || v.kindsbewegungen === "keine") ? "#A34A44" : "#888" }}>👣{v.kindsbewegungen === "viele" ? "+" : v.kindsbewegungen === "normal" ? "✓" : v.kindsbewegungen === "wenige" ? "↓" : "✗"}</span> : null}
-                    {v.gewicht ? <span style={{ fontSize: 10, color: "#888" }}>⚖️{v.gewicht}</span> : null}
+                    {v.energie ? <span style={{ fontSize: 12, color: "#888" }}>⚡{v.energie}</span> : null}
+                    {v.schlaf ? <span style={{ fontSize: 12, color: "#888" }}>😴{v.schlaf}</span> : null}
+                    {v.kindsbewegungen ? <span style={{ fontSize: 12, color: (v.kindsbewegungen === "wenige" || v.kindsbewegungen === "keine") ? "#A34A44" : "#888" }}>👣{v.kindsbewegungen === "viele" ? "+" : v.kindsbewegungen === "normal" ? "✓" : v.kindsbewegungen === "wenige" ? "↓" : "✗"}</span> : null}
+                    {v.gewicht ? <span style={{ fontSize: 12, color: "#888" }}>⚖️{v.gewicht}</span> : null}
                   </div>
                 </div>
                 {v.symptome && v.symptome.length > 0 && (
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginTop: 5 }}>
-                    {v.symptome.map(s => <span key={s} style={{ fontSize: 10, background: phase.hellFarbe, color: phase.farbe, borderRadius: 8, padding: "1px 7px" }}>{s}</span>)}
+                    {v.symptome.map(s => <span key={s} style={{ fontSize: 12, background: phase.hellFarbe, color: phase.farbe, borderRadius: 8, padding: "1px 7px" }}>{s}</span>)}
                   </div>
                 )}
-                {v.notiz && <p style={{ margin: "5px 0 0", fontSize: 11.5, color: "#777", lineHeight: 1.4, fontStyle: "italic" }}>"{v.notiz}"</p>}
+                {v.notiz && <p style={{ margin: "5px 0 0", fontSize: 12.5, color: "#777", lineHeight: 1.4, fontStyle: "italic" }}>"{v.notiz}"</p>}
               </div>
             );
           })}
@@ -9356,7 +9627,7 @@ function TagebuchTab({ phase, zyklusTag, tagebuch, heuteKey, wasserLog, modus, s
   );
 }
 
-function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondStart, geburtstermin, onSetGeburtstermin, ssw, onExport, onImport, onOnboarding, name, onSetName, geburtsdatum, onSetGeburtsdatum, alter }) {
+function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondStart, geburtstermin, onSetGeburtstermin, ssw, onExport, onImport, onOnboarding, name, onSetName, geburtsdatum, onSetGeburtsdatum, alter, lebenszustand, onLebenszustandWechseln }) {
   return (
     <div>
       <div style={{ background: `linear-gradient(135deg, ${phase.farbe}, ${phase.farbe}DD)`, borderRadius: 16, padding: "18px 18px 16px", marginBottom: 14, color: "#fff" }}>
@@ -9380,19 +9651,28 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
       <div style={{ background: "#fff", borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 6px", fontSize: 14, fontWeight: 700 }}>Tracking-Modus</p>
         <p style={{ margin: "0 0 12px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>In welcher Lebensphase bist du gerade?</p>
-        <div style={{ display: "flex", gap: 6, marginBottom: (modus === "menopause" || modus === "schwanger") ? 14 : 0 }}>
-          <button onClick={() => onModusWechseln("zyklus")}
-            style={{ flex: 1, background: modus === "zyklus" ? phase.farbe : "#F1EDE6", color: modus === "zyklus" ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "12px 6px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
-            🩸 Zyklus
-          </button>
-          <button onClick={() => onModusWechseln("schwanger")}
-            style={{ flex: 1, background: modus === "schwanger" ? phase.farbe : "#F1EDE6", color: modus === "schwanger" ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "12px 6px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
-            🤰 Schwanger
-          </button>
-          <button onClick={() => onModusWechseln("menopause")}
-            style={{ flex: 1, background: modus === "menopause" ? phase.farbe : "#F1EDE6", color: modus === "menopause" ? "#fff" : "#666", border: "none", borderRadius: 10, padding: "12px 6px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
-            🌙 Wechsel
-          </button>
+        <div>
+          {[
+            { gruppe: "zyklus", titel: "Mit Zyklus" },
+            { gruppe: "jung", titel: "Vor der ersten Periode" },
+            { gruppe: "schwanger", titel: "Schwangerschaft & danach" },
+            { gruppe: "menopause", titel: "Wechseljahre" },
+            { gruppe: "sonstige", titel: "Andere Situation" },
+          ].map(g => (
+            <div key={g.gruppe} style={{ marginBottom: 12 }}>
+              <p style={{ margin: "0 0 6px", fontSize: 12.5, fontWeight: 600, color: "#A8A2A6", textTransform: "uppercase", letterSpacing: 0.6 }}>{g.titel}</p>
+              {LEBENSZUSTAENDE.filter(l => l.gruppe === g.gruppe).map(l => {
+                const aktiv = (lebenszustand || getLebenszustand(lebenszustand, modus).id) === l.id;
+                return (
+                  <button key={l.id} onClick={() => onLebenszustandWechseln(l.id)}
+                    style={{ width: "100%", textAlign: "left", background: aktiv ? phase.hellFarbe : "#FAF8F4", border: aktiv ? `1.5px solid ${phase.farbe}` : "1px solid #E9E3DB", borderRadius: 10, padding: "10px 12px", marginBottom: 6, cursor: "pointer" }}>
+                    <span style={{ display: "block", fontSize: 13, fontWeight: aktiv ? 700 : 600, color: aktiv ? phase.farbe : "#242124" }}>{l.label}</span>
+                    <span style={{ display: "block", fontSize: 12, color: "#7A7278", lineHeight: 1.4, marginTop: 2 }}>{l.hinweis}</span>
+                  </button>
+                );
+              })}
+            </div>
+          ))}
         </div>
         {modus === "menopause" && (
           <div style={{ background: phase.hellFarbe, borderRadius: 10, padding: "12px 14px" }}>
@@ -9404,7 +9684,7 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
               value={mondStart ? datumKey(mondStart) : ""}
               onChange={e => { if (e.target.value) onSetMondStart(new Date(e.target.value + "T12:00:00").toISOString()); }}
               style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1px solid #ddd", fontSize: 14, boxSizing: "border-box" }} />
-            <p style={{ margin: "8px 0 0", fontSize: 10.5, color: "#999", lineHeight: 1.4 }}>
+            <p style={{ margin: "8px 0 0", fontSize: 12.5, color: "#999", lineHeight: 1.4 }}>
               Tipp: Den aktuellen Mondkalender findest du online. Im Wechseljahre-Bereich (☰ Mehr) findest du außerdem die Primal Menopausal Diet und das passende Trainingsprotokoll.
             </p>
           </div>
@@ -9424,7 +9704,7 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
                 Aktuell: Woche {ssw.woche} + {ssw.tag} ({TRIMESTER_INFO[ssw.trimester].name})
               </p>
             )}
-            <p style={{ margin: "8px 0 0", fontSize: 10.5, color: "#999", lineHeight: 1.4 }}>
+            <p style={{ margin: "8px 0 0", fontSize: 12.5, color: "#999", lineHeight: 1.4 }}>
               Den Schwangerschafts-Bereich findest du dann im Tab. Diese App ersetzt keine ärztliche Betreuung.
             </p>
           </div>
@@ -9442,7 +9722,7 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
           Backup wiederherstellen
           <input type="file" accept="application/json" onChange={onImport} style={{ display: "none" }} />
         </label>
-        <p style={{ margin: "8px 0 0", fontSize: 10.5, color: "#bbb", lineHeight: 1.4 }}>Beim Wiederherstellen werden die aktuellen Daten überschrieben.</p>
+        <p style={{ margin: "8px 0 0", fontSize: 12.5, color: "#bbb", lineHeight: 1.4 }}>Beim Wiederherstellen werden die aktuellen Daten überschrieben.</p>
       </div>
 
       {/* Einführung nochmal */}
@@ -9457,11 +9737,19 @@ function EinstellungenTab({ phase, modus, onModusWechseln, mondStart, onSetMondS
 }
 
 
-function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEnde, now, fastenLogs, onStart, onBeenden, onStartAnpassen, onHochstufen }) {
+function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEnde, now, fastenLogs, onStart, onBeenden, onStartAnpassen, onHochstufen , zielKarte }) {
   const [offenerTyp, setOffenerTyp] = useState(null);
   const [startBearbeiten, setStartBearbeiten] = useState(false);
   const [offenWissen, setOffenWissen] = useState(null);
   const [offenHack, setOffenHack] = useState(null);
+  // Zielkarte von außen: passende Sektion aufklappen
+  useEffect(() => {
+    if (!zielKarte) return;
+    const inWissen = [...FASTEN_WISSEN, ...(MENOPAUSE_FASTEN || [])].some(k => k.id === zielKarte);
+    const inHacks = FASTEN_HACKS.some(k => k.id === zielKarte);
+    if (inWissen) setOffenWissen(zielKarte);
+    else if (inHacks) setOffenHack(zielKarte);
+  }, [zielKarte]);
   // Im Menopause-Modus: Menopause-Fasten-Karten mit dem allgemeinen Fasten-Wissen zu EINER Liste
   // zusammenlegen (Menopause zuerst), und die stark zyklus-/fruchtbarkeitsbezogenen Karten weglassen.
   const fastenZyklusLastig = ["hormon_hierarchie", "fasten_hormone", "li_essfenster", "stammzellen_hormone"];
@@ -9511,7 +9799,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             {offenWissen === idx && (
               <div style={{ padding: "10px 14px 4px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{w.text}</p>
-                <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: phase.farbe }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
+                <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: phase.farbe }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                 {w.tipps.map((t, i) => (
                   <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
                     <span style={{ flexShrink: 0, color: phase.farbe, fontSize: 12, marginTop: 1 }}>•</span>
@@ -9541,7 +9829,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             {offenHack === idx && (
               <div style={{ padding: "10px 14px 4px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{w.text}</p>
-                <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: phase.farbe }}>Das kannst du tun:</p>
+                <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: phase.farbe }}>Das kannst du tun:</p>
                 {w.tipps.map((t, i) => (
                   <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
                     <span style={{ flexShrink: 0, color: phase.farbe, fontSize: 12, marginTop: 1 }}>•</span>
@@ -9558,7 +9846,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
       {/* AKTIVER TIMER */}
       {aktivFasten ? (
         <div style={{ background: "#fff", borderRadius: 16, padding: 18, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)", border: `2px solid ${phase.farbe}` }}>
-          <p style={{ margin: "0 0 4px", fontSize: 11, color: "#888" }}>Aktives Fasten</p>
+          <p style={{ margin: "0 0 4px", fontSize: 12, color: "#888" }}>Aktives Fasten</p>
           <p style={{ margin: "0 0 12px", fontSize: 18, fontWeight: 800 }}>{aktivFasten.name}</p>
           <div style={{ background: "#EEEAE3", borderRadius: 8, height: 14, marginBottom: 8, overflow: "hidden" }}>
             <div style={{ width: `${fortschritt}%`, height: "100%", background: `linear-gradient(90deg, ${phase.farbe}, #A85440)`, borderRadius: 8, transition: "width 0.5s" }} />
@@ -9651,10 +9939,10 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
                         <span style={{ fontSize: 15, color: phase.farbe }}>{offen ? "−" : "+"}</span>
                       </div>
                       <div style={{ display: "flex", gap: 6, marginTop: 3, flexWrap: "wrap" }}>
-                        <span style={{ fontSize: 10, color: "#fff", background: phase.farbe, borderRadius: 8, padding: "1px 7px" }}>{f.stunden}h</span>
+                        <span style={{ fontSize: 12, color: "#fff", background: phase.farbe, borderRadius: 8, padding: "1px 7px" }}>{f.stunden}h</span>
                         {passt
-                          ? <span style={{ fontSize: 10, color: "#5E6E5C", background: "#EEF0EC", borderRadius: 8, padding: "1px 7px" }}>✓ Für deine Phase</span>
-                          : <span style={{ fontSize: 10, color: "#999", background: "#EEEAE3", borderRadius: 8, padding: "1px 7px" }}>Andere Phase empfohlen</span>}
+                          ? <span style={{ fontSize: 12, color: "#5E6E5C", background: "#EEF0EC", borderRadius: 8, padding: "1px 7px" }}>✓ Für deine Phase</span>
+                          : <span style={{ fontSize: 12, color: "#999", background: "#EEEAE3", borderRadius: 8, padding: "1px 7px" }}>Andere Phase empfohlen</span>}
                       </div>
                     </div>
                   </button>
@@ -9662,14 +9950,14 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
                     <div style={{ padding: "0 14px 14px" }}>
                       <p style={{ margin: "0 0 8px", fontSize: 12, color: "#555", lineHeight: 1.65 }}>{f.detail}</p>
                       <div style={{ background: "#fff", borderRadius: 8, padding: "8px 10px", marginBottom: 8 }}>
-                        <p style={{ margin: 0, fontSize: 11, color: "#777", lineHeight: 1.5 }}><strong>Für wen:</strong> {f.fuerWen}</p>
+                        <p style={{ margin: 0, fontSize: 12, color: "#777", lineHeight: 1.5 }}><strong>Für wen:</strong> {f.fuerWen}</p>
                       </div>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 10 }}>
-                        {f.wirkung.map(w => <span key={w} style={{ fontSize: 10, background: phase.hellFarbe, color: phase.farbe, padding: "2px 8px", borderRadius: 10 }}>{w}</span>)}
+                        {f.wirkung.map(w => <span key={w} style={{ fontSize: 12, background: phase.hellFarbe, color: phase.farbe, padding: "2px 8px", borderRadius: 10 }}>{w}</span>)}
                       </div>
                       {!passt && (
                         <div style={{ background: "#F4EEE2", borderRadius: 8, padding: "8px 10px", marginBottom: 10, border: "1px solid #E8D8C0" }}>
-                          <p style={{ margin: 0, fontSize: 11, color: "#B5652F", lineHeight: 1.5 }}>⚠️ Diese Kur ist eigentlich für eine andere Zyklusphase gedacht. Du kannst sie trotzdem starten, aber höre besonders gut auf deinen Körper.</p>
+                          <p style={{ margin: 0, fontSize: 12, color: "#B5652F", lineHeight: 1.5 }}>⚠️ Diese Kur ist eigentlich für eine andere Zyklusphase gedacht. Du kannst sie trotzdem starten, aber höre besonders gut auf deinen Körper.</p>
                         </div>
                       )}
                       <button onClick={() => onStart(f)} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "11px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
@@ -9687,7 +9975,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
       {/* FASTEN-ZEITLEISTE (Übersicht) */}
       <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 14, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
         <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 700 }}>Was beim Fasten im Körper passiert</p>
-        <p style={{ margin: "0 0 14px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Je länger du fastest, desto tiefer die Heilungsprozesse. Diese Stufen durchläufst du nacheinander:</p>
+        <p style={{ margin: "0 0 14px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Mit zunehmender Fastendauer verändert sich dein Stoffwechsel schrittweise. Die Stunden sind grobe Orientierung — bei jeder Frau läuft das etwas anders:</p>
         <div style={{ position: "relative" }}>
           {FASTEN_ZEITLEISTE.map((s, i) => {
             const aktiv = aktivFasten && verstrichenH >= s.ab;
@@ -9699,7 +9987,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
                 </div>
                 <div style={{ flex: 1, paddingBottom: 4 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, color: phase.farbe, background: phase.hellFarbe, borderRadius: 8, padding: "1px 8px" }}>ab {s.ab}h</span>
+                    <span style={{ fontSize: 12, fontWeight: 700, color: phase.farbe, background: phase.hellFarbe, borderRadius: 8, padding: "1px 8px" }}>ab {s.ab}h</span>
                     <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>{s.titel}</span>
                   </div>
                   <p style={{ margin: "4px 0 0", fontSize: 12, color: "#666", lineHeight: 1.55 }}>{s.text}</p>
@@ -9708,6 +9996,9 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             );
           })}
         </div>
+        <p style={{ margin: "14px 0 0", padding: "11px 13px", background: "#FAF8F4", borderRadius: 10, fontSize: 12.5, color: "#7A7278", lineHeight: 1.55 }}>
+          {FASTEN_ZEITLEISTE_HINWEIS}
+        </p>
       </div>
 
       {/* FASTING CYCLE: Welches Fasten wann */}
@@ -9721,15 +10012,15 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             <div key={p.id} style={{ background: istAktuell ? p.hellFarbe : "#fafafa", borderRadius: 10, padding: "11px 13px", marginBottom: 8, border: istAktuell ? `1px solid ${p.farbe}44` : "1px solid #EEEAE3" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 5 }}>
                 <span style={{ fontSize: 13, fontWeight: 700, color: p.farbe }}>{p.name}</span>
-                <span style={{ fontSize: 10, color: "#aaa" }}>{p.tage}</span>
+                <span style={{ fontSize: 12, color: "#aaa" }}>{p.tage}</span>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                 {fastenFuerPhase.map(f => (
-                  <span key={f.id} style={{ fontSize: 10.5, background: "#fff", color: p.farbe, padding: "2px 8px", borderRadius: 10, border: `1px solid ${p.farbe}33` }}>{f.stunden}h</span>
+                  <span key={f.id} style={{ fontSize: 12.5, background: "#fff", color: p.farbe, padding: "2px 8px", borderRadius: 10, border: `1px solid ${p.farbe}33` }}>{f.stunden}h</span>
                 ))}
               </div>
-              {p.id === "nurture" && <p style={{ margin: "6px 0 0", fontSize: 11, color: "#888", lineHeight: 1.4 }}>In der Nurture-Phase nur sanftes Fasten (max. 13h) — Progesteron braucht Energie und Ruhe.</p>}
-              {p.id === "power1" && <p style={{ margin: "6px 0 0", fontSize: 11, color: "#888", lineHeight: 1.4 }}>Power Phase 1 ist ideal für alle Fastenarten — auch die längeren Resets.</p>}
+              {p.id === "nurture" && <p style={{ margin: "6px 0 0", fontSize: 12, color: "#888", lineHeight: 1.4 }}>In der Nurture-Phase nur sanftes Fasten (max. 13h) — Progesteron braucht Energie und Ruhe.</p>}
+              {p.id === "power1" && <p style={{ margin: "6px 0 0", fontSize: 12, color: "#888", lineHeight: 1.4 }}>Power Phase 1 ist ideal für alle Fastenarten — auch die längeren Resets.</p>}
             </div>
           );
         })}
@@ -9740,7 +10031,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
         <p style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 800, color: "#333" }}>Fasten-Protokolle für bestimmte Anliegen</p>
         <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>{modus === "menopause" ? "Gezielte Fasten-Kombinationen aus dem Buch Fast Like a Girl. Ohne Zyklus bist du flexibel — orientiere dich bei Bedarf am Mondzyklus (Neumond = Tag 1)." : "30-Tage-Pläne aus dem Buch Fast Like a Girl (an den Zyklus gekoppelt, Tag 1 = erster Tag der Periode)."}</p>
         <div style={{ background: "#F4EEE2", border: "1px solid #D8C8B5", borderRadius: 10, padding: "10px 12px", marginBottom: 12 }}>
-          <p style={{ margin: 0, fontSize: 11, color: "#8A6D2E", lineHeight: 1.55 }}>⚠️ Diese Protokolle sind für gesundheitliche Anliegen gedacht und ersetzen keine Behandlung. Bitte nur mit ärztlicher Begleitung anwenden — besonders bei Medikamenten, Erkrankungen, Untergewicht, Schwangerschaft oder Stillzeit.</p>
+          <p style={{ margin: 0, fontSize: 12, color: "#8A6D2E", lineHeight: 1.55 }}>⚠️ Diese Protokolle sind für gesundheitliche Anliegen gedacht und ersetzen keine Behandlung. Bitte nur mit ärztlicher Begleitung anwenden — besonders bei Medikamenten, Erkrankungen, Untergewicht, Schwangerschaft oder Stillzeit.</p>
         </div>
         {fastenProtokolleGezeigt.map((p, idx) => (
           <div key={p.id} style={{ marginBottom: 8 }}>
@@ -9764,7 +10055,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
                   ))}
                 </div>
                 <div style={{ background: "#F4EEE2", borderRadius: 8, padding: "8px 10px" }}>
-                  <p style={{ margin: 0, fontSize: 11, color: "#8A6D2E", lineHeight: 1.5 }}>⚠️ {p.hinweis}</p>
+                  <p style={{ margin: 0, fontSize: 12, color: "#8A6D2E", lineHeight: 1.5 }}>⚠️ {p.hinweis}</p>
                 </div>
               </div>
             )}
@@ -9780,7 +10071,7 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
             <div key={log.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "9px 0", borderBottom: "1px solid #F1EDE6" }}>
               <div>
                 <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: "#333" }}>{log.name}</p>
-                <p style={{ margin: "2px 0 0", fontSize: 11, color: "#999" }}>{new Date(log.start).toLocaleDateString("de-AT", { day: "2-digit", month: "short" })} · Tag {log.zyklusTag}</p>
+                <p style={{ margin: "2px 0 0", fontSize: 12, color: "#999" }}>{new Date(log.start).toLocaleDateString("de-AT", { day: "2-digit", month: "short" })} · Tag {log.zyklusTag}</p>
               </div>
               <span style={{ fontSize: 13, fontWeight: 700, color: phase.farbe }}>{log.dauer}h</span>
             </div>
@@ -9792,8 +10083,11 @@ function FastenTab({ phase, zyklusTag, modus, aktivFasten, fastenStart, fastenEn
 }
 
 
-function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
-  const [offenerHack, setOffenerHack] = useState(null);
+function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false, zielKarte }) {
+  // Zielkarte von außen: "hack_3" → Hack Nr. 3 aufklappen
+  const zielNr = zielKarte && String(zielKarte).startsWith("hack_") ? parseInt(String(zielKarte).slice(5), 10) : null;
+  const [offenerHack, setOffenerHack] = useState(zielNr);
+  useEffect(() => { if (zielNr) setOffenerHack(zielNr); }, [zielNr]);
   const [offenEssen, setOffenEssen] = useState(null);
   const istNurture = phase.id === "nurture";
 
@@ -9819,9 +10113,9 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
               <div style={{ padding: "0 15px 15px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{txt}</p>
                 <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px" }}>
-                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#B07689" }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
+                  <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: "#B07689" }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                   {tps.map((t, i) => (
-                    <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+                    <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                       <span style={{ position: "absolute", left: 0, color: "#B07689" }}>•</span>{t}
                     </div>
                   ))}
@@ -9892,8 +10186,9 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
             <div style={{ background: phase.hellFarbe, borderRadius: "0 0 12px 12px", padding: "12px 14px", border: `1px solid ${phase.farbe}22`, borderTop: "none", marginTop: -4 }}>
               <p style={{ margin: "0 0 8px", fontSize: 12, color: "#444", lineHeight: 1.65 }}>{hack.detail}</p>
               <div style={{ background: "#fff", borderRadius: 8, padding: "8px 10px", border: `1px solid ${phase.farbe}22` }}>
-                <p style={{ margin: 0, fontSize: 11, color: phase.farbe, fontWeight: 600, lineHeight: 1.4 }}>{hack.beleg}</p>
+                <p style={{ margin: 0, fontSize: 12, color: phase.farbe, fontWeight: 600, lineHeight: 1.4 }}>{hack.beleg}</p>
               </div>
+              {hack.evidenz && <EvidenzZeile stufe={hack.evidenz} quelle={hack.quelle} />}
             </div>
           )}
         </div>
@@ -9921,9 +10216,9 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
                   <div style={{ padding: "0 15px 15px" }}>
                     <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{txt}</p>
                     <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px" }}>
-                      <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#B07689" }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
+                      <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: "#B07689" }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                       {tps.map((t, i) => (
-                        <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+                        <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                           <span style={{ position: "absolute", left: 0, color: "#B07689" }}>•</span>{t}
                         </div>
                       ))}
@@ -9938,7 +10233,7 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
 
       {/* Quelle */}
       <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginTop: 10, marginBottom: 80 }}>
-        <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
+        <p style={{ margin: 0, fontSize: 12, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
           Quelle: "Glucose Revolution" von Jessie Inchauspé. Diese Tipps ersetzen keine medizinische Beratung — bei Diabetes oder Blutzuckererkrankungen bitte ärztlich abklären.
         </p>
       </div>
@@ -9949,32 +10244,32 @@ function GlukoseTab({ phase, modus, istJugendlich, eingebettet = false }) {
 // ─────────── TEENAGER BEWEGUNGS-TAB (Bewegung & Freude, kein Zyklustraining) ───────────
 const TEEN_BEWEGUNG_KARTEN = [
   {
-    id: "tb_wieviel", icon: "⏱️", titel: "Wie viel Bewegung tut dir gut?",
+    id: "tb_wieviel", kern: "Etwa eine Stunde Bewegung am Tag tut dir gut — alles zählt, auch Schulweg und Tanzen.", relevanz: "Es geht nicht um Sport im Verein, sondern darum, dass du dich regelmäßig bewegst. Was Spaß macht, hältst du eher durch.", evidenz: "belegt", icon: "⏱️", titel: "Wie viel Bewegung tut dir gut?",
     text: `Die Weltgesundheitsorganisation (WHO) empfiehlt jungen Menschen etwa 60 Minuten Bewegung pro Tag — also im Schnitt eine Stunde, in der du dich bewegst und dabei ins Schwitzen oder außer Atem kommst. Das klingt viel, ist es aber gar nicht: Der Schulweg zu Fuß oder mit dem Rad, Turnen in der Schule, Herumtoben, Tanzen im Zimmer, Sport im Verein — all das zählt zusammen. Es muss kein „Workout" sein. Zusätzlich ist es gut, an etwa 3 Tagen pro Woche etwas dabei zu haben, das deine Muskeln und Knochen fordert (z.B. Klettern, Springen, Sport mit dem eigenen Körpergewicht).\n\nEhrlich gesagt schaffen die wenigsten Jugendlichen diese Stunde jeden Tag — du musst also nicht perfekt sein. Es geht darum, Bewegung zu etwas zu machen, das dir Spaß macht und das du gern regelmäßig tust.`,
     tipps: ["Ziel: ca. 60 Min. Bewegung am Tag — alles zählt zusammen", "Schulweg, Turnen, Tanzen, Toben, Vereinssport — alles Bewegung", "An ~3 Tagen/Woche etwas für Muskeln & Knochen (klettern, springen, Körpergewicht)", "Es muss kein „Sport\" sein — Hauptsache, du bewegst dich gern", "Nicht perfekt sein müssen — dranbleiben zählt mehr als Rekorde"],
   },
   {
-    id: "tb_warum", nurInfo: true, icon: "💪", titel: "Warum Bewegung gerade jetzt so wichtig ist",
+    id: "tb_warum", kern: "In der Pubertät baust du Knochen und Muskeln auf, von denen du dein Leben lang profitierst.", relevanz: "Bewegung wirkt außerdem direkt auf Stimmung, Schlaf und Konzentration. Es ist die beste Investition in dich.", evidenz: "belegt", nurInfo: true, icon: "💪", titel: "Warum Bewegung gerade jetzt so wichtig ist",
     text: `In der Pubertät wächst und verändert sich dein Körper enorm — und Bewegung hilft ihm dabei richtig. Sie baut starke Knochen auf (das legt den Grundstein für dein ganzes Leben — auch für später, wenn du älter bist), stärkt Muskeln und Herz, und tut deinem Kopf gut: Bewegung baut Stress ab, hebt die Stimmung und hilft sogar beim Lernen und Schlafen. Wenn du dich mies fühlst oder viel Druck hast, ist Bewegung eines der besten und einfachsten Mittel, das es gibt — ganz ohne Nebenwirkungen.\n\nWichtig: Es geht nicht ums Abnehmen oder darum, einen bestimmten Körper zu haben. Es geht darum, dass du dich stark, wach und wohl fühlst. Dein Körper darf sich bewegen, weil es guttut — nicht, um bestraft zu werden.`,
     tipps: ["Bewegung baut jetzt starke Knochen fürs ganze Leben auf", "Sie stärkt Muskeln, Herz und dein Immunsystem", "Super gegen Stress, schlechte Laune und zum besseren Schlafen", "Hilft sogar beim Lernen und Konzentrieren", "Es geht ums Wohlfühlen und Starksein — nicht ums Abnehmen"],
   },
   {
-    id: "tb_sportarten", icon: "🤸", titel: "Welche Sportarten den ganzen Körper stärken",
+    id: "tb_sportarten", kern: "Sportarten, die den ganzen Körper fordern, bringen am meisten.", relevanz: "Schwimmen, Klettern, Ballsport oder Tanzen trainieren Kraft, Ausdauer und Koordination zugleich.", evidenz: "praxis", icon: "🤸", titel: "Welche Sportarten den ganzen Körper stärken",
     text: `Am besten für deinen ganzen Körper sind Sportarten, bei denen viele Muskeln zusammenarbeiten und du dich vielseitig bewegst. Ein paar tolle Beispiele:\n\n🏊 Schwimmen — trainiert fast alle Muskeln, schont die Gelenke.\n🧗 Klettern/Bouldern — Kraft, Körperspannung und Köpfchen zugleich.\n💃 Tanzen — Ausdauer, Koordination, Rhythmus und Spaß.\n⚽ Ball- und Mannschaftssport (Fußball, Volleyball, Basketball, Handball) — Ausdauer, Schnelligkeit und Teamgefühl.\n🤸 Turnen/Gymnastik — Kraft, Beweglichkeit und Körpergefühl.\n🚴 Radfahren, Laufen, Wandern — gut fürs Herz und überall möglich.\n\nDas Beste ist: Probier verschiedenes aus, bis du findest, was dir wirklich Freude macht. Wenn du etwas gern tust, bleibst du automatisch dran — und genau das ist das Ziel. Vielseitig ist besser als immer nur das Gleiche.`,
     tipps: ["Schwimmen: ganzer Körper, gelenkschonend", "Klettern/Bouldern: Kraft & Körperspannung", "Tanzen: Ausdauer, Koordination & Spaß", "Ball-/Mannschaftssport: Ausdauer + Teamgefühl", "Turnen: Kraft & Beweglichkeit", "Probier vieles aus — Hauptsache, es macht Freude"],
   },
   {
-    id: "tb_kraft", icon: "🏋️", titel: "Krafttraining — ab wann und wie?",
+    id: "tb_kraft", kern: "Krafttraining ist auch für Jugendliche gut — mit richtiger Technik und Anleitung.", relevanz: "Es macht nicht 'zu muskulös' und schadet dem Wachstum nicht. Wichtig ist, sauber zu lernen statt schwer zu heben.", evidenz: "belegt", icon: "🏋️", titel: "Krafttraining — ab wann und wie?",
     text: `Vielleicht hast du gehört, Krafttraining sei „schlecht für Kinder" — das stimmt so nicht. Fachleute sind sich heute einig: Wenn es richtig gemacht wird, ist Krafttraining auch für Jugendliche gesund und stärkt Knochen, Haltung und Selbstvertrauen. Der Schlüssel ist: Technik vor Gewicht. Am Anfang trainierst du am besten mit deinem eigenen Körpergewicht (Kniebeugen, Liegestütze, Ausfallschritte, Planks) oder mit leichten Gewichten — sauber und kontrolliert, nicht mit möglichst viel Gewicht.\n\nFürs Fitnessstudio gibt es meist eine Altersgrenze (oft ab 14 oder 16 Jahren, und häufig nur mit Einverständnis der Eltern und Einweisung) — das ist von Studio zu Studio verschieden. Aber du brauchst gar kein Studio: Übungen mit dem eigenen Körpergewicht kannst du überall machen. Wenn du mit Gewichten startest, lass dir die Technik am besten von jemandem zeigen, der sich auskennt (Trainer:in, Sportlehrer:in).`,
     tipps: ["Krafttraining ist für Jugendliche gesund — wenn es richtig gemacht wird", "Wichtigste Regel: Technik vor Gewicht", "Ideal zum Start: eigenes Körpergewicht (Kniebeugen, Liegestütze, Planks)", "Fitnessstudio meist erst ab 14–16 J. (je nach Studio, oft mit Eltern-OK)", "Mit Gewichten? Lass dir die Technik zeigen", "Keine Maximalgewichte, kein Ego — sauber und kontrolliert"],
   },
   {
-    id: "tb_verletzung", icon: "🩹", titel: "Verletzungen vermeiden",
+    id: "tb_verletzung", kern: "Aufwärmen, Pausen und genug Schlaf schützen dich vor Verletzungen.", relevanz: "Schmerzen sind ein Signal, keine Schwäche. Wer trotz Schmerz weitermacht, fällt länger aus.", evidenz: "belegt", icon: "🩹", titel: "Verletzungen vermeiden",
     text: `Damit Bewegung Spaß macht und du gesund bleibst, ein paar einfache Grundregeln:\n\n🔥 Aufwärmen: Bevor es intensiv wird, ein paar Minuten locker bewegen (leichtes Laufen, Hampelmänner, Armkreisen). Das bereitet Muskeln und Gelenke vor.\n💧 Trinken: Genug Wasser, besonders beim Sport.\n😴 Pausen & Schlaf: Dein Körper wird stärker in den Ruhephasen, nicht nur beim Training. Gönn dir Erholung.\n📈 Langsam steigern: Nicht von null auf hundert — lieber Schritt für Schritt mehr.\n👂 Auf den Körper hören: Schmerz (nicht der normale „Anstrengungs-Brenn", sondern echter Schmerz) ist ein Stopp-Signal. Dann Pause machen und bei anhaltenden Schmerzen zur Ärztin.\n\nUnd: gutes, ausreichendes Essen gehört dazu — dein Körper braucht Energie, um stark zu werden (siehe „Iss genug" im Ernährungs-Tab).`,
     tipps: ["Immer kurz aufwärmen, bevor es intensiv wird", "Genug trinken", "Pausen & Schlaf machen dich stärker — nicht nur das Training", "Langsam steigern statt von null auf hundert", "Echter Schmerz ist ein Stopp-Signal — dann Pause", "Genug essen: dein Körper braucht Energie, um stark zu werden"],
   },
   {
-    id: "tb_schule", icon: "🏫", titel: "Schule & Verein — nutze die Angebote",
+    id: "tb_schule", kern: "Schule und Vereine bieten oft kostenlose Möglichkeiten, Sport auszuprobieren.", relevanz: "Nutze das, um herauszufinden, was dir liegt — ohne dich gleich festlegen zu müssen.", evidenz: "praxis", icon: "🏫", titel: "Schule & Verein — nutze die Angebote",
     text: `Du musst Bewegung nicht allein organisieren — es gibt viele Angebote, die schon da sind. In der Schule ist der Sportunterricht ein super Anfang (und oft mehr wert, als man denkt!). Viele Schulen haben zusätzlich freiwillige Sport-Angebote, Sport-AGs oder unverbindliche Übungen am Nachmittag — frag einfach deine Sportlehrerin oder schau am schwarzen Brett.\n\nAußerhalb der Schule gibt es Sportvereine für fast alles — von Fußball über Klettern, Tanzen, Volleyball bis Leichtathletik. Der Vorteil: Du bewegst dich regelmäßig, lernst neue Leute kennen und hast jemanden, der dir zeigt, wie es richtig geht. Viele Vereine bieten Schnupperstunden an, wo du gratis reinschnuppern kannst, bevor du dich entscheidest.`,
     tipps: ["Sportunterricht ernst nehmen — er ist ein guter Anfang", "Nach Sport-AGs / unverbindlichen Übungen an deiner Schule fragen", "Sportvereine: von Fußball bis Klettern ist fast alles dabei", "Schnupperstunden nutzen, um Sportarten gratis auszuprobieren", "Zusammen mit Freundinnen macht es oft mehr Spaß"],
   },
@@ -10011,9 +10306,9 @@ function TeenagerBewegungTab() {
               <div style={{ padding: "0 15px 15px" }}>
                 <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{k.text}</p>
                 <div style={{ background: "#F1E9EE", borderRadius: 10, padding: "10px 12px" }}>
-                  <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#B07689" }}>{k.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
+                  <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: "#B07689" }}>{k.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                   {k.tipps.map((t, i) => (
-                    <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+                    <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                       <span style={{ position: "absolute", left: 0, color: "#B07689" }}>•</span>{t}
                     </div>
                   ))}
@@ -10026,7 +10321,7 @@ function TeenagerBewegungTab() {
 
       {/* Quelle */}
       <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "11px 13px", marginTop: 10, marginBottom: 80 }}>
-        <p style={{ margin: 0, fontSize: 11, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
+        <p style={{ margin: 0, fontSize: 12, color: "#888", lineHeight: 1.55, fontStyle: "italic" }}>
           Quelle: Bewegungsempfehlungen der Weltgesundheitsorganisation (WHO) für Kinder & Jugendliche (5–17 Jahre). Bei Beschwerden oder vor intensivem Training im Zweifel ärztlich abklären.
         </p>
       </div>
@@ -10034,12 +10329,19 @@ function TeenagerBewegungTab() {
   );
 }
 
-function TrainingTab({ phase, zyklusTag, modus, alter }) {
+function TrainingTab({ phase, zyklusTag, modus, alter , zielKarte }) {
   const [offenUebung, setOffenUebung] = useState(null);
   const [offenFueling, setOffenFueling] = useState(null);
   const [offenRecovery, setOffenRecovery] = useState(null);
   const [offenGenugEssen, setOffenGenugEssen] = useState(null);
   const [offenSnacks, setOffenSnacks] = useState(null);
+  useEffect(() => {
+    if (!zielKarte) return;
+    if (SIMS_FUELING.some(k => k.id === zielKarte)) setOffenFueling(zielKarte);
+    else if (RECOVERY_WISSEN.some(k => k.id === zielKarte)) setOffenRecovery(zielKarte);
+    else if (GENUG_ESSEN_WISSEN.some(k => k.id === zielKarte)) setOffenGenugEssen(zielKarte);
+    else if (EXERCISE_SNACKS_WISSEN.some(k => k.id === zielKarte)) setOffenSnacks(zielKarte);
+  }, [zielKarte]);
   const training = TRAINING_PHASEN[phase.id];
   const istJugendlichTr = alter != null && alter >= 11 && alter <= 19;
 
@@ -10054,15 +10356,15 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
     <div>
       {/* Header */}
       <div style={{ background: `linear-gradient(135deg, ${phase.farbe}, ${phase.farbe}cc)`, borderRadius: 16, padding: "18px 18px 14px", marginBottom: 14, color: "#fff" }}>
-        <p style={{ margin: "0 0 2px", fontSize: 11, opacity: 0.85 }}>Tag {zyklusTag} · {phase.name}</p>
+        <p style={{ margin: "0 0 2px", fontSize: 12, opacity: 0.85 }}>Tag {zyklusTag} · {phase.name}</p>
         <h2 style={{ margin: "0 0 6px", fontSize: 17, fontWeight: 800, lineHeight: 1.2 }}>{training.titel}</h2>
         <p style={{ margin: "0 0 10px", fontSize: 12, opacity: 0.9 }}>{training.untertitel}</p>
         <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-          <span style={{ fontSize: 11, opacity: 0.85 }}>Intensität:</span>
+          <span style={{ fontSize: 12, opacity: 0.85 }}>Intensität:</span>
           {[1,2,3,4,5].map(i => (
             <span key={i} style={{ fontSize: 14, opacity: i <= training.intensitaetSterne ? 1 : 0.3 }}>⚡</span>
           ))}
-          <span style={{ fontSize: 11, opacity: 0.85, marginLeft: 2 }}>{training.intensitaet}</span>
+          <span style={{ fontSize: 12, opacity: 0.85, marginLeft: 2 }}>{training.intensitaet}</span>
         </div>
       </div>
 
@@ -10082,9 +10384,9 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
               <div>
                 <div style={{ fontSize: 13, fontWeight: 700, color: "#222" }}>{u.name}</div>
                 <div style={{ display: "flex", gap: 8, marginTop: 3 }}>
-                  <span style={{ fontSize: 10, color: "#888" }}>{u.geraet}</span>
-                  <span style={{ fontSize: 10, color: "#888" }}>⏱ {u.dauer}</span>
-                  <span style={{ fontSize: 10, color: intensitaetFarbe(u.intensitaet), fontWeight: 600 }}>{u.intensitaet}</span>
+                  <span style={{ fontSize: 12, color: "#888" }}>{u.geraet}</span>
+                  <span style={{ fontSize: 12, color: "#888" }}>⏱ {u.dauer}</span>
+                  <span style={{ fontSize: 12, color: intensitaetFarbe(u.intensitaet), fontWeight: 600 }}>{u.intensitaet}</span>
                 </div>
               </div>
               <span style={{ fontSize: 16, color: phase.farbe }}>{offenUebung === idx ? "▲" : "▼"}</span>
@@ -10121,11 +10423,11 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
       <div style={{ background: "#fff", borderRadius: 14, padding: "12px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 8px", fontSize: 12, fontWeight: 700, color: "#333" }}>✅ Jetzt fokussieren auf</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
-          {training.schwerpunkt.map(s => <span key={s} style={{ fontSize: 11, background: phase.hellFarbe, color: phase.farbe, padding: "4px 10px", borderRadius: 20, fontWeight: 600 }}>{s}</span>)}
+          {training.schwerpunkt.map(s => <span key={s} style={{ fontSize: 12, background: phase.hellFarbe, color: phase.farbe, padding: "4px 10px", borderRadius: 20, fontWeight: 600 }}>{s}</span>)}
         </div>
         <p style={{ margin: "8px 0 4px", fontSize: 12, fontWeight: 700, color: "#888" }}>Jetzt besser vermeiden</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-          {training.vermeiden.map(v => <span key={v} style={{ fontSize: 11, background: "#FFF3F3", color: "#A34A44", padding: "4px 10px", borderRadius: 20 }}>{v}</span>)}
+          {training.vermeiden.map(v => <span key={v} style={{ fontSize: 12, background: "#FFF3F3", color: "#A34A44", padding: "4px 10px", borderRadius: 20 }}>{v}</span>)}
         </div>
       </div>
 
@@ -10133,11 +10435,11 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
       <div style={{ background: "#fff", borderRadius: 14, padding: "12px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#333" }}>Vor & nach dem Training essen</p>
         <div style={{ background: "#EAEEF1", borderRadius: 10, padding: "10px 12px", marginBottom: 8 }}>
-          <p style={{ margin: "0 0 3px", fontSize: 11, color: "#4A6478", fontWeight: 700 }}>VOR dem Training</p>
+          <p style={{ margin: "0 0 3px", fontSize: 12, color: "#4A6478", fontWeight: 700 }}>VOR dem Training</p>
           <p style={{ margin: 0, fontSize: 12, color: "#3A5068", lineHeight: 1.6 }}>{training.preWorkout}</p>
         </div>
         <div style={{ background: "#EEF0EC", borderRadius: 10, padding: "10px 12px" }}>
-          <p style={{ margin: "0 0 3px", fontSize: 11, color: "#5E6E5C", fontWeight: 700 }}>NACH dem Training</p>
+          <p style={{ margin: "0 0 3px", fontSize: 12, color: "#5E6E5C", fontWeight: 700 }}>NACH dem Training</p>
           <p style={{ margin: 0, fontSize: 12, color: "#1B5E20", lineHeight: 1.6 }}>{training.postWorkout}</p>
         </div>
       </div>
@@ -10157,7 +10459,7 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
       {/* Sims: Essen & Trinken rund ums Training */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Essen & Trinken rund ums Training</p>
-        <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Frauenspezifisch nach Dr. Stacy Sims (ROAR).</p>
+        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Frauenspezifisch nach Dr. Stacy Sims (ROAR).</p>
         {SIMS_FUELING.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenFueling(offenFueling === idx ? null : idx)}
@@ -10186,7 +10488,7 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
       {/* Bewegung im Alltag / Exercise Snacks (Dr. Rhonda Patrick) */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Bewegung im Alltag</p>
-        <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Kurze, intensive Bewegungs-Häppchen — nach Dr. Rhonda Patrick. Der einfachste Hebel für ein langes, gesundes Leben.</p>
+        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Kurze, intensive Bewegungs-Häppchen — nach Dr. Rhonda Patrick. Der einfachste Hebel für ein langes, gesundes Leben.</p>
         {EXERCISE_SNACKS_WISSEN.map((f, idx) => {
           const txt = (istJugendlichTr && f.teenText) ? f.teenText : f.text;
           const tps = (istJugendlichTr && f.teenTipps) ? f.teenTipps : f.tipps;
@@ -10211,7 +10513,7 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
                 ))}
                 {modus === "schwanger" && f.schwangerHinweis && (
                   <div style={{ background: "#FFF0F5", borderRadius: 10, padding: "10px 12px", marginTop: 6, border: "1px solid #E6D0D8" }}>
-                    <p style={{ margin: 0, fontSize: 11.5, color: "#8B4A5C", lineHeight: 1.6 }}>{f.schwangerHinweis}</p>
+                    <p style={{ margin: 0, fontSize: 12.5, color: "#8B4A5C", lineHeight: 1.6 }}>{f.schwangerHinweis}</p>
                   </div>
                 )}
               </div>
@@ -10224,7 +10526,7 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
       {/* Erholung, Hitze & Kälte */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Erholung, Hitze & Kälte</p>
-        <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Was wirklich bei der Regeneration hilft — nach Dr. Stacy Sims (ROAR).</p>
+        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Was wirklich bei der Regeneration hilft — nach Dr. Stacy Sims (ROAR).</p>
         {RECOVERY_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenRecovery(offenRecovery === idx ? null : idx)}
@@ -10253,7 +10555,7 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
       {/* Genug essen / RED-S & Darmgesundheit */}
       <div style={{ background: "#fff", borderRadius: 14, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#333" }}>Genug essen & Darmgesundheit</p>
-        <p style={{ margin: "0 0 10px", fontSize: 11, color: "#888", lineHeight: 1.5 }}>Das wichtige Gegengewicht zum Fasten — nach Dr. Stacy Sims (ROAR).</p>
+        <p style={{ margin: "0 0 10px", fontSize: 12, color: "#888", lineHeight: 1.5 }}>Das wichtige Gegengewicht zum Fasten — nach Dr. Stacy Sims (ROAR).</p>
         {GENUG_ESSEN_WISSEN.map((f, idx) => (
           <div key={f.id} style={{ marginBottom: 8 }}>
             <button onClick={() => setOffenGenugEssen(offenGenugEssen === idx ? null : idx)}
@@ -10283,11 +10585,11 @@ function TrainingTab({ phase, zyklusTag, modus, alter }) {
       <div style={{ background: "#fff", borderRadius: 14, padding: "12px 16px", marginBottom: 80, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
         <p style={{ margin: "0 0 8px", fontSize: 12, fontWeight: 700, color: "#333" }}>Aus den Büchern</p>
         <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "10px 12px", marginBottom: 8 }}>
-          <p style={{ margin: "0 0 2px", fontSize: 10, color: "#888", fontWeight: 600 }}>ROAR — Stacy Sims PhD</p>
+          <p style={{ margin: "0 0 2px", fontSize: 12, color: "#888", fontWeight: 600 }}>ROAR — Stacy Sims PhD</p>
           <p style={{ margin: 0, fontSize: 12, color: "#444", lineHeight: 1.5, fontStyle: "italic" }}>{training.roarTipp}</p>
         </div>
         <div style={{ background: "#F1EDE6", borderRadius: 10, padding: "10px 12px" }}>
-          <p style={{ margin: "0 0 2px", fontSize: 10, color: "#888", fontWeight: 600 }}>Fast Like a Girl / Eat Like a Girl — Dr. Mindy Pelz</p>
+          <p style={{ margin: "0 0 2px", fontSize: 12, color: "#888", fontWeight: 600 }}>Fast Like a Girl / Eat Like a Girl — Dr. Mindy Pelz</p>
           <p style={{ margin: 0, fontSize: 12, color: "#444", lineHeight: 1.5, fontStyle: "italic" }}>{training.pelzTipp}</p>
         </div>
       </div>
@@ -10431,7 +10733,7 @@ function ZyklusKalender({ periodenStart, periodenHistorie, zyklusLaenge, zyklusT
 
       {/* Wochentage */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 3, marginBottom: 4 }}>
-        {wochentage.map(w => <div key={w} style={{ textAlign: "center", fontSize: 10, color: "#aaa", fontWeight: 600 }}>{w}</div>)}
+        {wochentage.map(w => <div key={w} style={{ textAlign: "center", fontSize: 12, color: "#aaa", fontWeight: 600 }}>{w}</div>)}
       </div>
 
       {/* Tage */}
@@ -10463,7 +10765,7 @@ function ZyklusKalender({ periodenStart, periodenHistorie, zyklusLaenge, zyklusT
             <button key={key} onClick={() => onTagKlick(datum)}
               style={{ minHeight: 46, border: `${randBreite} ${randStil} ${randFarbe}`, outline: istHeute ? "2px solid #333" : "none", outlineOffset: istHeute ? "-2px" : 0, borderRadius: 8, background: bgFarbe, color: "#333", cursor: "pointer", fontSize: 13, fontWeight: istHeute ? 800 : 500, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", padding: "3px 0", gap: 1 }}>
               <span style={{ lineHeight: 1 }}>{t}</span>
-              <span style={{ fontSize: 10, lineHeight: 1, height: 11 }}>
+              <span style={{ fontSize: 12, lineHeight: 1, height: 11 }}>
                 {istPeriode ? "🩸" : istPrognose ? "🩸" : istEisprung ? "✨" : istFruchtbar ? "🌱" : istNeumond ? "🌑" : ""}
               </span>
             </button>
@@ -10473,27 +10775,27 @@ function ZyklusKalender({ periodenStart, periodenHistorie, zyklusLaenge, zyklusT
 
       {/* Legende */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12, justifyContent: "center" }}>
-        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #9C5568", display: "inline-block", boxSizing: "border-box" }} />Periode</span>}
-        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px dashed #C99AAA", display: "inline-block", boxSizing: "border-box" }} />vorhergesagt</span>}
-        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #5E7370", display: "inline-block", boxSizing: "border-box" }} />Eisprung</span>}
-        {modus !== "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #26A69A", display: "inline-block", boxSizing: "border-box" }} />fruchtbar</span>}
-        {modus === "menopause" && <span style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 3 }}>Neumond (Tag 1)</span>}
+        {modus !== "menopause" && <span style={{ fontSize: 12, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #9C5568", display: "inline-block", boxSizing: "border-box" }} />Periode</span>}
+        {modus !== "menopause" && <span style={{ fontSize: 12, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px dashed #C99AAA", display: "inline-block", boxSizing: "border-box" }} />vorhergesagt</span>}
+        {modus !== "menopause" && <span style={{ fontSize: 12, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #5E7370", display: "inline-block", boxSizing: "border-box" }} />Eisprung</span>}
+        {modus !== "menopause" && <span style={{ fontSize: 12, color: "#888", display: "flex", alignItems: "center", gap: 3 }}><span style={{ width: 12, height: 12, borderRadius: 3, border: "2px solid #26A69A", display: "inline-block", boxSizing: "border-box" }} />fruchtbar</span>}
+        {modus === "menopause" && <span style={{ fontSize: 12, color: "#888", display: "flex", alignItems: "center", gap: 3 }}>Neumond (Tag 1)</span>}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 8, justifyContent: "center" }}>
         {[["power1","P1"],["manifestation","Mani"],["power2","P2"],["nurture","🌙 Nurture"]].map(([id, label]) => (
-          <span key={id} style={{ fontSize: 9, color: "#888", display: "flex", alignItems: "center", gap: 3 }}>
+          <span key={id} style={{ fontSize: 12.5, color: "#888", display: "flex", alignItems: "center", gap: 3 }}>
             <span style={{ width: 9, height: 9, borderRadius: 2, background: phasenFarbe[id] + "55", display: "inline-block" }} />{label}
           </span>
         ))}
       </div>
-      <p style={{ margin: "10px 0 0", fontSize: 10, color: "#bbb", textAlign: "center", lineHeight: 1.4 }}>
+      <p style={{ margin: "10px 0 0", fontSize: 12, color: "#bbb", textAlign: "center", lineHeight: 1.4 }}>
         {modus === "menopause"
           ? "Tippe auf einen Tag, um den Neumond (Tag 1 deines Mondzyklus) für dieses Datum zu setzen."
           : "Tippe auf einen Tag, um deine Periode für dieses Datum einzutragen."}
       </p>
       {/* Sicherheitshinweis fruchtbares Fenster */}
       {modus !== "menopause" && <div style={{ background: "#EAEEE9", borderRadius: 10, padding: "10px 12px", marginTop: 12, border: "1px solid #B2DFDB" }}>
-        <p style={{ margin: 0, fontSize: 10.5, color: "#4A5F5A", lineHeight: 1.5 }}>
+        <p style={{ margin: 0, fontSize: 12.5, color: "#4A5F5A", lineHeight: 1.5 }}>
           ⚠️ Das fruchtbare Fenster (grün) und der Eisprung sind nur <strong>grobe Schätzungen</strong> auf Basis deiner Zykluslänge. Der echte Eisprung schwankt von Zyklus zu Zyklus. <strong>Nicht zur Verhütung oder Empfängnisplanung geeignet</strong> — dafür bitte zusätzliche Methoden (z.B. Temperaturmessung, Ovulationstests) oder ärztliche Beratung nutzen.
         </p>
       </div>}
@@ -10531,6 +10833,14 @@ export default function App() {
   const [portionen, setPortionen] = useState({});
   const [filter, setFilter] = useState({ phase: "alle", stil: "alle", diät: "alle", suche: "" });
   const [aktivFasten, setAktivFasten] = useState(null);
+  const [sicherheitsHinweis, setSicherheitsHinweis] = useState(null); // Modal bei automatischem Fasten-Stopp
+  const [handlungen, setHandlungen] = useState({}); // { datum: { id, status, rueckmeldung } }
+  const [suchbegriff, setSuchbegriff] = useState("");
+  const [merkliste, setMerkliste] = useState({}); // { kartenId: "gemerkt" | "ausprobiert" }
+  const [gesehen, setGesehen] = useState({}); // automatisch: welche Lernmomente wurden schon gezeigt
+  const [zielKarte, setZielKarte] = useState(null); // beim Tab-Wechsel diese Karte aufklappen
+  const [warumOffen, setWarumOffen] = useState(false); // "Heute für dich angepasst" aufgeklappt?
+  const [experimente, setExperimente] = useState({}); // { expId: { start, tage, notizen: {datum: text}, beendet, fazit } }
   const [fastenStart, setFastenStart] = useState(null);
   const [startBearbeiten, setStartBearbeiten] = useState(false);
   const [fastenEnde, setFastenEnde] = useState(null);
@@ -10548,7 +10858,10 @@ export default function App() {
   const [periodeNachfrageOffen, setPeriodeNachfrageOffen] = useState(true);
   const [periBereichOffen, setPeriBereichOffen] = useState(false);
   const [offenPeri, setOffenPeri] = useState(null);
-  const [modus, setModus] = useState("zyklus"); // "zyklus" | "menopause" | "schwanger"
+  // Zielkarte von außen: passende Perimenopause-Karte aufklappen
+  useEffect(() => { if (zielKarte && PERIMENOPAUSE_WISSEN.some(k => k.id === zielKarte)) setOffenPeri(zielKarte); }, [zielKarte]);
+  const [modus, setModus] = useState("zyklus");
+  const [lebenszustand, setLebenszustand] = useState(null); // feinere Ebene über dem Modus // "zyklus" | "menopause" | "schwanger"
   const [name, setName] = useState(""); // Vorname für Begrüßung
   const [geburtsdatum, setGeburtsdatum] = useState(null); // ISO-Datum (Geburtstag der Nutzerin)
   const [geburtstermin, setGeburtstermin] = useState(null); // ISO-Datum (errechneter Termin)
@@ -10583,6 +10896,11 @@ export default function App() {
     try {
       const d = JSON.parse(localStorage.getItem("ealg_v2") || "{}");
       if (d.modus) setModus(d.modus);
+      if (d.lebenszustand) setLebenszustand(d.lebenszustand);
+      if (d.handlungen) setHandlungen(d.handlungen);
+      if (d.merkliste) setMerkliste(d.merkliste);
+      if (d.gesehen) setGesehen(d.gesehen);
+      if (d.experimente) setExperimente(d.experimente);
       if (d.name) setName(d.name);
       if (d.geburtsdatum) setGeburtsdatum(d.geburtsdatum);
       if (d.geburtstermin) setGeburtstermin(d.geburtstermin);
@@ -10650,6 +10968,20 @@ export default function App() {
     speichern({ name: wert });
   }
   function setGeburtsdatumUndSpeichern(wert) {
+    // Sicherheitsregel: Für Jugendliche zeigt MoreSync kein Fasten.
+    // Wird das Geburtsdatum auf ein Alter unter 18 geändert, endet ein laufendes Fasten.
+    if (wert && aktivFasten) {
+      const g = new Date(wert);
+      const heute = new Date();
+      let a = heute.getFullYear() - g.getFullYear();
+      const mDiff = heute.getMonth() - g.getMonth();
+      if (mDiff < 0 || (mDiff === 0 && heute.getDate() < g.getDate())) a--;
+      if (a < 18) {
+        setAktivFasten(null); setFastenStart(null); setFastenEnde(null);
+        speichern({ aktivFasten: null, fastenStart: null, fastenEnde: null });
+        setSicherheitsHinweis("Dein laufendes Fasten wurde beendet. In deinem Alter zeigt MoreSync kein Fasten — dein Körper wächst noch und braucht regelmäßige Mahlzeiten.");
+      }
+    }
     setGeburtsdatum(wert);
     speichern({ geburtsdatum: wert });
   }
@@ -10705,7 +11037,85 @@ export default function App() {
   }
 
   // Modus wechseln (Zyklus <-> Menopause <-> Schwanger)
+  // Lebenszustand setzen — passt den technischen Modus an und wendet Sicherheitsregeln an
+  function lebenszustandWechseln(zustandId) {
+    const z = LEBENSZUSTAENDE.find(l => l.id === zustandId);
+    if (!z) return;
+    // Sicherheitsregel: Erlaubt der neue Zustand kein Fasten, wird ein laufendes beendet.
+    if (!z.fastenErlaubt && aktivFasten) {
+      setAktivFasten(null); setFastenStart(null); setFastenEnde(null);
+      speichern({ aktivFasten: null, fastenStart: null, fastenEnde: null });
+      const grund = z.id === "schwanger" ? "In der Schwangerschaft empfiehlt MoreSync kein Fasten — du und dein Baby braucht jetzt regelmäßige Mahlzeiten."
+        : z.id === "stillzeit" ? "In der Stillzeit empfiehlt MoreSync kein Fasten — dein Körper braucht jetzt verlässlich Energie."
+        : z.id === "nach_geburt" ? "Nach der Geburt steht Erholung im Vordergrund — MoreSync empfiehlt jetzt kein Fasten."
+        : "In deinem Alter zeigt MoreSync kein Fasten — dein Körper wächst noch und braucht regelmäßige Mahlzeiten.";
+      setSicherheitsHinweis(`Dein laufendes Fasten wurde beendet. ${grund}`);
+    }
+    setLebenszustand(zustandId);
+    setModus(z.modus);
+    speichern({ lebenszustand: zustandId, modus: z.modus });
+  }
+
+  // Tageshandlung annehmen/ablehnen und abends zurückmelden
+  function setHandlungStatus(datum, handlungId, status) {
+    const neu = { ...handlungen, [datum]: { ...(handlungen[datum] || {}), id: handlungId, status } };
+    setHandlungen(neu);
+    speichern({ handlungen: neu });
+  }
+  function setHandlungRueckmeldung(datum, rueckmeldung) {
+    const neu = { ...handlungen, [datum]: { ...(handlungen[datum] || {}), rueckmeldung } };
+    setHandlungen(neu);
+    speichern({ handlungen: neu });
+  }
+
+  // Merkliste: gemerkt / gelesen / ausprobiert / nicht relevant
+  // Merkt automatisch, welcher Lernmoment schon gezeigt wurde — damit morgen
+  // ein anderer kommt. Ohne Knopfdruck, ohne Pflichtgefühl.
+  function markiereGesehen(kartenId) {
+    if (!kartenId || gesehen[kartenId]) return;
+    const neu = { ...gesehen, [kartenId]: heuteKey };
+    setGesehen(neu);
+    speichern({ gesehen: neu });
+  }
+
+  function setMerkStatus(kartenId, status) {
+    const neu = { ...merkliste };
+    if (!status || neu[kartenId] === status) delete neu[kartenId];
+    else neu[kartenId] = status;
+    setMerkliste(neu);
+    speichern({ merkliste: neu });
+  }
+
+  // Experimente starten, notieren und abschließen
+  function experimentStarten(expId) {
+    const neu = { ...experimente, [expId]: { start: heuteKey, notizen: {}, beendet: false } };
+    setExperimente(neu); speichern({ experimente: neu });
+  }
+  function experimentNotiz(expId, datum, text) {
+    const e = experimente[expId]; if (!e) return;
+    const neu = { ...experimente, [expId]: { ...e, notizen: { ...(e.notizen || {}), [datum]: text } } };
+    setExperimente(neu); speichern({ experimente: neu });
+  }
+  function experimentBeenden(expId, fazit) {
+    const e = experimente[expId]; if (!e) return;
+    const neu = { ...experimente, [expId]: { ...e, beendet: true, fazit, ende: heuteKey } };
+    setExperimente(neu); speichern({ experimente: neu });
+  }
+
+  // Springt in einen Tab UND klappt dort die gewünschte Karte auf
+  function oeffneKarte(tabId, kartenId) {
+    setZielKarte(kartenId || null);
+    setTab(tabId);
+  }
+
   function modusWechseln(neuerModus) {
+    // Sicherheitsregel: In Schwangerschaft (und für Jugendliche) darf kein Fasten weiterlaufen.
+    // Ein aktiver Fastentimer wird beim Wechsel automatisch beendet — sichtbar für die Nutzerin.
+    if (neuerModus === "schwanger" && aktivFasten) {
+      setAktivFasten(null); setFastenStart(null); setFastenEnde(null);
+      speichern({ aktivFasten: null, fastenStart: null, fastenEnde: null });
+      setSicherheitsHinweis("Dein laufendes Fasten wurde beendet. In der Schwangerschaft empfiehlt MoreSync kein Fasten — du und dein Baby braucht jetzt regelmäßige Mahlzeiten.");
+    }
     setModus(neuerModus);
     speichern({ modus: neuerModus });
   }
@@ -10979,7 +11389,7 @@ export default function App() {
       <div style={{ background: `linear-gradient(135deg, ${headerFarbe}, ${headerFarbe}CC)`, padding: "18px 18px 14px", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div>
-            <p style={{ margin: 0, color: "rgba(255,255,255,0.75)", fontSize: 11, letterSpacing: 1, textTransform: "uppercase" }}>MoreSync</p>
+            <p style={{ margin: 0, color: "rgba(255,255,255,0.75)", fontSize: 12, letterSpacing: 1, textTransform: "uppercase" }}>MoreSync</p>
             <h1 style={{ margin: "2px 0 0", color: "#fff", fontSize: 20, fontWeight: 800 }}>
               {modus === "schwanger"
                 ? (sswJetzt && !sswJetzt.vorGeburt ? `🤰 Woche ${sswJetzt.woche} · ${TRIMESTER_INFO[sswJetzt.trimester].name}` : "🤰 Schwangerschaft")
@@ -10988,7 +11398,7 @@ export default function App() {
           </div>
           {aktivFasten && (
             <div style={{ background: "rgba(255,255,255,0.2)", borderRadius: 20, padding: "4px 12px", textAlign: "center" }}>
-              <p style={{ margin: 0, color: "#fff", fontSize: 11 }}>Fasten</p>
+              <p style={{ margin: 0, color: "#fff", fontSize: 12 }}>Fasten</p>
               <p style={{ margin: 0, color: "#fff", fontSize: 13, fontWeight: 700 }}>{fastenRestH}h {fastenRestM}m</p>
             </div>
           )}
@@ -11006,7 +11416,7 @@ export default function App() {
             <div style={{ display: "flex", gap: 12, alignItems: "center", paddingRight: 24 }}>
               <span style={{ fontSize: 34 }}>{PHASEN[phasenBanner].icon}</span>
               <div>
-                <p style={{ margin: 0, fontSize: 11, opacity: 0.9, fontWeight: 600 }}>NEUE PHASE ERREICHT</p>
+                <p style={{ margin: 0, fontSize: 12, opacity: 0.9, fontWeight: 600 }}>NEUE PHASE ERREICHT</p>
                 <p style={{ margin: "2px 0 4px", fontSize: 16, fontWeight: 800 }}>{PHASEN[phasenBanner].name}</p>
                 <p style={{ margin: 0, fontSize: 12, opacity: 0.92, lineHeight: 1.45 }}>{PHASEN[phasenBanner].subtitle} · {PHASEN[phasenBanner].tage}</p>
               </div>
@@ -11020,10 +11430,21 @@ export default function App() {
 
         {/* ══════ ZURÜCK-BUTTON — automatisch bei allen Seiten ohne Eintrag in der unteren Leiste ══════ */}
         {(() => {
+          // Die fünf Hauptbereiche haben keinen Zurück-Button
           const navTabs = modus === "schwanger"
-            ? ["home", "baby", "schwanger", "rezepte"]
-            : ["home", "ernaehrung", "verstehen", "fasten", "training", ...(modus === "menopause" ? [] : ["zyklus"])];
+            ? ["home", "baby", "lernen", "planen", "ich"]
+            : ["home", "zyklus", "lernen", "planen", "ich"];
           if (navTabs.includes(tab)) return null;
+          // Echtes Zurück-Verhalten: zum übergeordneten Bereich, nicht zur Startseite
+          const elternBereich = {
+            suche: "lernen", verstehen: "lernen", menopause: "lernen", glukose: "lernen",
+            foods: "ernaehrung", weglassen: "ernaehrung",
+            rezepte: "planen", einkauf: "planen", einkauf_anzeige: "planen",
+            ernaehrung: "planen", fasten: "planen", training: "planen",
+            tagebuch: "ich", handbuch: "ich", einstellungen: "ich",
+            schwanger: "baby",
+          }[tab] || "home";
+          const elternLabel = { lernen: "Verstehen", planen: "Planen", ich: "Ich", baby: "Mein Rhythmus", home: "Heute" }[elternBereich];
           const titel = {
             zyklus: modus === "menopause" ? "Dein Mondrhythmus" : "Dein Zyklus",
             menopause: "Wechseljahre",
@@ -11035,14 +11456,16 @@ export default function App() {
             einstellungen: "Einstellungen",
             foods: "Lebensmittel",
             weglassen: "Besser weglassen",
+            suche: "Wissen finden",
+            handbuch: "Mein Körper-Handbuch",
             baby: "Dein Baby",
             schwanger: "Schwangerschaft",
           }[tab] || "";
           return (
-            <button onClick={() => setTab("home")}
-              style={{ display: "flex", alignItems: "center", gap: 7, background: "#fff", border: "1px solid #eee", borderRadius: 20, padding: "7px 14px 7px 11px", marginBottom: 12, cursor: "pointer", boxShadow: "0 1px 5px rgba(0,0,0,0.05)" }}>
-              <span style={{ fontSize: 15, color: "#666", lineHeight: 1 }}>←</span>
-              <span style={{ fontSize: 12.5, fontWeight: 700, color: "#555" }}>Zurück{titel ? ` · ${titel}` : ""}</span>
+            <button onClick={() => setTab(elternBereich)}
+              style={{ display: "flex", alignItems: "center", gap: 7, background: "#fff", border: "1px solid #E9E3DB", borderRadius: 20, padding: "7px 14px 7px 11px", marginBottom: 12, cursor: "pointer", boxShadow: "0 1px 5px rgba(42,31,45,0.05)" }}>
+              <span style={{ fontSize: 15, color: "#7A7278", lineHeight: 1 }}>←</span>
+              <span style={{ fontSize: 12.5, fontWeight: 700, color: "#555" }}>{elternLabel}{titel ? ` · ${titel}` : ""}</span>
             </button>
           );
         })()}
@@ -11056,7 +11479,7 @@ export default function App() {
           <div>
             {/* Persönliche Begrüßung */}
             <div style={{ margin: "4px 0 16px" }}>
-              <p style={{ margin: "0 0 2px", fontSize: 11, fontWeight: 600, color: "#9a9a9a", letterSpacing: 0.6, textTransform: "uppercase" }}>{new Date().toLocaleDateString("de-AT", { weekday: "long", day: "numeric", month: "long" })}</p>
+              <p style={{ margin: "0 0 2px", fontSize: 12, fontWeight: 600, color: "#9a9a9a", letterSpacing: 0.6, textTransform: "uppercase" }}>{new Date().toLocaleDateString("de-AT", { weekday: "long", day: "numeric", month: "long" })}</p>
               <p style={{ margin: 0, fontSize: 24, fontWeight: 800, color: "#2a2a2a", letterSpacing: -0.4 }}>{getBegruessung()}</p>
             </div>
 
@@ -11074,7 +11497,7 @@ export default function App() {
                 <button onClick={() => setTab("zyklus")}
                   style={{ width: "100%", background: phase.farbe, borderRadius: 18, padding: "20px 20px 18px", marginBottom: 16, border: "none", cursor: "pointer", textAlign: "left", boxShadow: `0 6px 20px ${phase.farbe}33` }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
-                    <span style={{ fontSize: 11, fontWeight: 600, color: "#fff", opacity: 0.75, letterSpacing: 0.8, textTransform: "uppercase" }}>{istMenoK ? unter : `${phase.tage} · Tag ${zyklusTag}`}</span>
+                    <span style={{ fontSize: 12, fontWeight: 600, color: "#fff", opacity: 0.75, letterSpacing: 0.8, textTransform: "uppercase" }}>{istMenoK ? unter : `${phase.tage} · Tag ${zyklusTag}`}</span>
                     <span style={{ fontSize: 12, color: "#fff", opacity: 0.85, fontWeight: 600 }}>Mehr →</span>
                   </div>
                   <p style={{ margin: "0 0 8px", fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: -0.3 }}>{name}</p>
@@ -11105,15 +11528,18 @@ export default function App() {
               }
               // 3) Wasser — immer sichtbar (ersetzt das Wasser-Tool auf der Startseite)
               const wasserHeute = wasserLog[heuteKey] || 0;
-              const wasserZiel = 8;
-              const restW = wasserZiel - wasserHeute;
+              // Orientierungswert statt starrer Regel: Die App erklärt selbst, dass die
+              // "8-Gläser-Regel" keine wissenschaftliche Grundlage hat. Der Bedarf ist
+              // individuell — Schwangerschaft und Stillzeit brauchen etwas mehr.
+              const wasserOrientierung = modus === "schwanger" ? 10 : 8;
+              const restW = wasserOrientierung - wasserHeute;
               hinweise.push({
                 icon: "",
                 text: wasserHeute === 0
                   ? "Starte gut hydriert in den Tag — dein erstes Glas Wasser"
                   : (restW > 0
-                      ? `${wasserHeute} von ${wasserZiel} Gläsern — noch ${restW} ${restW === 1 ? "Glas" : "Gläser"} für dein Tagesziel`
-                      : `Tagesziel geschafft: ${wasserHeute} Gläser (${wasserHeute * 200} ml)`),
+                      ? `${wasserHeute} Gläser heute (${wasserHeute * 200} ml) — als Orientierung sind etwa ${wasserOrientierung} ein guter Richtwert`
+                      : `${wasserHeute} Gläser heute (${wasserHeute * 200} ml) — schön gleichmäßig verteilt`),
                 tab: "home", farbe: "#3A5F7D", bg: "#ECF0F3",
                 aktion: () => setWasser(heuteKey, wasserHeute + 1), aktionLabel: "+1 Glas",
               });
@@ -11151,7 +11577,7 @@ export default function App() {
                     
                     <div>
                       <p style={{ margin: 0, fontSize: 14, fontWeight: 800 }}>Wechseljahre & dein Körper</p>
-                      <p style={{ margin: "1px 0 0", fontSize: 11.5, opacity: 0.92 }}>Wissen zu Knochen, Gehirn, Hormonen, Schlaf & mehr</p>
+                      <p style={{ margin: "1px 0 0", fontSize: 12.5, opacity: 0.92 }}>Wissen zu Knochen, Gehirn, Hormonen, Schlaf & mehr</p>
                     </div>
                   </div>
                   <span style={{ fontSize: 18, opacity: 0.8 }}>→</span>
@@ -11168,7 +11594,7 @@ export default function App() {
                       <p style={{ margin: 0, fontSize: 14, fontWeight: 800 }}>
                         {getSSW() && !getSSW().vorGeburt ? `Woche ${getSSW().woche} + ${getSSW().tag}` : "Schwangerschaft"}
                       </p>
-                      <p style={{ margin: "1px 0 0", fontSize: 11.5, opacity: 0.95 }}>
+                      <p style={{ margin: "1px 0 0", fontSize: 12.5, opacity: 0.95 }}>
                         {getSSW() && !getSSW().vorGeburt ? `${TRIMESTER_INFO[getSSW().trimester].name} · Ernährung, Bewegung & Wissen` : "Geburtstermin eintragen & loslegen"}
                       </p>
                     </div>
@@ -11178,24 +11604,17 @@ export default function App() {
               </button>
             )}
 
-            {/* HEUTE IM FOKUS — drei klare Bereiche (Editorial-Stil, randlos mit Trennlinien) */}
-            {!istJugendlich && (() => {
-              const istMeno = modus === "menopause";
-              const ernaehrung = phase.naehrstoffe ? phase.naehrstoffe.slice(0, 3).join(", ") : "";
-              const fastenListe = phase.fastenEmpfehlung || [];
-              const fastenText = fastenListe.length ? `${fastenListe[0]}–${fastenListe[Math.min(2, fastenListe.length - 1)]} Fenster passen heute gut` : "";
-              const trainingText = istMeno
-                ? "Krafttraining schützt Muskeln & Knochen"
-                : (phase.id === "power1" || phase.id === "manifestation"
-                    ? "Gute Phase für intensiveres Training"
-                    : "Moderates Training & Regeneration");
+            {/* HEUTE IM FOKUS — Phasenempfehlung, angepasst an dein heutiges Befinden */}
+            {(() => {
+              const heuteEintrag = tagebuch[heuteKey] || {};
+              const empf = berechneTagesempfehlung({ phase, eintrag: heuteEintrag, modus, istJugendlich, zustand: getLebenszustand(lebenszustand, modus) });
               const bereiche = [
-                { label: "Ernährung", text: ernaehrung ? `${ernaehrung} priorisieren` : "", tab: "ernaehrung" },
-                { label: "Fasten", text: fastenText, tab: "fasten" },
-                { label: "Training", text: trainingText, tab: "training" },
+                { label: "Ernährung", text: empf.ernaehrung, tab: "ernaehrung" },
+                { label: "Fasten", text: empf.fasten, tab: "fasten" },
+                { label: "Training", text: empf.training, tab: istJugendlich ? "training" : "training" },
               ].filter(b => b.text);
               return (
-                <div style={{ background: DS.karte, borderRadius: DS.r.m, padding: "4px 18px", marginBottom: 16, boxShadow: DS.schatten }}>
+                <div style={{ background: DS.karte, borderRadius: DS.r.m, padding: "4px 18px 0", marginBottom: 16, boxShadow: DS.schatten }}>
                   {bereiche.map((b, i) => (
                     <button key={b.label} onClick={() => setTab(b.tab)}
                       style={{ width: "100%", display: "flex", alignItems: "center", gap: 14, background: "none", border: "none", borderTop: i === 0 ? "none" : `1px solid ${DS.linie}`, padding: "15px 0", cursor: "pointer", textAlign: "left" }}>
@@ -11204,10 +11623,136 @@ export default function App() {
                       <span style={{ color: DS.textZart, fontSize: 16, flexShrink: 0 }}>›</span>
                     </button>
                   ))}
+                  {empf.angepasst && (
+                    <div style={{ borderTop: `1px solid ${DS.linie}`, padding: "11px 0 13px" }}>
+                      <button onClick={() => setWarumOffen(!warumOffen)}
+                        style={{ width: "100%", background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 7 }}>
+                        <span style={{ width: 6, height: 6, borderRadius: "50%", background: phase.farbe, flexShrink: 0 }} />
+                        <span style={{ fontSize: 12.5, color: phase.farbe, fontWeight: 600, flex: 1 }}>Heute für dich angepasst</span>
+                        <span style={{ fontSize: 15, color: DS.textZart }}>{warumOffen ? "−" : "+"}</span>
+                      </button>
+                      {warumOffen && (
+                        <p style={{ margin: "9px 0 0", fontSize: 12, color: DS.textLeise, lineHeight: 1.55 }}>
+                          Deine Phase würde heute mehr zulassen. Weil du {empf.gruende.join(" und ")} eingetragen hast, schlägt MoreSync heute etwas ruhiger vor. Du kennst dich am besten — sieh es als Angebot, nicht als Vorgabe.
+                        </p>
+                      )}
+                    </div>
+                  )}
+                  {!empf.hatCheckIn && (
+                    <div style={{ borderTop: `1px solid ${DS.linie}`, padding: "11px 0 13px" }}>
+                      <button onClick={() => setTab("tagebuch")}
+                        style={{ width: "100%", background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 7 }}>
+                        <span style={{ width: 6, height: 6, borderRadius: "50%", background: DS.textZart, flexShrink: 0 }} />
+                        <span style={{ fontSize: 12.5, color: DS.textLeise, flex: 1, lineHeight: 1.4 }}>Trag ein, wie es dir heute geht — dann passt MoreSync die Vorschläge an.</span>
+                        <span style={{ color: DS.textZart, fontSize: 16 }}>›</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               );
             })()}
 
+            {/* TAGESHANDLUNG — eine konkrete Sache für heute */}
+            {(() => {
+              const heuteEintrag2 = tagebuch[heuteKey] || {};
+              const zustand2 = getLebenszustand(lebenszustand, modus);
+              const empf2 = berechneTagesempfehlung({ phase, eintrag: heuteEintrag2, modus, istJugendlich, zustand: zustand2 });
+              const handlung = waehleTageshandlung({ phase, empfehlung: empf2, zustand: zustand2, istJugendlich, heuteKey });
+              if (!handlung) return null;
+              const gespeichert = (handlungen && handlungen[heuteKey]) || {};
+              const status = gespeichert.id === handlung.id ? gespeichert.status : null;
+              const abends = new Date().getHours() >= 18;
+
+              return (
+                <div style={{ background: DS.karte, borderRadius: DS.r.m, padding: "16px 18px", marginBottom: 16, boxShadow: DS.schatten }}>
+                  <p style={{ margin: "0 0 7px", ...DS.t.eyebrow, color: phase.farbe }}>Eine Sache für heute</p>
+                  <p style={{ margin: "0 0 6px", fontSize: 15, fontWeight: 700, color: DS.text, lineHeight: 1.4 }}>{handlung.text}</p>
+                  <p style={{ margin: "0 0 14px", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.5 }}>{handlung.warum}</p>
+
+                  {!status && (
+                    <div style={{ display: "flex", gap: 7 }}>
+                      <button onClick={() => setHandlungStatus(heuteKey, handlung.id, "angenommen")}
+                        style={{ flex: 2, background: phase.farbe, color: "#fff", border: "none", borderRadius: 10, padding: "11px 8px", cursor: "pointer", fontSize: 13, fontWeight: 700 }}>
+                        Mache ich heute
+                      </button>
+                      <button onClick={() => setHandlungStatus(heuteKey, handlung.id, "spaeter")}
+                        style={{ flex: 1, background: "#FAF8F4", color: DS.textLeise, border: `1px solid ${DS.linie}`, borderRadius: 10, padding: "11px 6px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
+                        Später
+                      </button>
+                      <button onClick={() => setHandlungStatus(heuteKey, handlung.id, "abgelehnt")}
+                        style={{ flex: 1, background: "#FAF8F4", color: DS.textLeise, border: `1px solid ${DS.linie}`, borderRadius: 10, padding: "11px 6px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
+                        Passt nicht
+                      </button>
+                    </div>
+                  )}
+
+                  {status === "angenommen" && !gespeichert.rueckmeldung && !abends && (
+                    <p style={{ margin: 0, fontSize: 12.5, color: phase.farbe, fontWeight: 600 }}>Du hast dir das für heute vorgenommen.</p>
+                  )}
+                  {status === "spaeter" && (
+                    <p style={{ margin: 0, fontSize: 12.5, color: DS.textLeise }}>Erinnere dich später daran — kein Druck.</p>
+                  )}
+                  {status === "abgelehnt" && (
+                    <p style={{ margin: 0, fontSize: 12.5, color: DS.textLeise }}>Alles gut. Morgen kommt eine neue Idee.</p>
+                  )}
+
+                  {status === "angenommen" && abends && !gespeichert.rueckmeldung && (
+                    <div style={{ borderTop: `1px solid ${DS.linie}`, marginTop: 12, paddingTop: 12 }}>
+                      <p style={{ margin: "0 0 9px", fontSize: 13, fontWeight: 700, color: DS.text }}>Hast du es ausprobiert?</p>
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                        {[["hilfreich", "Ja, hilfreich"], ["neutral", "Ja, kein Unterschied"], ["nicht_gut", "Ja, eher nicht gut"], ["nicht_gemacht", "Nicht gemacht"]].map(([w, l]) => (
+                          <button key={w} onClick={() => setHandlungRueckmeldung(heuteKey, w)}
+                            style={{ background: "#FAF8F4", color: DS.text, border: `1px solid ${DS.linie}`, borderRadius: 9, padding: "9px 12px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
+                            {l}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {gespeichert.rueckmeldung && (
+                    <p style={{ margin: 0, fontSize: 12.5, color: DS.textLeise }}>Danke — deine Rückmeldung hilft dir, deine Muster zu erkennen.</p>
+                  )}
+                </div>
+              );
+            })()}
+
+            {/* MIKRO-LERNMOMENT — ein Wissensbaustein pro Tag */}
+            {(() => {
+              const heuteE = tagebuch[heuteKey] || {};
+              const zustandL = getLebenszustand(lebenszustand, modus);
+              const indexL = baueSuchIndex({ modus, istJugendlich, zustand: zustandL });
+              const lern = waehleLernmoment({ index: indexL, symptome: heuteE.symptome, heuteKey, gelesen: gesehen });
+              if (!lern) return null;
+              const status = merkliste[lern.id];
+              return (
+                <div style={{ background: DS.karte, borderRadius: DS.r.m, padding: "16px 18px", marginBottom: 16, boxShadow: DS.schatten }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 7 }}>
+                    <button onClick={() => setTippPopupOffen(true)}
+                      style={{ background: "none", border: "none", padding: 0, cursor: "pointer", ...DS.t.eyebrow, color: phase.farbe }}>
+                      Heute verstehen
+                    </button>
+                    <span style={{ fontSize: 12, color: DS.textZart }}>{lern.bereich}</span>
+                  </div>
+                  <p style={{ margin: "0 0 6px", fontSize: 15, fontWeight: 700, color: DS.text, lineHeight: 1.35 }}>{lern.titel}</p>
+                  <p style={{ margin: "0 0 10px", fontSize: 13, color: DS.text, lineHeight: 1.55 }}>{lern.kurz}</p>
+                  {lern.ausSymptom && (
+                    <p style={{ margin: "0 0 10px", fontSize: 12.5, color: phase.farbe, lineHeight: 1.45 }}>
+                      Passt zu dem, was du heute eingetragen hast.
+                    </p>
+                  )}
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                    <button onClick={() => { markiereGesehen(lern.id); oeffneKarte(lern.tab, lern.id); }}
+                      style={{ background: phase.hellFarbe, color: phase.farbe, border: "none", borderRadius: 9, padding: "8px 13px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
+                      Tiefer einsteigen
+                    </button>
+                    <button onClick={() => setMerkStatus(lern.id, "gemerkt")}
+                      style={{ background: status === "gemerkt" ? phase.farbe : "#FAF8F4", color: status === "gemerkt" ? "#fff" : DS.textLeise, border: `1px solid ${status === "gemerkt" ? phase.farbe : DS.linie}`, borderRadius: 9, padding: "8px 13px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
+                      Merken
+                    </button>
+                  </div>
+                </div>
+              );
+            })()}
 
             <div style={{ background: "#fff", borderRadius: 14, padding: 14, marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
@@ -11234,7 +11779,7 @@ export default function App() {
                     ) : vorschlag ? (
                       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
                         <span style={{ fontSize: 13, color: "#999", cursor: "pointer", flex: 1, lineHeight: 1.35 }} onClick={() => setOffenRezept(vorschlag)}>
-                          <span style={{ fontSize: 10, color: phase.farbe, fontWeight: 700 }}>Vorschlag · </span>{vorschlag.name}
+                          <span style={{ fontSize: 12, color: phase.farbe, fontWeight: 700 }}>Vorschlag · </span>{vorschlag.name}
                         </span>
                         <div style={{ display: "flex", gap: 4, flexShrink: 0 }}>
                           <button onClick={() => setVorschlagVersatz(v => ({ ...v, [key]: (v[key] || 0) + 1 }))}
@@ -11271,12 +11816,12 @@ export default function App() {
                 style={{ width: "100%", background: "#fff", borderRadius: 14, padding: "12px 14px", marginBottom: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: "none", cursor: "pointer", textAlign: "left" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 7 }}>
                   <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>5×5×5 — deine Verteidigungssysteme</span>
-                  <span style={{ fontSize: 11.5, color: "#3D6B52", fontWeight: 700 }}>{anzahl5x5x5}/5</span>
+                  <span style={{ fontSize: 12.5, color: "#3D6B52", fontWeight: 700 }}>{anzahl5x5x5}/5</span>
                 </div>
                 <div style={{ background: "#EEEAE3", borderRadius: 5, height: 7, marginBottom: 8, overflow: "hidden" }}>
                   <div style={{ width: `${(anzahl5x5x5 / 5) * 100}%`, height: "100%", background: "#3D6B52", borderRadius: 5, transition: "width 0.3s" }} />
                 </div>
-                <p style={{ margin: 0, fontSize: 11.5, color: "#888" }}>{tool5x5x5Offen ? "Zuklappen ▲" : "Antippen zum Wählen ▼"}</p>
+                <p style={{ margin: 0, fontSize: 12.5, color: "#888" }}>{tool5x5x5Offen ? "Zuklappen ▲" : "Antippen zum Wählen ▼"}</p>
               </button>
             )}
 
@@ -11301,14 +11846,14 @@ export default function App() {
                     
                     <div>
                       <p style={{ margin: 0, fontWeight: 600, fontSize: 13 }}>{f.name}</p>
-                      <p style={{ margin: 0, fontSize: 11, color: "#888" }}>{f.beschreibung}</p>
+                      <p style={{ margin: 0, fontSize: 12, color: "#888" }}>{f.beschreibung}</p>
                     </div>
                   </button>
                 ))}
               </div>
             ) : (
               <div style={{ background: "#fff", borderRadius: 14, padding: 16, boxShadow: "0 2px 8px rgba(0,0,0,0.05)", border: `2px solid ${phase.farbe}` }}>
-                <p style={{ margin: "0 0 4px", fontSize: 11, color: "#888" }}>Aktives Fasten</p>
+                <p style={{ margin: "0 0 4px", fontSize: 12, color: "#888" }}>Aktives Fasten</p>
                 <p style={{ margin: "0 0 10px", fontSize: 17, fontWeight: 800 }}>{aktivFasten.name}</p>
                 <div style={{ background: "#EEEAE3", borderRadius: 6, height: 10, marginBottom: 8 }}>
                   <div style={{ width: `${fastenFortschritt}%`, height: "100%", background: `linear-gradient(90deg, ${phase.farbe}, #B5652F)`, borderRadius: 6 }} />
@@ -11397,7 +11942,7 @@ export default function App() {
 
               {/* Automatik-Hinweis */}
               <div style={{ background: phase.hellFarbe, borderRadius: 10, padding: "10px 12px", marginBottom: 14, border: `1px solid ${phase.farbe}22` }}>
-                <p style={{ margin: 0, fontSize: 11.5, color: "#555", lineHeight: 1.5 }}>
+                <p style={{ margin: 0, fontSize: 12.5, color: "#555", lineHeight: 1.5 }}>
                   Die App zählt automatisch jeden Tag weiter und erkennt deine Phasen von selbst. Du musst nichts manuell umstellen.
                 </p>
               </div>
@@ -11467,8 +12012,7 @@ export default function App() {
                 } else {
                   setPeriodenStartDatum(datum.toISOString());
                 }
-              }}
-            />
+              }} />
 
             {/* PERIODEN-HISTORIE */}
             {modus !== "menopause" && periodenHistorie.length > 0 && (
@@ -11483,7 +12027,7 @@ export default function App() {
                     <div key={startISO} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "9px 0", borderBottom: idx < arr.length - 1 ? "1px solid #F1EDE6" : "none" }}>
                       <div>
                         <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: "#333" }}>{datum.toLocaleDateString("de-AT", { day: "2-digit", month: "long", year: "numeric" })}</p>
-                        {abstand && <p style={{ margin: "2px 0 0", fontSize: 11, color: "#999" }}>Zyklus war {abstand} Tage lang</p>}
+                        {abstand && <p style={{ margin: "2px 0 0", fontSize: 12, color: "#999" }}>Zyklus war {abstand} Tage lang</p>}
                       </div>
                       <button onClick={() => loeschePeriodenEintrag(startISO)} style={{ background: "none", border: "none", color: "#ccc", cursor: "pointer", fontSize: 16, padding: 4 }}>Löschen</button>
                     </div>
@@ -11494,7 +12038,7 @@ export default function App() {
                     <p style={{ margin: 0, fontSize: 12, color: phase.farbe, fontWeight: 600 }}>
                       ⌀ Deine durchschnittliche Zykluslänge: {zyklusLaenge} Tage
                     </p>
-                    <p style={{ margin: "3px 0 0", fontSize: 10.5, color: "#999", lineHeight: 1.4 }}>
+                    <p style={{ margin: "3px 0 0", fontSize: 12.5, color: "#999", lineHeight: 1.4 }}>
                       Wird automatisch aus deinen letzten Zyklen berechnet.
                     </p>
                   </div>
@@ -11521,12 +12065,12 @@ export default function App() {
                     
                     <div>
                       <p style={{ margin: 0, fontSize: 12.5, fontWeight: 700, color: p.farbe }}>{info.name || p.name} <span style={{ color: "#aaa", fontWeight: 400 }}>· {p.tage}</span></p>
-                      <p style={{ margin: "1px 0 0", fontSize: 11.5, color: "#777", lineHeight: 1.45 }}>{info.subtitle || p.subtitle}</p>
+                      <p style={{ margin: "1px 0 0", fontSize: 12.5, color: "#777", lineHeight: 1.45 }}>{info.subtitle || p.subtitle}</p>
                     </div>
                   </div>
                 );
               })}
-              <p style={{ margin: "8px 0 0", fontSize: 11, color: "#aaa", lineHeight: 1.5, fontStyle: "italic" }}>
+              <p style={{ margin: "8px 0 0", fontSize: 12, color: "#aaa", lineHeight: 1.5, fontStyle: "italic" }}>
                 Tipp: Tippe unten auf eine Phase, um alles über sie zu erfahren — von Ernährung über Fasten bis Training.
               </p>
             </div>
@@ -11545,7 +12089,7 @@ export default function App() {
                     
                     <span style={{ flex: 1 }}>
                       <span style={{ display: "block", fontSize: 15, fontWeight: 800 }}>Perimenopause — der Übergang verstehen</span>
-                      <span style={{ display: "block", fontSize: 11.5, opacity: 0.92, marginTop: 2 }}>Erste Veränderungen früh erkennen (oft ab den frühen 40ern)</span>
+                      <span style={{ display: "block", fontSize: 12.5, opacity: 0.92, marginTop: 2 }}>Erste Veränderungen früh erkennen (oft ab den frühen 40ern)</span>
                     </span>
                     <span style={{ fontSize: 18 }}>{periBereichOffen ? "−" : "+"}</span>
                   </button>
@@ -11571,9 +12115,9 @@ export default function App() {
                             <div style={{ padding: "0 15px 15px" }}>
                               <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#555", lineHeight: 1.7, whiteSpace: "pre-line" }}>{w.text}</p>
                               <div style={{ background: "#F0EAEF", borderRadius: 10, padding: "10px 12px" }}>
-                                <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 700, color: "#A88BA0" }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
+                                <p style={{ margin: "0 0 6px", fontSize: 12, fontWeight: 700, color: "#A88BA0" }}>{w.nurInfo ? "Das Wichtigste:" : "Das kannst du tun:"}</p>
                                 {w.tipps.map((t, i) => (
-                                  <div key={i} style={{ fontSize: 11.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
+                                  <div key={i} style={{ fontSize: 12.5, color: "#555", lineHeight: 1.5, paddingLeft: 14, position: "relative", marginBottom: 2 }}>
                                     <span style={{ position: "absolute", left: 0, color: "#A88BA0" }}>•</span>{t}
                                   </div>
                                 ))}
@@ -11621,7 +12165,7 @@ export default function App() {
             aktivFasten={aktivFasten} fastenStart={fastenStart} fastenEnde={fastenEnde}
             now={now} fastenLogs={fastenLogs}
             onStart={fastenStarten} onBeenden={fastenBeenden}
-            onStartAnpassen={fastenStartAnpassen} onHochstufen={fastenHochstufen} />
+            onStartAnpassen={fastenStartAnpassen} onHochstufen={fastenHochstufen} zielKarte={zielKarte} />
         )}
 
         {/* ──────────── TRAINING ──────────── */}
@@ -11630,7 +12174,7 @@ export default function App() {
             ? <TeenagerBewegungTab />
             : modus === "menopause"
               ? <MenopauseTrainingTab phase={phase} />
-              : <TrainingTab phase={phase} zyklusTag={zyklusTag} modus={modus} alter={getAlter()} />
+              : <TrainingTab phase={phase} zyklusTag={zyklusTag} modus={modus} alter={getAlter()} zielKarte={zielKarte} />
         )}
 
         {/* ──────────── BABY (nur Schwangerschaftsmodus) ──────────── */}
@@ -11644,10 +12188,278 @@ export default function App() {
         )}
 
         {/* ──────────── TAGEBUCH ──────────── */}
+        {/* ══ LERNEN — Übersicht über alle Wissensbereiche ══ */}
+        {tab === "lernen" && (
+          <div>
+            <p style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800, color: DS.text, letterSpacing: -0.3 }}>Verstehen</p>
+            <p style={{ margin: "0 0 16px", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.5 }}>
+              Alles, was MoreSync über deinen Körper weiß — mit Quellen und Evidenzstufen.
+            </p>
+            {[
+              ["suche", "suche", "Wissen finden", "Alles durchsuchen und merken"],
+              ["verstehen", "verstehen", modus === "menopause" ? "Wechseljahre verstehen" : "Dein Körper", "Hormone, Zyklus, sexuelle Gesundheit"],
+              ["ernaehrung", "ernaehrung", "Ernährung & Blutzucker", "Nährstoffe, Lebensmittel-Listen & was du besser weglässt"],
+              ...(istJugendlich ? [] : [["fasten", "fasten", "Fasten verstehen", "Protokolle, Wirkung und Grenzen"]]),
+              ["training", "training", "Training & Bewegung", "Warum du in jeder Phase anders trainierst"],
+            ].map(([id, icon, label, sub]) => (
+              <button key={id} onClick={() => setTab(id)}
+                style={{ width: "100%", background: DS.karte, border: "none", borderRadius: DS.r.m, padding: "14px 16px", marginBottom: 8, cursor: "pointer", textAlign: "left", display: "flex", gap: 13, alignItems: "center", boxShadow: DS.schatten }}>
+                <NavIcon name={icon} color={phase.farbe} size={21} />
+                <span style={{ flex: 1 }}>
+                  <span style={{ display: "block", fontSize: 14, fontWeight: 700, color: DS.text }}>{label}</span>
+                  <span style={{ display: "block", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.4, marginTop: 1 }}>{sub}</span>
+                </span>
+                <span style={{ color: DS.textZart, fontSize: 16 }}>›</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* ══ PLANEN — alles zum Umsetzen ══ */}
+        {tab === "planen" && (
+          <div>
+            <p style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800, color: DS.text, letterSpacing: -0.3 }}>Planen</p>
+            <p style={{ margin: "0 0 16px", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.5 }}>
+              Rezepte, Einkauf und alles, was du heute umsetzen möchtest.
+            </p>
+            {[
+              ["rezepte", "rezepte", "Rezepte", "Passend zu deiner Phase"],
+              ["einkauf", "einkauf", "Einkaufsliste", "Zutaten planen und einkaufen"],
+              ...(istJugendlich ? [] : [["fasten", "fasten", "Fasten", "Fenster wählen und Timer starten"]]),
+              ["training", "training", "Training", "Was in dieser Phase passt"],
+            ].map(([id, icon, label, sub]) => (
+              <button key={id} onClick={() => setTab(id)}
+                style={{ width: "100%", background: DS.karte, border: "none", borderRadius: DS.r.m, padding: "14px 16px", marginBottom: 8, cursor: "pointer", textAlign: "left", display: "flex", gap: 13, alignItems: "center", boxShadow: DS.schatten }}>
+                <NavIcon name={icon} color={phase.farbe} size={21} />
+                <span style={{ flex: 1 }}>
+                  <span style={{ display: "block", fontSize: 14, fontWeight: 700, color: DS.text }}>{label}</span>
+                  <span style={{ display: "block", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.4, marginTop: 1 }}>{sub}</span>
+                </span>
+                <span style={{ color: DS.textZart, fontSize: 16 }}>›</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* ══ ICH — Profil, Handbuch, Einstellungen ══ */}
+        {tab === "ich" && (
+          <div>
+            <p style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800, color: DS.text, letterSpacing: -0.3 }}>Ich</p>
+            <p style={{ margin: "0 0 16px", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.5 }}>
+              Dein Tagebuch, deine Muster und deine Einstellungen.
+            </p>
+            {[
+              ["tagebuch", "tagebuch", "Tagebuch", "Stimmung, Energie, Schlaf & Symptome"],
+              ["handbuch", "handbuch", "Mein Körper-Handbuch", "Muster, Experimente und Gemerktes"],
+              ["einstellungen", "einstellungen", "Einstellungen", "Lebenssituation, Backup & mehr"],
+            ].map(([id, icon, label, sub]) => (
+              <button key={id} onClick={() => setTab(id)}
+                style={{ width: "100%", background: DS.karte, border: "none", borderRadius: DS.r.m, padding: "14px 16px", marginBottom: 8, cursor: "pointer", textAlign: "left", display: "flex", gap: 13, alignItems: "center", boxShadow: DS.schatten }}>
+                <NavIcon name={icon} color={phase.farbe} size={21} />
+                <span style={{ flex: 1 }}>
+                  <span style={{ display: "block", fontSize: 14, fontWeight: 700, color: DS.text }}>{label}</span>
+                  <span style={{ display: "block", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.4, marginTop: 1 }}>{sub}</span>
+                </span>
+                <span style={{ color: DS.textZart, fontSize: 16 }}>›</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {tab === "handbuch" && (() => {
+          const rb = berechneWochenrueckblick({ tagebuch, handlungen, heuteKey });
+          const zustandH = getLebenszustand(lebenszustand, modus);
+          const indexH = baueSuchIndex({ modus, istJugendlich, zustand: zustandH });
+          const gemerkte = Object.keys(merkliste).filter(k => merkliste[k] === "gemerkt");
+          const merkKarten = indexH.filter(e => gemerkte.includes(e.id));
+          const meineExp = verfuegbareExperimente({ modus, istJugendlich });
+          const laufend = meineExp.filter(e => experimente[e.id] && !experimente[e.id].beendet);
+          const beendet = meineExp.filter(e => experimente[e.id] && experimente[e.id].beendet);
+          const offen = meineExp.filter(e => !experimente[e.id]);
+          return (
+            <div>
+              <p style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800, color: DS.text, letterSpacing: -0.3 }}>Was ich über meinen Körper gelernt habe</p>
+              <p style={{ margin: "0 0 16px", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.5 }}>
+                Dein persönliches Handbuch — es wächst mit jedem Eintrag.
+              </p>
+
+              {/* Wochenrückblick */}
+              <div style={{ background: DS.karte, borderRadius: DS.r.m, padding: "16px 18px", marginBottom: 12, boxShadow: DS.schatten }}>
+                <p style={{ margin: "0 0 10px", ...DS.t.eyebrow, color: phase.farbe }}>Deine letzten 7 Tage</p>
+                {!rb.genugDaten ? (
+                  <p style={{ margin: 0, fontSize: 12.5, color: DS.textLeise, lineHeight: 1.6 }}>
+                    Trag ein paar Tage lang ein, wie es dir geht — dann zeigt MoreSync dir hier deine Muster. Ab etwa drei Tagen wird es interessant.
+                  </p>
+                ) : (
+                  <>
+                    <div style={{ display: "flex", gap: 18, marginBottom: 12, flexWrap: "wrap" }}>
+                      {rb.energie && <div><span style={{ display: "block", fontSize: 20, fontWeight: 800, color: phase.farbe }}>{rb.energie.wert.toFixed(1)}</span><span style={{ fontSize: 12, color: DS.textLeise }}>Energie Ø</span></div>}
+                      {rb.schlaf && <div><span style={{ display: "block", fontSize: 20, fontWeight: 800, color: phase.farbe }}>{rb.schlaf.wert.toFixed(1)}</span><span style={{ fontSize: 12, color: DS.textLeise }}>Schlaf Ø</span></div>}
+                      {rb.stress && <div><span style={{ display: "block", fontSize: 20, fontWeight: 800, color: phase.farbe }}>{rb.stress.wert.toFixed(1)}</span><span style={{ fontSize: 12, color: DS.textLeise }}>Stress Ø</span></div>}
+                      {rb.angenommen > 0 && <div><span style={{ display: "block", fontSize: 20, fontWeight: 800, color: phase.farbe }}>{rb.angenommen}</span><span style={{ fontSize: 12, color: DS.textLeise }}>ausprobiert</span></div>}
+                    </div>
+                    {rb.topSymptome.length > 0 && (
+                      <p style={{ margin: "0 0 10px", fontSize: 12.5, color: DS.text, lineHeight: 1.55 }}>
+                        Am häufigsten eingetragen: {rb.topSymptome.map(([s, n]) => `${s} (${n}×)`).join(", ")}.
+                      </p>
+                    )}
+                    {rb.muster.map((m, i) => (
+                      <div key={i} style={{ display: "flex", gap: 8, marginBottom: 9, padding: "10px 12px", background: phase.hellFarbe, borderRadius: 10 }}>
+                        <span style={{ width: 6, height: 6, borderRadius: "50%", background: phase.farbe, flexShrink: 0, marginTop: 5 }} />
+                        <span style={{ fontSize: 12.5, color: DS.text, lineHeight: 1.55 }}>{m}</span>
+                      </div>
+                    ))}
+                    {rb.frage && (
+                      <div style={{ marginTop: 10, paddingTop: 11, borderTop: `1px solid ${DS.linie}` }}>
+                        <p style={{ margin: "0 0 3px", fontSize: 12, fontWeight: 600, color: DS.textZart, textTransform: "uppercase", letterSpacing: 0.6 }}>Beobachtungsfrage</p>
+                        <p style={{ margin: 0, fontSize: 12.5, color: DS.text, lineHeight: 1.55 }}>{rb.frage}</p>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+
+              {/* Experimente */}
+              <p style={{ margin: "18px 0 8px", ...DS.t.eyebrow, color: DS.textLeise }}>Experimente</p>
+              <p style={{ margin: "0 0 10px", fontSize: 12, color: DS.textLeise, lineHeight: 1.5 }}>
+                Keine Challenges — kleine Beobachtungen, um deine eigene Reaktion kennenzulernen.
+              </p>
+              {laufend.map(e => {
+                const daten = experimente[e.id];
+                return (
+                  <div key={e.id} style={{ background: DS.karte, borderRadius: DS.r.m, padding: "15px 17px", marginBottom: 8, boxShadow: DS.schatten, borderLeft: `3px solid ${phase.farbe}` }}>
+                    <p style={{ margin: "0 0 3px", fontSize: 12, fontWeight: 700, color: phase.farbe }}>Läuft seit {daten.start}</p>
+                    <p style={{ margin: "0 0 6px", fontSize: 14.5, fontWeight: 700, color: DS.text }}>{e.titel}</p>
+                    <p style={{ margin: "0 0 10px", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.55 }}>{e.was}</p>
+                    <p style={{ margin: "0 0 10px", fontSize: 12.5, color: DS.textLeise }}>Beobachte: {e.beobachten.join(" · ")}</p>
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                      {[["hilfreich", "Hat mir geholfen"], ["neutral", "Kein Unterschied"], ["nicht_gut", "Passt nicht zu mir"]].map(([w, l]) => (
+                        <button key={w} onClick={() => experimentBeenden(e.id, w)}
+                          style={{ background: "#FAF8F4", color: DS.text, border: `1px solid ${DS.linie}`, borderRadius: 9, padding: "8px 12px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
+                          {l}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+              {offen.map(e => (
+                <div key={e.id} style={{ background: DS.karte, borderRadius: DS.r.m, padding: "15px 17px", marginBottom: 8, boxShadow: DS.schatten }}>
+                  <p style={{ margin: "0 0 5px", fontSize: 14.5, fontWeight: 700, color: DS.text }}>{e.titel}</p>
+                  <p style={{ margin: "0 0 6px", fontSize: 12.5, color: DS.text, lineHeight: 1.55 }}>{e.was}</p>
+                  <p style={{ margin: "0 0 11px", fontSize: 12, color: DS.textLeise, lineHeight: 1.5 }}>{e.warum}</p>
+                  <button onClick={() => experimentStarten(e.id)}
+                    style={{ background: phase.hellFarbe, color: phase.farbe, border: "none", borderRadius: 9, padding: "9px 15px", cursor: "pointer", fontSize: 12.5, fontWeight: 700 }}>
+                    {e.tage} Tage ausprobieren
+                  </button>
+                </div>
+              ))}
+              {beendet.length > 0 && (
+                <>
+                  <p style={{ margin: "16px 0 8px", ...DS.t.eyebrow, color: DS.textLeise }}>Was ich schon ausprobiert habe</p>
+                  {beendet.map(e => {
+                    const d = experimente[e.id];
+                    const txt = d.fazit === "hilfreich" ? "hat mir geholfen" : d.fazit === "neutral" ? "kein Unterschied" : "passt nicht zu mir";
+                    return (
+                      <div key={e.id} style={{ display: "flex", gap: 9, alignItems: "center", background: "#FAF8F4", borderRadius: 10, padding: "11px 13px", marginBottom: 6 }}>
+                        <span style={{ width: 7, height: 7, borderRadius: "50%", background: d.fazit === "hilfreich" ? phase.farbe : DS.textZart, flexShrink: 0 }} />
+                        <span style={{ flex: 1 }}>
+                          <span style={{ display: "block", fontSize: 12.5, fontWeight: 700, color: DS.text }}>{e.titel}</span>
+                          <span style={{ display: "block", fontSize: 12.5, color: DS.textLeise }}>{txt}</span>
+                        </span>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
+
+              {/* Gemerktes Wissen */}
+              {merkKarten.length > 0 && (
+                <>
+                  <p style={{ margin: "18px 0 8px", ...DS.t.eyebrow, color: DS.textLeise }}>Gemerktes Wissen ({merkKarten.length})</p>
+                  {merkKarten.map(w => (
+                    <button key={w.id} onClick={() => oeffneKarte(w.tab, w.id)}
+                      style={{ width: "100%", display: "flex", alignItems: "center", gap: 9, background: DS.karte, border: "none", borderRadius: 10, padding: "12px 14px", marginBottom: 6, cursor: "pointer", textAlign: "left", boxShadow: DS.schatten }}>
+                      <span style={{ flex: 1 }}>
+                        <span style={{ display: "block", fontSize: 12.5, fontWeight: 700, color: DS.text }}>{w.titel}</span>
+                        <span style={{ display: "block", fontSize: 12, color: DS.textLeise, marginTop: 1 }}>{w.bereich}</span>
+                      </span>
+                      <span style={{ color: DS.textZart, fontSize: 15 }}>›</span>
+                    </button>
+                  ))}
+                </>
+              )}
+
+              <p style={{ margin: "20px 0 0", fontSize: 12.5, color: DS.textZart, lineHeight: 1.6 }}>
+                Diese Beobachtungen sind deine persönlichen Muster — keine medizinischen Aussagen. Nimm sie mit zu deiner Ärztin, wenn dir etwas auffällt.
+              </p>
+            </div>
+          );
+        })()}
+
+        {tab === "suche" && (() => {
+          const zustandS = getLebenszustand(lebenszustand, modus);
+          const index = baueSuchIndex({ modus, istJugendlich, zustand: zustandS });
+          const ergebnisse = sucheImIndex(index, suchbegriff, istJugendlich);
+          const gemerkte = Object.keys(merkliste).filter(k => merkliste[k] === "gemerkt");
+          const zeigeMerkliste = suchbegriff.trim().length < 2 && gemerkte.length > 0;
+          const merkKarten = zeigeMerkliste ? index.filter(e => gemerkte.includes(e.id)) : [];
+          return (
+            <div>
+              <p style={{ margin: "0 0 4px", fontSize: 19, fontWeight: 800, color: DS.text, letterSpacing: -0.3 }}>Wissen finden</p>
+              <p style={{ margin: "0 0 14px", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.5 }}>
+                Durchsuche alles, was MoreSync über deinen Körper weiß.
+              </p>
+              <input type="text" value={suchbegriff} onChange={e => setSuchbegriff(e.target.value)}
+                placeholder="z.B. Schlaf, Eisen, Krämpfe …"
+                style={{ width: "100%", padding: "13px 15px", borderRadius: DS.r.m, border: `1px solid ${DS.linie}`, fontSize: 15, boxSizing: "border-box", marginBottom: 14, background: "#fff", color: DS.text }} />
+
+              {suchbegriff.trim().length >= 2 && (
+                <p style={{ margin: "0 0 10px", fontSize: 12, color: DS.textLeise }}>
+                  {ergebnisse.length === 0 ? "Dazu habe ich nichts gefunden — versuch es mit einem anderen Begriff." : `${ergebnisse.length} ${ergebnisse.length === 1 ? "Treffer" : "Treffer"}`}
+                </p>
+              )}
+
+              {zeigeMerkliste && (
+                <p style={{ margin: "0 0 10px", ...DS.t.eyebrow, color: phase.farbe }}>Gemerkt ({merkKarten.length})</p>
+              )}
+
+              {(suchbegriff.trim().length >= 2 ? ergebnisse : merkKarten).map(e => {
+                const status = merkliste[e.id];
+                return (
+                  <div key={e.id + e.bereich} style={{ background: "#fff", borderRadius: DS.r.m, padding: "14px 16px", marginBottom: 8, boxShadow: DS.schatten }}>
+                    <p style={{ margin: "0 0 3px", ...DS.t.eyebrow, color: phase.farbe }}>{e.bereich}</p>
+                    <p style={{ margin: "0 0 5px", fontSize: 14.5, fontWeight: 700, color: DS.text, lineHeight: 1.35 }}>{e.titel}</p>
+                    <p style={{ margin: "0 0 11px", fontSize: 12.5, color: DS.textLeise, lineHeight: 1.55 }}>{String(e.kurz).slice(0, 180)}{String(e.kurz).length > 180 ? "…" : ""}</p>
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                      <button onClick={() => oeffneKarte(e.tab, e.id)}
+                        style={{ background: phase.hellFarbe, color: phase.farbe, border: "none", borderRadius: 8, padding: "7px 12px", cursor: "pointer", fontSize: 12, fontWeight: 700 }}>
+                        Zum Bereich
+                      </button>
+                      {[["gemerkt", "Merken"], ["ausprobiert", "Ausprobiert"]].map(([w, l]) => (
+                        <button key={w} onClick={() => setMerkStatus(e.id, w)}
+                          style={{ background: status === w ? phase.farbe : "#FAF8F4", color: status === w ? "#fff" : DS.textLeise, border: `1px solid ${status === w ? phase.farbe : DS.linie}`, borderRadius: 8, padding: "7px 11px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
+                          {l}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+
+              {suchbegriff.trim().length < 2 && gemerkte.length === 0 && (
+                <p style={{ margin: "20px 0 0", fontSize: 12.5, color: DS.textZart, lineHeight: 1.6, textAlign: "center" }}>
+                  Tipp: Du kannst nach Beschwerden suchen („Krämpfe"), nach Nährstoffen („Magnesium")<br />oder nach Themen („Schlaf", „Knochen").
+                </p>
+              )}
+            </div>
+          );
+        })()}
+
         {tab === "tagebuch" && (
           <TagebuchTab phase={phase} zyklusTag={zyklusTag} tagebuch={tagebuch}
             heuteKey={heuteKey} wasserLog={wasserLog} modus={modus} ssw={getSSW()}
-            onSetEintrag={setTagebuchEintrag} onToggleSymptom={toggleSymptom} onSetWasser={setWasser} />
+            onSetEintrag={setTagebuchEintrag} onToggleSymptom={toggleSymptom} onSetWasser={setWasser} onWissenOeffnen={(t, kid) => oeffneKarte(t, kid)} />
         )}
 
         {/* ──────────── EINSTELLUNGEN ──────────── */}
@@ -11656,7 +12468,8 @@ export default function App() {
             mondStart={mondStart} onSetMondStart={setMondStartDatum}
             geburtstermin={geburtstermin} onSetGeburtstermin={setGeburtsterminDatum} ssw={getSSW()}
             name={name} onSetName={setNameUndSpeichern} geburtsdatum={geburtsdatum} onSetGeburtsdatum={setGeburtsdatumUndSpeichern} alter={getAlter()}
-            onExport={datenExportieren} onImport={datenImportieren} onOnboarding={() => { setOnboardingOffen(true); setOnboardingSchritt(0); }} />
+            onExport={datenExportieren} onImport={datenImportieren} onOnboarding={() => { setOnboardingOffen(true); setOnboardingSchritt(0); }}
+            lebenszustand={lebenszustand} onLebenszustandWechseln={lebenszustandWechseln} />
         )}
 
         {/* ──────────── REZEPTE ──────────── */}
@@ -11671,7 +12484,7 @@ export default function App() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ flex: 1 }}>
                     <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: primalNur ? "#fff" : "#8B6B84" }}>Nur Primal Menopausal Diet</p>
-                    <p style={{ margin: "2px 0 0", fontSize: 11, color: primalNur ? "rgba(255,255,255,0.9)" : "#999", lineHeight: 1.4 }}>Zeigt nur Rezepte, die zur menopause-gerechten Ernährung passen (viel Fett, moderates Protein, wenig Kohlenhydrate).</p>
+                    <p style={{ margin: "2px 0 0", fontSize: 12, color: primalNur ? "rgba(255,255,255,0.9)" : "#999", lineHeight: 1.4 }}>Zeigt nur Rezepte, die zur menopause-gerechten Ernährung passen (viel Fett, moderates Protein, wenig Kohlenhydrate).</p>
                   </div>
                   <button onClick={() => setPrimalNur(!primalNur)}
                     style={{ marginLeft: 12, width: 48, height: 28, borderRadius: 14, border: "none", cursor: "pointer", background: primalNur ? "rgba(255,255,255,0.4)" : "#ddd", position: "relative", flexShrink: 0 }}>
@@ -11685,13 +12498,13 @@ export default function App() {
 
             <div style={{ display: "flex", gap: 5, overflowX: "auto", paddingBottom: 6, marginBottom: 6 }}>
               {[["alle","Alle Phasen"], ...Object.values(PHASEN).map(p => [p.id, `${p.name.split(" ")[0]}`])].map(([val, label]) => (
-                <button key={val} onClick={() => setFilter(f => ({ ...f, phase: val }))} style={{ background: filter.phase === val ? (val === "alle" ? "#333" : PHASEN[val]?.farbe || "#333") : "#fff", color: filter.phase === val ? "#fff" : "#444", border: `1px solid ${filter.phase === val ? "transparent" : "#ddd"}`, borderRadius: 20, padding: "5px 12px", cursor: "pointer", fontSize: 11, whiteSpace: "nowrap" }}>{label}</button>
+                <button key={val} onClick={() => setFilter(f => ({ ...f, phase: val }))} style={{ background: filter.phase === val ? (val === "alle" ? "#333" : PHASEN[val]?.farbe || "#333") : "#fff", color: filter.phase === val ? "#fff" : "#444", border: `1px solid ${filter.phase === val ? "transparent" : "#ddd"}`, borderRadius: 20, padding: "5px 12px", cursor: "pointer", fontSize: 12, whiteSpace: "nowrap" }}>{label}</button>
               ))}
             </div>
 
             <div style={{ display: "flex", gap: 5, overflowX: "auto", paddingBottom: 6, marginBottom: 12 }}>
               {[["alle","Alle"],["ketobiotic", istJugendlich ? "Gemüse & Fette" : "Keto"],["hormone_feasting", istJugendlich ? "Energie" : "HF"],["fasted_snack", istJugendlich ? "Snacks" : "⏰ Fasted"],["vegan","🌱"],["vegetarisch","🥚"],["omnivor","🥩"],["gf","GF"]].map(([val, label]) => (
-                <button key={val} onClick={() => setFilter(f => ({ ...f, stil: val }))} style={{ background: filter.stil === val ? phase.farbe : "#fff", color: filter.stil === val ? "#fff" : "#444", border: `1px solid ${filter.stil === val ? "transparent" : "#ddd"}`, borderRadius: 20, padding: "5px 12px", cursor: "pointer", fontSize: 11, whiteSpace: "nowrap" }}>{label}</button>
+                <button key={val} onClick={() => setFilter(f => ({ ...f, stil: val }))} style={{ background: filter.stil === val ? phase.farbe : "#fff", color: filter.stil === val ? "#fff" : "#444", border: `1px solid ${filter.stil === val ? "transparent" : "#ddd"}`, borderRadius: 20, padding: "5px 12px", cursor: "pointer", fontSize: 12, whiteSpace: "nowrap" }}>{label}</button>
               ))}
             </div>
 
@@ -11717,7 +12530,7 @@ export default function App() {
               return (
                 <div key={kat} style={{ marginBottom: 16 }}>
                   <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#555" }}>{katName}</p>
-                  {katInfo[kat] && <p style={{ margin: "0 0 10px", fontSize: 11, color: "#999", lineHeight: 1.5 }}>{katInfo[kat]}</p>}
+                  {katInfo[kat] && <p style={{ margin: "0 0 10px", fontSize: 12, color: "#999", lineHeight: 1.5 }}>{katInfo[kat]}</p>}
                   {items.map(r => (
                     <RezeptKarte key={r.id} r={r} phase={phase} onClick={() => setOffenRezept(r)} istJugendlich={istJugendlich}
                       tagesplanSlots={["Frühstück","Mittagessen","Abendessen","Fasted Snack"]}
@@ -11738,7 +12551,7 @@ export default function App() {
             {/* Modus-Auswahl */}
             <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
               {[["tag","Für heute"],["phase","Für Phase"],["manuell","✏️ Manuell"]].map(([m, l]) => (
-                <button key={m} onClick={() => setEinkaufsModus(m)} style={{ flex: 1, background: einkaufsModus === m ? phase.farbe : "#fff", color: einkaufsModus === m ? "#fff" : "#444", border: `1px solid ${einkaufsModus === m ? "transparent" : "#ddd"}`, borderRadius: 10, padding: "8px 4px", cursor: "pointer", fontSize: 11, fontWeight: 600 }}>{l}</button>
+                <button key={m} onClick={() => setEinkaufsModus(m)} style={{ flex: 1, background: einkaufsModus === m ? phase.farbe : "#fff", color: einkaufsModus === m ? "#fff" : "#444", border: `1px solid ${einkaufsModus === m ? "transparent" : "#ddd"}`, borderRadius: 10, padding: "8px 4px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>{l}</button>
               ))}
             </div>
 
@@ -11750,7 +12563,7 @@ export default function App() {
                     <input type="checkbox" checked={!!einkaufsAuswahl[r.id]} onChange={() => setEinkaufsAuswahl(a => ({ ...a, [r.id]: !a[r.id] }))} style={{ width: 18, height: 18, accentColor: phase.farbe }} />
                     <div style={{ flex: 1 }}>
                       <p style={{ margin: 0, fontSize: 13, fontWeight: 600 }}>{r.name}</p>
-                      <p style={{ margin: 0, fontSize: 11, color: "#aaa" }}>S. {r.buchSeite} · {formatZeit(r.zeit)}</p>
+                      <p style={{ margin: 0, fontSize: 12, color: "#aaa" }}>S. {r.buchSeite} · {formatZeit(r.zeit)}</p>
                     </div>
                     {einkaufsAuswahl[r.id] && (
                       <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -11772,7 +12585,7 @@ export default function App() {
                     
                     <div>
                       <p style={{ margin: 0, fontWeight: 700, fontSize: 14, color: p.farbe }}>{p.name}</p>
-                      <p style={{ margin: 0, fontSize: 11, color: "#aaa" }}>{p.tage} · {getRezepteFuerPhase(p.id).length} Rezepte</p>
+                      <p style={{ margin: 0, fontSize: 12, color: "#aaa" }}>{p.tage} · {getRezepteFuerPhase(p.id).length} Rezepte</p>
                     </div>
                     <span style={{ marginLeft: "auto", color: p.farbe, fontSize: 18 }}>→</span>
                   </button>
@@ -11794,7 +12607,7 @@ export default function App() {
                           <input type="checkbox" checked={!!einkaufsAuswahl[r.id]} onChange={() => setEinkaufsAuswahl(a => ({ ...a, [r.id]: !a[r.id] }))} style={{ width: 16, height: 16, accentColor: phase.farbe }} />
                           <div style={{ flex: 1 }}>
                             <p style={{ margin: 0, fontSize: 12, fontWeight: 600 }}>{r.name}</p>
-                            <p style={{ margin: 0, fontSize: 10, color: "#aaa" }}>{r.buchSeite}</p>
+                            <p style={{ margin: 0, fontSize: 12, color: "#aaa" }}>{r.buchSeite}</p>
                           </div>
                           {einkaufsAuswahl[r.id] && (
                             <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
@@ -11847,15 +12660,15 @@ export default function App() {
 
         {/* ──────────── MENOPAUSE (alter Tab → jetzt in „Dein Körper" integriert) ──────────── */}
         {tab === "menopause" && (
-          <VerstehenTab phase={phase} modus={modus} alter={getAlter()} />
+          <VerstehenTab phase={phase} modus={modus} alter={getAlter()} zielKarte={zielKarte} />
         )}
 
         {tab === "verstehen" && (
-          <VerstehenTab phase={phase} modus={modus} alter={getAlter()} />
+          <VerstehenTab phase={phase} modus={modus} alter={getAlter()} zielKarte={zielKarte} />
         )}
 
         {tab === "ernaehrung" && (
-          <ErnaehrungTab phase={phase} modus={modus} alter={getAlter()} onNavigate={setTab} />
+          <ErnaehrungTab phase={phase} modus={modus} alter={getAlter()} onNavigate={setTab} zielKarte={zielKarte} />
         )}
 
         {tab === "foods" && (
@@ -11867,7 +12680,7 @@ export default function App() {
         )}
 
         {tab === "schwanger" && (
-          <SchwangerTab ssw={getSSW()} geburtstermin={geburtstermin} />
+          <SchwangerTab ssw={getSSW()} geburtstermin={geburtstermin} zielKarte={zielKarte} />
         )}
       </div>
 
@@ -11875,29 +12688,23 @@ export default function App() {
       <div style={{ position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 480, background: "#fff", borderTop: "1px solid #eee", display: "flex", zIndex: 200, boxShadow: "0 -2px 16px rgba(0,0,0,0.08)" }}>
         {(modus === "schwanger" ? [
           ["home","home","Heute"],
-          ["baby","baby","Baby"],
-          ["schwanger","schwanger","Schwanger"],
-          ["rezepte","rezepte","Rezepte"],
+          ["baby","baby","Mein Rhythmus"],
+          ["ich","tagebuch","Ich"],
+          ["lernen","suche","Verstehen"],
+          ["planen","rezepte","Planen"],
         ] : [
           ["home","home","Heute"],
-          ["ernaehrung","ernaehrung","Ernährung"],
-          ...(modus === "menopause"
-            ? [["verstehen","verstehen","Wechseljahre"]]
-            : [["verstehen","verstehen","Dein Körper"], ["zyklus","zyklus","Zyklus"]]),
-          ["fasten","fasten","Fasten"],
-          ["training","training","Training"],
+          ["zyklus","zyklus","Mein Rhythmus"],
+          ["ich","tagebuch","Ich"],
+          ["lernen","suche","Verstehen"],
+          ["planen","rezepte","Planen"],
         ]).map(([id, icon, label]) => (
           <button key={id} onClick={() => setTab(id)} style={{ flex: 1, background: "none", border: "none", padding: "9px 0 7px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
             <NavIcon name={icon} color={tab === id ? phase.farbe : "#B8B0AA"} />
-            <span style={{ fontSize: 9, color: tab === id ? phase.farbe : "#A8A2A6", fontWeight: tab === id ? 700 : 500, letterSpacing: 0.2 }}>{label}</span>
+            <span style={{ fontSize: 12.5, color: tab === id ? phase.farbe : "#A8A2A6", fontWeight: tab === id ? 700 : 500, letterSpacing: 0.2 }}>{label}</span>
           </button>
         ))}
-        {/* Mehr-Button */}
-        <button onClick={() => setMehrOffen(true)} style={{ flex: 1, background: "none", border: "none", padding: "9px 0 7px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-          <NavIcon name="mehr" color="#B8B0AA" />
-          <span style={{ fontSize: 8.5, color: ["rezepte","foods","weglassen","einkauf","einkauf_anzeige","einstellungen","zyklus","tagebuch"].includes(tab) ? phase.farbe : "#A8A2A6", fontWeight: ["rezepte","foods","weglassen","einkauf","einkauf_anzeige","einstellungen","zyklus","tagebuch"].includes(tab) ? 700 : 400 }}>Mehr</span>
-          {["rezepte","foods","weglassen","einkauf","einkauf_anzeige","einstellungen","zyklus","tagebuch"].includes(tab) && <div style={{ width: 18, height: 2, background: phase.farbe, borderRadius: 1 }} />}
-        </button>
+        
       </div>
 
       {/* MEHR-MENÜ */}
@@ -11907,23 +12714,27 @@ export default function App() {
             <div style={{ width: 40, height: 4, background: "#ddd", borderRadius: 2, margin: "0 auto 16px" }} />
             <p style={{ margin: "0 0 14px", fontSize: 16, fontWeight: 800, color: "#333" }}>Mehr</p>
             {(modus === "schwanger" ? [
-              ["tagebuch","📔","Tagebuch","Stimmung, Symptome & Notizen"],
-              ["einstellungen","⚙️","Einstellungen","Modus, Backup & mehr"],
+              ["handbuch","handbuch","Mein Körper-Handbuch","Muster, Experimente & Gemerktes"],
+              ["suche","suche","Wissen finden","Alles durchsuchen & merken"],
+              ["tagebuch","tagebuch","Tagebuch","Stimmung, Symptome & Notizen"],
+              ["einstellungen","einstellungen","Einstellungen","Modus, Backup & mehr"],
             ] : [
-              ...(modus === "menopause" ? [["zyklus","🌙","Mondrhythmus","Sanfte Monats-Struktur nach dem Mond"]] : []),
-              ["tagebuch","📔","Tagebuch","Stimmung, Symptome & Notizen"],
-              ["rezepte","🥗","Rezepte","Alle Rezepte für deine Phase"],
-              ["foods", istJugendlich ? "💪" : "🔥", istJugendlich ? "Power-Lebensmittel" : "Fett-Killer-Lebensmittel", "Über 150 Lebensmittel nach Dr. Li"],
-              ["weglassen","🚫","Besser weglassen","Was den Stoffwechsel bremst — mit Swaps"],
-              ["einkauf","🛒","Einkaufsliste","Zutaten planen & einkaufen"],
-              ["einstellungen","⚙️","Einstellungen","Modus, Backup & mehr"],
+              ["handbuch","handbuch","Mein Körper-Handbuch","Muster, Experimente & Gemerktes"],
+              ["suche","suche","Wissen finden","Alles durchsuchen & merken"],
+              ...(modus === "menopause" ? [["zyklus","zyklus","Mondrhythmus","Sanfte Monats-Struktur nach dem Mond"]] : []),
+              ["tagebuch","tagebuch","Tagebuch","Stimmung, Symptome & Notizen"],
+              ["rezepte","rezepte","Rezepte","Alle Rezepte für deine Phase"],
+              ["foods","lebensmittel", istJugendlich ? "Power-Lebensmittel" : "Fett-Killer-Lebensmittel", "Über 150 Lebensmittel nach Dr. Li"],
+              ["weglassen","weglassen","Besser weglassen","Was den Stoffwechsel bremst — mit Swaps"],
+              ["einkauf","einkauf","Einkaufsliste","Zutaten planen & einkaufen"],
+              ["einstellungen","einstellungen","Einstellungen","Modus, Backup & mehr"],
             ]).map(([id, icon, label, sub]) => (
               <button key={id} onClick={() => { setTab(id); setMehrOffen(false); }}
                 style={{ width: "100%", background: tab === id ? phase.hellFarbe : "#FAF8F4", border: "none", borderRadius: 12, padding: "13px 15px", marginBottom: 8, cursor: "pointer", textAlign: "left", display: "flex", gap: 13, alignItems: "center" }}>
-                <span style={{ fontSize: 24 }}>{icon}</span>
+                <NavIcon name={icon} color={tab === id ? phase.farbe : "#7A7278"} size={22} />
                 <div>
                   <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#222" }}>{label}</p>
-                  <p style={{ margin: "1px 0 0", fontSize: 11.5, color: "#888" }}>{sub}</p>
+                  <p style={{ margin: "1px 0 0", fontSize: 12.5, color: "#888" }}>{sub}</p>
                 </div>
               </button>
             ))}
@@ -11944,99 +12755,86 @@ export default function App() {
 
       {/* TIPP DES TAGES — Pop-up beim App-Start (einmal täglich) */}
       {tippPopupOffen && !onboardingOffen && (() => {
-        // Tipp-Pool aus ALLEN relevanten Wissensbereichen — modus- & altersgerecht
-        const istMenoT = modus === "menopause";
-        const alterT = getAlter();
-        const teenT = alterT !== null && alterT >= 11 && alterT <= 19;
-        const pool = [];
-        const add = (liste, quelle) => (liste || []).forEach(k => pool.push({
-          icon: k.icon, titel: k.titel,
-          text: k.kurz || (k.text ? String(k.text).split("\n")[0] : ""),
-          vollText: k.text ? String(k.text) : (k.kurz || ""),
-          tipps: k.tipps || null,
-          quelle,
-        }));
-        add(GLUKOSE_HACKS, "glukose");
-        add(ESSEN_WISSEN, "ernaehrung");
-        add(NAEHRSTOFF_WISSEN, "ernaehrung");
-        add(MEDITERASIAN_WISSEN, "ernaehrung");
-        add(ETBD_SYSTEME, "ernaehrung");
-        add(HORMON_WISSEN, "verstehen");
-        add(EPIGENETIK_WISSEN, "ernaehrung");
-        add(SEXUAL_HEALTH_ALLGEMEIN, "verstehen");
-        add(BECKENBODEN_WISSEN.filter(k => istMenoT || k.id !== "beckenboden_menopause"), "verstehen");
-        if (teenT) {
-          add(TEENAGER_WISSEN, "verstehen");
-        } else {
-          add(FASTEN_HACKS, "fasten");
-          add(FASTEN_WISSEN, "fasten");
-          add(GENUG_ESSEN_WISSEN, "training");
-          add(KREATIN_WISSEN, "training");
-          add(COLLAGEN_WISSEN, "training");
-          add(SIMS_FUELING, "training");
-          add(RECOVERY_WISSEN, "training");
-          add(EXERCISE_SNACKS_WISSEN, "training");
-          add(PATRICK_WISSEN, "ernaehrung");
-        }
-        if (istMenoT) {
-          add(MENOPAUSE_WISSEN, "verstehen");
-          add(SEXUAL_HEALTH_MENOPAUSE, "verstehen");
-          add(MENO_PERFORMANCE_WISSEN, "training");
-          if (!teenT) {
-            add(MENOPAUSE_FASTEN, "fasten");
-            add(ADAPTOGENE_WISSEN, "verstehen");
-          }
-        } else {
-          add(SEXUAL_HEALTH_ZYKLUS, "verstehen");
-          if (!teenT) {
-            add(PERIMENOPAUSE_WISSEN, "verstehen");
-            add(PATRICK_ZYKLUS_WISSEN, "ernaehrung");
-          }
-        }
-        const brauchbar = pool.filter(t => t.titel && t.text && t.text.length > 20);
-        if (brauchbar.length === 0) return null;
-        // Pool deterministisch durchmischen, damit die Quellen abwechseln (sonst kämen erst
-        // 10 Tage lang nur Glukose-Hacks, dann 4 Tage Ernährung usw.). Gleicher Tag = gleicher Tipp.
-        const gemischt = brauchbar
-          .map((t, i) => ({ t, s: Math.sin(i * 12.9898 + 78.233) * 43758.5453 }))
-          .sort((a, b) => (a.s - Math.floor(a.s)) - (b.s - Math.floor(b.s)))
-          .map(x => x.t);
-        // Jeden Kalendertag ein anderer Tipp
-        const heuteNummer = Math.floor(new Date().getTime() / 86400000);
-        const tipp = gemischt[heuteNummer % gemischt.length];
-        const zielTab = { glukose: "glukose", ernaehrung: "ernaehrung", fasten: "fasten", training: "training", verstehen: "verstehen" }[tipp.quelle] || "verstehen";
+        // "Heute verstehen" als Begrüßung beim Öffnen — dieselbe Auswahl wie die
+        // Karte auf der Startseite: richtet sich nach den heutigen Symptomen.
+        const heuteE = tagebuch[heuteKey] || {};
+        const zustandP = getLebenszustand(lebenszustand, modus);
+        const indexP = baueSuchIndex({ modus, istJugendlich, zustand: zustandP });
+        const lern = waehleLernmoment({ index: indexP, symptome: heuteE.symptome, heuteKey, gelesen: gesehen });
+        if (!lern) return null;
+
         const schliessen = () => {
           try { localStorage.setItem("moresync_tipp_gesehen", new Date().toISOString().slice(0, 10)); } catch {}
+          markiereGesehen(lern.id); // morgen kommt ein anderer Inhalt
           setTippPopupOffen(false);
         };
+
         return (
-          <div onClick={schliessen} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 320, display: "flex", alignItems: "center", justifyContent: "center", padding: 22 }}>
-            <div onClick={(e) => e.stopPropagation()} style={{ background: "#fff", borderRadius: 20, padding: "26px 22px 20px", maxWidth: 360, width: "100%", boxShadow: "0 12px 40px rgba(0,0,0,0.25)", textAlign: "center" }}>
-              <p style={{ margin: "0 0 6px", fontSize: 11, fontWeight: 600, color: phase.farbe, textTransform: "uppercase", letterSpacing: 0.8 }}>Tipp des Tages</p>
-              <h3 style={{ margin: "0 0 12px", fontSize: 19, fontWeight: 800, color: "#242124", letterSpacing: -0.2, lineHeight: 1.25 }}>{tipp.titel}</h3>
-              <p style={{ margin: "0 0 14px", fontSize: 14, color: "#242124", lineHeight: 1.6, whiteSpace: "pre-line" }}>{tipp.vollText || tipp.text}</p>
-              {tipp.tipps && tipp.tipps.length > 0 && (
-                <div style={{ margin: "0 0 18px", padding: "12px 14px", background: phase.hellFarbe, borderRadius: 14 }}>
-                  {tipp.tipps.slice(0, 5).map((t, i) => (
-                    <div key={i} style={{ display: "flex", gap: 8, marginBottom: i < Math.min(4, tipp.tipps.length - 1) ? 7 : 0 }}>
+          <div onClick={schliessen}
+            style={{ position: "fixed", inset: 0, background: "rgba(42,31,45,0.45)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20, zIndex: 200 }}>
+            <div onClick={e => e.stopPropagation()}
+              style={{ background: "#fff", borderRadius: 20, padding: "26px 22px 20px", maxWidth: 360, width: "100%", maxHeight: "85vh", overflowY: "auto", boxShadow: "0 12px 40px rgba(42,31,45,0.25)" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 8 }}>
+                <span style={{ fontSize: 12, fontWeight: 600, color: phase.farbe, textTransform: "uppercase", letterSpacing: 0.8 }}>Heute verstehen</span>
+                <span style={{ fontSize: 11.5, color: "#A8A2A6" }}>{lern.bereich}</span>
+              </div>
+              <h3 style={{ margin: "0 0 12px", fontSize: 19, fontWeight: 800, color: "#242124", letterSpacing: -0.2, lineHeight: 1.25 }}>{lern.titel}</h3>
+              <p style={{ margin: "0 0 12px", fontSize: 14, color: "#242124", lineHeight: 1.6 }}>{lern.kurz}</p>
+              {lern.ausSymptom && (
+                <p style={{ margin: "0 0 12px", fontSize: 12, color: phase.farbe, lineHeight: 1.45 }}>
+                  Passt zu dem, was du heute eingetragen hast.
+                </p>
+              )}
+              {lern.tipps && lern.tipps.length > 0 && (
+                <div style={{ margin: "0 0 12px", padding: "12px 14px", background: phase.hellFarbe, borderRadius: 14 }}>
+                  {lern.tipps.slice(0, 4).map((t, i) => (
+                    <div key={i} style={{ display: "flex", gap: 8, marginBottom: i < Math.min(3, lern.tipps.length - 1) ? 7 : 0 }}>
                       <span style={{ color: phase.farbe, flexShrink: 0, fontWeight: 700 }}>·</span>
-                      <span style={{ fontSize: 12.5, color: "#242124", lineHeight: 1.45, textAlign: "left" }}>{t}</span>
+                      <span style={{ fontSize: 12.5, color: "#242124", lineHeight: 1.45 }}>{t}</span>
                     </div>
                   ))}
                 </div>
               )}
-              <button onClick={() => { schliessen(); setTab(zielTab); }}
+              {lern.volltext && lern.volltext.length > 140 && (
+                <details style={{ marginBottom: 14 }}>
+                  <summary style={{ fontSize: 12.5, fontWeight: 700, color: phase.farbe, cursor: "pointer", padding: "6px 0" }}>Ausführlich lesen</summary>
+                  <p style={{ margin: "8px 0 0", fontSize: 13, color: "#555", lineHeight: 1.65, whiteSpace: "pre-line" }}>{lern.volltext}</p>
+                </details>
+              )}
+              <button onClick={() => { schliessen(); oeffneKarte(lern.tab, lern.id); }}
                 style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 14, padding: "13px", cursor: "pointer", fontSize: 13.5, fontWeight: 700, marginBottom: 8 }}>
                 Zum passenden Bereich →
               </button>
-              <button onClick={schliessen}
-                style={{ width: "100%", background: "transparent", color: "#999", border: "none", borderRadius: 11, padding: "8px", cursor: "pointer", fontSize: 13, fontWeight: 600 }}>
-                Schließen
-              </button>
+              <div style={{ display: "flex", gap: 7 }}>
+                <button onClick={() => { setMerkStatus(lern.id, "gemerkt"); schliessen(); }}
+                  style={{ flex: 1, background: "#FAF8F4", color: "#7A7278", border: "1px solid #E9E3DB", borderRadius: 12, padding: "10px", cursor: "pointer", fontSize: 12.5, fontWeight: 600 }}>
+                  Merken
+                </button>
+                <button onClick={schliessen}
+                  style={{ flex: 1, background: "transparent", color: "#A8A2A6", border: "none", padding: "10px", cursor: "pointer", fontSize: 12.5, fontWeight: 600 }}>
+                  Schließen
+                </button>
+              </div>
             </div>
           </div>
         );
       })()}
+
+      {/* SICHERHEITSHINWEIS — z.B. wenn ein Fasten automatisch beendet wurde */}
+      {sicherheitsHinweis && (
+        <div onClick={() => setSicherheitsHinweis(null)}
+          style={{ position: "fixed", inset: 0, background: "rgba(42,31,45,0.45)", display: "flex", alignItems: "center", justifyContent: "center", padding: 22, zIndex: 300 }}>
+          <div onClick={e => e.stopPropagation()}
+            style={{ background: "#fff", borderRadius: 18, padding: "22px 20px", maxWidth: 340, width: "100%", boxShadow: "0 12px 40px rgba(42,31,45,0.25)" }}>
+            <p style={{ margin: "0 0 8px", fontSize: 12, fontWeight: 600, color: "#A34A44", textTransform: "uppercase", letterSpacing: 0.8 }}>Wichtiger Hinweis</p>
+            <p style={{ margin: "0 0 18px", fontSize: 14, color: "#242124", lineHeight: 1.6 }}>{sicherheitsHinweis}</p>
+            <button onClick={() => setSicherheitsHinweis(null)}
+              style={{ width: "100%", background: "#A34A44", color: "#fff", border: "none", borderRadius: 12, padding: "13px", cursor: "pointer", fontSize: 14, fontWeight: 700 }}>
+              Verstanden
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* ONBOARDING / EINFÜHRUNG */}
       {onboardingOffen && (
@@ -12066,7 +12864,7 @@ export default function App() {
                 <input type="text" value={name || ""} onChange={e => setNameUndSpeichern(e.target.value)}
                   placeholder="Dein Vorname (z.B. Jelena)"
                   style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: `2px solid ${phase.farbe}`, fontSize: 15, boxSizing: "border-box", marginBottom: 6, textAlign: "center" }} />
-                <p style={{ margin: "0 0 18px", fontSize: 11, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Nur für deine persönliche Begrüßung — bleibt auf deinem Gerät. (Optional)</p>
+                <p style={{ margin: "0 0 18px", fontSize: 12, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Nur für deine persönliche Begrüßung — bleibt auf deinem Gerät. (Optional)</p>
                 <button onClick={() => setOnboardingSchritt(1)} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 12, padding: "13px", cursor: "pointer", fontSize: 14, fontWeight: 700 }}>Los geht's →</button>
               </>
             )}
@@ -12079,14 +12877,14 @@ export default function App() {
                 <p style={{ margin: "0 0 14px", fontSize: 13, color: "#666", textAlign: "center", lineHeight: 1.6 }}>
                   Dein Geburtsdatum ist wichtig: MoreSync passt die Inhalte an deine Lebensphase an. So bekommst du als junge Frau, als Erwachsene oder in den Wechseljahren jeweils die Informationen, die wirklich zu dir passen — nichts Unpassendes, nichts Fehlendes.
                 </p>
-                <p style={{ margin: "0 0 14px", fontSize: 11.5, color: "#999", textAlign: "center", lineHeight: 1.55 }}>
+                <p style={{ margin: "0 0 14px", fontSize: 12.5, color: "#999", textAlign: "center", lineHeight: 1.55 }}>
                   Bist du zwischen 11 und 19? Dann zeigt dir MoreSync automatisch eine altersgerechte Version — mit Fokus auf Pubertät, Aufklärung und gesunde Ernährung statt Fasten.
                 </p>
                 <input type="date" max={new Date().toISOString().split("T")[0]}
                   value={geburtsdatum ? geburtsdatum.split("T")[0] : ""}
                   onChange={e => { if (e.target.value) setGeburtsdatumUndSpeichern(new Date(e.target.value + "T12:00:00").toISOString()); }}
                   style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: `2px solid ${phase.farbe}`, fontSize: 15, boxSizing: "border-box", marginBottom: 12, textAlign: "center" }} />
-                <p style={{ margin: "0 0 16px", fontSize: 11, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Dein Geburtsdatum bleibt privat und wird nur auf deinem Gerät gespeichert. Du kannst es später in den Einstellungen ändern.</p>
+                <p style={{ margin: "0 0 16px", fontSize: 12, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Dein Geburtsdatum bleibt privat und wird nur auf deinem Gerät gespeichert. Du kannst es später in den Einstellungen ändern.</p>
                 <button onClick={() => setOnboardingSchritt(2)} style={{ width: "100%", background: phase.farbe, color: "#fff", border: "none", borderRadius: 12, padding: "13px", cursor: "pointer", fontSize: 14, fontWeight: 700 }}>Weiter →</button>
               </>
             )}
@@ -12111,7 +12909,7 @@ export default function App() {
                       <span style={{ fontSize: 19, width: 26, textAlign: "center", flexShrink: 0 }}>{ic}</span>
                       <div>
                         <p style={{ margin: 0, fontSize: 12.5, fontWeight: 700, color: "#333" }}>{t}</p>
-                        <p style={{ margin: "1px 0 0", fontSize: 11.5, color: "#777", lineHeight: 1.45 }}>{d}</p>
+                        <p style={{ margin: "1px 0 0", fontSize: 12.5, color: "#777", lineHeight: 1.45 }}>{d}</p>
                       </div>
                     </div>
                   ))}
@@ -12133,7 +12931,7 @@ export default function App() {
                         
                         <div>
                           <p style={{ margin: 0, fontSize: 12.5, fontWeight: 700, color: p.farbe }}>{mond ? mond.name : p.name}{!mond && <span style={{ color: "#aaa", fontWeight: 400 }}> · {p.tage}</span>}</p>
-                          <p style={{ margin: 0, fontSize: 11, color: "#777" }}>{mond ? mond.subtitle : p.subtitle}</p>
+                          <p style={{ margin: 0, fontSize: 12, color: "#777" }}>{mond ? mond.subtitle : p.subtitle}</p>
                         </div>
                       </div>
                     );
@@ -12167,7 +12965,7 @@ export default function App() {
                       <span style={{ fontSize: 19, width: 26, textAlign: "center", flexShrink: 0 }}>{ic}</span>
                       <div>
                         <p style={{ margin: 0, fontSize: 12.5, fontWeight: 700, color: "#333" }}>{t}</p>
-                        <p style={{ margin: "1px 0 0", fontSize: 11.5, color: "#777", lineHeight: 1.45 }}>{d}</p>
+                        <p style={{ margin: "1px 0 0", fontSize: 12.5, color: "#777", lineHeight: 1.45 }}>{d}</p>
                       </div>
                     </div>
                   ))}
@@ -12195,7 +12993,7 @@ export default function App() {
                   <p style={{ margin: "0 0 5px" }}>👩‍⚕️ <strong>Dr. Rachel Rubin</strong> — sexuelle & urogenitale Gesundheit</p>
                   <p style={{ margin: 0 }}><strong>Dr. Rhonda Patrick</strong> — Supplemente, Langlebigkeit & Hormone</p>
                 </div>
-                <p style={{ margin: "0 0 14px", fontSize: 11, color: "#aaa", textAlign: "center", lineHeight: 1.5 }}>
+                <p style={{ margin: "0 0 14px", fontSize: 12, color: "#aaa", textAlign: "center", lineHeight: 1.5 }}>
                   MoreSync bündelt dieses Wissen an einem Ort. Es ersetzt keine ärztliche Beratung — bei Beschwerden wende dich an dein Behandlungsteam.
                 </p>
                 <div style={{ background: "#F1E9EE", borderRadius: 14, padding: "14px 16px", marginBottom: 16, border: "1px solid #E6D0D8" }}>
@@ -12227,17 +13025,17 @@ export default function App() {
                 <button onClick={() => setOnboardingSchritt(6)}
                   style={{ width: "100%", background: phase.hellFarbe, border: `2px solid ${phase.farbe}`, borderRadius: 12, padding: "14px", cursor: "pointer", marginBottom: 10, textAlign: "left" }}>
                   <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: phase.farbe }}>Ich habe einen Zyklus</p>
-                  <p style={{ margin: "2px 0 0", fontSize: 11.5, color: "#777" }}>Tracking nach deiner Periode</p>
+                  <p style={{ margin: "2px 0 0", fontSize: 12.5, color: "#777" }}>Tracking nach deiner Periode</p>
                 </button>
                 <button onClick={() => { modusWechseln("menopause"); setOnboardingSchritt(7); }}
                   style={{ width: "100%", background: "#F1EDE6", border: "2px solid transparent", borderRadius: 12, padding: "14px", cursor: "pointer", textAlign: "left", marginBottom: 10 }}>
                   <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#8B6B84" }}>Wechseljahre / kein Zyklus</p>
-                  <p style={{ margin: "2px 0 0", fontSize: 11.5, color: "#777" }}>Tracking nach dem Mondzyklus</p>
+                  <p style={{ margin: "2px 0 0", fontSize: 12.5, color: "#777" }}>Tracking nach dem Mondzyklus</p>
                 </button>
                 <button onClick={() => setOnboardingSchritt(8)}
                   style={{ width: "100%", background: "#F1EDE6", border: "2px solid transparent", borderRadius: 12, padding: "14px", cursor: "pointer", textAlign: "left" }}>
                   <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#8B4A5C" }}>Ich bin schwanger</p>
-                  <p style={{ margin: "2px 0 0", fontSize: 11.5, color: "#777" }}>Begleitung durch alle Trimester</p>
+                  <p style={{ margin: "2px 0 0", fontSize: 12.5, color: "#777" }}>Begleitung durch alle Trimester</p>
                 </button>
               </>
             )}
@@ -12271,7 +13069,7 @@ export default function App() {
                 <input type="date" max={new Date().toISOString().split("T")[0]}
                   onChange={e => { if (e.target.value) { setMondStartDatum(new Date(e.target.value + "T12:00:00").toISOString()); setOnboardingSchritt(3); } }}
                   style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #8B6B84", fontSize: 15, boxSizing: "border-box", marginBottom: 12, textAlign: "center" }} />
-                <p style={{ margin: 0, fontSize: 11, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Den Mondkalender findest du online. Du kannst das später in den Einstellungen ändern.</p>
+                <p style={{ margin: 0, fontSize: 12, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Den Mondkalender findest du online. Du kannst das später in den Einstellungen ändern.</p>
               </>
             )}
 
@@ -12286,7 +13084,7 @@ export default function App() {
                 <input type="date"
                   onChange={e => { if (e.target.value) { setGeburtsterminDatum(new Date(e.target.value + "T12:00:00").toISOString()); setOnboardingSchritt(3); } }}
                   style={{ width: "100%", padding: "12px 14px", borderRadius: 12, border: "2px solid #8B4A5C", fontSize: 15, boxSizing: "border-box", marginBottom: 12, textAlign: "center" }} />
-                <p style={{ margin: 0, fontSize: 11, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Du kannst den Modus & Termin später in den Einstellungen ändern.</p>
+                <p style={{ margin: 0, fontSize: 12, color: "#aaa", textAlign: "center", lineHeight: 1.4 }}>Du kannst den Modus & Termin später in den Einstellungen ändern.</p>
               </>
             )}
 
@@ -12300,7 +13098,580 @@ export default function App() {
   );
 }
 
-// Schlichte Linien-Icons für die Navigation (editorial statt Emoji)
+// ══════════════════════════════════════════════════════════════════
+// LEBENSZUSTÄNDE
+// „Kein Zyklus" kann sehr Unterschiedliches bedeuten. Statt drei groben
+// Modi bildet MoreSync den tatsächlichen Lebenszustand ab.
+//
+// Wichtig: `modus` (zyklus | menopause | schwanger) bleibt die technische
+// Basis für Berechnungen und Ansichten. Der Lebenszustand ist die feinere
+// Ebene darüber — er bestimmt Tonfall, Sicherheitsregeln und ob die
+// Phasenberechnung überhaupt aussagekräftig ist.
+// ══════════════════════════════════════════════════════════════════
+const LEBENSZUSTAENDE = [
+  {
+    id: "vor_menarche", label: "Ich hatte noch keine Periode",
+    hinweis: "Alles rund ums Erwachsenwerden — ohne Zyklusberechnung.",
+    modus: "zyklus", zyklusBerechnung: false, mondRhythmus: false, fastenErlaubt: false,
+    gruppe: "jung",
+  },
+  {
+    id: "zyklus_regelmaessig", label: "Ich habe einen regelmäßigen Zyklus",
+    hinweis: "Deine Phasen werden aus deiner letzten Periode berechnet.",
+    modus: "zyklus", zyklusBerechnung: true, mondRhythmus: false, fastenErlaubt: true,
+    gruppe: "zyklus",
+  },
+  {
+    id: "zyklus_unregelmaessig", label: "Mein Zyklus ist unregelmäßig",
+    hinweis: "Die Phasen sind dann eine Orientierung, keine Vorhersage.",
+    modus: "zyklus", zyklusBerechnung: true, unsicher: true, mondRhythmus: false, fastenErlaubt: true,
+    gruppe: "zyklus",
+  },
+  {
+    id: "perimenopause", label: "Ich bin vermutlich in der Perimenopause",
+    hinweis: "Zyklus noch da, aber unregelmäßiger — mit Wechseljahres-Wissen.",
+    modus: "zyklus", zyklusBerechnung: true, unsicher: true, perimenopause: true, mondRhythmus: false, fastenErlaubt: true,
+    gruppe: "zyklus",
+  },
+  {
+    id: "hormonelle_verhuetung", label: "Ich verhüte hormonell",
+    hinweis: "Pille, Spirale & Co. unterdrücken den natürlichen Zyklus.",
+    modus: "zyklus", zyklusBerechnung: false, keineNatuerlichenPhasen: true, mondRhythmus: true, fastenErlaubt: true,
+    gruppe: "zyklus",
+  },
+  {
+    id: "keine_blutung_andere", label: "Ich habe aus anderen Gründen keine Blutung",
+    hinweis: "Z.B. nach Operation, bei Erkrankung oder unklarer Ursache.",
+    modus: "zyklus", zyklusBerechnung: false, keineNatuerlichenPhasen: true, mondRhythmus: true, fastenErlaubt: true,
+    gruppe: "sonstige",
+  },
+  {
+    id: "schwanger", label: "Ich bin schwanger",
+    hinweis: "Begleitung durch alle Trimester.",
+    modus: "schwanger", zyklusBerechnung: false, mondRhythmus: false, fastenErlaubt: false,
+    gruppe: "schwanger",
+  },
+  {
+    id: "nach_geburt", label: "Ich habe vor Kurzem entbunden",
+    hinweis: "Rückbildung und Erholung stehen im Vordergrund.",
+    modus: "zyklus", zyklusBerechnung: false, keineNatuerlichenPhasen: true, mondRhythmus: false, fastenErlaubt: false,
+    gruppe: "schwanger",
+  },
+  {
+    id: "stillzeit", label: "Ich stille",
+    hinweis: "Erhöhter Bedarf an Energie und Flüssigkeit — kein Fasten.",
+    modus: "zyklus", zyklusBerechnung: false, keineNatuerlichenPhasen: true, mondRhythmus: false, fastenErlaubt: false,
+    gruppe: "schwanger",
+  },
+  {
+    id: "menopause", label: "Ich bin in den Wechseljahren / danach",
+    hinweis: "Der Mondrhythmus gibt dir eine sanfte Struktur.",
+    modus: "menopause", zyklusBerechnung: false, mondRhythmus: true, fastenErlaubt: true,
+    gruppe: "menopause",
+  },
+  {
+    id: "op_ohne_zyklus", label: "Nach Gebärmutter- oder Eierstock-OP",
+    hinweis: "Eigene Situation — mit Wechseljahres-Wissen, ohne Zyklusberechnung.",
+    modus: "menopause", zyklusBerechnung: false, mondRhythmus: true, fastenErlaubt: true,
+    gruppe: "menopause",
+  },
+];
+
+// Zustand nachschlagen — mit sicherem Rückfall auf den technischen Modus
+function getLebenszustand(id, modus) {
+  const z = LEBENSZUSTAENDE.find(l => l.id === id);
+  if (z) return z;
+  // Kein Zustand gewählt (z.B. bestehende Nutzerin): aus dem Modus ableiten
+  if (modus === "schwanger") return LEBENSZUSTAENDE.find(l => l.id === "schwanger");
+  if (modus === "menopause") return LEBENSZUSTAENDE.find(l => l.id === "menopause");
+  return LEBENSZUSTAENDE.find(l => l.id === "zyklus_regelmaessig");
+}
+
+
+// Verbindet die Phasen-Grundempfehlung mit dem heutigen Befinden.
+// Grundsatz: Die Phase gibt die Richtung vor, der Check-in korrigiert sie.
+// Sicherheitsregeln (Schwangerschaft, Jugendliche) haben immer Vorrang.
+// ══════════════════════════════════════════════════════════════════
+function berechneTagesempfehlung({ phase, eintrag, modus, istJugendlich, zustand }) {
+  const e = eintrag || {};
+  const schlaf = e.schlaf || 0;
+  const energie = e.energie || 0;
+  const stress = e.stress || 0;
+  const bereitschaft = e.trainingsbereitschaft || 0;
+  const symptome = e.symptome || [];
+
+  // Welche Werte hat die Nutzerin heute überhaupt eingetragen?
+  const hatCheckIn = schlaf > 0 || energie > 0 || stress > 0 || bereitschaft > 0 || symptome.length > 0;
+
+  // Belastende Symptome, die gegen hohe Intensität sprechen
+  // (exakt die Bezeichnungen aus TAGEBUCH_SYMPTOME / _SCHWANGER)
+  const schwereSymptome = [
+    "Krämpfe", "Kopfschmerzen", "Rückenschmerzen", "Übelkeit", "Erbrechen",
+    "Müdigkeit", "Schlafprobleme", "Schwindel", "Kurzatmigkeit", "Beckenschmerzen",
+  ];
+  const hatBeschwerden = symptome.some(s => schwereSymptome.includes(s));
+
+  // ─── Gründe sammeln (für „Warum angepasst?") ───
+  const gruende = [];
+  if (schlaf > 0 && schlaf <= 2) gruende.push(`Schlaf ${schlaf}/5`);
+  if (energie > 0 && energie <= 2) gruende.push(`Energie ${energie}/5`);
+  if (stress >= 4) gruende.push(`Stress ${stress}/5`);
+  if (bereitschaft > 0 && bereitschaft <= 2) gruende.push(`wenig Lust auf Bewegung (${bereitschaft}/5)`);
+  if (hatBeschwerden) gruende.push("eingetragene Beschwerden");
+
+  const runterschalten = gruende.length > 0;
+
+  // ─── Training ───
+  let training;
+  if (zustand && zustand.id === "nach_geburt") {
+    training = "Rückbildung und Beckenboden zuerst — bitte erst nach ärztlicher Freigabe wieder belasten.";
+  } else if (zustand && zustand.id === "stillzeit") {
+    training = runterschalten
+      ? "Heute sanft bleiben: Spaziergang oder leichtes Dehnen."
+      : "Moderate Bewegung und sanftes Krafttraining passen gut — auf deinen Beckenboden achten.";
+  } else if (istJugendlich) {
+    training = runterschalten
+      ? "Heute lieber sanft: Spazieren, Dehnen oder eine Runde tanzen."
+      : "Beweg dich, wie es dir Spaß macht — Hauptsache regelmäßig.";
+  } else if (modus === "schwanger") {
+    training = runterschalten
+      ? "Heute ruhig angehen: Spaziergang oder leichtes Dehnen."
+      : "Moderate Bewegung tut dir und dem Baby gut — Spazieren, Schwimmen, sanftes Krafttraining.";
+  } else if (runterschalten) {
+    training = "Heute Regeneration oder moderates Krafttraining statt hoher Intensität.";
+  } else if (modus === "menopause") {
+    training = "Krafttraining schützt Muskeln und Knochen — heute ein guter Tag dafür.";
+  } else if (phase.id === "power1" || phase.id === "manifestation") {
+    training = "Gute Phase für intensiveres Training oder schwerere Gewichte.";
+  } else {
+    training = "Moderates Training und bewusste Regeneration passen heute gut.";
+  }
+
+  // ─── Fasten ───
+  // Der Lebenszustand entscheidet, ob Fasten überhaupt gezeigt wird
+  // (Stillzeit, nach der Geburt, vor der Menarche → nie).
+  let fasten = null;
+  const fastenErlaubt = zustand ? zustand.fastenErlaubt : (!istJugendlich && modus !== "schwanger");
+  if (fastenErlaubt && !istJugendlich && modus !== "schwanger") {
+    const fensterListe = phase.fastenEmpfehlung || [];
+    const fenster = fensterListe.length
+      ? `${fensterListe[0]}–${fensterListe[Math.min(2, fensterListe.length - 1)]}`
+      : null;
+    if (runterschalten) {
+      fasten = "Heute kein langes Fasten erzwingen — ein sanftes Essfenster reicht völlig.";
+    } else if (fenster) {
+      fasten = `${fenster} Fenster passen heute gut zu deiner Phase.`;
+    }
+  }
+
+  // ─── Ernährung ───
+  let ernaehrung;
+  const naehr = phase.naehrstoffe ? phase.naehrstoffe.slice(0, 3).join(", ") : "";
+  const zid = zustand ? zustand.id : null;
+  if (zid === "stillzeit") {
+    ernaehrung = "Stillen kostet Energie: regelmäßig essen, viel trinken, genug Protein und gesunde Fette.";
+  } else if (zid === "nach_geburt") {
+    ernaehrung = "Erholung braucht Nährstoffe: Protein, Eisen und regelmäßige Mahlzeiten — jetzt nicht einschränken.";
+  } else if (runterschalten) {
+    ernaehrung = "Regelmäßige, proteinreiche Mahlzeiten und ausreichend trinken — heute nicht zusätzlich einschränken.";
+  } else if (naehr) {
+    ernaehrung = `${naehr} priorisieren.`;
+  } else {
+    ernaehrung = "Ausgewogen essen mit genug Protein und Gemüse.";
+  }
+
+  return { ernaehrung, fasten, training, angepasst: runterschalten, gruende, hatCheckIn };
+}
+
+// ══════════════════════════════════════════════════════════════════
+// EXPERIMENTE
+// Bewusst „Experiment" statt „Challenge": neugierig machen, ohne
+// Leistungsdruck. MoreSync behauptet keine Wirkung — es hilft dir,
+// deine eigene Reaktion strukturiert zu beobachten.
+// ══════════════════════════════════════════════════════════════════
+const EXPERIMENTE = [
+  {
+    id: "exp_reihenfolge", titel: "7 Tage Mahlzeiten-Reihenfolge", tage: 7,
+    was: "Iss bei einer Hauptmahlzeit täglich zuerst Gemüse, dann Protein und Fett, zuletzt Stärke oder Süßes.",
+    warum: "Die Reihenfolge verändert die Blutzuckerreaktion messbar (Inchauspé). Ob du es merkst, findest du so heraus.",
+    beobachten: ["Hunger nach der Mahlzeit", "Energie am Nachmittag", "Heißhunger am Abend"],
+    fuer: ["zyklus", "menopause", "schwanger"], teenOk: true,
+  },
+  {
+    id: "exp_morgenlicht", titel: "7 Tage Morgenlicht", tage: 7,
+    was: "Geh nach dem Aufwachen 5–10 Minuten ins Tageslicht — auch bei Bewölkung.",
+    warum: "Morgenlicht stellt die innere Uhr. Beobachte, ob sich dein Ein- und Durchschlafen verändert.",
+    beobachten: ["Einschlafen am Abend", "Schlafqualität", "Energie am Morgen"],
+    fuer: ["zyklus", "menopause", "schwanger"], teenOk: true,
+  },
+  {
+    id: "exp_protein", titel: "5 Tage proteinreiches Frühstück", tage: 5,
+    was: "Iss an fünf Tagen zum Frühstück eine ordentliche Portion Protein — Eier, Skyr, Hülsenfrüchte.",
+    warum: "Ein proteinreicher Start hält viele länger satt. Ob das für dich gilt, zeigt der Vergleich.",
+    beobachten: ["Sättigung bis Mittag", "Energie am Vormittag", "Lust auf Süßes"],
+    fuer: ["zyklus", "menopause", "schwanger"], teenOk: false,
+  },
+  {
+    id: "exp_bewegung", titel: "7 Tage Bewegung nach dem Essen", tage: 7,
+    was: "Geh nach einer Hauptmahlzeit täglich 10 Minuten spazieren.",
+    warum: "Bewegung nach dem Essen dämpft den Blutzuckeranstieg — ganz ohne Anstrengung.",
+    beobachten: ["Energie danach", "Verdauung", "Müdigkeit nach dem Essen"],
+    fuer: ["zyklus", "menopause", "schwanger"], teenOk: true,
+  },
+  {
+    id: "exp_luteal", titel: "Lutealphase beobachten", tage: 7,
+    was: "Senke die Belastung nicht pauschal, sondern notiere Training, Schlaf und Erholung in der zweiten Zyklushälfte.",
+    warum: "Viele Empfehlungen sind pauschal. So findest du heraus, was in dieser Phase für dich stimmt.",
+    beobachten: ["Erholung nach dem Training", "Schlafqualität", "Motivation"],
+    fuer: ["zyklus"], teenOk: false,
+  },
+  {
+    id: "exp_wasser", titel: "7 Tage bewusst trinken", tage: 7,
+    was: "Trink vor jeder Mahlzeit ein Glas Wasser.",
+    warum: "Viele Nachmittagstiefs kommen von zu wenig Flüssigkeit. Ein einfacher Test.",
+    beobachten: ["Energie am Nachmittag", "Kopfschmerzen", "Konzentration"],
+    fuer: ["zyklus", "menopause", "schwanger"], teenOk: true,
+  },
+];
+
+// Passende Experimente für die Nutzerin
+function verfuegbareExperimente({ modus, istJugendlich }) {
+  return EXPERIMENTE.filter(e => e.fuer.includes(modus) && (!istJugendlich || e.teenOk));
+}
+
+// ══════════════════════════════════════════════════════════════════
+// WOCHENRÜCKBLICK & PERSÖNLICHE MUSTER
+// Grundsatz: beobachten, nicht behaupten. MoreSync stellt Zusammenhänge
+// als Frage in den Raum, nie als Diagnose oder bewiesene Ursache.
+// Mindestens 4 Datenpunkte, sonst wird gar kein Muster gezeigt.
+// ══════════════════════════════════════════════════════════════════
+function berechneWochenrueckblick({ tagebuch, handlungen, heuteKey, tage = 7 }) {
+  if (!tagebuch) return null;
+  // Die letzten n Tage sammeln
+  const heute = heuteKey ? new Date(heuteKey + "T12:00:00") : new Date();
+  const keys = [];
+  for (let i = 0; i < tage; i++) {
+    const d = new Date(heute);
+    d.setDate(d.getDate() - i);
+    keys.push(`${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`);
+  }
+  const eintraege = keys.map(k => ({ key: k, e: tagebuch[k] || {} }));
+  const mitDaten = eintraege.filter(x => x.e && (x.e.energie || x.e.schlaf || x.e.stimmung || (x.e.symptome || []).length));
+
+  // Durchschnitte
+  const schnitt = (feld) => {
+    const werte = eintraege.map(x => x.e[feld]).filter(v => typeof v === "number" && v > 0);
+    return werte.length ? { wert: (werte.reduce((a, b) => a + b, 0) / werte.length), anzahl: werte.length } : null;
+  };
+  const energie = schnitt("energie");
+  const schlaf = schnitt("schlaf");
+  const stress = schnitt("stress");
+
+  // Häufigste Symptome
+  const symptomZaehler = {};
+  eintraege.forEach(x => (x.e.symptome || []).forEach(s => { symptomZaehler[s] = (symptomZaehler[s] || 0) + 1; }));
+  const topSymptome = Object.entries(symptomZaehler).sort((a, b) => b[1] - a[1]).slice(0, 3);
+
+  // Ausprobierte Handlungen
+  const hs = keys.map(k => (handlungen || {})[k]).filter(Boolean);
+  const angenommen = hs.filter(h => h.status === "angenommen").length;
+  const hilfreich = hs.filter(h => h.rueckmeldung === "hilfreich").length;
+  const rueckmeldungen = hs.filter(h => h.rueckmeldung).length;
+
+  // ─── Muster: nur bei genug Daten, immer als Beobachtung formuliert ───
+  const muster = [];
+  // Schlaf einer Nacht ↔ Energie am Tag danach.
+  // eintraege ist absteigend sortiert (Index 0 = heute), deshalb ist der
+  // Folgetag von eintraege[i] der Eintrag bei eintraege[i-1].
+  const paare = [];
+  for (let i = eintraege.length - 1; i >= 1; i--) {
+    const nacht = eintraege[i].e;        // frühere Nacht
+    const folgetag = eintraege[i - 1].e; // der Tag danach
+    if (nacht.schlaf > 0 && folgetag.energie > 0) {
+      paare.push({ schlaf: nacht.schlaf, energie: folgetag.energie });
+    }
+  }
+  if (paare.length >= 4) {
+    const schlecht = paare.filter(p => p.schlaf <= 2);
+    const gut = paare.filter(p => p.schlaf >= 4);
+    if (schlecht.length >= 2 && gut.length >= 2) {
+      const eSchlecht = schlecht.reduce((a, p) => a + p.energie, 0) / schlecht.length;
+      const eGut = gut.reduce((a, p) => a + p.energie, 0) / gut.length;
+      if (eGut - eSchlecht >= 1) {
+        muster.push("An den Tagen nach kurzem Schlaf war deine Energie im Schnitt niedriger als nach guten Nächten. Das ist noch kein fester Trend, aber ein sinnvoller Beobachtungspunkt.");
+      }
+    }
+  }
+  // Stress ↔ Symptome
+  const stressTage = eintraege.filter(x => x.e.stress >= 4);
+  if (stressTage.length >= 3) {
+    const mitSymptom = stressTage.filter(x => (x.e.symptome || []).length > 0).length;
+    if (mitSymptom >= Math.ceil(stressTage.length * 0.6)) {
+      muster.push("An Tagen mit hohem Stress hast du häufiger Symptome eingetragen. Ob das zusammenhängt, kannst nur du beurteilen — beobachte es weiter.");
+    }
+  }
+
+  // Beobachtungsfrage für die kommende Woche
+  let frage = null;
+  if (schlaf && schlaf.wert < 3) frage = "Wie verändert sich deine Energie, wenn du eine Woche lang 30 Minuten früher ins Bett gehst?";
+  else if (topSymptome.length && topSymptome[0][1] >= 3) frage = `Du hast „${topSymptome[0][0]}" mehrfach eingetragen. Fällt dir auf, an welchen Tagen es stärker ist?`;
+  else if (stress && stress.wert >= 3.5) frage = "Was hilft dir an stressigen Tagen am zuverlässigsten, kurz herunterzukommen?";
+  else if (mitDaten.length >= 3) frage = "Gibt es eine Tageszeit, zu der du dich regelmäßig am wohlsten fühlst?";
+
+  return {
+    tageMitDaten: mitDaten.length,
+    energie, schlaf, stress,
+    topSymptome,
+    angenommen, hilfreich, rueckmeldungen,
+    muster, frage,
+    genugDaten: mitDaten.length >= 3,
+  };
+}
+
+// ══════════════════════════════════════════════════════════════════
+// SYMPTOM → WISSEN
+// Verbindet, was die Nutzerin einträgt, mit dem passenden Wissen.
+// Damit hängen Tagebuch und Wissensbereich nicht mehr unverbunden
+// nebeneinander.
+// ══════════════════════════════════════════════════════════════════
+const SYMPTOM_WISSEN = {
+  "Krämpfe": ["magnesium_warum", "teen_schmerzen", "endometriose"],
+  "Kopfschmerzen": ["magnesium_warum", "hack_mineralien", "insulin"],
+  "Blähungen": ["etbd_mikrobiom", "food_rule_verstoffwechseln", "darm_sport"],
+  "Brustspannen": ["progesteron", "food_rule_entgiften"],
+  "Rückenschmerzen": ["beckenboden_uebungen", "ruecken"],
+  "Heißhunger": ["insulin", "progesteron", "genug_essen"],
+  "Übelkeit": ["uebelkeit_b", "insulin"],
+  "Akne": ["teen_haut", "insulinresistenz", "pille_testosteron"],
+  "Schlafprobleme": ["schlaf", "recovery_schlaf", "magnesium_warum", "es_schlaf_dna"],
+  "Müdigkeit": ["teen_eisen", "genug_essen", "insulinresistenz"],
+  "Reizbarkeit": ["progesteron", "cortisol", "emotionen"],
+  "Ängstlichkeit": ["cortisol", "adaptogene_basis", "emotionen"],
+  "Stimmungstief": ["emotionen", "omega3_warum", "es_schlaf_dna"],
+  "Wassereinlagerung": ["oedeme", "progesteron"],
+  "Verdauung": ["etbd_mikrobiom", "verdauung", "food_rule_verstoffwechseln"],
+  "Sodbrennen": ["sodbrennen"],
+  "Verstopfung": ["verdauung", "etbd_mikrobiom"],
+  "Erbrechen": ["uebelkeit_b"],
+  "Beckenschmerzen": ["beckenboden_uebungen", "ruecken"],
+  "Schwindel": ["weitere", "hack_mineralien"],
+  "Kurzatmigkeit": ["weitere"],
+  "Kindsbewegungen": ["kindsbewegungen"],
+};
+
+// Sucht zu den heute eingetragenen Symptomen passende Wissenskarten
+function findeWissenZuSymptomen(symptome, index) {
+  if (!symptome || symptome.length === 0 || !index) return [];
+  const ids = [];
+  symptome.forEach(s => (SYMPTOM_WISSEN[s] || []).forEach(id => { if (!ids.includes(id)) ids.push(id); }));
+  return ids.map(id => index.find(e => e.id === id)).filter(Boolean).slice(0, 4);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// MIKRO-LERNMOMENT
+// Ein Wissensbaustein pro Tag — portioniert statt überfordernd.
+// Bevorzugt Wissen, das zu den heutigen Symptomen passt.
+// ══════════════════════════════════════════════════════════════════
+function waehleLernmoment({ index, symptome, heuteKey, gelesen }) {
+  if (!index || index.length === 0) return null;
+  // Erst schauen, ob etwas zu den heutigen Symptomen passt
+  const passend = findeWissenZuSymptomen(symptome, index).filter(e => e.kurz && e.kurz.length > 30);
+  const pool = passend.length > 0
+    ? passend
+    : index.filter(e => e.kurz && e.kurz.length > 40);
+  if (pool.length === 0) return null;
+  // Bereits gelesene ans Ende stellen, nicht ausschließen
+  // gelesen = { kartenId: datum } — schon Gezeigtes rutscht nach hinten, wird aber nicht ausgeschlossen
+  const ungelesen = pool.filter(e => !gelesen || !gelesen[e.id]);
+  const auswahl = ungelesen.length > 0 ? ungelesen : pool;
+  const tagesZahl = heuteKey ? heuteKey.split("-").reduce((s, t) => s + parseInt(t, 10), 0) : 0;
+  const eintrag = auswahl[tagesZahl % auswahl.length];
+  return { ...eintrag, ausSymptom: passend.length > 0 };
+}
+
+// ══════════════════════════════════════════════════════════════════
+// EVIDENZSTUFEN
+// Macht sichtbar, wie belastbar eine Aussage ist. Nicht alles in der
+// Frauengesundheit ist gleich gut untersucht — das gehört transparent
+// gemacht, nicht versteckt.
+// ══════════════════════════════════════════════════════════════════
+const EVIDENZ = {
+  belegt: { label: "Gut belegt", kurz: "Breite wissenschaftliche Grundlage", farbe: "#5B7355" },
+  hinweise: { label: "Erste Hinweise", kurz: "Studienlage im Aufbau, noch nicht abschließend", farbe: "#B08A3E" },
+  experten: { label: "Expertinnen-Ansatz", kurz: "Erfahrung und Lesart einzelner Fachleute", farbe: "#9C6B52" },
+  praxis: { label: "Praxis-Empfehlung", kurz: "Bewährt in der Anwendung, wenig direkt beforscht", farbe: "#7A7278" },
+};
+
+// Zeigt Evidenzstufe als dezente Zeile
+function EvidenzZeile({ stufe, quelle }) {
+  const e = EVIDENZ[stufe];
+  if (!e) return null;
+  return (
+    <div style={{ display: "flex", alignItems: "flex-start", gap: 7, marginTop: 10, paddingTop: 9, borderTop: "1px solid #E9E3DB" }}>
+      <span style={{ width: 6, height: 6, borderRadius: "50%", background: e.farbe, flexShrink: 0, marginTop: 4 }} />
+      <div>
+        <span style={{ fontSize: 12, fontWeight: 700, color: e.farbe }}>{e.label}</span>
+        <span style={{ fontSize: 12, color: "#A8A2A6" }}> · {e.kurz}</span>
+        {quelle && <span style={{ display: "block", fontSize: 12.5, color: "#A8A2A6", marginTop: 2 }}>Quelle: {quelle}</span>}
+      </div>
+    </div>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════
+// GLOBALE SUCHE
+// Baut einen Index über alle Wissenssammlungen. Zielgruppengerecht:
+// Teenagerinnen sehen kein Fasten und keine Supplement-Dosen,
+// Schwangere keine Fasten-Inhalte.
+// ══════════════════════════════════════════════════════════════════
+function baueSuchIndex({ modus, istJugendlich, zustand }) {
+  const idx = [];
+  const add = (liste, bereich, tab, nurFuer) => {
+    if (!liste) return;
+    // Zielgruppen-Regeln
+    if (nurFuer === "meno" && modus !== "menopause") return;
+    if (nurFuer === "zyklus" && modus === "menopause") return;
+    if (nurFuer === "schwanger" && modus !== "schwanger") return;
+    if (nurFuer === "erwachsen" && istJugendlich) return;
+    if (nurFuer === "teen" && !istJugendlich) return;
+    liste.forEach(k => {
+      if (!k || !k.titel) return;
+      const volltext = [k.kurz, k.text, k.detail, (k.tipps || []).join(" ")].filter(Boolean).join(" ");
+      idx.push({
+        id: k.id || k.titel,
+        titel: k.titel,
+        // Kernaussage bevorzugen (die 20-Sekunden-Ebene), sonst Rückfall
+        kurz: k.kern || k.kurz || (k.text ? String(k.text).split("\n")[0] : ""),
+        relevanz: k.relevanz || null,
+        evidenz: k.evidenz || null,
+        quelleBuch: k.quelle || null,
+        volltext: String(volltext),
+        tipps: k.tipps || null,
+        bereich, tab,
+      });
+    });
+  };
+
+  add(GLUKOSE_HACKS, "Blutzucker", "ernaehrung");
+  add(ESSEN_WISSEN, "Ernährung", "ernaehrung");
+  add(NAEHRSTOFF_WISSEN, "Nährstoffe", "ernaehrung");
+  add(MEDITERASIAN_WISSEN, "Ernährung", "ernaehrung");
+  add(ETBD_SYSTEME, "Verteidigungssysteme", "ernaehrung");
+  add(HORMON_WISSEN, "Hormone", "verstehen");
+  add(EPIGENETIK_WISSEN, "Epigenetik", "ernaehrung");
+  add(SEXUAL_HEALTH_ALLGEMEIN, "Sexuelle Gesundheit", "verstehen");
+  add(BECKENBODEN_WISSEN, "Beckenboden", "verstehen");
+  add(WARNZEICHEN, "Warnzeichen", "schwanger", "schwanger");
+  add(BESCHWERDEN_THEMEN, "Beschwerden", "schwanger", "schwanger");
+  add(ZYKLUS_ERKRANKUNGEN, "Erkrankungen", "verstehen", "zyklus");
+  add(TEENAGER_WISSEN, "Für junge Frauen", "verstehen", "teen");
+  // Nur für Erwachsene (kein Fasten, keine Supplement-Dosen für Teens)
+  add(FASTEN_WISSEN, "Fasten", "fasten", "erwachsen");
+  add(FASTEN_HACKS, "Fasten", "fasten", "erwachsen");
+  add(GENUG_ESSEN_WISSEN, "Genug essen", "training", "erwachsen");
+  add(KREATIN_WISSEN, "Supplemente", "ernaehrung", "erwachsen");
+  add(COLLAGEN_WISSEN, "Supplemente", "ernaehrung", "erwachsen");
+  add(SUPPLEMENTE_THEMEN, "Supplemente", "schwanger", "schwanger");
+  add(PATRICK_WISSEN, "Supplemente", "verstehen", "erwachsen");
+  add(SIMS_FUELING, "Training", "training", "erwachsen");
+  add(RECOVERY_WISSEN, "Regeneration", "training", "erwachsen");
+  add(EXERCISE_SNACKS_WISSEN, "Bewegung", "training", "erwachsen");
+  // Modusabhängig
+  add(MENOPAUSE_WISSEN, "Wechseljahre", "verstehen", "meno");
+  add(MENOPAUSE_FASTEN, "Fasten", "fasten", "meno");
+  add(ADAPTOGENE_WISSEN, "Adaptogene", "verstehen", "meno");
+  add(SEXUAL_HEALTH_MENOPAUSE, "Sexuelle Gesundheit", "verstehen", "meno");
+  add(MENO_PERFORMANCE_WISSEN, "Training", "training", "meno");
+  if (!istJugendlich) add(PERIMENOPAUSE_WISSEN, "Perimenopause", "zyklus", "zyklus");
+  add(SEXUAL_HEALTH_ZYKLUS, "Sexuelle Gesundheit", "verstehen", "zyklus");
+  add(PATRICK_ZYKLUS_WISSEN, "Nährstoffe", "verstehen", "zyklus");
+  // Schwangerschaft
+  add(SCHWANGER_BAUSTEINE, "Schwangerschaft", "schwanger", "schwanger");
+  add(SCHWANGER_EXTRA_ERNAEHRUNG, "Schwangerschaft", "schwanger", "schwanger");
+  add(SCHWANGER_BEWEGUNG, "Schwangerschaft", "schwanger", "schwanger");
+  add(STILLEN_THEMEN, "Stillzeit", "schwanger", "schwanger");
+  add(GEBURT_THEMEN, "Geburt", "schwanger", "schwanger");
+  return idx;
+}
+
+// Begriffe, die für Jugendliche gesperrt sind: Treffer, die nur wegen dieser
+// Wörter im Volltext erscheinen, werden ausgeblendet (Kindersicherheit).
+const GESPERRT_FUER_TEENS = ["fasten", "fastest", "fastenfenster", "kreatin", "autophagie", "ketose", "kalorien"];
+
+// Sucht im Index — einfache, robuste Wortsuche
+function sucheImIndex(index, begriff, istJugendlich) {
+  const q = String(begriff || "").trim().toLowerCase();
+  if (q.length < 2) return [];
+  const woerter = q.split(/\s+/).filter(w => w.length > 1);
+  // Kindersicherheit: Jugendliche bekommen zu gesperrten Begriffen keine Treffer
+  if (istJugendlich && woerter.some(w => GESPERRT_FUER_TEENS.some(g => g.startsWith(w) || w.startsWith(g)))) {
+    return [];
+  }
+  const treffer = index.map(e => {
+    const titel = e.titel.toLowerCase();
+    const text = (e.kurz + " " + e.volltext).toLowerCase();
+    let score = 0;
+    woerter.forEach(w => {
+      if (titel.includes(w)) score += 10;      // Titel wiegt am schwersten
+      if (e.bereich.toLowerCase().includes(w)) score += 4;
+      if (text.includes(w)) score += 1;
+    });
+    return { ...e, score };
+  }).filter(e => e.score > 0);
+  treffer.sort((a, b) => b.score - a.score);
+  return treffer.slice(0, 25);
+}
+
+
+// Nicht fünf Aufgaben, sondern eine konkrete Sache, die heute passt.
+// Wählt aus der Phase, dem Befinden und dem Lebenszustand aus.
+// ══════════════════════════════════════════════════════════════════
+const TAGESHANDLUNGEN = [
+  // Sanft — bei niedrigem Befinden
+  { id: "spaziergang", text: "Heute 10 Minuten nach einer Mahlzeit spazieren gehen", warum: "Bewegung nach dem Essen dämpft den Blutzuckeranstieg — ganz ohne Anstrengung.", sanft: true },
+  { id: "frueh_licht", text: "Heute nach dem Aufwachen 5 Minuten Tageslicht tanken", warum: "Morgenlicht stellt deine innere Uhr und hilft beim Ein- und Durchschlafen.", sanft: true },
+  { id: "trinken", text: "Heute vor jeder Mahlzeit ein Glas Wasser trinken", warum: "Viele Nachmittagstiefs kommen schlicht von zu wenig Flüssigkeit.", sanft: true },
+  { id: "pause", text: "Heute eine bewusste Pause einlegen — ohne Handy", warum: "Kurze Erholungsinseln senken Cortisol und helfen deinen Hormonen.", sanft: true },
+  // Ernährung
+  { id: "protein_fruehstueck", text: "Heute zum Frühstück 30 g Protein essen", warum: "Ein proteinreicher Start hält den Blutzucker ruhig und den Heißhunger klein.", sanft: false },
+  { id: "reihenfolge", text: "Heute bei einer Mahlzeit zuerst Gemüse, dann Protein, dann Kohlenhydrate", warum: "Die Reihenfolge senkt den Blutzuckeranstieg deutlich (Inchauspé).", sanft: true },
+  { id: "essig", text: "Heute vor einer kohlenhydratreichen Mahlzeit einen Esslöffel Essig in Wasser trinken", warum: "Essig vor dem Essen dämpft die Blutzuckerspitze.", sanft: true },
+  { id: "ballaststoffe", text: "Heute eine Handvoll Hülsenfrüchte oder Leinsamen einbauen", warum: "Ballaststoffe füttern dein Mikrobiom und stabilisieren den Blutzucker.", sanft: true },
+  { id: "fermentiert", text: "Heute etwas Fermentiertes essen — Joghurt, Kefir, Sauerkraut oder Kimchi", warum: "Fermentiertes stärkt dein Mikrobiom (eines der fünf Verteidigungssysteme).", sanft: true },
+  // Aktiv — nur bei gutem Befinden
+  { id: "krafttraining", text: "Heute eine Krafteinheit einplanen", warum: "Muskeln sind dein Stoffwechsel-Organ — gerade in dieser Phase gut belastbar.", sanft: false },
+  { id: "exercise_snack", text: "Heute dreimal kurz die Beine bewegen — je 2 Minuten Treppen oder Kniebeugen", warum: "Kurze Bewegungsimpulse über den Tag wirken oft besser als eine lange Einheit.", sanft: false },
+  // Zyklusspezifisch
+  { id: "eisen", text: "Heute etwas Eisenreiches einbauen — dazu Vitamin C für die Aufnahme", warum: "Rund um die Periode verliert dein Körper Eisen.", sanft: true, phasen: ["nurture"] },
+  { id: "magnesium", text: "Heute auf Magnesium achten — Kürbiskerne, dunkle Schokolade oder Blattgemüse", warum: "Magnesium hilft gegen Krämpfe, Unruhe und Schlafprobleme.", sanft: true, phasen: ["nurture", "power2"] },
+];
+
+function waehleTageshandlung({ phase, empfehlung, zustand, istJugendlich, heuteKey }) {
+  let pool = TAGESHANDLUNGEN.slice();
+
+  // Bei niedrigem Befinden nur sanfte Handlungen
+  if (empfehlung && empfehlung.angepasst) pool = pool.filter(h => h.sanft);
+
+  // Nach der Geburt: keine Trainings-Handlungen
+  if (zustand && (zustand.id === "nach_geburt")) {
+    pool = pool.filter(h => h.id !== "krafttraining" && h.id !== "exercise_snack");
+  }
+  // Jugendliche: kein Protein-Zählen, kein Essig-Hack
+  if (istJugendlich) {
+    pool = pool.filter(h => h.id !== "protein_fruehstueck" && h.id !== "essig");
+  }
+  // Phasenspezifische Handlungen nur in der passenden Phase
+  pool = pool.filter(h => !h.phasen || h.phasen.includes(phase.id));
+
+  if (pool.length === 0) pool = TAGESHANDLUNGEN.filter(h => h.sanft);
+
+  // Pro Tag stabil dieselbe Handlung (kein Springen beim Neuladen)
+  const tagesZahl = heuteKey ? heuteKey.split("-").reduce((s, t) => s + parseInt(t, 10), 0) : 0;
+  return pool[tagesZahl % pool.length];
+}
+
+
+
 function NavIcon({ name, color, size = 21 }) {
   const p = { fill: "none", stroke: color, strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" };
   const paths = {
@@ -12321,6 +13692,8 @@ function NavIcon({ name, color, size = 21 }) {
     tagebuch: <><path {...p} d="M6 3h10a1 1 0 0 1 1 1v16l-3-2-3 2-3-2-3 2V4a1 1 0 0 1 1-1Z" /><path {...p} d="M9 8h5M9 12h5" /></>,
     lebensmittel: <><path {...p} d="M6 3v7a3 3 0 0 0 6 0V3M9 3v18" /><path {...p} d="M17 3c-1.5 0-2.5 2-2.5 5s1 4 2.5 4v6" /></>,
     warnung: <><path {...p} d="M12 3 2 20h20L12 3Z" /><path {...p} d="M12 9v5M12 17v.5" /></>,
+    suche: <><circle {...p} cx="11" cy="11" r="7" /><path {...p} d="m16.5 16.5 4 4" /></>,
+    handbuch: <><path {...p} d="M4 5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2V5Z" /><path {...p} d="M8 7h7M8 11h7M8 15h4" /></>,
   };
   return <svg width={size} height={size} viewBox="0 0 24 24">{paths[name] || paths.mehr}</svg>;
 }
@@ -12337,19 +13710,19 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <p style={{ margin: 0, fontSize: 15, fontWeight: 700, color: p.farbe }}>{modus === "menopause" && MOND_PHASEN_INFO[p.id]?.name ? MOND_PHASEN_INFO[p.id].name : p.name}</p>
-            <span style={{ fontSize: 11, color: "#aaa" }}>{p.tage}</span>
+            <span style={{ fontSize: 12, color: "#aaa" }}>{p.tage}</span>
           </div>
           <p style={{ margin: "2px 0 4px", fontSize: 12, color: "#888" }}>{modus === "menopause" && MOND_PHASEN_INFO[p.id]?.subtitle ? MOND_PHASEN_INFO[p.id].subtitle : p.subtitle}</p>
-          {modus !== "menopause" && p.simsPhase && <p style={{ margin: "0 0 6px", fontSize: 11, background: "#F5F5F5", borderRadius: 6, padding: "3px 8px", display: "inline-block", color: "#555" }}>{p.simsPhase}</p>}
+          {modus !== "menopause" && p.simsPhase && <p style={{ margin: "0 0 6px", fontSize: 12, background: "#F5F5F5", borderRadius: 6, padding: "3px 8px", display: "inline-block", color: "#555" }}>{p.simsPhase}</p>}
           <p style={{ margin: "0 0 8px", fontSize: 13, color: "#555", lineHeight: 1.6 }}>{modus === "menopause" ? (MOND_PHASEN_INFO[p.id]?.kontext || p.beschreibung) : (istJugendlich ? PHASEN_TEEN[p.id].beschreibung : p.beschreibung)}</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-            {p.naehrstoffe.map(n => <span key={n} style={{ fontSize: 10, background: p.hellFarbe, color: p.farbe, padding: "2px 7px", borderRadius: 10 }}>{n}</span>)}
+            {p.naehrstoffe.map(n => <span key={n} style={{ fontSize: 12, background: p.hellFarbe, color: p.farbe, padding: "2px 7px", borderRadius: 10 }}>{n}</span>)}
           </div>
         </div>
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 8 }}>
-        {p.lebensmittelFokus.map(l => <span key={l} style={{ fontSize: 10, background: p.hellFarbe, color: p.farbe, padding: "2px 7px", borderRadius: 10 }}>{l}</span>)}
+        {p.lebensmittelFokus.map(l => <span key={l} style={{ fontSize: 12, background: p.hellFarbe, color: p.farbe, padding: "2px 7px", borderRadius: 10 }}>{l}</span>)}
       </div>
 
       {!istJugendlich && (
@@ -12360,13 +13733,13 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
 
       {modus !== "menopause" && !istJugendlich && (
         <div style={{ background: "#F9F9F9", borderRadius: 10, padding: "8px 12px", marginBottom: 6, border: "1px solid #eee" }}>
-          <p style={{ margin: 0, fontSize: 11, color: "#666", lineHeight: 1.55 }}>{p.buchTipp}</p>
+          <p style={{ margin: 0, fontSize: 12, color: "#666", lineHeight: 1.55 }}>{p.buchTipp}</p>
         </div>
       )}
 
       {TRAINING_PHASEN[p.id] && (
         <div style={{ background: p.hellFarbe, borderRadius: 10, padding: "8px 12px", marginBottom: 8, border: `1px solid ${p.farbe}33` }}>
-          <p style={{ margin: 0, fontSize: 11, color: p.farbe, fontWeight: 600 }}>Training: {TRAINING_PHASEN[p.id].intensitaet} · {TRAINING_PHASEN[p.id].schwerpunkt.slice(0,2).join(", ")}</p>
+          <p style={{ margin: 0, fontSize: 12, color: p.farbe, fontWeight: 600 }}>Training: {TRAINING_PHASEN[p.id].intensitaet} · {TRAINING_PHASEN[p.id].schwerpunkt.slice(0,2).join(", ")}</p>
         </div>
       )}
 
@@ -12396,7 +13769,7 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
                         <p style={{ margin: "0 0 5px", fontSize: 12, fontWeight: 700, color: p.farbe }}>Fokus jetzt</p>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                           {MOND_PHASEN_INFO[p.id].fokus.map((f, i) => (
-                            <span key={i} style={{ fontSize: 11, background: p.hellFarbe, color: p.farbe, padding: "3px 9px", borderRadius: 12 }}>{f}</span>
+                            <span key={i} style={{ fontSize: 12, background: p.hellFarbe, color: p.farbe, padding: "3px 9px", borderRadius: 12 }}>{f}</span>
                           ))}
                         </div>
                       </div>
@@ -12427,7 +13800,7 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
                   {p.id === "manifestation" && (
                     <div style={{ background: "#EAEEE9", borderRadius: 10, padding: "10px 12px", marginBottom: 12, border: "1px solid #B2DFDB" }}>
                       <p style={{ margin: "0 0 3px", fontSize: 12, fontWeight: 700, color: "#4A5F5A" }}>Fruchtbarste Zeit — jetzt gut aufpassen</p>
-                      <p style={{ margin: 0, fontSize: 11.5, color: "#4A5F5A", lineHeight: 1.55 }}>
+                      <p style={{ margin: 0, fontSize: 12.5, color: "#4A5F5A", lineHeight: 1.55 }}>
                         Diese Phase enthält den Eisprung und ist deine fruchtbarste Zeit im Zyklus. Das fruchtbare Fenster umfasst etwa die 5 Tage davor plus den Eisprungtag. {istJugendlich ? "Wenn du Sex hast, ist Verhütung gerade jetzt besonders wichtig — am sichersten mit Kondom (schützt auch vor Krankheiten). Verlass dich nicht auf „sichere Tage\", denn der Eisprung kann sich verschieben." : "Wenn du nicht schwanger werden möchtest, ist jetzt Verhütung besonders wichtig."} Hinweis: Die Berechnung ist nur eine Schätzung und <strong>allein nicht zur Verhütung geeignet</strong>.
                       </p>
                     </div>
@@ -12438,7 +13811,7 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
                     <p style={{ margin: "0 0 5px", fontSize: 12, fontWeight: 700, color: "#5E6E5C" }}>✅ Jetzt ideal</p>
                     <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                       {(istJugendlich ? PHASEN_TEEN[p.id].dos : info.dos).map((d, i) => (
-                        <div key={i} style={{ fontSize: 11.5, color: "#444", lineHeight: 1.4, paddingLeft: 16, position: "relative" }}>
+                        <div key={i} style={{ fontSize: 12.5, color: "#444", lineHeight: 1.4, paddingLeft: 16, position: "relative" }}>
                           <span style={{ position: "absolute", left: 0, color: "#5E6E5C" }}>•</span>{d}
                         </div>
                       ))}
@@ -12450,7 +13823,7 @@ function PhasenKarte({ p, aktiv, zyklusTag, modus, istJugendlich }) {
                     <p style={{ margin: "0 0 5px", fontSize: 12, fontWeight: 700, color: "#A34A44" }}>Jetzt besser vermeiden</p>
                     <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                       {(istJugendlich ? PHASEN_TEEN[p.id].donts : info.donts).map((d, i) => (
-                        <div key={i} style={{ fontSize: 11.5, color: "#444", lineHeight: 1.4, paddingLeft: 16, position: "relative" }}>
+                        <div key={i} style={{ fontSize: 12.5, color: "#444", lineHeight: 1.4, paddingLeft: 16, position: "relative" }}>
                           <span style={{ position: "absolute", left: 0, color: "#A34A44" }}>•</span>{d}
                         </div>
                       ))}
@@ -12480,31 +13853,31 @@ function RezeptKarte({ r, phase, onClick, tagesplanSlots, tagesplan, zyklusTag, 
         <div style={{ flex: 1, cursor: "pointer" }} onClick={onClick}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <p style={{ margin: "0 0 2px", fontSize: 14, fontWeight: 700, color: "#222", flex: 1, lineHeight: 1.3 }}>{rezeptAnzeigeName(r, istJugendlich)}</p>
-            {r.thermomix && <span style={{ fontSize: 10, background: "#EAEEF1", color: "#4A6478", padding: "2px 6px", borderRadius: 8, marginLeft: 6, whiteSpace: "nowrap" }}>TM6</span>}
+            {r.thermomix && <span style={{ fontSize: 12, background: "#EAEEF1", color: "#4A6478", padding: "2px 6px", borderRadius: 8, marginLeft: 6, whiteSpace: "nowrap" }}>TM6</span>}
           </div>
           <div style={{ display: "flex", gap: 6, marginTop: 4, alignItems: "center" }}>
-            <span style={{ fontSize: 11, color: "#aaa" }}>⏱ {formatZeit(r.zeit)}</span>
-            <span style={{ fontSize: 11, color: "#aaa" }}>·</span>
-            <span style={{ fontSize: 11, color: "#aaa" }}>{r.kalorien} kcal</span>
-            <span style={{ fontSize: 11, color: "#aaa" }}>·</span>
-            <span style={{ fontSize: 10, color: "#aaa" }}>{r.buchSeite}</span>
+            <span style={{ fontSize: 12, color: "#aaa" }}>⏱ {formatZeit(r.zeit)}</span>
+            <span style={{ fontSize: 12, color: "#aaa" }}>·</span>
+            <span style={{ fontSize: 12, color: "#aaa" }}>{r.kalorien} kcal</span>
+            <span style={{ fontSize: 12, color: "#aaa" }}>·</span>
+            <span style={{ fontSize: 12, color: "#aaa" }}>{r.buchSeite}</span>
           </div>
           <div style={{ display: "flex", gap: 4, marginTop: 5, flexWrap: "wrap" }}>
-            {r.diät.map(d => <span key={d} style={{ fontSize: 10, background: "#F4F1EB", color: "#888", padding: "1px 6px", borderRadius: 8 }}>{d === "vegan" ? "Vegan" : d === "vegetarisch" ? "🥚 Veg" : d === "omnivor" ? "🥩 Omni" : d === "gf" ? "🌾 GF" : d}</span>)}
+            {r.diät.map(d => <span key={d} style={{ fontSize: 12, background: "#F4F1EB", color: "#888", padding: "1px 6px", borderRadius: 8 }}>{d === "vegan" ? "Vegan" : d === "vegetarisch" ? "🥚 Veg" : d === "omnivor" ? "🥩 Omni" : d === "gf" ? "🌾 GF" : d}</span>)}
           </div>
         </div>
         <button aria-label="Zum Tagesplan hinzufügen" onClick={() => setMenuOffen(m => !m)} style={{ background: menuOffen ? phase.farbe : phase.hellFarbe, border: "none", borderRadius: 8, padding: "6px 10px", cursor: "pointer", color: menuOffen ? "#fff" : phase.farbe, fontSize: 16, flexShrink: 0 }}>+</button>
       </div>
       {menuOffen && (
         <div style={{ marginTop: 10, borderTop: "1px solid #F4F1EB", paddingTop: 10 }}>
-          <p style={{ margin: "0 0 6px", fontSize: 11, color: "#aaa" }}>Zum Tagesplan hinzufügen:</p>
+          <p style={{ margin: "0 0 6px", fontSize: 12, color: "#aaa" }}>Zum Tagesplan hinzufügen:</p>
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
             {tagesplanSlots.map(slot => {
               const key = `${zyklusTag}-${slot}`;
               const belegt = tagesplan[key] === r.id;
               return (
                 <button key={slot} onClick={() => { onAddToTagesplan(slot); setMenuOffen(false); }}
-                  style={{ background: belegt ? phase.farbe : phase.hellFarbe, color: belegt ? "#fff" : phase.farbe, border: "none", borderRadius: 8, padding: "5px 10px", cursor: "pointer", fontSize: 11, fontWeight: 600 }}>
+                  style={{ background: belegt ? phase.farbe : phase.hellFarbe, color: belegt ? "#fff" : phase.farbe, border: "none", borderRadius: 8, padding: "5px 10px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
                   {belegt ? "✓ " : ""}{slot}
                 </button>
               );
@@ -12528,7 +13901,7 @@ function RezeptModal({ r, phase, portionen, setPortionen, onClose, onLog, tagesp
         <div style={{ position: "sticky", top: 0, background: "#fff", padding: "16px 18px 12px", borderBottom: "1px solid #F4F1EB", zIndex: 10 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div style={{ flex: 1 }}>
-              <p style={{ margin: "0 0 2px", fontSize: 11, color: "#aaa" }}>{r.buchSeite} · {(istJugendlich ? KATEGORIE_NAMEN_TEEN : KATEGORIE_NAMEN)[r.kategorie]}</p>
+              <p style={{ margin: "0 0 2px", fontSize: 12, color: "#aaa" }}>{r.buchSeite} · {(istJugendlich ? KATEGORIE_NAMEN_TEEN : KATEGORIE_NAMEN)[r.kategorie]}</p>
               <h2 style={{ margin: 0, fontSize: 18, fontWeight: 800, color: "#222", lineHeight: 1.2 }}>{rezeptAnzeigeName(r, istJugendlich)}</h2>
             </div>
             <button aria-label="Rezept schließen" onClick={onClose} style={{ background: "#EEEAE3", border: "none", borderRadius: "50%", width: 30, height: 30, cursor: "pointer", fontSize: 14, marginLeft: 10, flexShrink: 0 }}>✕</button>
@@ -12570,7 +13943,7 @@ function RezeptModal({ r, phase, portionen, setPortionen, onClose, onLog, tagesp
               <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "7px 0", borderBottom: "1px solid #F4F1EB", alignItems: "center" }}>
                 <div style={{ flex: 1 }}>
                   <span style={{ fontSize: 14, color: "#333" }}>{z.name}</span>
-                  {z.gruppe && <span style={{ fontSize: 10, color: "#ccc", marginLeft: 6 }}>{z.gruppe}</span>}
+                  {z.gruppe && <span style={{ fontSize: 12, color: "#ccc", marginLeft: 6 }}>{z.gruppe}</span>}
                 </div>
                 <span style={{ fontSize: 13, fontWeight: 700, color: phase.farbe, marginLeft: 10, whiteSpace: "nowrap" }}>{anzeige} {z.einheit}</span>
               </div>
